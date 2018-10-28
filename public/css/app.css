@@ -9,12 +9,6 @@
   src: url("/public/fonts/KornerDeliNF.ttf") format("ttf");
 }
 
-button {
-  background-color:transparent;
-  border:none;
-  cursor:pointer;
-}
-
 body {
   height: 100vh;
   background-image: radial-gradient(#000000, #06999F);
@@ -10670,10 +10664,3 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-<<<<<<< HEAD
-=======
- .country_list {
-  font-size:1.5em;
-}
-
->>>>>>> de9a8fe030a99bd438c5559a6cc09b5fd3b71791
