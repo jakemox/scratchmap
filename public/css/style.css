@@ -1,0 +1,32 @@
+html {
+    background-image: radial-gradient(#000000, #06999F);
+}
+
+body {
+    background-image: url('/img/sea512trans.svg');
+    height: 100vh;
+    width: 100vw;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+#features {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    overflow: auto;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.desktop {
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    padding-bottom: 1.5rem;
+    background-color: #530000;
+}

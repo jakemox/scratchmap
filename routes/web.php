@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'CountryController@index')->name('list');
+Route::get('/index2', 'CountryController@index2');
 Route::post('/', 'CountryController@store');
 
 Auth::routes();
