@@ -87,12 +87,20 @@
                 console.log(colour);
                 clickedStateId = e.features[0].id;
                 
-                clicked.push(clickedStateId);
+                let selectedIndex = clicked.indexOf(clickedStateId);
+
+                let state = false;
+
+                if (selectedIndex == -1) {
+                    clicked.push(clickedStateId);
+                    state = true;
+                } else {
+                    clicked.splice(selectedIndex, 1);
+                }
+
 
                 console.log(clicked);
-                for (i = 0; i < clicked.length; i++) {
-                    map.setFeatureState({source: 'states', id: clicked[i]}, {click: true});
-                }
+                map.setFeatureState({source: 'states', id: clickedStateId}, {click: state});
             });
 
             // When the user moves their mouse over the state-fill layer, we'll update the
