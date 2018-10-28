@@ -1,4 +1,9 @@
 
+button {
+  background-color:transparent;
+  border:none;
+  cursor:pointer;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Nunito);/*!
  * Bootstrap v4.1.2 (https://getbootstrap.com/)
@@ -10,3 +15,4 @@
  .country_list {
   font-size:1.5em;
 }
+

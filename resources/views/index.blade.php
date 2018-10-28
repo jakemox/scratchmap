@@ -26,7 +26,7 @@
     <tr class="country_list">
       <td>{{$country->code}} </td>
       <td>{{$country->name}} </td>
-      {{-- Below code for populating the countries where user has visited and an individual form / submit button to save each visited country --}}
+      {{-- Below code for populating the countries where user has visited and an individual form / submit button to save each visited country. Submit button is "checked" if country is visited, circle if not (font awesome icons). --}}
       <td>
         @if(isset($user))
           <form action="" method="post">
@@ -36,20 +36,18 @@
             <?php $has_visited=null; ?>
             @foreach ($visited as $visit)
               @if ($visit->id === $country->id)
-                <i class="fas fa-check-circle"></i>
                 <?php $has_visited = '1'; ?>
               @endif
             @endforeach
-              @if (!isset($has_visited))
-                <i class="far fa-circle"></i>
-              @endif
-            @endif
-            <input type="submit" value="<?php
-            if ($has_visited) {
-              echo "Remove";
-            } else echo "Been here!";
-            ?>">
-          </form>
+              <button type="submit" class="country_button">
+                <?php
+                  if ($has_visited) {
+                    echo "<i class=\"fas fa-check-circle\"></i>";
+                  } else echo "<i class=\"far fa-circle\"></i>";
+                ?>
+              </button>
+        </form>
+        @endif
         </td>
       </tr>
       
