@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'CountryController@index');
+Route::get('/', 'CountryController@index')->name('list');
+Route::post('/', 'CountryController@store');
 
 Auth::routes();
 

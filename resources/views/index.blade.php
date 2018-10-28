@@ -10,26 +10,43 @@
 
 <p>Below list of countries with an option to save visited countries (if logged in).</p>
 
-<form action="" method="post">
-    <table>
-      <tr>
-        <td><b>Code</b></td>
-        <td><b>Country name</b></td>
-        <td><b>Been there?</b></td>
-      </tr>
-      <?php $user = App\User::find($user_id) ?>
-      {{$user}}
-
-      {{$visited}}
-      
-      @foreach ($countries as $country)
-      
-      <tr>
-        <td>{{$country->code}} </td>
-        <td>{{$country->name}} </td>
-        <td>
-          {{-- TO DO:  display the countries that the signed in user has visited + push the selections to DB without a form --}}
-          Dont know</td>
+<?php $user = App\User::find($user_id) ?>
+<table>
+  <tr>
+    <td><b>Code</b></td>
+    <td><b>Country name</b></td>
+    <td><b>
+      @if(isset($user))
+      Been there?</b></td>
+      @endif
+    </tr>
+    
+    @foreach ($countries as $country)
+    
+    <tr class="country_list">
+      <td>{{$country->code}} </td>
+      <td>{{$country->name}} </td>
+      {{-- Below code for populating the countries where user has visited and an individual form / submit button to save each visited country --}}
+      <td>
+        @if(isset($user))
+          <form action="" method="post">
+            @csrf
+            <input type="hidden" name="code" value="{{$country->id}}">
+              {{-- TO DO:  push the selections to DB without a form --}}
+            <?php $has_visited=null; ?>
+            @foreach ($visited as $visit)
+              @if ($visit->id === $country->id)
+                <i class="fas fa-check-circle"></i>
+                <?php $has_visited = '1'; ?>
+              @endif
+            @endforeach
+              @if (!isset($has_visited))
+                <i class="far fa-circle"></i>
+              @endif
+            @endif
+            <input type="submit" value="Been here!">
+          </form>
+        </td>
       </tr>
       
       @endforeach
