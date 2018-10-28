@@ -1,0 +1,162 @@
+* {
+  margin: auto 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: url('/public/fonts/KornerDeliNF.ttf') format("ttf");
+}
+
+body {
+  height: 100vh;
+  background-image: radial-gradient(#000000, #06999F);
+}
+
+.sea {
+  background-image: url('/img/sea512trans.svg');
+  display: flex;
+  flex-flow: column nowrap;
+
+ }
+
+ #map {
+  width: 100%;
+  height: 60vh;
+  visibility: visible;
+}
+
+.features {
+  width: 100%;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+header .mobile {
+  text-align: center;
+  background-color: #530000;
+  height: 25vh;
+  
+  h1 {
+    font-family: 'Korner Deli NF';
+    font-weight: bold;
+    color:#FFD496;
+    font-size: 2.5rem;
+  }
+
+}
+
+header .desktop {
+  display: none;
+}
+
+  
+footer nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background-color: #530000;
+  padding-bottom: 1rem;
+  height: 15vh;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    
+body {
+     margin: auto 0;
+     background-image: radial-gradient(#000000, #06999F);
+     }
+
+     .sea {
+      background-image: url('/img/sea512trans.svg');
+      flex-flow: row nowrap;
+
+      .features {
+        width: 300px;
+        height: 100%;
+        overflow: auto;
+        background: rgba(255, 255, 255, 0.8);
+      }
+     }
+     
+     footer nav {
+       display: none;
+     }
+  
+     header .mobile {
+       display: none;
+     }
+
+     header .desktop {
+       display: flex;
+       flex-direction: row nowrap;
+       width: 100%;
+       height: 20vh;
+       padding-bottom: 1.5rem;
+       background-color: #530000;
+
+       h2 {
+        color: white;
+        font-family: 'Nunito';
+        font-size: 2rem;  
+      }
+
+       .column1 {
+        display: flex;
+        width: 33%;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: flex-end;
+        height: 100%;
+  
+    }
+      .column2 {
+       width: 33%;
+       justify-content: center;
+       text-align: center;
+       height: 100%;
+
+       h1 {
+        font-family: 'Korner Deli NF';
+          font-weight: bold;
+          color:#FFD496;
+          font-size: 2.5rem;
+          
+      }
+    }
+ 
+     .column3 {
+       width: 33%;
+       display: flex;
+       flex-flow: row nowrap;
+       height: 100%;
+       justify-content: space-around;
+       align-items: flex-end;
+
+    }
+
+    .log_reg {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      a {
+        color: white;
+         padding: 0.8rem;
+         font-size: 1.3rem;
+        font-family: 'Nunito';  
+    }  
+  
+      span {
+        color:white;
+      }
+  }
+
+    }
+   
+    #map {
+      height: 80vh;
+    }
+
+}

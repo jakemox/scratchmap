@@ -27,6 +27,11 @@ class CountryController extends Controller
         
     }
 
+    public function index2()
+    {
+        return view('/layouts/index');
+    }
+
     public function store(Request $country_id) {
 
         $country = Country::find($country_id);
