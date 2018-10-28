@@ -44,7 +44,11 @@
                 <i class="far fa-circle"></i>
               @endif
             @endif
-            <input type="submit" value="Been here!">
+            <input type="submit" value="<?php
+            if ($has_visited) {
+              echo "Remove";
+            } else echo "Been here!";
+            ?>">
           </form>
         </td>
       </tr>
