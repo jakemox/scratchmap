@@ -9,7 +9,7 @@
         <h2>Map</h2><h2>Plan</h2>
     </div>
     <div class="column2">
-        <div class="balloon"><img src="\img\balloon.svg" alt="balloon" height="80px" width="80px"></div>
+        <div class="balloon"><img src="\img\balloon.svg" alt="balloon"></div>
         <h1>ScratchMapp</h1>
     </div>
     <div class="column3">
