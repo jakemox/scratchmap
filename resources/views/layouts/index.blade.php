@@ -1,10 +1,14 @@
 @extends('layout')
 
 @section('content')
-<div class="sea">
-    <div class='map' id='map'></div>
+
+<main>
+    <div class="sea">
+        <div class='map' id='map'></div>
+    </div>
     <div class='features' id='features'></div>
-</div>
+</main>
+
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiamFrZW1veDk5IiwiYSI6ImNqbmxtYjlvcjFtZmozcHE5aW9zN3pjeXcifQ.UCUt8f58HwBvpHcTz8JqkA';
         var map = new mapboxgl.Map({
@@ -27,7 +31,7 @@
         map.on('load', function () {
             map.addSource("states", {
                 "type": "geojson",
-                "data": "{{ asset('simple.geojson') }}",
+                "data": "{{ asset('sovereign.geojson') }}",
                 "generateId": true //adds id to each country's properties based on index.
             });
 

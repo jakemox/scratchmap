@@ -9,13 +9,7 @@
   src: url("/public/fonts/KornerDeliNF.ttf") format("ttf");
 }
 
-body {
-  height: 100vh;
-  background-image: radial-gradient(#000000, #06999F);
-}
-
-.sea {
-  background-image: url("/img/sea512trans.svg");
+main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25,10 +19,17 @@ body {
           flex-flow: column nowrap;
 }
 
+.sea {
+  background-image: radial-gradient(#000000, #06999F);
+  width: 100%;
+  height: 70vh;
+}
+
 #map {
   width: 100%;
-  height: 60vh;
+  height: 100%;
   visibility: visible;
+  background-image: url("/img/sea512trans.svg");
 }
 
 .features {
@@ -40,7 +41,7 @@ body {
 header .mobile {
   text-align: center;
   background-color: #530000;
-  height: 25vh;
+  height: 20vh;
 }
 
 header .mobile h1 {
@@ -66,37 +67,42 @@ footer nav {
       justify-content: space-around;
   background-color: #530000;
   padding-bottom: 1rem;
-  height: 15vh;
+  height: 10vh;
 }
 
 @media only screen and (min-width: 768px) {
   body {
     margin: auto 0;
-    background-image: radial-gradient(#000000, #06999F);
   }
 
-  .sea {
-    background-image: url("/img/sea512trans.svg");
+  body main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
             flex-flow: row nowrap;
   }
 
-  .sea .features {
+  body .sea {
+    height: 80vh;
+  }
+
+  body .features {
     width: 480px;
     height: 80vh;
   }
 
-  footer nav {
+  body footer nav {
     display: none;
   }
 
-  header .mobile {
+  body header .mobile {
     display: none;
   }
 
-  header .desktop {
+  body header .desktop {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -110,13 +116,13 @@ footer nav {
     background-color: #530000;
   }
 
-  header .desktop h2 {
+  body header .desktop h2 {
     color: white;
     font-family: 'Nunito';
     font-size: 2rem;
   }
 
-  header .desktop .column1 {
+  body header .desktop .column1 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -133,7 +139,7 @@ footer nav {
     height: 100%;
   }
 
-  header .desktop .column2 {
+  body header .desktop .column2 {
     width: 33%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -142,14 +148,14 @@ footer nav {
     height: 100%;
   }
 
-  header .desktop .column2 h1 {
+  body header .desktop .column2 h1 {
     font-family: 'Korner Deli NF';
     font-weight: bold;
     color: #FFD496;
     font-size: 2.5rem;
   }
 
-  header .desktop .column3 {
+  body header .desktop .column3 {
     width: 33%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -166,25 +172,21 @@ footer nav {
             align-items: flex-end;
   }
 
-  header .desktop .log_reg {
+  body header .desktop .log_reg {
     position: absolute;
     top: 0px;
     right: 0px;
   }
 
-  header .desktop .log_reg a {
+  body header .desktop .log_reg a {
     color: white;
     padding: 0.8rem;
     font-size: 1.3rem;
     font-family: 'Nunito';
   }
 
-  header .desktop .log_reg span {
+  body header .desktop .log_reg span {
     color: white;
-  }
-
-  #map {
-    height: 80vh;
   }
 }
 
@@ -10662,13 +10664,3 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-
-.country_button {
-  cursor:pointer;
-}
-
-.country_list {
-  /* background-color:rgba(255,255,255,.5); */
-  color:white;
-  font-size: 1.5em;
-}
