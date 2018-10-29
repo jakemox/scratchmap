@@ -10662,13 +10662,3 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-
-.country_button {
-  cursor:pointer;
-}
-
-.country_list {
-  /* background-color:rgba(255,255,255,.5); */
-  color:white;
-  font-size: 1.5em;
-}
