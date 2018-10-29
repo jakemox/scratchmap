@@ -27,7 +27,7 @@
         map.on('load', function () {
             map.addSource("states", {
                 "type": "geojson",
-                "data": "{{ asset('ne_10m_admin_1_countries.geojson') }}",
+                "data": "{{ asset('simple.geojson') }}",
                 "generateId": true //adds id to each country's properties based on index.
             });
 
@@ -116,7 +116,12 @@
 
                     
                     //shows name of country in box
-                    document.getElementById('features').innerHTML = e.features[0].properties.sovereignt;
+                    document.getElementById('features').innerHTML = e.features[0].properties.NAME + '<br>' + e.features[0].properties.SUBREGION + '<br> Population: ' + e.features[0].properties.POP_EST;
+                 
+
+                    
+
+                    console.log (e.features[0]);
                 }
             });
 
