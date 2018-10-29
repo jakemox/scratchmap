@@ -118,11 +118,12 @@
                     hoveredStateId = e.features[0].id;
                     map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
+                    let million = (e.features[0].properties.POP_EST/1000000).toFixed(2);
                     
                     //shows name of country in box
-                    document.getElementById('features').innerHTML = e.features[0].properties.NAME + '<br>' + e.features[0].properties.SUBREGION + '<br> Population: ' + e.features[0].properties.POP_EST;
+                    document.getElementById('features').innerHTML = e.features[0].properties.NAME + '<br>' + e.features[0].properties.SUBREGION + '<br> Population: ' + million + ' million';
                  
-
+                    
                     
 
                     console.log (e.features[0]);
