@@ -121,7 +121,7 @@
                     let million = (e.features[0].properties.POP_EST/1000000).toFixed(2);
                     
                     //shows name of country in box
-                    document.getElementById('features').innerHTML = e.features[0].properties.NAME + '<br>' + e.features[0].properties.SUBREGION + '<br> Population: ' + million + ' million';
+                    document.getElementById('features').innerHTML = '<h2>' + e.features[0].properties.NAME + '</h2><p>' + e.features[0].properties.SUBREGION + '</p><p> Population: ' + million + ' million</p>';
                  
                     
                     
