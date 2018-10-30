@@ -15,7 +15,6 @@
             container: 'map',
             style: 'mapbox://styles/jakemox99/cjnomdfut1ea32spgv0umdu84',
             collectResourceTiming: true
-            
         });
 
         var hoveredStateId =  null;
@@ -85,6 +84,14 @@
                     ]
                 }
             });
+
+            // map.on("render", "done-fills", function() {
+            //     let ticked = [46, 47];
+                
+            //     ticked.forEach(function(country) {}
+            //         map.setFeatureState({source: 'states', id: country}, {click: true});
+            //     });
+            // });
 
             map.on("click", "done-fills", function(e) {
                 randomColour();
