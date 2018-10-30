@@ -18,6 +18,9 @@
             
         });
 
+        var nav = new mapboxgl.NavigationControl();
+        map.addControl(nav, 'top-left');
+
         var hoveredStateId =  null;
         var clicked = [];
         let colours = ['#00D84A', '#00DA65', '#00DA29'];
