@@ -113,6 +113,21 @@
                 }
             });
 
+            // render countries saved in db as clicked
+            
+            map.on("render", "done-fills", function() {
+                savedCountries = [];
+                @foreach($visited_countries as $country)
+                    savedCountries.push({{$country->country_id}});
+                @endforeach
+                
+                
+                savedCountries.forEach(country => {
+                    map.setFeatureState({source: "states", id:country}, {click: true });
+                });
+            })
+
+            
             map.on("click", "done-fills", function(e) {
                 randomColour();
                 console.log(colour);
@@ -153,7 +168,7 @@
                     
                     
 
-                    console.log (e.features[0]);
+                    // console.log (e.features[0]);
                 }
             });
 
@@ -166,6 +181,8 @@
                 hoveredStateId =  null;
             });
         });
+
+
 
     </script>
 

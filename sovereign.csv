@@ -1,0 +1,204 @@
+ID,CODE,SOVEREIGNT,POP_EST,GDP_MD_EST,ISO_A3,CONTINENT,REGION_WB
+1,AF,Afghanistan,34124811,64080,AFG,Asia,South Asia
+2,AL,Albania,3047987,33900,ALB,Europe,Europe & Central Asia
+3,DZ,Algeria,40969443,609400,DZA,Africa,Middle East & North Africa
+4,AD,Andorra,85702,3327,AND,Europe,Europe & Central Asia
+5,AO,Angola,29310273,189000,AGO,Africa,Sub-Saharan Africa
+6,AQ,Antarctica,4050,810,ATA,Antarctica,Antarctica
+7,AG,Antigua and Barbuda,94731,2171,ATG,North America,Latin America & Caribbean
+8,AR,Argentina,44293293,879400,ARG,South America,Latin America & Caribbean
+9,AM,Armenia,3045191,26300,ARM,Asia,Europe & Central Asia
+10,AU,Australia,23237428,1189075.17,-99,Oceania,East Asia & Pacific
+11,AT,Austria,8754413,416600,AUT,Europe,Europe & Central Asia
+12,AZ,Azerbaijan,9961396,167900,AZE,Asia,Europe & Central Asia
+13,BH,Bahrain,1410942,66370,BHR,Asia,Middle East & North Africa
+15,BD,Bangladesh,157826578,628400,BGD,Asia,South Asia
+16,BB,Barbados,292336,4804,BRB,North America,Latin America & Caribbean
+17,BY,Belarus,9549747,165400,BLR,Europe,Europe & Central Asia
+18,BE,Belgium,11491346,508600,BEL,Europe,Europe & Central Asia
+19,BZ,Belize,360346,3088,BLZ,North America,Latin America & Caribbean
+20,BJ,Benin,11038805,24310,BEN,Africa,Sub-Saharan Africa
+21,BT,Bhutan,758288,6432,BTN,Asia,South Asia
+22,BO,Bolivia,11138234,78350,BOL,South America,Latin America & Caribbean
+23,BA,Bosnia and Herzegovina,3856181,42530,BIH,Europe,Europe & Central Asia
+24,BW,Botswana,2214858,35900,BWA,Africa,Sub-Saharan Africa
+25,BR,Brazil,207353391,3081000,BRA,South America,Latin America & Caribbean
+26,BN,Brunei,443593,33730,BRN,Asia,East Asia & Pacific
+27,BG,Bulgaria,7101510,143100,BGR,Europe,Europe & Central Asia
+28,BF,Burkina Faso,20107509,32990,BFA,Africa,Sub-Saharan Africa
+29,BI,Burundi,11466756,7892,BDI,Africa,Sub-Saharan Africa
+30,CV,Cabo Verde,560899,3583,CPV,Africa,Sub-Saharan Africa
+31,KH,Cambodia,16204486,58940,KHM,Asia,East Asia & Pacific
+32,CM,Cameroon,24994885,77240,CMR,Africa,Sub-Saharan Africa
+33,CA,Canada,35623680,1674000,CAN,North America,North America
+34,CF,Central African Republic,5625118,3206,CAF,Africa,Sub-Saharan Africa
+35,TD,Chad,12075985,30590,TCD,Africa,Sub-Saharan Africa
+36,CL,Chile,17789267,436100,CHL,South America,Latin America & Caribbean
+37,CN,China,1387096243,21630620,-99,Asia,East Asia & Pacific
+38,CO,Colombia,47698524,688000,COL,South America,Latin America & Caribbean
+39,KM,Comoros,808080,1259,COM,Africa,Sub-Saharan Africa
+40,CR,Costa Rica,4930258,79260,CRI,North America,Latin America & Caribbean
+41,HR,Croatia,4292095,94240,HRV,Europe,Europe & Central Asia
+42,CU,Cuba,11147407,132900,CUB,North America,Latin America & Caribbean
+43,CY,Cyprus,1221549,29260,CYP,Asia,Europe & Central Asia
+45,CZ,Czechia,10674723,350900,CZE,Europe,Europe & Central Asia
+46,CD,Democratic Republic of the Congo,83301151,66010,COD,Africa,Sub-Saharan Africa
+47,DK,Denmark,5714391,268974,-99,Europe,Europe & Central Asia
+48,DJ,Djibouti,865267,3345,DJI,Africa,Middle East & North Africa
+49,DM,Dominica,73897,812,DMA,North America,Latin America & Caribbean
+50,DO,Dominican Republic,10734247,161900,DOM,North America,Latin America & Caribbean
+51,TL,East Timor,1291358,4975,TLS,Asia,East Asia & Pacific
+52,EC,Ecuador,16290913,182400,ECU,South America,Latin America & Caribbean
+53,EG,Egypt,97041072,1105000,EGY,Africa,Middle East & North Africa
+54,SV,El Salvador,6172011,54790,SLV,North America,Latin America & Caribbean
+55,GQ,Equatorial Guinea,778358,31770,GNQ,Africa,Sub-Saharan Africa
+56,ER,Eritrea,5918919,9169,ERI,Africa,Sub-Saharan Africa
+57,EE,Estonia,1251581,38700,EST,Europe,Europe & Central Asia
+58,SZ,eSwatini,1467152,11060,SWZ,Africa,Sub-Saharan Africa
+59,ET,Ethiopia,105350020,174700,ETH,Africa,Sub-Saharan Africa
+60,FM,Federated States of Micronesia,104196,314,FSM,Oceania,East Asia & Pacific
+61,FJ,Fiji,920938,8374,FJI,Oceania,East Asia & Pacific
+62,FI,Finland,5518371,225700,-99,Europe,Europe & Central Asia
+63,FR,France,67733808,2716367.8,-99,Europe,Europe & Central Asia
+64,GA,Gabon,1772255,35980,GAB,Africa,Sub-Saharan Africa
+65,GM,Gambia,2051363,3387,GMB,Africa,Sub-Saharan Africa
+66,GE,Georgia,4926330,37270,GEO,Asia,Europe & Central Asia
+67,DE,Germany,80594017,3979000,DEU,Europe,Europe & Central Asia
+68,GH,Ghana,27499924,120800,GHA,Africa,Sub-Saharan Africa
+69,GR,Greece,10768477,290500,GRC,Europe,Europe & Central Asia
+70,GD,Grenada,111724,1511,GRD,North America,Latin America & Caribbean
+71,GT,Guatemala,15460732,131800,GTM,North America,Latin America & Caribbean
+72,GN,Guinea,12413867,16080,GIN,Africa,Sub-Saharan Africa
+73,GW,Guinea-Bissau,1792338,2851,GNB,Africa,Sub-Saharan Africa
+74,GY,Guyana,737718,6093,GUY,South America,Latin America & Caribbean
+75,HT,Haiti,10646714,19340,HTI,North America,Latin America & Caribbean
+76,HN,Honduras,9038741,43190,HND,North America,Latin America & Caribbean
+77,HU,Hungary,9850845,267600,HUN,Europe,Europe & Central Asia
+78,IS,Iceland,339747,16150,ISL,Europe,Europe & Central Asia
+79,IN,India,1281935911,8721000,IND,Asia,South Asia
+80,ID,Indonesia,260580739,3028000,IDN,Asia,East Asia & Pacific
+81,IR,Iran,82021564,1459000,IRN,Asia,Middle East & North Africa
+82,IQ,Iraq,39192111,596700,IRQ,Asia,Middle East & North Africa
+83,IE,Ireland,5011102,322000,IRL,Europe,Europe & Central Asia
+84,IL,Israel,12842832,318220.77,-99,Asia,Middle East & North Africa
+85,IT,Italy,62137802,2221000,ITA,Europe,Europe & Central Asia
+86,CI,Ivory Coast,24184810,87120,CIV,Africa,Sub-Saharan Africa
+87,JM,Jamaica,2990561,25390,JAM,North America,Latin America & Caribbean
+88,JP,Japan,126451398,4932000,JPN,Asia,East Asia & Pacific
+89,JO,Jordan,10248069,86190,JOR,Asia,Middle East & North Africa
+91,KZ,Kazakhstan,70000,1155,-99,Asia,Europe & Central Asia
+92,KE,Kenya,47615739,152700,KEN,Africa,Sub-Saharan Africa
+93,KI,Kiribati,108145,211,KIR,Oceania,East Asia & Pacific
+94,XK,Kosovo,1895250,18490,-99,Europe,Europe & Central Asia
+95,KW,Kuwait,2875422,301100,KWT,Asia,Middle East & North Africa
+96,KG,Kyrgyzstan,5789122,21010,KGZ,Asia,Europe & Central Asia
+97,LA,Laos,7126706,40960,LAO,Asia,East Asia & Pacific
+98,LV,Latvia,1944643,50650,LVA,Europe,Europe & Central Asia
+99,LB,Lebanon,6229794,85160,LBN,Asia,Middle East & North Africa
+100,LS,Lesotho,1958042,6019,LSO,Africa,Sub-Saharan Africa
+101,LR,Liberia,4689021,3881,LBR,Africa,Sub-Saharan Africa
+102,LY,Libya,6653210,90890,LBY,Africa,Middle East & North Africa
+103,LI,Liechtenstein,38244,4978,LIE,Europe,Europe & Central Asia
+104,LT,Lithuania,2823859,85620,LTU,Europe,Europe & Central Asia
+105,LU,Luxembourg,594130,58740,LUX,Europe,Europe & Central Asia
+106,MK,Macedonia,2103721,29520,MKD,Europe,Europe & Central Asia
+107,MG,Madagascar,25054161,36860,MDG,Africa,Sub-Saharan Africa
+108,MW,Malawi,19196246,21200,MWI,Africa,Sub-Saharan Africa
+109,MY,Malaysia,31381992,863000,MYS,Asia,East Asia & Pacific
+110,MV,Maldives,392709,5407,MDV,Seven seas (open ocean),South Asia
+111,ML,Mali,17885245,38090,MLI,Africa,Sub-Saharan Africa
+112,MT,Malta,416338,16320,MLT,Europe,Middle East & North Africa
+113,MH,Marshall Islands,74539,180,MHL,Oceania,East Asia & Pacific
+114,MR,Mauritania,3758571,16710,MRT,Africa,Sub-Saharan Africa
+115,MU,Mauritius,1356388,25850,MUS,Seven seas (open ocean),Sub-Saharan Africa
+116,MX,Mexico,124574795,2307000,MEX,North America,Latin America & Caribbean
+117,MD,Moldova,3474121,18540,MDA,Europe,Europe & Central Asia
+118,MC,Monaco,30645,7672,MCO,Europe,Europe & Central Asia
+119,MN,Mongolia,3068243,37000,MNG,Asia,East Asia & Pacific
+120,ME,Montenegro,642550,10610,MNE,Europe,Europe & Central Asia
+121,MA,Morocco,33986655,282800,MAR,Africa,Middle East & North Africa
+122,MZ,Mozambique,26573706,35010,MOZ,Africa,Sub-Saharan Africa
+123,MM,Myanmar,55123814,311100,MMR,Asia,East Asia & Pacific
+124,NA,Namibia,2484780,25990,NAM,Africa,Sub-Saharan Africa
+125,NR,Nauru,9642,150.8,NRU,Oceania,East Asia & Pacific
+126,NP,Nepal,29384297,71520,NPL,Asia,South Asia
+127,NL,Netherlands,17391570,876809.8,-99,Europe,Europe & Central Asia
+128,NZ,New Zealand,4532840,175206.4,-99,Oceania,East Asia & Pacific
+129,NI,Nicaragua,6025951,33550,NIC,North America,Latin America & Caribbean
+130,NE,Niger,19245344,20150,NER,Africa,Sub-Saharan Africa
+131,NG,Nigeria,190632261,1089000,NGA,Africa,Sub-Saharan Africa
+132,KP,North Korea,25248140,40000,PRK,Asia,East Asia & Pacific
+133,-99,Northern Cyprus,8,10,-99,-99,Western Asia
+134,-99,Norway,5320045,364700,-99,Europe,Europe & Central Asia
+135,OM,Oman,3424386,173100,OMN,Asia,Middle East & North Africa
+136,PK,Pakistan,204924861,988200,PAK,Asia,South Asia
+137,PW,Palau,21431,276,PLW,Oceania,East Asia & Pacific
+138,PA,Panama,3753142,93120,PAN,North America,Latin America & Caribbean
+139,PG,Papua New Guinea,6909701,28020,PNG,Oceania,East Asia & Pacific
+140,PY,Paraguay,6943739,64670,PRY,South America,Latin America & Caribbean
+141,PE,Peru,31036656,410400,PER,South America,Latin America & Caribbean
+142,PH,Philippines,104256076,801900,PHL,Asia,East Asia & Pacific
+143,PL,Poland,38476269,1052000,POL,Europe,Europe & Central Asia
+144,PT,Portugal,10839514,297100,PRT,Europe,Europe & Central Asia
+145,QA,Qatar,2314307,334500,QAT,Asia,Middle East & North Africa
+146,RS,Republic of Serbia,7111024,101800,SRB,Europe,Europe & Central Asia
+147,CG,Republic of the Congo,4954674,30270,COG,Africa,Sub-Saharan Africa
+148,RO,Romania,21529967,441000,ROU,Europe,Europe & Central Asia
+149,RU,Russia,142257519,3745000,RUS,Europe,Europe & Central Asia
+150,RW,Rwanda,11901484,21970,RWA,Africa,Sub-Saharan Africa
+151,KN,Saint Kitts and Nevis,52715,1427,KNA,North America,Latin America & Caribbean
+152,LC,Saint Lucia,164994,2083,LCA,North America,Latin America & Caribbean
+153,VC,Saint Vincent and the Grenadines,102089,1241,VCT,North America,Latin America & Caribbean
+154,WS,Samoa,200108,1046,WSM,Oceania,East Asia & Pacific
+155,SM,San Marino,33537,2023,SMR,Europe,Europe & Central Asia
+156,ST,São Tomé and Principe,201025,694,STP,Africa,Sub-Saharan Africa
+157,SA,Saudi Arabia,28571770,1731000,SAU,Asia,Middle East & North Africa
+158,-99,Scarborough Reef,0,0,-99,Asia,East Asia & Pacific
+159,SN,Senegal,14668522,39720,SEN,Africa,Sub-Saharan Africa
+160,-99,Serranilla Bank,0,0,-99,North America,Latin America & Caribbean
+161,SC,Seychelles,93920,2608,SYC,Seven seas (open ocean),Sub-Saharan Africa
+162,SL,Sierra Leone,6163195,10640,SLE,Africa,Sub-Saharan Africa
+163,SG,Singapore,5888926,487900,SGP,Asia,East Asia & Pacific
+164,SK,Slovakia,5445829,168800,SVK,Europe,Europe & Central Asia
+165,SI,Slovenia,1972126,68350,SVN,Europe,Europe & Central Asia
+166,SB,Solomon Islands,647581,1198,SLB,Oceania,East Asia & Pacific
+167,SO,Somalia,7531386,4719,SOM,Africa,Sub-Saharan Africa
+168,-99,Somaliland,2,12,-99,-99,Eastern Africa
+169,ZA,South Africa,54841552,739100,ZAF,Africa,Sub-Saharan Africa
+170,KR,South Korea,51181299,1929000,KOR,Asia,East Asia & Pacific
+171,SS,South Sudan,13026129,20880,SSD,Africa,Sub-Saharan Africa
+172,ES,Spain,48958159,1690000,ESP,Europe,Europe & Central Asia
+173,-99,Spratly Islands,100,0.4,-99,Asia,East Asia & Pacific
+174,LK,Sri Lanka,22409381,236700,LKA,Asia,South Asia
+175,SD,Sudan,37345935,176300,SDN,Africa,Sub-Saharan Africa
+176,SR,Suriname,591919,8547,SUR,South America,Latin America & Caribbean
+177,SE,Sweden,9960487,498100,SWE,Europe,Europe & Central Asia
+178,CH,Switzerland,8236303,496300,CHE,Europe,Europe & Central Asia
+179,SY,Syria,18028549,50280,SYR,Asia,Middle East & North Africa
+180,TW,Taiwan,2,15,TW,-99,Eastern Asia
+181,TJ,Tajikistan,8468555,25810,TJK,Asia,Europe & Central Asia
+182,TH,Thailand,68414135,1161000,THA,Asia,East Asia & Pacific
+183,BS,The Bahamas,329988,9066,BHS,North America,Latin America & Caribbean
+184,TG,Togo,7965055,11610,TGO,Africa,Sub-Saharan Africa
+185,TO,Tonga,106479,557,TON,Oceania,East Asia & Pacific
+186,TT,Trinidad and Tobago,1218208,43570,TTO,North America,Latin America & Caribbean
+187,TN,Tunisia,11403800,130800,TUN,Africa,Middle East & North Africa
+188,TR,Turkey,80845215,1670000,TUR,Asia,Europe & Central Asia
+189,TM,Turkmenistan,5351277,94720,TKM,Asia,Europe & Central Asia
+190,TV,Tuvalu,11052,39,TUV,Oceania,East Asia & Pacific
+191,UG,Uganda,39570125,84930,UGA,Africa,Sub-Saharan Africa
+192,UA,Ukraine,44033874,352600,UKR,Europe,Europe & Central Asia
+193,AE,United Arab Emirates,6072475,667200,ARE,Asia,Middle East & North Africa
+194,-99,United Kingdom,65322817,2816174.4,-99,Europe,Europe & Central Asia
+195,TZ,United Republic of Tanzania,53950935,150600,TZA,Africa,Sub-Saharan Africa
+196,-99,United States of America,330136690,18695503,-99,North America,North America
+197,UY,Uruguay,3360148,73250,URY,South America,Latin America & Caribbean
+198,UZ,Uzbekistan,29748859,202300,UZB,Asia,Europe & Central Asia
+199,VU,Vanuatu,282814,723,VUT,Oceania,East Asia & Pacific
+200,VA,Vatican,1000,0,VAT,Europe,Europe & Central Asia
+201,VE,Venezuela,31304016,468600,VEN,South America,Latin America & Caribbean
+202,VN,Vietnam,96160163,594900,VNM,Asia,East Asia & Pacific
+203,WI,Western Sahara,4,11,EH,-99,Northern Africa
+204,YE,Yemen,28036829,73450,YEM,Asia,Middle East & North Africa
+205,ZM,Zambia,15972000,65170,ZMB,Africa,Sub-Saharan Africa
+206,ZW,Zimbabwe,13805084,28330,ZWE,Africa,Sub-Saharan Africa
