@@ -29,7 +29,16 @@ class CountryController extends Controller
 
     public function index2()
     {
-        return view('/layouts/index');
+        $user_id = Auth::id();
+        $visited_countries = DB::select(
+            "SELECT `country_id` FROM `user_visited_countries` 
+            WHERE `user_id` = :user_id", 
+            ['user_id' => $user_id]
+        );
+
+        // DB::table('user_visited_countries')->where('user_id', $user_id);
+        
+        return view('/layouts/index',compact('visited_countries'));
     }
 
     public function store(Request $country_id) {
