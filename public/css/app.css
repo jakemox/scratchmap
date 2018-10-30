@@ -344,6 +344,21 @@ footer nav {
   }
 }
 
+.country_button {
+  cursor: pointer;
+  text-align: center;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.country_button:hover {
+  color: red;
+  -webkit-transform: scale(2.5);
+          transform: scale(2.5);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
