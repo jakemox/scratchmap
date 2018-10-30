@@ -4,9 +4,15 @@
 
 <main>
     <div class="sea">
-        <div class='map' id='map'></div>
+        <div class='map' id='map'>
+             <a href="#"><div id="trigger-mobile"  class='listview-mobile'>View as List</div></a> 
+             <a href="#"><div id="trigger-desktop" class='listview-desktop'>View as List</div></a>
+             <div id="slider" class="slider close">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga numquam illo soluta, quis, eligendi voluptatem officia accusamus nemo obcaecati dolore iure. Magni libero dolorum temporibus amet optio? Laboriosam, voluptates nesciunt.Praesentium sunt labore possimus iusto obcaecati eum. Beatae, repudiandae molestiae obcaecati recusandae cupiditate voluptates est quia. Totam, consequuntur, enim aliquam impedit quam, placeat perferendis harum non quae illum veritatis perspiciatis.</div>    
+            </div>
     </div>
+   
     <div class='features' id='features'></div>
+    
 </main>
 
     <script>
@@ -16,6 +22,27 @@
             style: 'mapbox://styles/jakemox99/cjnomdfut1ea32spgv0umdu84',
             collectResourceTiming: true
         });
+
+      
+
+        var nav = new mapboxgl.NavigationControl();
+        map.addControl(nav, 'top-left');
+
+      
+        let slideTriggerDesktop = document.getElementById('trigger-desktop');
+        slideTriggerDesktop.addEventListener('click', function() {
+            let element = document.getElementById('slider');
+            element.classList.toggle('close');
+        });
+
+        
+        let slideTriggerMobile = document.getElementById('trigger-mobile');
+        slideTriggerMobile.addEventListener('click', function() {
+            let element = document.getElementById('slider');
+            element.classList.toggle('close');
+        });
+        
+
 
         var hoveredStateId =  null;
         var clicked = [];
@@ -85,14 +112,21 @@
                 }
             });
 
-            // map.on("render", "done-fills", function() {
-            //     let ticked = [46, 47];
+            // render countries saved in db as clicked
+            
+            map.on("render", "done-fills", function() {
+                savedCountries = [];
+                @foreach($visited_countries as $country)
+                    savedCountries.push({{$country->country_id}});
+                @endforeach
                 
-            //     ticked.forEach(function(country) {}
-            //         map.setFeatureState({source: 'states', id: country}, {click: true});
-            //     });
-            // });
+                
+                savedCountries.forEach(country => {
+                    map.setFeatureState({source: "states", id:country}, {click: true });
+                });
+            })
 
+            
             map.on("click", "done-fills", function(e) {
                 randomColour();
                 console.log(colour);
@@ -133,7 +167,7 @@
                     
                     
 
-                    console.log (e.features[0]);
+                    // console.log (e.features[0]);
                 }
             });
 
@@ -146,6 +180,8 @@
                 hoveredStateId =  null;
             });
         });
+
+
 
     </script>
 

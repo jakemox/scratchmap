@@ -6,10 +6,31 @@ $color-text: #FFF5DA;
 
 }
 
+.slider {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;  
+  overflow: hidden;
+  background-color: #FFFFFF; color: #405C7B;
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 3rem;
+  opacity: 0.90;
+  transition: all 1s;
+  z-index: 3;
+}
+
+.slider.close {
+  bottom: 100vh;
+  height: 0;
+}
+
 html {
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
 }
+
 
 @font-face {
   font-family: 'Korner Deli NF';
@@ -27,12 +48,42 @@ main {
   height: 60vh;
  }
 
- #map {
+ .map {
   width: 100%;
   height: 100%;
   visibility: visible;
   background-image: url('/img/sea512trans.svg');
+  z-index: 0;
+
+   .listview-mobile {
+      background-color: #FFFFFF;
+        z-index: 10;
+        border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        font-family: 'Poppins';
+        color: #405C7B;
+        text-align: center;
+        padding: 1rem;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 100px);  
+        width: 200px;
+        font-size: 1.5rem;
+        text-align: center;
+        
+  }
+
+  .listview-desktop { 
+    display: none;
+  }
+
+  .listview-mobile:hover {
+      color: #FFFFFF; 
+      background-color: #405C7B;
+  }
+
 }
+
 
 .features {
   width: 100%;
@@ -78,7 +129,7 @@ header .desktop {
   display: none;
 }
 
-  
+
 footer nav {
   display: flex;
   flex-flow: row wrap;
@@ -91,6 +142,28 @@ footer nav {
 
 @media only screen and (min-width: 768px) {
 
+  .slider {
+    height: 100%;
+    text-align: center;
+    width: 70vw;
+  }
+  
+  .slider.close {
+    
+    position: absolute;
+    width: 70vw;
+    height: 0;
+    bottom: -10%;
+    overflow: hidden;
+    background-color: #FFFFFF; color: #405C7B;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+    opacity: 0.90;
+    transition: all 1s;
+    z-index: 3;
+  }
+
     
 body {
     main {
@@ -100,18 +173,54 @@ body {
 
     .sea {
       height: 80vh;
+      width: 70vw;
     }
+
+    .listview-desktop {
+
+      display: block !important;
+      background-color: #FFFFFF;
+      z-index: 10;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+      font-family: 'Poppins';
+      color: #405C7B;
+      text-align: center;
+      padding: 1rem;
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 100px);  
+      width: 200px;
+      font-size: 1.5rem;
+       
+    }
+
+    .listview-desktop:hover {
+      color: #FFFFFF; 
+      background-color: #405C7B;
+    }
+
       
     .features {
-      width: 480px;
+      width: 30vw;
       height: 80vh;
       p {
         display: block;
       }
     }
-     
+
+    
+
+    .map .listview-mobile {
+      display: none;
+    }
+
      footer nav {
        display: none;
+     }
+
+     footer .desktop {
+       display: block;
      }
   
      header .mobile {
