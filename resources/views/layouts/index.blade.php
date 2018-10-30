@@ -57,7 +57,7 @@
         map.on('load', function () {
             map.addSource("states", {
                 "type": "geojson",
-                "data": "{{ asset('sovereign.geojson') }}",
+                "data": "{{ asset('countries.geojson') }}",
                 "generateId": true //adds id to each country's properties based on index.
             });
 
