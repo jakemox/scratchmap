@@ -5,9 +5,9 @@
 <main>
     <div class="sea">
         <div class='map' id='map'>
-             <a href="#"><div class='listview-mobile'>View as List</div></a> 
-             <a href="#"><div id="trigger" class='listview-desktop'>View as List</div></a>
-             <div id="slider" class="slider close">Some content inside</div>    
+             <a href="#"><div id="trigger-mobile"  class='listview-mobile'>View as List</div></a> 
+             <a href="#"><div id="trigger-desktop" class='listview-desktop'>View as List</div></a>
+             <div id="slider" class="slider close">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga numquam illo soluta, quis, eligendi voluptatem officia accusamus nemo obcaecati dolore iure. Magni libero dolorum temporibus amet optio? Laboriosam, voluptates nesciunt.Praesentium sunt labore possimus iusto obcaecati eum. Beatae, repudiandae molestiae obcaecati recusandae cupiditate voluptates est quia. Totam, consequuntur, enim aliquam impedit quam, placeat perferendis harum non quae illum veritatis perspiciatis.</div>    
             </div>
     </div>
    
@@ -30,8 +30,15 @@
         map.addControl(nav, 'top-left');
 
       
-        let slideTrigger = document.getElementById('trigger');
-        slideTrigger.addEventListener('click', function() {
+        let slideTriggerDesktop = document.getElementById('trigger-desktop');
+        slideTriggerDesktop.addEventListener('click', function() {
+            let element = document.getElementById('slider');
+            element.classList.toggle('close');
+        });
+
+        
+        let slideTriggerMobile = document.getElementById('trigger-mobile');
+        slideTriggerMobile.addEventListener('click', function() {
             let element = document.getElementById('slider');
             element.classList.toggle('close');
         });

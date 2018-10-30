@@ -4,6 +4,28 @@
           box-sizing: border-box;
 }
 
+.slider {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  color: #405C7B;
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 3rem;
+  opacity: 0.90;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  z-index: 3;
+}
+
+.slider.close {
+  bottom: 100vh;
+  height: 0;
+}
+
 html {
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
@@ -133,10 +155,16 @@ footer nav {
 
 @media only screen and (min-width: 768px) {
   .slider {
+    height: 100%;
+    text-align: center;
+    width: 70vw;
+  }
+
+  .slider.close {
     position: absolute;
     width: 70vw;
-    height: 100vh;
-    top: 0;
+    height: 0;
+    bottom: -10%;
     overflow: hidden;
     background-color: #FFFFFF;
     color: #405C7B;
@@ -147,11 +175,6 @@ footer nav {
     -webkit-transition: all 1s;
     transition: all 1s;
     z-index: 3;
-  }
-
-  .slider.close {
-    top: 100vh;
-    height: 0;
   }
 
   body main {
