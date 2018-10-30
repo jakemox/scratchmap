@@ -4,9 +4,15 @@
 
 <main>
     <div class="sea">
-        <div class='map' id='map'></div>
+        <div class='map' id='map'>
+             <a href="#"><div class='listview-mobile'>View as List</div></a> 
+             <a href="#"><div id="trigger" class='listview-desktop'>View as List</div></a>
+             <div id="slider" class="slider close">Some content inside</div>    
+            </div>
     </div>
+   
     <div class='features' id='features'></div>
+    
 </main>
 
     <script>
@@ -18,8 +24,19 @@
             
         });
 
+      
+
         var nav = new mapboxgl.NavigationControl();
         map.addControl(nav, 'top-left');
+
+      
+        let slideTrigger = document.getElementById('trigger');
+        slideTrigger.addEventListener('click', function() {
+            let element = document.getElementById('slider');
+            element.classList.toggle('close');
+        });
+        
+
 
         var hoveredStateId =  null;
         var clicked = [];
