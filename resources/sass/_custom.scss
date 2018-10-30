@@ -304,3 +304,15 @@ body {
     }
   }
 }
+
+.country_button {
+  cursor: pointer;
+  text-align: center;
+  transform: scale(1.5);
+}
+
+.country_button:hover {
+  color: red;
+  transform: scale(2.5);
+  transition: .2s;
+}

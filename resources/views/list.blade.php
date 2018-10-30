@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="container">
+
 <p>This is the front page. </p>
 
 <p>On a large screen shows map.</p>
@@ -19,13 +21,13 @@
       method: 'post',
       data: {
         _token: "{{ csrf_token() }}",
-        code: country_id
+        id: country_id
       }
     });
 
     let toggle = document.getElementById('country_'+country_id);
 
-    if (toggle.firstChild.className == "far fa-circle") {
+    if (toggle.firstElementChild.className == "far fa-circle") {
       toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
     } else {
     toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
@@ -33,13 +35,12 @@
   }    
 </script>
 
-<?php $user = App\User::find($user_id) ?>
 <table>
   <tr>
     <td><b>Code</b></td>
     <td><b>Country name</b></td>
     <td><b>
-      @if(isset($user))
+      @if(isset($user_id))
       Been there?</b></td>
       @endif
     </tr>
@@ -48,11 +49,10 @@
     
     <tr class="country_list">
       <td>{{$country->code}} </td>
-      <td>{{$country->name}} </td>
-      {{-- Below code for populating the countries where user has visited and an individual form / submit button to save each visited country. Submit button is "checked" if country is visited, circle if not (font awesome icons). --}}
+      <td class="country_button">{{$country->name}} </td>
+      {{-- Below code for populating the countries where user has visited and a button to change the state. Button is "checked" if country is visited, circle if not (font awesome icons). --}}
       <td>
-        @if(isset($user))
-              {{-- TO DO:  push the selections to DB without a form --}}
+        @if(isset($user_id))
             <?php $has_visited=null; ?>
             @foreach ($visited as $visit)
               @if ($visit->id === $country->id)
@@ -60,10 +60,9 @@
               @endif
             @endforeach
           <div id="country_{{$country->id}}" class="country_button" onclick="toggle_visit({{$country->id}})">
-                  <?php
-                  if ($has_visited) {
-                    echo "<i class=\"fas fa-check-circle\"></i>";
-                  } else echo "<i class=\"far fa-circle\"></i>";
+<?php if ($has_visited) {
+echo "<i class=\"fas fa-check-circle\"></i>";
+} else echo "<i class=\"far fa-circle\"></i>";
                 ?>  
               </div>
         @endif
@@ -73,6 +72,6 @@
       @endforeach
     </table>
 
-</form>
 
+</div>
 @endsection

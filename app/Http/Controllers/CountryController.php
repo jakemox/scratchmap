@@ -23,7 +23,7 @@ class CountryController extends Controller
             $visited = $user->countries;
         }
 
-        return view('/index', compact('countries', 'user_id','visited'));
+        return view('/list', compact('countries', 'user_id','visited'));
         
     }
 
@@ -60,7 +60,6 @@ class CountryController extends Controller
             $has_visited = 1;
         } 
 
-        // dd($has_visited);
 
         if($has_visited === null)
         { 
