@@ -25,18 +25,19 @@
 
 <table>
   <tr>
-    <td><b>Code</b></td>
-    <td><b>Country name</b></td>
+    <td></td>
+    <td></td>
     <td><b>
       @if(isset($user_id))
-      Been there?</b></td>
+      </b>
+    </td>
       @endif
     </tr>
     
     @foreach ($countries as $country)
     
     <tr class="country_list">
-      <td>{{$country->code}} </td>
+      <td><img src="{{ asset('img/flags-normal/'.strtolower($country->code).'.png') }}" class="flag-img"></td>
       <td class="country_button">{{$country->name}} </td>
       {{-- Below code for populating the countries where user has visited and a button to change the state. Button is "checked" if country is visited, circle if not (font awesome icons). --}}
       <td>
