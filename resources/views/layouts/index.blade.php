@@ -162,6 +162,16 @@
                     clicked.splice(selectedIndex, 1);
                 }
 
+                // AJAX script for DB interface
+                $.ajax({
+                    url: '/',
+                    method: 'post',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        id: clickedStateId
+                }
+                });
+
 
                 console.log(clicked);
                 map.setFeatureState({source: 'states', id: clickedStateId}, {click: state});
