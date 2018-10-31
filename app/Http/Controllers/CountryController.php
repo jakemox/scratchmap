@@ -40,7 +40,6 @@ class CountryController extends Controller
 
 
         // DB::table('user_visited_countries')->where('user_id', $user_id);
-        
         return view('index',compact('visited_countries','countries','user_id','visited'));
     }
 
