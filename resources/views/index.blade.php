@@ -24,7 +24,8 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/jakemox99/cjnomdfut1ea32spgv0umdu84',
-            collectResourceTiming: true
+            collectResourceTiming: true,
+            maxBounds: [ [-180, -70], [180, 90] ]
         });
 
       
@@ -166,6 +167,7 @@
                 if (selectedIndex == -1) {
                     clicked.push(clickedStateId);
                     state = true;
+                    //creates new country record.
                     $.ajax({
                         url: '/country',
                         method: 'post',
@@ -176,6 +178,7 @@
                     });
                 } else {
                     clicked.splice(selectedIndex, 1);
+                    //deletes existing country record.
                     $.ajax({
                         url: '/country/' + clickedStateId,
                         method: 'delete',
@@ -214,6 +217,7 @@
                     document.getElementById('features').innerHTML = 
                         '<img class="flag-icon" src="/img/flags-normal/' + countries[(hoveredStateId-1)].code + '.png" alt="">' +
                         '<h2>' + countries[hoveredStateId - 1].name + '</h2>' +
+                        '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId-1)].code + '.svg" alt="">' +
                         '<p>' + e.features[0].properties.SUBREGION + '</p>' +
                         '<p> Population: ' + million + ' million</p>';
                 }
