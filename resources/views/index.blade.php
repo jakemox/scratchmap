@@ -1,4 +1,5 @@
-@extends('layout')
+@extends('layouts.layout')
+
 
 @section('content')
 
@@ -7,7 +8,10 @@
         <div class='map' id='map'>
              <a href="#"><div id="trigger-mobile"  class='listview-mobile'>View as List</div></a> 
              <a href="#"><div id="trigger-desktop" class='listview-desktop'>View as List</div></a>
-             <div id="slider" class="slider close">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga numquam illo soluta, quis, eligendi voluptatem officia accusamus nemo obcaecati dolore iure. Magni libero dolorum temporibus amet optio? Laboriosam, voluptates nesciunt.Praesentium sunt labore possimus iusto obcaecati eum. Beatae, repudiandae molestiae obcaecati recusandae cupiditate voluptates est quia. Totam, consequuntur, enim aliquam impedit quam, placeat perferendis harum non quae illum veritatis perspiciatis.</div>    
+             <div id="slider" class="slider close">
+            @include('list')
+
+                 </div>    
             </div>
     </div>
    

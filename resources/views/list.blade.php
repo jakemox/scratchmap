@@ -1,16 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
-
 <div class="container">
-
-<p>This is the front page. </p>
-
-<p>On a large screen shows map.</p>
-
-<p>On a smaller screen shows a list of countries.</p>
-
-<p>Below list of countries with an option to save visited countries (if logged in).</p>
 
 <script>
   // AJAX script to insert selection into DB without page refresh
@@ -74,4 +62,3 @@ echo "<i class=\"fas fa-check-circle\"></i>";
 
 
 </div>
-@endsection

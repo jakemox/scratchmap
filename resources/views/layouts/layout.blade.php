@@ -27,6 +27,8 @@
 
 @yield('content')
 
+@yield('list')
+
 @include('layouts.footer')
 
 </body>

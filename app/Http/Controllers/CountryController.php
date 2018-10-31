@@ -10,25 +10,20 @@ use DB;
 
 class CountryController extends Controller
 {
-    public function index()
-    {    
-        $countries = Country::orderBy('name')->get();
+    // public function index()
+    // {    
+    //     $countries = Country::orderBy('name')->get();
 
-        $user_id = Auth::id();
-        $user = User::find($user_id);
+    //     $user_id = Auth::id();
 
-        $visited = '';
-        if($user) 
-        {
-            $visited = $user->countries;
-        }
-
-        return view('/list', compact('countries', 'user_id','visited'));
         
-    }
+    //     return view('/list', compact('countries', 'user_id','visited'));
+        
+    // }
 
     public function index2()
     {
+        $countries = Country::orderBy('name')->get();
         $user_id = Auth::id();
         $visited_countries = DB::select(
             "SELECT `country_id` FROM `user_visited_countries` 
@@ -36,9 +31,17 @@ class CountryController extends Controller
             ['user_id' => $user_id]
         );
 
+        $user = User::find($user_id);
+        $visited = '';
+        if($user) 
+        {
+            $visited = $user->countries;
+        }
+
+
         // DB::table('user_visited_countries')->where('user_id', $user_id);
         
-        return view('/layouts/index',compact('visited_countries'));
+        return view('index',compact('visited_countries','countries','user_id','visited'));
     }
 
     public function store(Request $country_id) {
