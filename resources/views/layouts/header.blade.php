@@ -16,8 +16,8 @@
         <h2>Profile</h2><h2>Export</h2>
     </div> 
     <div class="log_reg">
-        <a href="#login">Login</a><span>|</span>
-        <a href="#register">Register</a>
+        <a href="{{ route('login') }}">{{ __('Login') }}</a><span>|</span>
+        <a href="{{ route('register') }}">{{ __('Register') }}</a>
       </div>
   </div>  
 </header>

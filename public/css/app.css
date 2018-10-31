@@ -15,15 +15,20 @@
   font-size: 2rem;
   text-align: center;
   padding-top: 3rem;
-  opacity: 0.90;
+  opacity: 1;
   -webkit-transition: all 1s;
   transition: all 1s;
   z-index: 3;
+  overflow-y: auto;
 }
 
 .slider.close {
   bottom: 100vh;
   height: 0;
+}
+
+.country_button {
+  visibility: visible;
 }
 
 html {
@@ -75,6 +80,7 @@ main {
   width: 200px;
   font-size: 1.5rem;
   text-align: center;
+  overflow-y: auto;
 }
 
 .map .listview-desktop {
@@ -168,7 +174,8 @@ footer nav {
     overflow: hidden;
     background-color: #FFFFFF;
     color: #405C7B;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    line-height: 0.2rem;
     text-align: center;
     padding: 1rem;
     opacity: 0.90;
@@ -349,14 +356,36 @@ footer nav {
   text-align: center;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
+  padding-top: 6rem;
+  height: 60px;
+  width: 60px;
+  z-index: 15;
+  color: black;
+}
+
+.fas fa-check-circle {
+  height: 60px;
+  width: 60px;
+  z-index: 15;
+  color: black;
 }
 
 .country_button:hover {
-  color: red;
-  -webkit-transform: scale(2.5);
-          transform: scale(2.5);
+  color: #530000;
+  -webkit-transform: scale(2);
+          transform: scale(2);
   -webkit-transition: .2s;
   transition: .2s;
+}
+
+.flag-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 1rem 2rem 3rem 3rem;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 7rem;
 }
 
 /*!
