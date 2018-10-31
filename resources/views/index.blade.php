@@ -135,18 +135,22 @@
                 }
             });
 
+            let rendered = false;
+
             // render countries saved in db as clicked
             
             map.on("render", "done-fills", function() {
-                savedCountries = [];
-                @foreach($visited_countries as $country)
-                    savedCountries.push({{$country->country_id}});
-                @endforeach
-                
-                
-                savedCountries.forEach(country => {
-                    map.setFeatureState({source: "states", id:country}, {click: true });
-                });
+                //only render once.
+                if (!rendered) {
+                    @foreach($visited_countries as $country)
+                        clicked.push({{$country->country_id}});
+                    @endforeach
+                    
+                    clicked.forEach(country => {
+                        map.setFeatureState({source: "states", id:country}, {click: true });
+                    });
+                }
+                rendered = true; //prevents rendering >1.
             })
 
             
@@ -162,20 +166,24 @@
                 if (selectedIndex == -1) {
                     clicked.push(clickedStateId);
                     state = true;
+                    $.ajax({
+                        url: '/country',
+                        method: 'post',
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                            id: clickedStateId
+                        }
+                    });
                 } else {
                     clicked.splice(selectedIndex, 1);
+                    $.ajax({
+                        url: '/country/' + clickedStateId,
+                        method: 'delete',
+                        data: {
+                            _token: "{{ csrf_token() }}"
+                        }
+                    });
                 }
-
-                // AJAX script for DB interface
-                $.ajax({
-                    url: '/',
-                    method: 'post',
-                    data: {
-                        _token: "{{ csrf_token() }}",
-                        id: clickedStateId
-                }
-                });
-
 
                 console.log(clicked);
                 map.setFeatureState({source: 'states', id: clickedStateId}, {click: state});
@@ -190,17 +198,24 @@
                     }
                     
                     hoveredStateId = e.features[0].id;
+
                     map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
                     let million = (e.features[0].properties.POP_EST/1000000).toFixed(2);
+
+
+                    let countries = <?php echo json_encode($countries);?>;
+
+
+              
+                    console.log(countries[hoveredStateId].code);
                     
                     //shows name of country in box
-                    document.getElementById('features').innerHTML = '<h2>' + e.features[0].properties.NAME + '</h2><p>' + e.features[0].properties.SUBREGION + '</p><p> Population: ' + million + ' million</p>';
-                 
-                    
-                    
-
-                    // console.log (e.features[0]);
+                    document.getElementById('features').innerHTML = 
+                        '<img class="flag-icon" src="/img/flags-normal/' + countries[(hoveredStateId-1)].code + '.png" alt="">' +
+                        '<h2>' + countries[hoveredStateId - 1].name + '</h2>' +
+                        '<p>' + e.features[0].properties.SUBREGION + '</p>' +
+                        '<p> Population: ' + million + ' million</p>';
                 }
             });
 

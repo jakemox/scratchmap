@@ -21,6 +21,11 @@ class CountryController extends Controller
         
     // }
 
+    public function index()
+    {
+        $this->index2(); //can remove this once index2 has been renamed to index. Removes error with ajax function.
+    }
+
     public function index2()
     {
         $countries = Country::orderBy('name')->get();
@@ -38,9 +43,7 @@ class CountryController extends Controller
             $visited = $user->countries;
         }
 
-
         // DB::table('user_visited_countries')->where('user_id', $user_id);
-        
         return view('index',compact('visited_countries','countries','user_id','visited'));
     }
 
@@ -87,8 +90,17 @@ class CountryController extends Controller
             DB::delete($query, [$country_id]);
             return redirect()->route('list');
         }
+    }
 
+    public function destroy($country_id)
+    {
+        $query = "
+        DELETE FROM `user_visited_countries`
+        WHERE `country_id` = ?
+        ";
 
+        DB::delete($query, [$country_id]);
+        return []; //don't need to return to page because it is ajax.
     }
     
 }
