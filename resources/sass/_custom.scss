@@ -11,11 +11,6 @@ html {
   font-weight: 200;
 }
 
-main {
-  display: flex;
-  flex-flow: column nowrap;
-}
-
 .slider {
   position: absolute;
   width: 100vw;
@@ -250,6 +245,7 @@ body {
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      
       .display-name {
         flex-flow: row-reverse;
         width: 30vw;
@@ -370,25 +366,34 @@ body {
   }
 }
 
+.list-flag {
+  dis
+}
+
+.list-country-item {
+  display:flex;
+  flex-direction: row;
+  flex: 0 0 0;
+  border: 1px solid black;
+}
+
+.list-country-name {
+  display:flex;
+  border: 1px solid red;
+}
+
 .country_button {
-  cursor: pointer;
   text-align: center;
   transform: scale(1.5);
   padding-top: 6rem;
   height: 60px;
   width: 60px;
-  z-index: 15;
   color: black;
-}
-
-.fas fa-check-circle {
-  height: 60px;
-  width: 60px;
-  z-index: 15;
-  color: black;
+  border: 1px solid blue; 
 }
 
 .country_button:hover {
+  cursor: pointer;
   color: #530000;
   transform: scale(2);
   transition: .2s;

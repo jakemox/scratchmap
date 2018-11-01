@@ -21,45 +21,39 @@
     toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
     }
   }    
+
 </script>
 
-<table>
-  <tr>
-    <td></td>
-    <td></td>
-    <td><b>
-      @if(isset($user_id))
-      </b>
-    </td>
-      @endif
-    </tr>
-    
-    @foreach ($countries as $country)
-    
-    <tr class="country_list">
-      <td><img src="{{ asset('img/flags-normal/'.strtolower($country->code).'.png') }}" class="flag-img"></td>
-      <td class="country_button">{{$country->name}} </td>
-      {{-- Below code for populating the countries where user has visited and a button to change the state. Button is "checked" if country is visited, circle if not (font awesome icons). --}}
-      <td>
-        @if(isset($user_id))
-            <?php $has_visited=null; ?>
-            @foreach ($visited as $visit)
-              @if ($visit->id === $country->id)
-                <?php $has_visited = '1'; ?>
-              @endif
-            @endforeach
-          <div id="country_{{$country->id}}" class="country_button" onclick="toggle_visit({{$country->id}})">
-<?php if ($has_visited) {
-echo "<i class=\"fas fa-check-circle\"></i>";
-} else echo "<i class=\"far fa-circle\"></i>";
-                ?>  
-              </div>
+<ul>
+@foreach ($countries as $country)
+
+<li class="list-country-item">
+  <div class="list-flag">
+    <img src="{{ asset('img/flags-normal/'.strtolower($country->code).'.png') }}" class="flag-img">
+  </div>
+  <div class="list-country-name">
+    {{$country->name}} 
+  </div>
+  {{-- Below code for populating the countries where user has visited and a button to change the state. Button is "checked" if country is visited, circle if not (font awesome icons). --}}
+  {{-- <div class="country-" id={{$country->id}}> --}}
+    {{-- @if(isset($user_id)) --}}
+      <?php $has_visited=null; ?>
+      @foreach ($visited as $visit)
+        @if ($visit->id === $country->id)
+          <?php $has_visited = '1'; ?>
         @endif
-        </td>
-      </tr>
-      
       @endforeach
-    </table>
+  <div id="country_{{$country->id}}" class="country-button" onclick="toggle_visit({{$country->id}})">
+    <?php if ($has_visited) {
+    echo "<i class=\"fas fa-check-circle\"></i>";
+    } else echo "<i class=\"far fa-circle\"></i>";
+    ?>  
+  </div>
+    {{-- @endif --}}
+    </li>
+  
+  @endforeach
+  </ul>
 
 
 </div>

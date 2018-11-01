@@ -9,16 +9,6 @@ html {
   font-weight: 200;
 }
 
-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-}
-
 .slider {
   position: absolute;
   width: 100vw;
@@ -441,26 +431,39 @@ footer nav {
   }
 }
 
+.list-country-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 0px;
+          flex: 0 0 0;
+  border: 1px solid black;
+}
+
+.list-country-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid red;
+}
+
 .country_button {
-  cursor: pointer;
   text-align: center;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
   padding-top: 6rem;
   height: 60px;
   width: 60px;
-  z-index: 15;
-  color: black;
-}
-
-.fas fa-check-circle {
-  height: 60px;
-  width: 60px;
-  z-index: 15;
   color: black;
 }
 
 .country_button:hover {
+  cursor: pointer;
   color: #530000;
   -webkit-transform: scale(2);
           transform: scale(2);

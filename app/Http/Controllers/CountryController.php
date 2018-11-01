@@ -10,23 +10,24 @@ use DB;
 
 class CountryController extends Controller
 {
-    // public function index()
-    // {    
-    //     $countries = Country::orderBy('name')->get();
+    public function list()
+    {    
+        $countries = Country::orderBy('name')->get();
+        $user_id = Auth::id();
+        $user = User::find($user_id);
 
-    //     $user_id = Auth::id();
-
+$visited = '';
+        if($user) 
+        {
+            $visited = $user->countries;
+        }
         
-    //     return view('/list', compact('countries', 'user_id','visited'));
+        return view('list', compact('countries', 'user_id','visited'));
         
-    // }
-
-    public function index()
-    {
-        $this->index2(); //can remove this once index2 has been renamed to index. Removes error with ajax function.
     }
 
-    public function index2()
+
+    public function index()
     {
         $countries = Country::orderBy('name')->get();
         $user_id = Auth::id();
