@@ -213,13 +213,14 @@
                         console.log(country.name, country.id, e.features[0].properties.name, e.features[0].properties.id);
                     })
 
-                    
+              
+                    console.log(countries[hoveredStateId - 1].code);
                     
                     //shows name of country in box
                     document.getElementById('features').innerHTML = 
                         '<div class="display-name">' +
                             '<div class="image-crop">' +   
-                                '<img class="flag-icon" src="/img/flags-normal/' + (countries[(hoveredStateId-1)].code) + '.png" alt="">' +
+                                '<img class="flag-icon" src="/img/flags-normal/' + (countries[(hoveredStateId-1)].code).toLowerCase() + '.png" alt="">' +
                             '</div>' +
                             '<h2>' + countries[hoveredStateId - 1].name + '</h2>' +
                         '</div>' +
