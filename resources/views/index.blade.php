@@ -209,20 +209,22 @@
 
                     let countries = <?php echo json_encode($countries);?>;
 
+                    clicked.forEach((country) => {
+                        console.log(country.name, country.id, e.features[0].properties.name, e.features[0].properties.id);
+                    })
 
-              
-                    console.log(countries[hoveredStateId].code);
+                    
                     
                     //shows name of country in box
                     document.getElementById('features').innerHTML = 
                         '<div class="display-name">' +
                             '<div class="image-crop">' +   
-                                '<img class="flag-icon" src="/img/flags-normal/' + countries[(hoveredStateId-1)].code + '.png" alt="">' +
+                                '<img class="flag-icon" src="/img/flags-normal/' + (countries[(hoveredStateId-1)].code) + '.png" alt="">' +
                             '</div>' +
                             '<h2>' + countries[hoveredStateId - 1].name + '</h2>' +
                         '</div>' +
                         '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId-1)].code + '.svg" alt="">' +
-                        '<p>' + e.features[0].properties.SUBREGION + '</p>' +
+                        '<p>' + e.features[0].properties.id + '</p>' +
                         '<p> Population: ' + million + ' million</p>';
                 }
             });
