@@ -146,6 +146,7 @@
                     @foreach($visited_countries as $country)
                         clicked.push({{$country->country_id}});
                     @endforeach
+                    console.log(clicked);
                     
                     clicked.forEach(country => {
                         map.setFeatureState({source: "states", id:country}, {click: true });
@@ -202,30 +203,35 @@
                     
                     hoveredStateId = e.features[0].id;
 
+                    console.log(hoveredStateId);
+
                     map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
                     let million = (e.features[0].properties.POP_EST/1000000).toFixed(2);
 
 
                     let countries = <?php echo json_encode($countries);?>;
+                    console.log(countries);
 
-                    clicked.forEach((country) => {
-                        console.log(country.name, country.id, e.features[0].properties.name, e.features[0].properties.id);
-                    })
+                    // clicked.forEach((country) => {
+                    //     console.log(country.name, country.id, e.features[0].properties.name, e.features[0].properties.id);
+                    // })
 
               
-                    console.log(countries[hoveredStateId - 1].code);
+                    // console.log(countries[hoveredStateId - 1].code);
                     
                     //shows name of country in box
+
+                    console.log(e.features[0]);
                     document.getElementById('features').innerHTML = 
                         '<div class="display-name">' +
                             '<div class="image-crop">' +   
-                                '<img class="flag-icon" src="/img/flags-normal/' + (countries[(hoveredStateId-1)].code).toLowerCase() + '.png" alt="">' +
+                                '<img class="flag-icon" src="/img/flags-normal/' + (countries[(hoveredStateId - 1)].code).toLowerCase() + '.png" alt="">' +
                             '</div>' +
                             '<h2>' + countries[hoveredStateId - 1].name + '</h2>' +
                         '</div>' +
-                        '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId-1)].code + '.svg" alt="">' +
-                        '<p>' + e.features[0].properties.id + '</p>' +
+                        '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId - 1)].code + '.svg" alt="">' +
+                        '<p>' + e.features[0].id + '</p>' +
                         '<p> Population: ' + million + ' million</p>';
                 }
             });
@@ -239,9 +245,6 @@
                 hoveredStateId =  null;
             });
         });
-
-
-
     </script>
 
 @endsection

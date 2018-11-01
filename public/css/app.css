@@ -460,6 +460,7 @@ footer nav {
   height: 60px;
   width: 60px;
   color: black;
+  border: 1px solid blue;
 }
 
 .country_button:hover {

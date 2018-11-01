@@ -30,12 +30,19 @@ $visited = '';
     public function index()
     {
         $countries = Country::orderBy('name')->get();
+        $fp = fopen('/tmp/debug.txt', 'a');
+        // fwrite($fp, print_r($countries, true));
+        // fclose($fp);
+
         $user_id = Auth::id();
+        fwrite($fp, $user_id."\n");
+    
         $visited_countries = DB::select(
             "SELECT `country_id` FROM `user_visited_countries` 
             WHERE `user_id` = :user_id", 
             ['user_id' => $user_id]
         );
+        fwrite($fp, print_r($visited_countries, true));
 
         $user = User::find($user_id);
         $visited = '';
