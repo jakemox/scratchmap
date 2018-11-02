@@ -10,31 +10,31 @@ use DB;
 
 class CountryController extends Controller
 {
-    public function list()
-    {    
-        $countries = Country::orderBy('name')->get();
-        $user_id = Auth::id();
-        $user = User::find($user_id);
+//     public function list()
+//     {    
+//         $countries = Country::orderBy('name')->get();
+//         $user_id = Auth::id();
+//         $user = User::find($user_id);
 
-$visited = '';
-        if($user) 
-        {
-            $visited = $user->countries;
-        }
+// $visited = '';
+//         if($user) 
+//         {
+//             $visited = $user->countries;
+//         }
         
-        return view('list', compact('countries', 'user_id','visited'));
+//         return view('list', compact('countries', 'user_id','visited'));
         
-    }
+//     }
 
 
     public function index()
     {
         $countries = Country::orderBy('id')->get();
-        $fp = fopen('/tmp/debug.txt', 'a');
+        // $fp = fopen('/tmp/debug.txt', 'a');
 
 
         $user_id = Auth::id();
-        fwrite($fp, $user_id."\n");
+        // fwrite($fp, $user_id."\n");
     
         $visited_countries = DB::select(
             "SELECT `country_id` FROM `user_visited_countries` 
@@ -99,15 +99,15 @@ $visited = '';
         }
     }
 
-    public function destroy($country_id)
-    {
-        $query = "
-        DELETE FROM `user_visited_countries`
-        WHERE `country_id` = ?
-        ";
+    // public function destroy($country_id)
+    // {
+    //     $query = "
+    //     DELETE FROM `user_visited_countries`
+    //     WHERE `country_id` = ?
+    //     ";
 
-        DB::delete($query, [$country_id]);
-        return []; //don't need to return to page because it is ajax.
-    }
+    //     DB::delete($query, [$country_id]);
+    //     return []; //don't need to return to page because it is ajax.
+    // }
     
 }

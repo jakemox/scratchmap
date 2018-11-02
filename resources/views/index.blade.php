@@ -162,31 +162,26 @@
                 clickedStateId = e.features[0].id;
                 
                 let selectedIndex = clicked.indexOf(clickedStateId);
+                console.log(selectedIndex);
+                console.log(clickedStateId);
 
                 let state = false;
+                $.ajax({
+                    url: '/',
+                    method: 'post',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        id: clickedStateId
+                    }
+                })
 
                 if (selectedIndex == -1) {
                     clicked.push(clickedStateId);
                     state = true;
                     //creates new country record.
-                    $.ajax({
-                        url: '/country',
-                        method: 'post',
-                        data: {
-                            _token: "{{ csrf_token() }}",
-                            id: clickedStateId
-                        }
-                    });
+                
                 } else {
                     clicked.splice(selectedIndex, 1);
-                    //deletes existing country record.
-                    $.ajax({
-                        url: '/country/' + clickedStateId,
-                        method: 'delete',
-                        data: {
-                            _token: "{{ csrf_token() }}"
-                        }
-                    });
                 }
 
                 console.log(clicked);
@@ -203,7 +198,7 @@
                     
                     hoveredStateId = e.features[0].id;
 
-                    console.log(hoveredStateId);
+                    // console.log(hoveredStateId);
 
                     map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
@@ -211,7 +206,7 @@
 
 
                     let countries = <?php echo json_encode($countries);?>;
-                    console.log(countries);
+                    // console.log(countries);
 
                     // clicked.forEach((country) => {
                     //     console.log(country.name, country.id, e.features[0].properties.name, e.features[0].properties.id);
@@ -222,7 +217,7 @@
                     
                     //shows name of country in box
 
-                    console.log(e.features[0]);
+                    // console.log(e.features[0]);
                     document.getElementById('features').innerHTML = 
                         '<div class="display-name">' +
                             '<div class="image-crop">' +   
