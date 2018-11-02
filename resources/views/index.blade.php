@@ -231,7 +231,8 @@
                             '<h2>' + countries[hoveredStateId - 1].name + '</h2>' +
                         '</div>' +
                         '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId - 1)].code + '.svg" alt="">' +
-                        '<p>' + e.features[0].id + '</p>' +
+                        '<p>json id: ' + e.features[0].id + '</p>' +
+                        '<p>db id: ' + countries[hoveredStateId - 1].id + '</p>' +
                         '<p> Population: ' + million + ' million</p>';
                 }
             });
