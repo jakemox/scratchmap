@@ -14,6 +14,7 @@
 Route::get('/list', 'CountryController@list')->name('list');
 Route::get('/', 'CountryController@index');
 Route::post('/', 'CountryController@store');
+Route::resource('/country', 'CountryController');
 
 Auth::routes();
 
