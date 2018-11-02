@@ -30,6 +30,7 @@ $visited = '';
     public function index()
     {
         $countries = Country::orderBy('name')->get();
+        $user_id = null;
         $user_id = Auth::id();
         $visited_countries = DB::select(
             "SELECT `country_id` FROM `user_visited_countries` 

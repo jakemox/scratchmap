@@ -28,8 +28,8 @@
 @foreach ($countries as $country)
 
 <li class="list-country-item">
-  <div class="list-flag">
-    <img src="{{ asset('img/flags-normal/'.strtolower($country->code).'.png') }}" class="flag-img">
+  <div class="image-crop">
+    <img src="{{ asset('img/flags-normal/'.strtolower($country->code).'.png') }}" class="flag-icon">
   </div>
   <div class="list-country-name">
     {{$country->name}} 

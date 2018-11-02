@@ -366,36 +366,29 @@ body {
   }
 }
 
-.list-flag {
-  dis
-}
-
 .list-country-item {
   display:flex;
   flex-direction: row;
   flex: 0 0 0;
-  border: 1px solid black;
+  padding: 2em;
 }
 
 .list-country-name {
   display:flex;
-  border: 1px solid red;
 }
 
-.country_button {
+.country-button {
+  cursor:pointer;
   text-align: center;
-  transform: scale(1.5);
-  padding-top: 6rem;
   height: 60px;
   width: 60px;
   color: black;
-  border: 1px solid blue; 
 }
 
-.country_button:hover {
+.country-button:hover {
   cursor: pointer;
   color: #530000;
-  transform: scale(2);
+  transform: scale(1.5);
   transition: .2s;
 }
 

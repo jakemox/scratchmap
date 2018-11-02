@@ -442,31 +442,28 @@ footer nav {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 0px;
           flex: 0 0 0;
-  border: 1px solid black;
+  padding: 2em;
 }
 
 .list-country-name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 1px solid red;
 }
 
-.country_button {
+.country-button {
+  cursor: pointer;
   text-align: center;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-  padding-top: 6rem;
   height: 60px;
   width: 60px;
   color: black;
 }
 
-.country_button:hover {
+.country-button:hover {
   cursor: pointer;
   color: #530000;
-  -webkit-transform: scale(2);
-          transform: scale(2);
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
   -webkit-transition: .2s;
   transition: .2s;
 }
