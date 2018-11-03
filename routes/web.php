@@ -18,4 +18,4 @@ Route::resource('/country', 'CountryController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'CountryController@index')->name('home');
