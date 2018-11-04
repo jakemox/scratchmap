@@ -90,41 +90,79 @@ module.exports = __webpack_require__(17);
 /* 14 */
 /***/ (function(module, exports) {
 
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
 
-var Country = function Country(id, code, name, visited) {
-  _classCallCheck(this, Country);
+var Country = function () {
+  function Country(id, code, name, visited) {
+    _classCallCheck(this, Country);
 
-  this.id = id;
-  this.code = code;
-  this.name = name;
-  this.visited = false;
-};
+    this.id = id;
+    this.code = code;
+    this.name = name;
+    this.visited = false;
+  }
 
-countriesList = [];
+  _createClass(Country, [{
+    key: 'toggle_visit',
+    value: function toggle_visit(id) {
+      $.ajax({
+        url: '/',
+        method: 'post',
+        data: {
+          id: this.id,
+          _token: document.head.querySelector('meta[name="csrf-token"]').content
+        }
+      });
+
+      var toggle = document.getElementById('country_' + this.id);
+
+      if (toggle.firstElementChild.className == "far fa-circle") {
+        toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
+      } else {
+        toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
+      }
+    }
+  }]);
+
+  return Country;
+}();
+
+countryList = [];
 
 $.ajax({
+  // populates the countryList with all countries in the database
   url: '/api/countries',
   method: 'get',
   success: function success(data) {
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
         var element = data[key];
-        countriesList[key] = new Country(element.id, element.code, element.name);
+        countryList[key] = new Country(element.id, element.code, element.name);
       }
     }
   },
   complete: function complete() {
     $.ajax({
+      // sets the property "visited" to true for countries that this user has saved in the db as visited
       url: '/api/visits',
       method: 'get',
       success: function success(data) {
         data.forEach(function (element) {
-          countriesList[element.country_id - 1].visited = true;
+          countryList[element.country_id - 1].visited = true;
         });
       }
     });
@@ -169,24 +207,7 @@ slideTriggerMobile.addEventListener('click', function () {
 /* 16 */
 /***/ (function(module, exports) {
 
-// AJAX script to insert selection into DB without page refresh
-function toggle_visit(country_id) {
-  $.ajax({
-    url: '/',
-    method: 'post',
-    data: {
-      id: country_id
-    }
-  });
-
-  var toggle = document.getElementById('country_' + country_id);
-
-  if (toggle.firstElementChild.className == "far fa-circle") {
-    toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
-  } else {
-    toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
-  }
-}
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'D:\\coding\\scratchmap\\resources\\js\\toggle_visit.js'");
 
 /***/ }),
 /* 17 */
