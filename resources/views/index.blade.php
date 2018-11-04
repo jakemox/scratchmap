@@ -33,10 +33,6 @@
         var nav = new mapboxgl.NavigationControl();
         map.addControl(nav, 'top-left');
 
-        
-        
-
-
         var hoveredStateId =  null;
         var clicked = [];
         let colours = ['#00D84A', '#00DA65', '#00DA29'];
@@ -46,14 +42,12 @@
         let colour = randomColour();
         console.log(colour);
 
-
         map.on('load', function () {
             map.addSource("states", {
                 "type": "geojson",
                 "data": "{{ asset('countries.geojson') }}",
                 "generateId": true //adds id to each country's properties based on index.
             });
-
             
             //layer for countries that have been clicked.
             map.addLayer({
@@ -173,20 +167,10 @@
 
                     let million = (e.features[0].properties.POP_EST/1000000).toFixed(2);
 
-
                     let countries = <?php echo json_encode($countries);?>;
-                    // console.log(countries);
-
-                    // clicked.forEach((country) => {
-                    //     console.log(country.name, country.id, e.features[0].properties.name, e.features[0].properties.id);
-                    // })
-
-              
-                    // console.log(countries[hoveredStateId - 1].code);
                     
                     //shows name of country in box
 
-                    // console.log(e.features[0]);
                     document.getElementById('features').innerHTML = 
                         '<div class="display-name">' +
                             '<div class="image-crop">' +   
@@ -209,7 +193,7 @@
                 }
                 hoveredStateId =  null;
             });
-        });
+        }); 
     </script>
 
 @endsection

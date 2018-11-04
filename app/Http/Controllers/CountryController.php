@@ -79,5 +79,15 @@ class CountryController extends Controller
             DB::delete($query, [$country_id]);
         }
     }
+
+    public function show($id) {
+        $country = Country::find($id);
+        return $country;
+    }
+
+        public function list() {
+        $countries = Country::get();
+        return $countries;
+    }
     
 }

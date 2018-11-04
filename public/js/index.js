@@ -3,9 +3,22 @@ class Country {
   constructor(id) {
     this.id = id;
   }
+
 }
 
-country = new Country(250)
+countriesArray = []
+
+  $.ajax({
+  url: '/api',
+  method: 'get',
+  success: (data) => {
+    data.forEach(element => {
+      console.log(element.id)
+    });
+
+  }
+  
+})
 document.getElementById('trigger-mobile').addEventListener('click', function() {
             let button = document.getElementById('trigger-mobile');
             if(button.innerHTML === 'View as List') {
