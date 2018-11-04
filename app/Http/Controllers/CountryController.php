@@ -10,24 +10,7 @@ use DB;
 
 class CountryController extends Controller
 {
-//     public function list()
-//     {    
-//         $countries = Country::orderBy('name')->get();
-//         $user_id = Auth::id();
-//         $user = User::find($user_id);
-
-// $visited = '';
-//         if($user) 
-//         {
-//             $visited = $user->countries;
-//         }
-        
-//         return view('list', compact('countries', 'user_id','visited'));
-        
-//     }
-
-
-    public function index()
+        public function index()
     {
         $countries = Country::orderBy('id')->get();
         // $fp = fopen('/tmp/debug.txt', 'a');
@@ -84,7 +67,6 @@ class CountryController extends Controller
             ";
 
             DB::insert($query, [$user_id, $country_id]);
-            return redirect()->route('list');
         } 
         
         else {
@@ -95,19 +77,7 @@ class CountryController extends Controller
             ";
 
             DB::delete($query, [$country_id]);
-            return redirect()->route('list');
         }
     }
-
-    // public function destroy($country_id)
-    // {
-    //     $query = "
-    //     DELETE FROM `user_visited_countries`
-    //     WHERE `country_id` = ?
-    //     ";
-
-    //     DB::delete($query, [$country_id]);
-    //     return []; //don't need to return to page because it is ajax.
-    // }
     
 }
