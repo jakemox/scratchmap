@@ -14,8 +14,10 @@
 Route::get('/', 'CountryController@index');
 Route::post('/', 'CountryController@store');
 // Route::resource('/api', 'CountryController');
-Route::get('/api/{id}', 'CountryController@show');
-Route::get('/api', 'CountryController@list');
+Route::get('/api/countries/{id}', 'CountryController@show');
+Route::get('/api/countries', 'CountryController@list');
+Route::get('/api/visits', 'CountryController@visits');
+
 
 Auth::routes();
 

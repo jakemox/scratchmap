@@ -90,4 +90,14 @@ class CountryController extends Controller
         return $countries;
     }
     
+    public function visits() {
+        $user_id = Auth::id();
+        $visited_countries = DB::select(
+            "SELECT `country_id` FROM `user_visited_countries` 
+            WHERE `user_id` = :user_id ", 
+            ['user_id' => $user_id]
+        );
+
+        return $visited_countries;
+    }
 }
