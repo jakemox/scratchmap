@@ -94,7 +94,8 @@ class CountryController extends Controller
         $user_id = Auth::id();
         $visited_countries = DB::select(
             "SELECT `country_id` FROM `user_visited_countries` 
-            WHERE `user_id` = :user_id ", 
+            WHERE `user_id` = :user_id 
+            ORDER BY `country_id` ASC", 
             ['user_id' => $user_id]
         );
 

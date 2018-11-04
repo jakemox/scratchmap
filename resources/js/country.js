@@ -21,15 +21,16 @@ countriesList = [];
         countriesList[key] = new Country(element.id, element.code, element.name)
       }
     }
-  }
+  },
+  complete: function() {
+    $.ajax({
+      url: '/api/visits',
+      method: 'get',
+      success: (data) => {
+        data.forEach(element => {
+          countriesList[element.country_id -1].visited = true
+          });
+      }
+    })}
 })
 
-$.ajax({
-  url: '/api/visits',
-  method: 'get',
-  success: (data) => {
-    data.forEach(element => {
-      countriesList[element.country_id].visited = true
-      });
-  }
-})

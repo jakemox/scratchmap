@@ -14,7 +14,7 @@ const mix = require('laravel-mix');
 mix.react('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
-mix.scripts([
+mix.js([
    'resources/js/country.js',
    'resources/js/slider.js',
    'resources/js/toggle_visit.js'
