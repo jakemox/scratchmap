@@ -7,6 +7,10 @@
   <div class="desktop">
     <div class="column1">
         <h2>Map</h2><h2>Plan</h2>
+        <div class="log_reg">
+                <a href="{{ route('login') }}">{{ __('Login') }}</a><span>|</span>
+                <a href="{{ route('register') }}">{{ __('Register') }}</a>
+        </div>
     </div>
     <div class="column2">
         <div class="balloon"><img src="\img\balloon.svg" alt="balloon"></div>
@@ -15,9 +19,8 @@
     <div class="column3">
         <h2>Profile</h2><h2>Export</h2>
     </div> 
-    <div class="log_reg">
-        <a href="{{ route('login') }}">{{ __('Login') }}</a><span>|</span>
-        <a href="{{ route('register') }}">{{ __('Register') }}</a>
-      </div>
+    <div class="logout">
+            <a href="{{ url('/logout') }}"> Logout </a>
+    </div>
   </div>  
 </header>

@@ -20,6 +20,8 @@
     } else {
     toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
     }
+
+   
   }    
 
 </script>

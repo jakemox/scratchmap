@@ -6,6 +6,7 @@
 <main>
     <div class="sea">
         <div class='map' id='map'>
+            <div id="score" class="score">Score: </div>
              <a href="#"><div id="trigger-mobile"  class='listview-mobile'>View as List</div></a> 
              <a href="#"><div id="trigger-desktop" class='listview-desktop'>View as List</div></a>
              <div id="slider" class="slider close">
@@ -65,9 +66,9 @@
             let element = document.getElementById('slider');
             element.classList.toggle('close');
         });
+
+    
         
-
-
         var hoveredStateId =  null;
         var clicked = [];
         let colours = ['#00D84A', '#00DA65', '#00DA29'];
@@ -155,8 +156,10 @@
                 rendered = true; //prevents rendering >1.
             })
 
-            
+            let score = 0;
+
             map.on("click", "done-fills", function(e) {
+
                 randomColour();
                 console.log(colour);
                 clickedStateId = e.features[0].id;
@@ -175,6 +178,7 @@
                     }
                 })
 
+                
                 if (selectedIndex == -1) {
                     clicked.push(clickedStateId);
                     state = true;
@@ -186,6 +190,23 @@
 
                 console.log(clicked);
                 map.setFeatureState({source: 'states', id: clickedStateId}, {click: state});
+
+                
+                let scoreHTML = document.getElementById('score');
+
+                    if(selectedIndex == -1) {
+                        score += 100;
+                        scoreHTML.innerHTML = `Score: ${score}`;
+                    } else {
+                        score -= 100;
+                        scoreHTML.innerHTML = `Score: ${score}`;
+                    } 
+
+                    if (score == 1000) {
+                        let badge = document.getElementById('badge');
+                        badge.style.display = 'block'; 
+                    }
+               
             });
 
             // When the user moves their mouse over the state-fill layer, we'll update the
