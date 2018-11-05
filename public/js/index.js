@@ -63,19 +63,71 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 12:
+/******/ ([
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-__webpack_require__(14);
-module.exports = __webpack_require__(15);
+module.exports = __webpack_require__(16);
 
 
 /***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/***/ 13:
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__country__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__slider__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__slider__);
+
+
+
+console.log("index.js loaded");
+
+countryList = [];
+
+$.ajax({
+  // populates the countryList with all countries in the database
+  url: '/api/countries',
+  method: 'get',
+  success: function success(data) {
+    for (var key in data) {
+      if (data.hasOwnProperty(key)) {
+        var element = data[key];
+        countryList[key] = new __WEBPACK_IMPORTED_MODULE_0__country___default.a(element.id, element.code, element.name);
+      }
+    }
+  },
+  complete: function complete() {
+    $.ajax({
+      // sets the property "visited" to true for countries that this user has saved in the db as visited
+      url: '/api/visits',
+      method: 'get',
+      success: function success(data) {
+        data.forEach(function (element) {
+          countryList[element.country_id - 1].visited = true;
+        });
+      }
+    });
+  }
+});
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports) {
 
 var _createClass = function () {
@@ -158,8 +210,7 @@ $.ajax({
 });
 
 /***/ }),
-
-/***/ 14:
+/* 15 */
 /***/ (function(module, exports) {
 
 document.getElementById('trigger-mobile').addEventListener('click', function () {
@@ -193,12 +244,10 @@ slideTriggerMobile.addEventListener('click', function () {
 });
 
 /***/ }),
-
-/***/ 15:
+/* 16 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
-
-/******/ });
+/******/ ]);
