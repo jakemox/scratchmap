@@ -1,5 +1,6 @@
 <div class="container">
 
+<<<<<<< HEAD
 <script>
   // AJAX script to insert selection into DB without page refresh
   function toggle_visit(country_id)
@@ -26,6 +27,8 @@
 
 </script>
 
+=======
+>>>>>>> feat/oop
 <ul>
 @foreach ($countries as $country)
 
@@ -46,7 +49,7 @@
         @endif
       @endforeach
       @endif
-  <div id="country_{{$country->id}}" class="country-button" onclick="toggle_visit({{$country->id}})">
+  <div id="country_{{$country->id}}" class="country-button" onclick="countryList[{{($country->id)-1}}].toggle_visit()">
       @if(isset($user_id))
       <?php if ($has_visited) {
         echo "<i class=\"fas fa-check-circle\"></i>";
