@@ -35966,7 +35966,32 @@ module.exports = function spread(callback) {
 /* 48 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (7:12)\n\n\u001b[0m \u001b[90m  5 | \u001b[39m    render() {\n \u001b[90m  6 | \u001b[39m        \u001b[36mreturn\u001b[39m (\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 | \u001b[39m            \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"container\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    | \u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 | \u001b[39m                \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"row justify-content-center\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m  9 | \u001b[39m                    \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"col-md-8\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 10 | \u001b[39m                        \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"card\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
+// import React, { Component } from 'react';
+// import ReactDOM from 'react-dom';
+
+// export default class Example extends Component {
+//     render() {
+//         return (
+//             <div className="container">
+//                 <div className="row justify-content-center">
+//                     <div className="col-md-8">
+//                         <div className="card">
+//                             <div className="card-header">Example Component</div>
+
+//                             <div className="card-body">
+//                                 I'm an example component!
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         );
+//     }
+// }
+
+// if (document.getElementById('example')) {
+//     ReactDOM.render(<Example />, document.getElementById('example'));
+// }
 
 /***/ })
 /******/ ]);
