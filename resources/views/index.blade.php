@@ -6,6 +6,7 @@
 <main>
     <div class="sea">
         <div class='map' id='map'>
+            <div id="score" class="score">Score: </div>
              <a href="#"><div id="trigger-mobile"  class='listview-mobile'>View as List</div></a> 
              <a href="#"><div id="trigger-desktop" class='listview-desktop'>View as List</div></a>
              <div id="slider" class="slider close">
@@ -33,41 +34,6 @@
         var nav = new mapboxgl.NavigationControl();
         map.addControl(nav, 'top-left');
 
-        document.getElementById('trigger-mobile').addEventListener('click', function() {
-            let button = document.getElementById('trigger-mobile');
-            if(button.innerHTML === 'View as List') {
-                button.innerHTML = 'View Map';
-            } else {
-                button.innerHTML = 'View as List';
-            }
-        });
-
-       document.getElementById('trigger-desktop').addEventListener('click', function() {
-            let button = document.getElementById('trigger-desktop');
-            if(button.innerHTML === 'View as List') {
-                button.innerHTML = 'View Map';
-            } else {
-                button.innerHTML = 'View as List';
-            }
-        });
-
-   
-      
-        let slideTriggerDesktop = document.getElementById('trigger-desktop');
-        slideTriggerDesktop.addEventListener('click', function() {
-            let element = document.getElementById('slider');
-            element.classList.toggle('close');
-        });
-
-        
-        let slideTriggerMobile = document.getElementById('trigger-mobile');
-        slideTriggerMobile.addEventListener('click', function() {
-            let element = document.getElementById('slider');
-            element.classList.toggle('close');
-        });
-        
-
-
         var hoveredStateId =  null;
         var clicked = [];
         let colours = ['#00D84A', '#00DA65', '#00DA29'];
@@ -77,14 +43,12 @@
         let colour = randomColour();
         console.log(colour);
 
-
         map.on('load', function () {
             map.addSource("states", {
                 "type": "geojson",
                 "data": "{{ asset('countries.geojson') }}",
                 "generateId": true //adds id to each country's properties based on index.
             });
-
             
             //layer for countries that have been clicked.
             map.addLayer({
@@ -155,42 +119,57 @@
                 rendered = true; //prevents rendering >1.
             })
 
-            
+            let score = 0;
+
             map.on("click", "done-fills", function(e) {
+
                 randomColour();
                 console.log(colour);
                 clickedStateId = e.features[0].id;
                 
                 let selectedIndex = clicked.indexOf(clickedStateId);
+                console.log(selectedIndex);
+                console.log(clickedStateId);
 
                 let state = false;
+                $.ajax({
+                    url: '/',
+                    method: 'post',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        id: clickedStateId
+                    }
+                })
 
+                
                 if (selectedIndex == -1) {
                     clicked.push(clickedStateId);
                     state = true;
                     //creates new country record.
-                    $.ajax({
-                        url: '/country',
-                        method: 'post',
-                        data: {
-                            _token: "{{ csrf_token() }}",
-                            id: clickedStateId
-                        }
-                    });
+                
                 } else {
                     clicked.splice(selectedIndex, 1);
-                    //deletes existing country record.
-                    $.ajax({
-                        url: '/country/' + clickedStateId,
-                        method: 'delete',
-                        data: {
-                            _token: "{{ csrf_token() }}"
-                        }
-                    });
                 }
 
                 console.log(clicked);
                 map.setFeatureState({source: 'states', id: clickedStateId}, {click: state});
+
+                
+                let scoreHTML = document.getElementById('score');
+
+                    if(selectedIndex == -1) {
+                        score += 100;
+                        scoreHTML.innerHTML = `Score: ${score}`;
+                    } else {
+                        score -= 100;
+                        scoreHTML.innerHTML = `Score: ${score}`;
+                    } 
+
+                    if (score == 1000) {
+                        let badge = document.getElementById('badge');
+                        badge.style.display = 'block'; 
+                    }
+               
             });
 
             // When the user moves their mouse over the state-fill layer, we'll update the
@@ -203,26 +182,16 @@
                     
                     hoveredStateId = e.features[0].id;
 
-                    console.log(hoveredStateId);
+                    // console.log(hoveredStateId);
 
                     map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
                     let million = (e.features[0].properties.POP_EST/1000000).toFixed(2);
 
-
                     let countries = <?php echo json_encode($countries);?>;
-                    console.log(countries);
-
-                    // clicked.forEach((country) => {
-                    //     console.log(country.name, country.id, e.features[0].properties.name, e.features[0].properties.id);
-                    // })
-
-              
-                    // console.log(countries[hoveredStateId - 1].code);
                     
                     //shows name of country in box
 
-                    console.log(e.features[0]);
                     document.getElementById('features').innerHTML = 
                         '<div class="display-name">' +
                             '<div class="image-crop">' +   
@@ -245,7 +214,7 @@
                 }
                 hoveredStateId =  null;
             });
-        });
+        }); 
     </script>
 
 @endsection

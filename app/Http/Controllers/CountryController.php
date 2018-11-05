@@ -10,24 +10,7 @@ use DB;
 
 class CountryController extends Controller
 {
-    public function list()
-    {    
-        $countries = Country::orderBy('name')->get();
-        $user_id = Auth::id();
-        $user = User::find($user_id);
-
-$visited = '';
-        if($user) 
-        {
-            $visited = $user->countries;
-        }
-        
-        return view('list', compact('countries', 'user_id','visited'));
-        
-    }
-
-
-    public function index()
+        public function index()
     {
         $countries = Country::orderBy('id')->get();
         // $fp = fopen('/tmp/debug.txt', 'a');
@@ -84,30 +67,38 @@ $visited = '';
             ";
 
             DB::insert($query, [$user_id, $country_id]);
-            return redirect()->route('list');
         } 
         
-        // else {
+        else {
         // If user did visit country, remove existing entry
-        //     $query = "
-        //     DELETE FROM `user_visited_countries`
-        //     WHERE `country_id` = ?
-        //     ";
+            $query = "
+            DELETE FROM `user_visited_countries`
+            WHERE `country_id` = ?
+            ";
 
-        //     DB::delete($query, [$country_id]);
-        //     return redirect()->route('list');
-        // }
+            DB::delete($query, [$country_id]);
+        }
     }
 
-    public function destroy($country_id)
-    {
-        $query = "
-        DELETE FROM `user_visited_countries`
-        WHERE `country_id` = ?
-        ";
+    public function show($id) {
+        $country = Country::find($id);
+        return $country;
+    }
 
-        DB::delete($query, [$country_id]);
-        return []; //don't need to return to page because it is ajax.
+        public function list() {
+        $countries = Country::get();
+        return $countries;
     }
     
+    public function visits() {
+        $user_id = Auth::id();
+        $visited_countries = DB::select(
+            "SELECT `country_id` FROM `user_visited_countries` 
+            WHERE `user_id` = :user_id 
+            ORDER BY `country_id` ASC", 
+            ['user_id' => $user_id]
+        );
+
+        return $visited_countries;
+    }
 }

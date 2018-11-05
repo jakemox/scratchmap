@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/list', 'CountryController@list')->name('list');
 Route::get('/', 'CountryController@index');
 Route::post('/', 'CountryController@store');
-Route::resource('/country', 'CountryController');
+// Route::resource('/api', 'CountryController');
+Route::get('/api/countries/{id}', 'CountryController@show');
+Route::get('/api/countries', 'CountryController@list');
+Route::get('/api/visits', 'CountryController@visits');
+
 
 Auth::routes();
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/home', 'CountryController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
