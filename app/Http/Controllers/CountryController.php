@@ -30,11 +30,11 @@ $visited = '';
     public function index()
     {
         $countries = Country::orderBy('id')->get();
-        $fp = fopen('/tmp/debug.txt', 'a');
+        // $fp = fopen('/tmp/debug.txt', 'a');
 
 
         $user_id = Auth::id();
-        fwrite($fp, $user_id."\n");
+        // fwrite($fp, $user_id."\n");
     
         $visited_countries = DB::select(
             "SELECT `country_id` FROM `user_visited_countries` 
@@ -87,16 +87,16 @@ $visited = '';
             return redirect()->route('list');
         } 
         
-        else {
+        // else {
         // If user did visit country, remove existing entry
-            $query = "
-            DELETE FROM `user_visited_countries`
-            WHERE `country_id` = ?
-            ";
+        //     $query = "
+        //     DELETE FROM `user_visited_countries`
+        //     WHERE `country_id` = ?
+        //     ";
 
-            DB::delete($query, [$country_id]);
-            return redirect()->route('list');
-        }
+        //     DB::delete($query, [$country_id]);
+        //     return redirect()->route('list');
+        // }
     }
 
     public function destroy($country_id)
