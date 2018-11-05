@@ -60,34 +60,22 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
+/******/ ({
+
+/***/ 12:
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(13);
 __webpack_require__(14);
-__webpack_require__(15);
-__webpack_require__(16);
-module.exports = __webpack_require__(17);
+module.exports = __webpack_require__(15);
 
 
 /***/ }),
-/* 14 */
+
+/***/ 13:
 /***/ (function(module, exports) {
 
 var _createClass = function () {
@@ -170,7 +158,8 @@ $.ajax({
 });
 
 /***/ }),
-/* 15 */
+
+/***/ 14:
 /***/ (function(module, exports) {
 
 document.getElementById('trigger-mobile').addEventListener('click', function () {
@@ -204,16 +193,12 @@ slideTriggerMobile.addEventListener('click', function () {
 });
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports) {
 
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'D:\\coding\\scratchmap\\resources\\js\\toggle_visit.js'");
-
-/***/ }),
-/* 17 */
+/***/ 15:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
-/******/ ]);
+
+/******/ });

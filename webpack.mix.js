@@ -17,5 +17,4 @@ mix.react('resources/js/app.js', 'public/js')
 mix.js([
    'resources/js/country.js',
    'resources/js/slider.js',
-   'resources/js/toggle_visit.js'
 ], 'public/js/index.js');
