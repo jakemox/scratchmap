@@ -15,12 +15,11 @@ html {
   height: 100vh;
   bottom: 0;
   overflow: hidden;
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.85);
   color: #405C7B;
   font-size: 2rem;
   text-align: center;
   padding-top: 3rem;
-  opacity: 1;
   -webkit-transition: all 1s;
   transition: all 1s;
   z-index: 3;
@@ -31,6 +30,12 @@ html {
 .slider.close {
   bottom: 100vh;
   height: 0;
+}
+
+.continents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .country_button {
@@ -62,7 +67,7 @@ html {
 .sea {
   background-image: radial-gradient(#000000, #06999F);
   width: 100%;
-  height: 60vh;
+  height: 67.5vh;
 }
 
 .map {
@@ -153,7 +158,7 @@ html {
 }
 
 .features .flag-icon {
-  display: inline;
+  display: block;
   margin: 0 auto;
   height: 100%;
   width: auto;
@@ -165,7 +170,7 @@ html {
 
 header .mobile {
   background-color: #530000;
-  height: 20vh;
+  height: 15vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -212,7 +217,7 @@ footer nav {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background-color: #530000;
-  height: 10vh;
+  height: 7.5vh;
 }
 
 .list-country-name {
@@ -226,12 +231,12 @@ footer nav {
   .slider {
     height: 100%;
     text-align: center;
-    width: 70vw;
+    width: 65vw;
   }
 
   .slider.close {
     position: absolute;
-    width: 70vw;
+    width: 65vw;
     height: 0;
     bottom: -10%;
     overflow: hidden;
@@ -276,8 +281,8 @@ footer nav {
   }
 
   body .sea {
-    height: 80vh;
-    width: 70vw;
+    height: 85vh;
+    width: 65vw;
   }
 
   body .listview-desktop {
@@ -307,8 +312,8 @@ footer nav {
   }
 
   body .features {
-    width: 30vw;
-    height: 80vh;
+    width: 35vw;
+    height: 85vh;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -347,10 +352,23 @@ footer nav {
     color: #0C3460;
   }
 
+  body .features .shape-container {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+    margin: 0;
+  }
+
   body .features .shape {
     display: block !important;
-    width: 25vw;
-    margin: 0;
+    height: 50vh;
+    margin: 0 auto;
   }
 
   body .map .listview-mobile {
@@ -378,7 +396,7 @@ footer nav {
         -ms-flex-direction: row nowrap;
             flex-direction: row nowrap;
     width: 100%;
-    height: 20vh;
+    height: 15vh;
     background-color: #530000;
   }
 

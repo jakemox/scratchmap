@@ -3,6 +3,15 @@
 <ul>
 @foreach ($countries as $country)
 
+<div class="continents" id="continents">
+  <a href="Africa"></a>
+  <a href="Asia"></a>
+  <a href="Europe"></a>
+  <a href="North America"></a>
+  <a href="Oceania"></a>
+  <a href="South America"></a>
+</div>
+
 <li class="list-country-item">
   <div class="image-crop">
     <img src="{{ asset('img/flags-normal/'.strtolower($country->code).'.png') }}" class="flag-icon">

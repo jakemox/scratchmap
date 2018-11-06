@@ -24,7 +24,7 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoiamFrZW1veDk5IiwiYSI6ImNqbmxtYjlvcjFtZmozcHE5aW9zN3pjeXcifQ.UCUt8f58HwBvpHcTz8JqkA';
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/jakemox99/cjnomdfut1ea32spgv0umdu84',
+            style: 'mapbox://styles/jakemox99/cjo4t22t8012s2sp2xwb0e0j5',
             collectResourceTiming: true,
             maxBounds: [ [-180, -70], [180, 90] ]
         });
@@ -57,11 +57,11 @@
                 "source": "states",
                 "layout": {},
                 "paint": {
-                    "fill-color": "#00DA65",
+                    "fill-color": "#ffd294",
                     "fill-opacity": ["case",
                         ["boolean", ["feature-state", "click"], false],
-                        1,
-                        0
+                        0,
+                        1
                     ]
                 }
             });
@@ -90,12 +90,12 @@
                 "source": "states",
                 "layout": {},
                 "paint": {
-                    "line-color": "#FFD48B",
-                    "line-width": 1,
+                    "line-color": "#fff3df",
+                    "line-width": 0.3,
                     "line-opacity": ["case",
                         ["boolean", ["feature-state", "click"], false],
-                        1,
-                        0
+                        0,
+                        1
                     ]
                 }
             });
@@ -203,10 +203,14 @@
                             '</div>' +
                             '<h2>' + countries[hoveredStateId - 1].name + '</h2>' +
                         '</div>' +
-                        '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId - 1)].code + '.svg" alt="">' +
-                        '<p>json id: ' + e.features[0].id + '</p>' +
-                        '<p>db id: ' + countries[hoveredStateId - 1].id + '</p>' +
-                        '<p> Population: ' + million + ' million</p>';
+                        '<div class="shape-container">' +  
+                            '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId - 1)].code + '.svg" alt="">' +
+                        '</div>' +
+                        '<p><b>Capital:</b> ' + e.features[0].id + '</p>' +
+                        '<p><b>Population:</b> ' + e.features[0].id + '</p>' +
+                        '<p><b>Currency:</b> ' + e.features[0].id + '</p>' +
+                        '<p><b>Language:</b> ' + countries[hoveredStateId - 1].id + '</p>' +
+                        '<p><b>Area:</b> ' + million + ' million</p>';
                 }
             });
 
