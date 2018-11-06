@@ -125,34 +125,38 @@
 
                 randomColour();
                 console.log(colour);
-                clickedStateId = e.features[0].id;
-                
+                let clickedStateId = e.features[0].id;
+                let clickedStateKey = clickedStateId - 1;
+                let country = countryList[clickedStateKey]
                 let selectedIndex = clicked.indexOf(clickedStateId);
-                console.log(selectedIndex);
-                console.log(clickedStateId);
-
                 let state = false;
+
+                console.log(countryList[clickedStateKey]);
+                
                 $.ajax({
                     url: '/',
                     method: 'post',
                     data: {
                         _token: "{{ csrf_token() }}",
-                        id: clickedStateId
+                        id: country.id
                     }
                 })
 
                 
-                if (selectedIndex == -1) {
-                    clicked.push(clickedStateId);
+                if (country.visited == false) {
+                    clicked.push(country.id);
                     state = true;
+                    country.visited = true;
                     //creates new country record.
                 
                 } else {
                     clicked.splice(selectedIndex, 1);
+                    country.visited = false;
+
                 }
 
                 console.log(clicked);
-                map.setFeatureState({source: 'states', id: clickedStateId}, {click: state});
+                map.setFeatureState({source: 'states', id: country.id}, {click: state});
 
                 
                 let scoreHTML = document.getElementById('score');

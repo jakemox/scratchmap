@@ -190,8 +190,8 @@ $.ajax({
   success: function success(data) {
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
-        var element = data[key];
-        countryList[key] = new Country(element.id, element.code, element.name);
+        var country = data[key];
+        countryList[key] = new Country(country.id, country.code, country.name);
       }
     }
   },
@@ -201,8 +201,8 @@ $.ajax({
       url: '/api/visits',
       method: 'get',
       success: function success(data) {
-        data.forEach(function (element) {
-          countryList[element.country_id - 1].visited = true;
+        data.forEach(function (country) {
+          countryList[country.country_id - 1].visited = true;
         });
       }
     });
