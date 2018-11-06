@@ -1,8 +1,5 @@
 <div class="container">
 
-<ul>
-@foreach ($countries as $country)
-
 <div class="continents" id="continents">
   <a href="Africa"></a>
   <a href="Asia"></a>
@@ -11,13 +8,17 @@
   <a href="Oceania"></a>
   <a href="South America"></a>
 </div>
+<ul>
+@foreach ($countries as $country)
 
 <li class="list-country-item">
-  <div class="image-crop">
-    <img src="{{ asset('img/flags-normal/'.strtolower($country->code).'.png') }}" class="flag-icon">
-  </div>
-  <div class="list-country-name">
-    {{$country->name}} 
+  <div class="country-list">
+    <div class="image-crop">
+      <img class="flag-icon" src="{{ asset('img/flags-normal/'.strtolower($country->code).'.png') }}">
+    </div>
+    <div class="list-country-name">
+      {{$country->name}} 
+    </div>
   </div>
   {{-- Below code for populating the countries where user has visited and a button to change the state. Button is "checked" if country is visited, circle if not (font awesome icons). --}}
   {{-- <div class="country-" id={{$country->id}}> --}}
