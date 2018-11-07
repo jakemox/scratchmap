@@ -15,9 +15,11 @@ html {
   height: 100vh;
   bottom: 0;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.9);
   color: #405C7B;
   font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
   text-align: center;
   padding-top: 3rem;
   -webkit-transition: all 1s;
@@ -74,7 +76,7 @@ html {
   width: 100%;
   height: 100%;
   visibility: visible;
-  background-image: url("/img/sea512trans.svg");
+  background-image: url("/img/sea384-01.svg");
   z-index: 0;
 }
 
@@ -123,10 +125,17 @@ html {
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.flag-icon {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
 .features {
   width: 100%;
   height: 10vh;
-  background: #FFF5DA;
+  background: white;
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -142,13 +151,17 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .features h2 {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #0C3460;
   margin: 0;
 }
@@ -157,15 +170,9 @@ html {
   display: none;
 }
 
-.features .flag-icon {
-  display: block;
-  margin: 0 auto;
-  height: 100%;
-  width: auto;
-}
-
 .features .shape {
   display: none;
+  overflow: hidden;
 }
 
 header .mobile {
@@ -331,8 +338,6 @@ footer nav {
     -webkit-box-direction: reverse;
         -ms-flex-flow: row-reverse;
             flex-flow: row-reverse;
-    width: 30vw;
-    margin: 0;
     padding: 2rem;
     -ms-flex-pack: distribute;
         justify-content: space-around;
@@ -342,7 +347,7 @@ footer nav {
   }
 
   body .features h2 {
-    font-size: 3rem;
+    max-width: 80%;
   }
 
   body .features p {
@@ -518,13 +523,26 @@ footer nav {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 0px;
           flex: 0 0 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10rem;
 }
 
 .list-country-name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 3rem;
+  font-size: 2.5rem;
+}
+
+.country-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .country-button {
@@ -537,6 +555,7 @@ footer nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  justify-self: flex-end;
   cursor: pointer;
   text-align: center;
   height: 60px;
@@ -545,7 +564,15 @@ footer nav {
 
 .country-button:hover {
   cursor: pointer;
-  color: #530000;
+  color: #60D16E;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.fa-check-circle {
+  color: #60D16E;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
   -webkit-transition: .2s;
