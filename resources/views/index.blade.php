@@ -190,7 +190,7 @@
 
                     map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
-                    let million = (e.features[0].properties.POP_EST/1000000).toFixed(2);
+                    // let population = ;
 
                     let countries = <?php echo json_encode($countries);?>;
                     
@@ -206,11 +206,11 @@
                         '<div class="shape-container">' +  
                             '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId - 1)].code + '.svg" alt="">' +
                         '</div>' +
-                        '<p><b>Capital:</b> ' + e.features[0].id + '</p>' +
-                        '<p><b>Population:</b> ' + e.features[0].id + '</p>' +
-                        '<p><b>Currency:</b> ' + e.features[0].id + '</p>' +
-                        '<p><b>Language:</b> ' + countries[hoveredStateId - 1].id + '</p>' +
-                        '<p><b>Area:</b> ' + million + ' million</p>';
+                        '<p><b>Capital:</b> ' + countries[(hoveredStateId - 1)].capital + '</p>' +
+                        '<p><b>Population:</b> ' + (countries[(hoveredStateId - 1)].population/1000000).toFixed(2) + ' million</p>' +
+                        '<p><b>Currency:</b> ' + countries[(hoveredStateId - 1)].currency + '</p>' +
+                        '<p><b>Language:</b> ' + countries[hoveredStateId - 1].language + '</p>' +
+                        '<p><b>Area:</b> ' + (countries[(hoveredStateId - 1)].area/1000) + ' km<sup>2</sup></p>';
                 }
             });
 
