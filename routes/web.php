@@ -18,6 +18,8 @@ Route::get('/api/countries/{id}', 'CountryController@show');
 Route::get('/api/countries', 'CountryController@list');
 Route::get('/api/visits', 'CountryController@visits');
 
+Route::get('/search', 'SearchController@show');
+
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

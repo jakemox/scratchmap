@@ -12,8 +12,8 @@
              <div id="slider" class="slider close">
             @include('list')
 
-                 </div>    
-            </div>
+            </div>    
+        </div>
     </div>
    
     <div class='features' id='features'></div>

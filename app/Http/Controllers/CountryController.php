@@ -10,7 +10,7 @@ use DB;
 
 class CountryController extends Controller
 {
-        public function index()
+    public function index()
     {
         $countries = Country::orderBy('id')->get();
         // $fp = fopen('/tmp/debug.txt', 'a');

@@ -1,0 +1,201 @@
+$color-text: #FFF5DA;
+
+* {
+  margin: auto 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 92.5vh;
+    background-image: url('/img/sky.jpg');
+    background-size: 100% 100%;
+    z-index: -1;
+}
+
+header .mobile {
+    background-color: rgba($color: #000000, $alpha: 0);
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1rem;
+  
+    img {
+        height: 60px;
+        width: 60px;
+    }
+
+    a {
+        margin: 0;
+        text-decoration: none;
+    }
+    
+    h1 {
+        font-family: 'Korner Deli NF';
+        font-weight: bold;
+        color: $color-text;
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        line-height: 2.5rem;
+    }
+}
+
+header .desktop {
+    display: none;
+}
+
+footer nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: #530000;
+    height: 7.5vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+
+.clouds {
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/clouds.png');
+    background-size: 100% 100%;
+    z-index: 0;
+}
+
+.mountains {
+    width: 100%;
+    height: 40vh;
+    background-image: url('/img/mountains.png');
+    background-size: cover;
+    background-position-x: center;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    
+}
+
+@media only screen and (min-width: 768px) {
+    header .desktop {
+        display: flex;
+        flex-direction: row nowrap;
+        width: 100%;
+        height: 15vh;
+        background-color: rgba($color: #000000, $alpha: 0);
+        padding-top: 1rem;
+ 
+        h2 {
+            color: $color-text;
+            font-size: 2rem; 
+            font-family: 'Poppins', sans-serif;
+            font-weight: 200;
+            margin-bottom: 15px;
+            line-height: 2rem;
+        }
+ 
+        .column1 {
+            display: flex;
+            width: 33%;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 100%;
+        }
+
+        .column2 {
+            width: 33%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+    
+            img {
+            height: 60px;
+            width: 60px;
+            }
+    
+            h1 {
+            font-family: 'Korner Deli NF';
+            font-weight: bold;
+            color: $color-text;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 2.5rem;
+            }
+        }
+  
+        .column3 {
+            width: 33%;
+            display: flex;
+            flex-flow: row nowrap;
+            height: 100%;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+ 
+        .logout {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+    
+            a {
+                color: $color-text;
+                padding: 0.8rem;
+                font-size: 1rem;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 100;
+                text-decoration: none;
+            }  
+        }
+ 
+        .log_reg {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            a {
+                color: $color-text;
+                padding: 0.8rem;
+                font-size: 1rem;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 100;
+                text-decoration: none; 
+            }  
+   
+            span {
+                color:$color-text;
+            }
+        }
+    }
+
+    footer nav {
+        display: none;
+    }
+
+    footer .desktop {
+        display: block;
+    }
+
+    header .mobile {
+        display: none;
+    }
+
+    .sky {
+        height: 100vh;
+    }
+
+    .mountains {
+        height: 40vw;
+    }
+}
+
