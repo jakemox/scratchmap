@@ -1,4 +1,7 @@
-@extends('layouts.layout')
+@extends('layouts.layout', [
+    'image' => 'balloon',
+    'css' => 'app'
+])
 
 
 @section('content')
@@ -12,8 +15,8 @@
              <div id="slider" class="slider close">
             @include('list')
 
-                 </div>    
-            </div>
+            </div>    
+        </div>
     </div>
    
     <div class='features' id='features'></div>
