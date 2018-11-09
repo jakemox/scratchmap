@@ -405,6 +405,11 @@ footer nav {
     background-color: #530000;
   }
 
+  body header .desktop a {
+    text-decoration: none;
+    margin: 0;
+  }
+
   body header .desktop h2 {
     color: #FFF5DA;
     font-size: 2rem;

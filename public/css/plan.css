@@ -101,7 +101,7 @@ footer nav {
   height: 40vh;
   background-image: url("/img/trees.png");
   background-size: cover;
-  z-index: 2;
+  z-index: 3;
   position: absolute;
   bottom: 0;
 }
@@ -111,7 +111,7 @@ footer nav {
   height: 40vh;
   background-image: url("/img/slope.png");
   background-size: cover;
-  z-index: 3;
+  z-index: 2;
   position: absolute;
   bottom: 0;
 }
@@ -139,6 +139,11 @@ footer nav {
     height: 15vh;
     background-color: rgba(0, 0, 0, 0);
     padding-top: 1rem;
+  }
+
+  header .desktop a {
+    text-decoration: none;
+    margin: 0;
   }
 
   header .desktop h2 {
@@ -277,8 +282,12 @@ footer nav {
   }
 
   .slope {
-    height: 50vh;
+    height: 70vh;
+    width: 100%;
     left: 0;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
   }
 }
 

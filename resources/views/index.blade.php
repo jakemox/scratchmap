@@ -1,4 +1,7 @@
-@extends('layouts.layout')
+@extends('layouts.layout', [
+    'image' => 'balloon',
+    'css' => 'app'
+])
 
 
 @section('content')
