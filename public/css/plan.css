@@ -94,6 +94,7 @@ footer nav {
   z-index: 1;
   position: absolute;
   bottom: 10vh;
+  left: 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -373,12 +374,17 @@ footer nav {
   }
 
   .trees {
-    left: calc((100vw - 768px) / 2);
-    height: 60vh;
+    right: 0;
+    height: 70vh;
+    width: 100%;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    background-position-x: 100%;
   }
 
   .slope {
-    height: 70vh;
+    height: 60vh;
     width: 100%;
     left: 0;
     background-size: 70%;
