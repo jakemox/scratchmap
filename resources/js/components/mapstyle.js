@@ -19,4 +19,36 @@ export const dataLayer = fromJS({
       }
 });
 
+export const hoverLayer = fromJS({
+  "id": "hover-fills",
+    "type": "fill",
+      "source": "states",
+        "layout": { },
+  "paint": {
+    "fill-color": "#A80000",
+      "fill-opacity": ["case",
+        ["boolean", ["feature-state", "hover"], false],
+        1,
+        0
+      ]
+  }
+})
+
+export const borderLayer = fromJS({
+  "id": "state-borders",
+  "type": "line",
+  "source": "states",
+  "layout": {},
+  "paint": {
+    "line-color": "#fff3df",
+    "line-width": 0.3,
+    "line-opacity": ["case",
+      ["boolean", ["feature-state", "click"], false],
+      0,
+      1
+    ]
+  }
+
+})
+
 export const defaultMapStyle = fromJS(MAP_STYLE);
