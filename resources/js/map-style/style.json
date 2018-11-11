@@ -1,0 +1,189 @@
+{
+    "version": 8,
+    "name": "Scratchmap-coloured-copy",
+    "metadata": {
+        "mapbox:origin": "basic-template-v1",
+        "mapbox:autocomposite": true,
+        "mapbox:type": "template",
+        "mapbox:sdk-support": {
+            "js": "0.49.0",
+            "android": "6.5.0",
+            "ios": "4.4.0"
+        }
+    },
+    "center": [90.0344505486371, 8.526512829121202e-14],
+    "zoom": 0.5372183800806053,
+    "bearing": 0,
+    "pitch": 0,
+    "sources": {
+        "composite": {
+            "url": "mapbox://jakemox99.cjnw3z4mb2gdf2wpbs79ztql9-0b3b3",
+            "type": "vector"
+        }
+    },
+    "sprite": "mapbox://sprites/jakemox99/cjo4t22t8012s2sp2xwb0e0j5",
+    "glyphs": "mapbox://fonts/jakemox99/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "layout": {},
+            "paint": {
+                "background-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    "hsl(35, 100%, 79%)",
+                    22,
+                    "hsl(35, 100%, 79%)"
+                ],
+                "background-pattern": [
+                    "step",
+                    ["zoom"],
+                    "sea4-01",
+                    22,
+                    "sea3-01"
+                ],
+                "background-opacity": 0
+            }
+        },
+        {
+            "id": "final-version",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "Final_Version",
+            "layout": {},
+            "paint": {"fill-color": "#ffd294"}
+        },
+        {
+            "id": "admin-country",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "Final_Version",
+            "minzoom": 1,
+            "layout": {},
+            "paint": {"line-width": 0.5, "line-color": "#fff3df"}
+        },
+        {
+            "id": "final-version (1)",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "Final_Version",
+            "filter": ["==", "CONTINENT", "Europe"],
+            "layout": {},
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "MAPCOLOR7"],
+                    1,
+                    "#60d16e",
+                    7,
+                    "hsl(127, 55%, 40%)"
+                ]
+            }
+        },
+        {
+            "id": "final-version (2)",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "Final_Version",
+            "filter": ["==", "CONTINENT", "Asia"],
+            "layout": {},
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "MAPCOLOR7"],
+                    1,
+                    "#b26901",
+                    7,
+                    "#f29d25"
+                ]
+            }
+        },
+        {
+            "id": "final-version (3)",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "Final_Version",
+            "filter": ["==", "CONTINENT", "North America"],
+            "layout": {},
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "MAPCOLOR7"],
+                    1,
+                    "#b0c6e6",
+                    7,
+                    "#699ce8"
+                ]
+            }
+        },
+        {
+            "id": "final-version (4)",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "Final_Version",
+            "filter": ["==", "CONTINENT", "South America"],
+            "layout": {},
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "MAPCOLOR7"],
+                    1,
+                    "hsl(273, 93%, 78%)",
+                    7,
+                    "hsl(275, 47%, 58%)"
+                ]
+            }
+        },
+        {
+            "id": "final-version (5)",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "Final_Version",
+            "filter": ["==", "CONTINENT", "Africa"],
+            "layout": {},
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "MAPCOLOR7"],
+                    1,
+                    "#e21500",
+                    7,
+                    "hsl(0, 83%, 69%)"
+                ]
+            }
+        },
+        {
+            "id": "final-version (6)",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "Final_Version",
+            "filter": ["==", "CONTINENT", "Oceania"],
+            "layout": {},
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "MAPCOLOR7"],
+                    1,
+                    "hsl(25, 91%, 52%)",
+                    7,
+                    "hsl(27, 88%, 41%)"
+                ]
+            }
+        }
+    ],
+    "created": "2018-11-05T21:16:04.439Z",
+    "id": "cjo4t22t8012s2sp2xwb0e0j5",
+    "modified": "2018-11-05T21:16:04.439Z",
+    "owner": "jakemox99",
+    "visibility": "private",
+    "draft": false
+}
