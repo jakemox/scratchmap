@@ -4,11 +4,7 @@
 ])
 
 @section('content')
-<div class="sky">
-        <div id="clouds" class="clouds"></div>
-        <div id="mountains" class="mountains"></div>
-        <div id="trees" class="trees"></div>
-        <div id="slope" class="slope"></div>
+<div class="background">
     <div class="fade">
 <div class="container">
     <div class="form">
