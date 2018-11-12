@@ -147,8 +147,8 @@ footer nav {
           align-items: center;
 }
 
-.fade img {
-  height: 3rem;
+img {
+  height: 2rem;
   margin-right: 1rem;
 }
 
@@ -157,6 +157,11 @@ footer nav {
   border-bottom: 1px solid #FFF5DA;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+}
+
+.search-form img {
+  height: 3rem;
+  margin-right: 1rem;
 }
 
 form {
@@ -171,7 +176,20 @@ form {
   width: 50vw;
 }
 
-form input {
+form .email-123 {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+form input,
+form .email_input_field {
   background-color: rgba(255, 255, 255, 0);
   color: #FFF5DA;
   border: none;
@@ -235,16 +253,40 @@ form ::placeholder {
   opacity: 0.9;
   background-color: white;
   z-index: 50;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 10px;
   position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 20vw;
 }
 
-.email1 {
+.register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.name,
+.email,
+.password,
+.confirm-password,
+.register-btn {
+  width: 100%;
+}
+
+.email1,
+.password {
   width: 100%;
   margin: 0.5rem;
   display: -webkit-box;
@@ -258,25 +300,13 @@ form ::placeholder {
 
 .email_input {
   font-size: 1.5rem;
-  width: 100%;
   border-radius: 1rem;
   border: none;
 }
 
-.password {
-  width: 100%;
-  margin: 0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-}
-
 form input {
   font-size: 1.5rem;
+  width: 100%;
 }
 
 .login_labels {
@@ -343,9 +373,63 @@ input {
           justify-content: center;
 }
 
+.email_input ::-webkit-input-placeholder {
+  color: black;
+}
+
+.email_input ::-ms-input-placeholder {
+  color: black;
+}
+
+.email_input ::placeholder {
+  color: black;
+}
+
 img .email,
 img .padlock {
-  height: 3rem;
+  height: 2rem;
+}
+
+.email_field {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.reset_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  background-color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.send_pass {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.reset-pass {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 768px) {

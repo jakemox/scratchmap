@@ -503,25 +503,3 @@ body {
   margin-top: 7rem; 
 }
 
-.container-form {
-  width: 70vw;
-}
-
-.form {
-  opacity: 1;
-  background-color: white;
-  z-index: 50;
-  padding: 2rem;
-  border-radius: 10px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center; 
- 
-}
-
-input.password, input.email {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-}
