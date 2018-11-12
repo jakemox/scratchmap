@@ -19,10 +19,7 @@
     </div>
     <div class="column3">
         <h2>Profile</h2>
-        <h2>Export</h2>
+        <a href="{{ url('/logout') }}"><h2>Logout</h2></a>
     </div> 
-    <div class="logout">
-            <a href="{{ url('/logout') }}"> Logout </a>
-    </div>
   </div>  
 </header>

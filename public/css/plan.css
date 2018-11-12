@@ -147,7 +147,24 @@ footer nav {
           align-items: center;
 }
 
-.fade form {
+img {
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.search-form {
+  opacity: 0.7;
+  border-bottom: 1px solid #FFF5DA;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.search-form img {
+  height: 3rem;
+  margin-right: 1rem;
+}
+
+form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -156,13 +173,23 @@ footer nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid #FFF5DA;
-  opacity: 0.7;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  width: 50vw;
 }
 
-.fade form input {
+form .email-123 {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+form input,
+form .email_input_field {
   background-color: rgba(255, 255, 255, 0);
   color: #FFF5DA;
   border: none;
@@ -175,24 +202,19 @@ footer nav {
   transition: 0.5s;
 }
 
-.fade form ::-webkit-input-placeholder {
+form ::-webkit-input-placeholder {
   color: #FFF5DA;
 }
 
-.fade form ::-ms-input-placeholder {
+form ::-ms-input-placeholder {
   color: #FFF5DA;
 }
 
-.fade form ::placeholder {
+form ::placeholder {
   color: #FFF5DA;
 }
 
-.fade img {
-  height: 3rem;
-  margin-right: 1rem;
-}
-
-.fade form:hover {
+.search-form:hover {
   opacity: 1;
   border-bottom: 'none';
   background-color: white;
@@ -200,27 +222,214 @@ footer nav {
   border-radius: 10px;
 }
 
-.fade form:hover input {
+.search-form:hover input {
   color: #000000;
 }
 
-.fade form:hover ::-webkit-input-placeholder {
+.search-form:hover ::-webkit-input-placeholder {
   color: black;
   opacity: 0.15;
 }
 
-.fade form:hover ::-ms-input-placeholder {
+.search-form:hover ::-ms-input-placeholder {
   color: black;
   opacity: 0.15;
 }
 
-.fade form:hover ::placeholder {
+.search-form:hover ::placeholder {
   color: black;
   opacity: 0.15;
 }
 
-.fade form:hover img {
+.search-form:hover img {
   opacity: 0.15;
+}
+
+.input {
+  width: 33vw;
+}
+
+.form {
+  opacity: 0.9;
+  background-color: white;
+  z-index: 50;
+  padding: 1rem;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 20vw;
+}
+
+.register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.name,
+.email,
+.password,
+.confirm-password,
+.register-btn {
+  width: 100%;
+}
+
+.email1,
+.password {
+  width: 100%;
+  margin: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.email_input {
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+form input {
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+.login_labels {
+  color: #000000;
+  font-weight: 400;
+}
+
+input {
+  font-size: 1.5rem;
+  width: 100%;
+  border-radius: 1rem;
+  border: none;
+}
+
+.remember_me {
+  margin-top: 1rem;
+  width: 30%;
+  margin-bottom: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.check_remember {
+  width: 10%;
+}
+
+.submit-btn {
+  border-radius: 0.5rem;
+  font-family: 'Poppins';
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  width: 50%;
+  border: none;
+  background-color: #5186ca;
+  color: #FFFFFF;
+  margin-top: 1rem;
+}
+
+.forgot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1rem;
+}
+
+.forgot-pass {
+  color: #5186ca;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: center;
+}
+
+.submit_forgotpassword {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.email_input ::-webkit-input-placeholder {
+  color: black;
+}
+
+.email_input ::-ms-input-placeholder {
+  color: black;
+}
+
+.email_input ::placeholder {
+  color: black;
+}
+
+img .email,
+img .padlock {
+  height: 2rem;
+}
+
+.email_field {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.reset_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  background-color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.send_pass {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.reset-pass {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -390,10 +599,6 @@ footer nav {
     background-size: 70%;
     background-repeat: no-repeat;
     background-position-y: 100%;
-  }
-
-  .input {
-    width: 33vw;
   }
 }
 
