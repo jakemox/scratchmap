@@ -9,7 +9,7 @@
 <main>
     <div class="sea">
         <div class='map' id='map'>
-            <div id="score" class="score">Score: </div>
+            <div id="score-container"></div>
              <a href="#"><div id="trigger-mobile"  class='listview-mobile'>View as List</div></a> 
              <a href="#"><div id="trigger-desktop" class='listview-desktop'>View as List</div></a>
              <div id="slider" class="slider close">
@@ -47,6 +47,9 @@
         };
         let colour = randomColour();
         console.log(colour);
+        let score = 0;
+        let scoreContainer = document.getElementById('score-container');
+        ;
 
         map.on('load', function () {
             map.addSource("states", {
@@ -121,10 +124,17 @@
                         map.setFeatureState({source: "states", id:country}, {click: true });
                     });
                 }
+                score = clicked.length;
+                
+                if (score > 0) {
+                    scoreContainer.innerHTML = `<div id="score" class="score">Countries Visited: ${score}</div>`;
+                } else {
+                    scoreContainer.innerHTML = '';
+                }
                 rendered = true; //prevents rendering >1.
             })
 
-            let score = 0;
+            
 
             map.on("click", "done-fills", function(e) {
 
@@ -159,21 +169,12 @@
                 console.log(clicked);
                 map.setFeatureState({source: 'states', id: clickedStateId}, {click: state});
 
-                
-                let scoreHTML = document.getElementById('score');
+                scoreContainer.innerHTML = `<div id="score" class="score">Countries Visited: ${score}</div>`;
 
-                    if(selectedIndex == -1) {
-                        score += 100;
-                        scoreHTML.innerHTML = `Score: ${score}`;
-                    } else {
-                        score -= 100;
-                        scoreHTML.innerHTML = `Score: ${score}`;
-                    } 
-
-                    if (score == 1000) {
-                        let badge = document.getElementById('badge');
-                        badge.style.display = 'block'; 
-                    }
+                if (score == 1000) {
+                    let badge = document.getElementById('badge');
+                    badge.style.display = 'block'; 
+                }
                
             });
 
