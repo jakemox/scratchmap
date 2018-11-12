@@ -12,9 +12,15 @@
     <div id="trees" class="trees"></div>
     <div id="slope" class="slope"></div>
     <div class="fade">
-        <form class="search-form" id="search-form" action="{{URL::to('/search')}}" role="search">
-            <label id="search-label" for="search"><img src="\img\search.svg" alt=""></label>
-            <input id="search-input" name="search" type="text" placeholder="Search destinations">
+        <form class="search-form" method="post" id="search-form" action="/city/search">
+            {{csrf_field()}}
+            <div class="form-group">
+                <label id="search-label" for="search">
+                    <img src="\img\search.svg" alt="">
+                </label>
+                <input id="search-input" name="search" type="text" placeholder="Search destinations">
+                <button type="submit">Search</button>
+            </div>
         </form>
     </div>
 </div>

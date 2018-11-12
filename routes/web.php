@@ -20,6 +20,9 @@ Route::get('/api/visits', 'CountryController@visits');
 
 Route::get('/search', 'SearchController@show');
 
+Route::get('/city/{city}', 'CityController@index');
+Route::post('/city/search', 'CityController@search');
+
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
