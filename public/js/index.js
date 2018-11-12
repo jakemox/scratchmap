@@ -63,18 +63,9 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
+/******/ ({
+
+/***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
@@ -83,15 +74,19 @@ module.exports = __webpack_require__(15);
 
 
 /***/ }),
-/* 11 */
+
+/***/ 11:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__country__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__slider__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__slider__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__search_search_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__slider__);
+
 
 
 
@@ -126,7 +121,8 @@ $.ajax({
 });
 
 /***/ }),
-/* 12 */
+
+/***/ 12:
 /***/ (function(module, exports) {
 
 var _createClass = function () {
@@ -209,7 +205,8 @@ $.ajax({
 });
 
 /***/ }),
-/* 13 */
+
+/***/ 13:
 /***/ (function(module, exports) {
 
 document.getElementById('trigger-mobile').addEventListener('click', function () {
@@ -243,16 +240,68 @@ slideTriggerMobile.addEventListener('click', function () {
 });
 
 /***/ }),
-/* 14 */
+
+/***/ 14:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 15 */
+
+/***/ 15:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
+/***/ }),
+
+/***/ 48:
+/***/ (function(module, exports) {
+
+document.addEventListener('DOMContentLoaded', function () {
+    var x = window.matchMedia("(max-width: 768px)");
+    var form = document.getElementById('search-form');
+    var label = document.getElementById('search-label');
+    var clouds = document.getElementById('clouds');
+    var trees = document.getElementById('trees');
+    var slope = document.getElementById('slope');
+    var mountains = document.getElementById('mountains');
+
+    form.addEventListener('mouseover', function () {
+        label.innerHTML = '<img src="\\img\\search-black.svg" alt="">';
+        slope.style.left = '-5%';
+        mountains.style.width = '110%';
+        mountains.style.left = '-5%';
+        trees.style.left = '5%';
+
+        if (x.matches) {
+            mountains.style.height = '45vh';
+            mountains.style.bottom = '5vh';
+        } else {
+            mountains.style.height = '60vw';
+            mountains.style.maxHeight = '80vh';
+            mountains.style.bottom = '0';
+        }
+    });
+
+    form.addEventListener('mouseleave', function () {
+        label.innerHTML = '<img src="\\img\\search.svg" alt="">';
+        slope.style.left = '0';
+        mountains.style.width = '100%';
+        mountains.style.left = '0';
+        trees.style.left = '0';
+
+        if (x.matches) {
+            mountains.style.height = '40vh';
+            mountains.style.bottom = '10vh';
+        } else {
+            mountains.style.height = '50vw';
+            mountains.style.maxHeight = '70vh';
+            mountains.style.bottom = '0';
+        }
+    });
+});
+
 /***/ })
-/******/ ]);
+
+/******/ });

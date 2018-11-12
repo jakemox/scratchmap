@@ -27,9 +27,11 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoiamFrZW1veDk5IiwiYSI6ImNqbmxtYjlvcjFtZmozcHE5aW9zN3pjeXcifQ.UCUt8f58HwBvpHcTz8JqkA';
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/jakemox99/cjo4t22t8012s2sp2xwb0e0j5',
+            style: 'mapbox://styles/jakemox99/cjoctcplm26gg2rrrrxp4o3gi',
             collectResourceTiming: true,
-            maxBounds: [ [-180, -70], [180, 90] ]
+            maxBounds: [ [-180, -70], [180, 90] ],
+            zoom: 0,
+            center: [0, 0]
         });
 
       
@@ -49,7 +51,7 @@
         map.on('load', function () {
             map.addSource("states", {
                 "type": "geojson",
-                "data": "{{ asset('countries.geojson') }}",
+                "data": "{{ asset('countries-simple.geojson') }}",
                 "generateId": true //adds id to each country's properties based on index.
             });
             
