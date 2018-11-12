@@ -44,8 +44,8 @@ class LoginController extends Controller
         return redirect('/');
     }
 
-    public function showLoginForm()
-{
-    return view('\auth\login');
-}
+    // public function showLoginForm()
+    // {
+    //     return view('\auth\login');
+    // }
 }
