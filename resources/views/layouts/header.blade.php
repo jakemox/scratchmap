@@ -9,7 +9,6 @@
         <a href="/"><h2>Map</h2></a>
         <a href="/search"><h2>Plan</h2></a>
         <div class="log_reg">
-                <a href="{{ route('login') }}">{{ __('Login') }}</a><span>|</span>
                 <a href="{{ route('register') }}">{{ __('Register') }}</a>
         </div>
     </div>
@@ -19,7 +18,13 @@
     </div>
     <div class="column3">
         <h2>Profile</h2>
-        <a href="{{ url('/logout') }}"><h2>Logout</h2></a>
+        @guest
+    <a href="{{ route('login') }}"><h2>Login</h2></a>
+        @endguest
+    @auth
+    <a href="{{ url('/logout') }}"><h2>Logout</h2></a>
+    @endauth
+        
     </div> 
   </div>  
 </header>
