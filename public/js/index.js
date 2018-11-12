@@ -63,28 +63,36 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 10:
+/******/ ([
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-__webpack_require__(14);
-module.exports = __webpack_require__(15);
+__webpack_require__(15);
+module.exports = __webpack_require__(16);
 
 
 /***/ }),
-
-/***/ 11:
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__country__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__search_search_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__slider__);
 
 
@@ -121,8 +129,7 @@ $.ajax({
 });
 
 /***/ }),
-
-/***/ 12:
+/* 12 */
 /***/ (function(module, exports) {
 
 var _createClass = function () {
@@ -205,57 +212,7 @@ $.ajax({
 });
 
 /***/ }),
-
-/***/ 13:
-/***/ (function(module, exports) {
-
-document.getElementById('trigger-mobile').addEventListener('click', function () {
-    var button = document.getElementById('trigger-mobile');
-    if (button.innerHTML === 'View as List') {
-        button.innerHTML = 'View Map';
-    } else {
-        button.innerHTML = 'View as List';
-    }
-});
-
-document.getElementById('trigger-desktop').addEventListener('click', function () {
-    var button = document.getElementById('trigger-desktop');
-    if (button.innerHTML === 'View as List') {
-        button.innerHTML = 'View Map';
-    } else {
-        button.innerHTML = 'View as List';
-    }
-});
-
-var slideTriggerDesktop = document.getElementById('trigger-desktop');
-slideTriggerDesktop.addEventListener('click', function () {
-    var element = document.getElementById('slider');
-    element.classList.toggle('close');
-});
-
-var slideTriggerMobile = document.getElementById('trigger-mobile');
-slideTriggerMobile.addEventListener('click', function () {
-    var element = document.getElementById('slider');
-    element.classList.toggle('close');
-});
-
-/***/ }),
-
-/***/ 14:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 15:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 48:
+/* 13 */
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -302,6 +259,51 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-/***/ })
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
 
-/******/ });
+document.getElementById('trigger-mobile').addEventListener('click', function () {
+    var button = document.getElementById('trigger-mobile');
+    if (button.innerHTML === 'View as List') {
+        button.innerHTML = 'View Map';
+    } else {
+        button.innerHTML = 'View as List';
+    }
+});
+
+document.getElementById('trigger-desktop').addEventListener('click', function () {
+    var button = document.getElementById('trigger-desktop');
+    if (button.innerHTML === 'View as List') {
+        button.innerHTML = 'View Map';
+    } else {
+        button.innerHTML = 'View as List';
+    }
+});
+
+var slideTriggerDesktop = document.getElementById('trigger-desktop');
+slideTriggerDesktop.addEventListener('click', function () {
+    var element = document.getElementById('slider');
+    element.classList.toggle('close');
+});
+
+var slideTriggerMobile = document.getElementById('trigger-mobile');
+slideTriggerMobile.addEventListener('click', function () {
+    var element = document.getElementById('slider');
+    element.classList.toggle('close');
+});
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+/******/ ]);
