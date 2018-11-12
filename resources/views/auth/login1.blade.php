@@ -14,10 +14,10 @@
 <div class="container_form">
 <div class="form">
 <div class="email">
-  <form id="login-form" method="POST" action="{{ route('login') }}">
+  <form class="" id="login-form" method="POST" action="{{ route('login') }}">
   @csrf
   <div class="email1">
-    <label for="email" placeholder="E-Mail Address" class="login_labels">{{ __('E-Mail Address') }}</label>
+    <label for="email" placeholder="E-Mail Address" class="login_labels"><img src="img\email.svg" alt="email_logo"></label>
     <input id="email" placeholder="E-Mail Address" type="email" class="email_input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
     @if ($errors->has('email'))
     <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
   </div>
 </div>
 <div class="password">
-      <label for="password" class="login_labels">{{ __('Password') }}</label>
+      <label for="password" class="login_labels"><img src="img/padlock.svg" alt="padlock_logo"></label>
       <div class="col-md-6">
         <input id="password" type="password" class="password{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
         @if ($errors->has('password'))
