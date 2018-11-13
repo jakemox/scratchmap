@@ -6,7 +6,7 @@ var map = new mapboxgl.Map({
     collectResourceTiming: true,
     maxBounds: [ [-180, -70], [180, 90] ],
     zoom: 0,
-    center: [0, 0]
+    center: [45, 45]
 });
 
 var nav = new mapboxgl.NavigationControl();
@@ -83,10 +83,8 @@ map.on('load', function () {
     // render countries saved in db as clicked
     
     map.on("render", "done-fills", () => {
-        // let visited_countries = 
         //only render once.
         if (!rendered) {
-            // @foreach($visited_countries as $country)
             countryList.forEach(country => {
                 if(country.visited === true)
                   {
@@ -94,9 +92,6 @@ map.on('load', function () {
                   }
             });
 
-            console.log(clicked)
-            console.log("country list to render");
-            
             clicked.forEach(country => {
                 map.setFeatureState({source: "states", id:country.id}, {click: true });
             });
@@ -121,16 +116,6 @@ map.on('load', function () {
         axios.post('/', {
             id: country.id
         })
-
-        // $.ajax({
-        //     url: '/',
-        //     method: 'post',
-        //     data: {
-        //         _token: "{{ csrf_token() }}",
-        //         id: country.id
-        //     }
-        // })
-
         
         if (country.visited == false) {
             clicked.push(country.id);
@@ -175,13 +160,8 @@ map.on('load', function () {
             
             hoveredStateId = e.features[0].id;
 
-            // console.log(hoveredStateId);
-
             map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
-            // let population = ;
-
-            // let countries = <?php echo json_encode($countries);?>;
             let countries = countryList;
             
             //shows name of country in box
