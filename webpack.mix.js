@@ -16,6 +16,6 @@ mix.react('resources/js/app.js', 'public/js')
    
 mix.sass('resources/sass/plan.scss', 'public/css');
 
-mix.js([
+mix.react([
    'resources/js/index.js',
 ], 'public/js/index.js');
