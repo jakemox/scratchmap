@@ -21,6 +21,11 @@ header .mobile img {
   width: 60px;
 }
 
+header .mobile .active > a {
+  color: aqua;
+  background-color: chartreuse;
+}
+
 header .mobile a {
   margin: 0;
   text-decoration: none;
