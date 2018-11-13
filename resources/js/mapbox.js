@@ -6,12 +6,11 @@ var map = new mapboxgl.Map({
     collectResourceTiming: true,
     maxBounds: [ [-180, -70], [180, 90] ],
     zoom: 0,
-    center: [45, 45],
-    hash: true
+    center: [45, 45]
+ 
 });
 
-const spinnerEl = document.getElementById('spinner');
-const backgroundEl = document.getElementById('loading-background');
+
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
