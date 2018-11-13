@@ -7,6 +7,12 @@
 @section('content')
 
 <main>
+    <div class="loading" id="loading">
+        <div class="spinner">
+            <img class="bounce" src="\img\balloon.svg" alt="balloon" height="80px" width="80px">
+            <h1 class="loading_title">Scratchmapp<h1>
+        </div>
+    </div>
     <div class="sea">
         <div class='map' id='map'>
             <div id="score-container"></div>
@@ -24,7 +30,11 @@
     </div>
    
     <div class='features' id='features'></div>
-    
+  
 </main>
 
 @endsection
+
+
+
+

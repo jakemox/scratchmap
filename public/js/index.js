@@ -275,9 +275,12 @@ var map = new mapboxgl.Map({
     collectResourceTiming: true,
     maxBounds: [[-180, -70], [180, 90]],
     zoom: 0,
-    center: [45, 45]
+    center: [45, 45],
+    hash: true
 });
 
+var spinnerEl = document.getElementById('spinner');
+var backgroundEl = document.getElementById('loading-background');
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
@@ -352,6 +355,8 @@ map.on('load', function () {
                 map.setFeatureState({ source: "states", id: country.id }, { click: true });
             });
         }
+        var loading = document.getElementById('loading');
+        loading.style.display = 'none';
         rendered = true; //prevents rendering >1.
     });
 
