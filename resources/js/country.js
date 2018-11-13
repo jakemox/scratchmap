@@ -27,26 +27,23 @@ class Country {
 
     if (toggle.firstElementChild.className == "far fa-circle") { 
       toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
-      this.visited = true;
-      clicked.push(this.id);
+      
     } else {
       toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
+      
     }
   }
 
   updateMap() {
-    // let clickedStateId = this.id;
-    // let clickedStateKey = clickedStateId - 1;
-    // let country = countryList[clickedStateKey]
-    // let selectedIndex = clicked.indexOf(clickedStateId);
-    // let state = false;
-    
     // if (this.visited == false) {
     //   clicked.push(this.id);
     //   state = true;
     //   this.visited = true;
     //   //creates new country record.
-    // } 
+    // } else {
+    //   this.splice(selectedIndex, 1);
+    //   this.visited = false;
+    // }
   }
   
   checked() {
@@ -58,7 +55,6 @@ class Country {
   }
   
   renderList() {
-    console.log(this.name);
     let listCountryItem = document.createElement('li');
     listCountryItem.setAttribute('class', 'list-country-item');
     
@@ -71,7 +67,7 @@ class Country {
           ${this.name}
         </div>
       </div>
-      <div id="country_${this.id}" class="country-button" onclick="countryList[${this.id - 1}].toggle_visit()">${this.checked()}
+      <div id="country_${this.id}" class="country-button">${this.checked()}
       </div>`
     )
 
@@ -81,8 +77,12 @@ class Country {
   mountList(parent) {
     let listCountryElm = this.renderList();
     parent.appendChild(listCountryElm);
-  }
 
+    let toggleBtn = document.getElementById(`country_${this.id}`);
+    toggleBtn.addEventListener('click', () => {
+      this.toggle_visit();
+    })
+  }
 }
 
 countryList = [];
@@ -106,7 +106,7 @@ countryList = [];
       method: 'get',
       success: (data) => {
         data.forEach(country => {
-          countryList[country.country_id -1].visited = true
+          countryList[country.country_id -1].visited = true;
           });
       }
     })}

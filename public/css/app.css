@@ -327,6 +327,12 @@ footer nav {
   font-size: 2rem;
 }
 
+.continents-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 @media only screen and (min-width: 768px) {
   .slider {
     height: 100%;
