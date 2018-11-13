@@ -28,9 +28,5 @@ slideTriggerMobile.addEventListener('click', function() {
     element.classList.toggle('close');
 });
 
-var clicked = [];
 
-let europeBtn = document.getElementById('europe-btn');
-europeBtn.addEventListener('click', function() {
 
-})

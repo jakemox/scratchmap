@@ -136,9 +136,53 @@ var Country = function () {
 
       if (toggle.firstElementChild.className == "far fa-circle") {
         toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
+        this.visited = true;
+        clicked.push(this.id);
       } else {
         toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
       }
+    }
+  }, {
+    key: 'updateMap',
+    value: function updateMap() {
+      // let clickedStateId = this.id;
+      // let clickedStateKey = clickedStateId - 1;
+      // let country = countryList[clickedStateKey]
+      // let selectedIndex = clicked.indexOf(clickedStateId);
+      // let state = false;
+
+      // if (this.visited == false) {
+      //   clicked.push(this.id);
+      //   state = true;
+      //   this.visited = true;
+      //   //creates new country record.
+      // } 
+    }
+  }, {
+    key: 'checked',
+    value: function checked() {
+      if (this.visited == false) {
+        return '<i class="far fa-circle"></i>';
+      } else {
+        return '<i class="fas fa-check-circle"></i>';
+      }
+    }
+  }, {
+    key: 'renderList',
+    value: function renderList() {
+      console.log(this.name);
+      var listCountryItem = document.createElement('li');
+      listCountryItem.setAttribute('class', 'list-country-item');
+
+      listCountryItem.innerHTML = '<div class="country-list">\n        <div class="image-crop">\n          <img class="flag-icon" src="/img/flags-normal/' + this.code.toLowerCase() + '.png">\n        </div>\n        <div class="list-country-name">\n          ' + this.name + '\n        </div>\n      </div>\n      <div id="country_' + this.id + '" class="country-button" onclick="countryList[' + (this.id - 1) + '].toggle_visit()">' + this.checked() + '\n      </div>';
+
+      return listCountryItem;
+    }
+  }, {
+    key: 'mountList',
+    value: function mountList(parent) {
+      var listCountryElm = this.renderList();
+      parent.appendChild(listCountryElm);
     }
   }]);
 
@@ -257,11 +301,6 @@ slideTriggerMobile.addEventListener('click', function () {
     element.classList.toggle('close');
 });
 
-var clicked = [];
-
-var europeBtn = document.getElementById('europe-btn');
-europeBtn.addEventListener('click', function () {});
-
 /***/ }),
 
 /***/ 44:
@@ -286,12 +325,10 @@ map.addControl(nav, 'top-left');
 
 var hoveredStateId = null;
 var clicked = [];
-var colours = ['#00D84A', '#00DA65', '#00DA29'];
-function randomColour() {
-    return colours[Math.floor(Math.random() * colours.length)];
-};
-var colour = randomColour();
-console.log(colour);
+var score = 0;
+var scoreContainer = document.getElementById('score-container');
+;
+var countryListView = document.getElementById('country-list');
 
 map.on('load', function () {
     map.addSource("states", {
@@ -345,6 +382,9 @@ map.on('load', function () {
     map.on("render", "done-fills", function () {
         //only render once.
         if (!rendered) {
+            var loading = document.getElementById('loading');
+            loading.style.display = 'none';
+
             countryList.forEach(function (country) {
                 if (country.visited === true) {
                     clicked.push(country);
@@ -354,18 +394,26 @@ map.on('load', function () {
             clicked.forEach(function (country) {
                 map.setFeatureState({ source: "states", id: country.id }, { click: true });
             });
-        }
-        var loading = document.getElementById('loading');
-        loading.style.display = 'none';
-        rendered = true; //prevents rendering >1.
-    });
 
-    var score = 0;
+            score = clicked.length;
+
+            if (score > 0) {
+                scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
+            } else {
+                scoreContainer.innerHTML = '';
+            }
+
+            countryList.forEach(function (country) {
+                country.mountList(countryListView);
+            });
+        }
+
+        rendered = true; //prevents rendering >1.
+
+    });
 
     map.on("click", "done-fills", function (e) {
 
-        randomColour();
-        console.log(colour);
         var clickedStateId = e.features[0].id;
         var clickedStateKey = clickedStateId - 1;
         var country = countryList[clickedStateKey];
@@ -391,15 +439,9 @@ map.on('load', function () {
         console.log(clicked);
         map.setFeatureState({ source: 'states', id: country.id }, { click: state });
 
-        var scoreHTML = document.getElementById('score');
+        score = clicked.length;
 
-        if (selectedIndex == -1) {
-            score += 100;
-            scoreHTML.innerHTML = 'Score: ' + score;
-        } else {
-            score -= 100;
-            scoreHTML.innerHTML = 'Score: ' + score;
-        }
+        scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
 
         if (score == 1000) {
             var badge = document.getElementById('badge');

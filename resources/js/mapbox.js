@@ -17,12 +17,12 @@ map.addControl(nav, 'top-left');
 
 var hoveredStateId =  null;
 var clicked = [];
-let colours = ['#00D84A', '#00DA65', '#00DA29'];
-function randomColour() {
-    return colours[Math.floor(Math.random() * colours.length)]
-};
-let colour = randomColour();
-console.log(colour);
+let score = 0;
+let scoreContainer = document.getElementById('score-container');
+;
+let countryListView = document.getElementById('country-list');
+
+
 
 map.on('load', function () {   
     map.addSource("states", {
@@ -88,6 +88,9 @@ map.on('load', function () {
     map.on("render", "done-fills", () => {
         //only render once.
         if (!rendered) {
+            let loading = document.getElementById('loading');
+            loading.style.display= 'none';
+            
             countryList.forEach(country => {
                 if(country.visited === true)
                   {
@@ -98,18 +101,29 @@ map.on('load', function () {
             clicked.forEach(country => {
                 map.setFeatureState({source: "states", id:country.id}, {click: true });
             });
-        }
-        let loading = document.getElementById('loading');
-        loading.style.display= 'none'; 
-        rendered = true; //prevents rendering >1.
-    })
 
-    let score = 0;
+            score = clicked.length;
+                
+            if (score > 0) {
+                scoreContainer.innerHTML = `<div id="score" class="score">Countries Visited: ${score}</div>`;
+            } else {
+                scoreContainer.innerHTML = '';
+            }
+
+            countryList.forEach(country => {
+                country.mountList(countryListView);
+            })
+        }
+        
+
+        
+        rendered = true; //prevents rendering >1.
+
+        
+    })
 
     map.on("click", "done-fills", function(e) {
 
-        randomColour();
-        console.log(colour);
         let clickedStateId = e.features[0].id;
         let clickedStateKey = clickedStateId - 1;
         let country = countryList[clickedStateKey]
@@ -131,22 +145,14 @@ map.on('load', function () {
         } else {
             clicked.splice(selectedIndex, 1);
             country.visited = false;
-
         }
 
         console.log(clicked);
         map.setFeatureState({source: 'states', id: country.id}, {click: state});
 
-        
-        let scoreHTML = document.getElementById('score');
+        score = clicked.length;
 
-            if(selectedIndex == -1) {
-                score += 100;
-                scoreHTML.innerHTML = `Score: ${score}`;
-            } else {
-                score -= 100;
-                scoreHTML.innerHTML = `Score: ${score}`;
-            } 
+        scoreContainer.innerHTML = `<div id="score" class="score">Countries Visited: ${score}</div>`;
 
             if (score == 1000) {
                 let badge = document.getElementById('badge');
