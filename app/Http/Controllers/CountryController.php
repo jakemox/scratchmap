@@ -38,10 +38,16 @@ class CountryController extends Controller
     }
 
     public function store(Request $country_id) {
+        if(!Auth::check()){
+            return false;
+        }
 
         $country = Country::find($country_id);
         $country_id = $country[0]->id;
         $user_id = Auth::id();
+
+        $user = Auth::user();
+      
 
         // Validate if user has already visited this country
         $has_visited_query = DB::select(
@@ -54,13 +60,16 @@ class CountryController extends Controller
         $has_visited = null;
         if ($has_visited_query != []) {
             $has_visited = 1;
+            
         } 
 
 
         if($has_visited === null)
         { 
             // If user did not visit country, insert new record in user_visited_countries table
-                        
+            $user->score = $user->score + 100;
+            $user->save();
+               
             $query = "
             INSERT INTO `user_visited_countries`(`user_id`, `country_id`)
                 VALUES (?,?)
@@ -75,6 +84,10 @@ class CountryController extends Controller
             DELETE FROM `user_visited_countries`
             WHERE `country_id` = ?
             ";
+
+            $user->score = $user->score - 100;
+            $user->save();
+    
 
             DB::delete($query, [$country_id]);
         }
@@ -101,5 +114,7 @@ class CountryController extends Controller
 
         return $visited_countries;
     }
+
+
 }
 
