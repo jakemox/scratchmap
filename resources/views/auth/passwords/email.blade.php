@@ -6,38 +6,32 @@
 @section('content')
 <div class="background">
     <div class="fade">
-<div class="container">
-    <div class="form">
-    <div class="reset-pass">{{ __('Reset Password') }}</div>
-        <div class="password">
+        <form class="form" method="POST" action="{{ route('password.email') }}">
+            <div class="reset-pass">{{ __('Reset Password') }}</div>
             @if (session('status'))
-            <div class="alert alert-success" role="alert">
-            {{ session('status') }}EMAIL
-            </div>
-            @endif  
-            <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-                <div class="email-123">
-                    <label for="email" class="email-address">{{ __('E-Mail Address') }}</label>
+                <div class="alert alert-success" role="alert">
+                {{ session('status') }}EMAIL
                 </div>
-                <div>
-                    <input id="email" type="email" class="password{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-                    @if ($errors->has('email'))
+            @endif 
+            @csrf
+            <div class="login-field">
+                <label for="email" class="login_labels">
+                    <img src="\img\email.svg" alt="email_logo">
+                </label>
+                <input placeholder="E-Mail address" id="email" type="email" class="login-input password{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                @if ($errors->has('email'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
-                    @endif
-                </div>
-       
-        </form>
-        </div>
-        <div class="send_pass">
+                @endif
+            </div>
+            <div class="send_pass">
                 <button type="submit" class="submit-btn">
-                {{ __('Send Password Reset Link') }}
+                Send Link
                 </button>
-        </div>
-    
-</div>
+            </div>
+        </form>
+    </div>
 </div>
 @endsection
 
