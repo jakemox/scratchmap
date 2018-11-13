@@ -63,6 +63,7 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 39);
 /******/ })
 /************************************************************************/
+<<<<<<< HEAD
 /******/ ({
 
 /***/ 39:
@@ -74,15 +75,44 @@ module.exports = __webpack_require__(40);
 /***/ }),
 
 /***/ 40:
+=======
+/******/ ([
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(11);
+__webpack_require__(15);
+module.exports = __webpack_require__(16);
+
+
+/***/ }),
+/* 11 */
+>>>>>>> bdd1aec2fca32a455483b376b34b080381a7b0f9
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__country__);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__search_search_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider__ = __webpack_require__(43);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__search_search_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider__ = __webpack_require__(14);
+>>>>>>> bdd1aec2fca32a455483b376b34b080381a7b0f9
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__slider__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapbox__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapbox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__mapbox__);
@@ -96,8 +126,12 @@ console.log("pk.eyJ1IjoiamFrZW1veDk5IiwiYSI6ImNqbmxtYjlvcjFtZmozcHE5aW9zN3pjeXci
 console.log("index.js loaded");
 
 /***/ }),
+<<<<<<< HEAD
 
 /***/ 41:
+=======
+/* 12 */
+>>>>>>> bdd1aec2fca32a455483b376b34b080381a7b0f9
 /***/ (function(module, exports) {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -168,6 +202,7 @@ $.ajax({
 });
 
 /***/ }),
+<<<<<<< HEAD
 
 /***/ 42:
 /***/ (function(module, exports) {
@@ -323,6 +358,10 @@ map.on('load', function () {
             "line-opacity": ["case", ["boolean", ["feature-state", "click"], false], 0, 1]
         }
     });
+=======
+/* 13 */
+/***/ (function(module, exports) {
+>>>>>>> bdd1aec2fca32a455483b376b34b080381a7b0f9
 
     var rendered = false;
 
@@ -441,6 +480,51 @@ map.on('load', function () {
     });
 });
 
-/***/ })
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
 
-/******/ });
+document.getElementById('trigger-mobile').addEventListener('click', function () {
+    var button = document.getElementById('trigger-mobile');
+    if (button.innerHTML === 'View as List') {
+        button.innerHTML = 'View Map';
+    } else {
+        button.innerHTML = 'View as List';
+    }
+});
+
+document.getElementById('trigger-desktop').addEventListener('click', function () {
+    var button = document.getElementById('trigger-desktop');
+    if (button.innerHTML === 'View as List') {
+        button.innerHTML = 'View Map';
+    } else {
+        button.innerHTML = 'View as List';
+    }
+});
+
+var slideTriggerDesktop = document.getElementById('trigger-desktop');
+slideTriggerDesktop.addEventListener('click', function () {
+    var element = document.getElementById('slider');
+    element.classList.toggle('close');
+});
+
+var slideTriggerMobile = document.getElementById('trigger-mobile');
+slideTriggerMobile.addEventListener('click', function () {
+    var element = document.getElementById('slider');
+    element.classList.toggle('close');
+});
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+/******/ ]);

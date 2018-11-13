@@ -1,0 +1,123 @@
+$color-text: #FFF5DA;
+
+.sky {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 92.5vh;
+    background-image: url('/img/sky.jpg');
+    background-size: 100% 100%;
+    z-index: -1;
+}
+
+.clouds {
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/clouds.png');
+    background-size: 100% 100%;
+    z-index: 0;
+}
+
+.mountains  {
+    width: 100%;
+    height: 40vh;
+    background-image: url('/img/mountains.png');
+    background-size: cover;
+    background-position-x: center;
+    z-index: 1;
+    position: absolute;
+    bottom: 10vh;
+    left: 0;
+    transition: 0.5s;
+}
+
+.trees {
+    width: 100%;
+    height: 40vh;
+    background-image: url('/img/trees.png');
+    background-size: cover;
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.slope {
+    width: 100%;
+    height: 40vh;
+    background-image: url('/img/slope.png');
+    background-size: cover;
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.search-form {
+    opacity: 0.7;
+    border-bottom: 1px solid $color-text;
+    transition: 0.5s;
+
+    img {
+        height: 3rem;
+        margin-right: 1rem;
+    }
+
+    ::placeholder {
+        color: $color-text;
+    }
+}
+
+.search-form:hover {
+    opacity: 1;
+    border-bottom: 'none';
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1rem;
+    border-radius: 10px;
+    
+    input {
+        color: #000000;
+    }
+
+    ::placeholder {
+        color: black;
+        opacity: 0.15;
+    }
+
+    img {
+        opacity: 0.15;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .sky {
+        height: 100vh;
+    }
+
+    .mountains {
+        height: 50vw;
+        bottom: 0;
+        max-height: 70vh;
+    }
+
+    .trees {
+        right: 0;
+        height: 70vh;
+        width: 100%;
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position-y: 100%;
+        background-position-x: 100%;
+    };
+
+    .slope {
+        height: 60vh;
+        width: 100%;
+        left: 0;
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position-y: 100%;
+    }
+}
