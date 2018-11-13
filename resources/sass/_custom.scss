@@ -19,6 +19,47 @@ html {
 
 // }
 
+.loading {
+  position: fixed;
+  z-index: 50;
+  height: 100%;
+  width: 100%;
+  top:0px;
+  left:0px;
+  background-color: #405C7B;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading_title {
+  font-family: 'Korner Deli NF';
+    font-weight: bold;
+    color:#FFD496;
+    font-size: 4.5rem;
+    margin-bottom: 15px;
+}
+
+.bounce {
+  position:fixed;
+  left:50%;
+  bottom:0;
+  margin-top:-25px;
+  margin-left:-25px;
+  height:80px;
+  width:80px;
+  background:transparent;
+  -webkit-animation:bounce 2s infinite;
+}
+
+@-webkit-keyframes bounce {
+  0%       { bottom:56%; }
+  25%, 75% { bottom:62%; }
+  50%      { bottom:58%; }
+  100%     {bottom:56%;}
+}
+
 .slider {
   position: absolute;
   width: 100vw;
