@@ -22,6 +22,7 @@ Route::get('/search', 'SearchController@show');
 
 Route::get('/city/{city}', 'CityController@index');
 Route::post('/city/search', 'CityController@search');
+Route::get('/city/show/{city}', 'CityController@show');
 
 
 Auth::routes();
