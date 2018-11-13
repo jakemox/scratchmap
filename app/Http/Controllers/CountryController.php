@@ -102,3 +102,4 @@ class CountryController extends Controller
         return $visited_countries;
     }
 }
+

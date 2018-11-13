@@ -6,12 +6,11 @@ var map = new mapboxgl.Map({
     collectResourceTiming: true,
     maxBounds: [ [-180, -70], [180, 90] ],
     zoom: 0,
-    center: [45, 45],
-    hash: true
+    center: [45, 45]
+ 
 });
 
-const spinnerEl = document.getElementById('spinner');
-const backgroundEl = document.getElementById('loading-background');
+
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
@@ -187,7 +186,7 @@ map.on('load', function () {
                 '<div class="shape-container">' +  
                     '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId - 1)].code + '.svg" alt="">' +
                 '</div>' +
-                '<p><b>Capital:</b> ' + countries[(hoveredStateId - 1)].capital + '</p>' +
+                '<p><b>Capital:</b> <a href="/city/show/' + countries[(hoveredStateId - 1)].capital + '">' + countries[(hoveredStateId - 1)].capital + '</a></p>' +
                 '<p><b>Population:</b> ' + (countries[(hoveredStateId - 1)].population/1000000).toFixed(2) + ' million</p>' +
                 '<p><b>Currency:</b> ' + countries[(hoveredStateId - 1)].currency + '</p>' +
                 '<p><b>Language:</b> ' + countries[hoveredStateId - 1].language + '</p>' +
