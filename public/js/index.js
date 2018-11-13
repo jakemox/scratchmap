@@ -86,7 +86,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__slider__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapbox__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapbox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__mapbox__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_City__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_City__ = __webpack_require__(45);
 
 
 
@@ -269,12 +269,10 @@ var map = new mapboxgl.Map({
     collectResourceTiming: true,
     maxBounds: [[-180, -70], [180, 90]],
     zoom: 0,
-    center: [45, 45],
-    hash: true
+    center: [45, 45]
+
 });
 
-var spinnerEl = document.getElementById('spinner');
-var backgroundEl = document.getElementById('loading-background');
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
@@ -433,11 +431,11 @@ map.on('load', function () {
 
 /***/ }),
 
-/***/ 50:
+/***/ 45:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -479,7 +477,7 @@ var City = function (_React$Component) {
 
 /***/ }),
 
-/***/ 51:
+/***/ 46:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -488,13 +486,13 @@ var City = function (_React$Component) {
 if (false) {
   module.exports = require('./cjs/react.production.min.js');
 } else {
-  module.exports = __webpack_require__(52);
+  module.exports = __webpack_require__(47);
 }
 
 
 /***/ }),
 
-/***/ 52:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -515,8 +513,8 @@ if (true) {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(53);
-var checkPropTypes = __webpack_require__(54);
+var _assign = __webpack_require__(48);
+var checkPropTypes = __webpack_require__(49);
 
 // TODO: this is special because it gets imported during build.
 
@@ -2242,7 +2240,7 @@ module.exports = react;
 
 /***/ }),
 
-/***/ 53:
+/***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2340,7 +2338,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /***/ }),
 
-/***/ 54:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2356,7 +2354,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 var printWarning = function() {};
 
 if (true) {
-  var ReactPropTypesSecret = __webpack_require__(55);
+  var ReactPropTypesSecret = __webpack_require__(50);
   var loggedTypeFailures = {};
 
   printWarning = function(text) {
@@ -2439,7 +2437,7 @@ module.exports = checkPropTypes;
 
 /***/ }),
 
-/***/ 55:
+/***/ 50:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
