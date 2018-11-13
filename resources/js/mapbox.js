@@ -6,9 +6,12 @@ var map = new mapboxgl.Map({
     collectResourceTiming: true,
     maxBounds: [ [-180, -70], [180, 90] ],
     zoom: 0,
-    center: [0, 0]
+    center: [45, 45],
+    hash: true
 });
 
+const spinnerEl = document.getElementById('spinner');
+const backgroundEl = document.getElementById('loading-background');
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
@@ -21,7 +24,7 @@ function randomColour() {
 let colour = randomColour();
 console.log(colour);
 
-map.on('load', function () {
+map.on('load', function () {   
     map.addSource("states", {
         "type": "geojson",
         "data": 'countries-simple.geojson',
@@ -101,6 +104,8 @@ map.on('load', function () {
                 map.setFeatureState({source: "states", id:country.id}, {click: true });
             });
         }
+        let loading = document.getElementById('loading');
+        loading.style.display= 'none'; 
         rendered = true; //prevents rendering >1.
     })
 
