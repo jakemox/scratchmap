@@ -1,6 +1,6 @@
 class Country {
 
-  constructor(id, code, name, capital, population, currency, language, area, visited) {
+  constructor(id, code, name, capital, population, currency, language, area, continent, visited) {
     this.id = id;
     this.code = code;
     this.name = name;
@@ -8,7 +8,8 @@ class Country {
     this.population = population;
     this.currency = currency;
     this.language = language;
-    this.area= area;
+    this.area = area;
+    this.continent = continent;
     this.visited = false;
   }
 
@@ -43,7 +44,7 @@ countryList = [];
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
         const country = data[key];
-        countryList[key] = new Country(country.id, country.code, country.name, country.capital, country.population,  country.currency, country.language, country.area)
+        countryList[key] = new Country(country.id, country.code, country.name, country.capital, country.population,  country.currency, country.language, country.area, country.CONTINENT)
       }
     }
   },
