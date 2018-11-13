@@ -105,7 +105,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Country = function () {
-  function Country(id, code, name, capital, population, currency, language, area, visited) {
+  function Country(id, code, name, capital, population, currency, language, area, continent, visited) {
     _classCallCheck(this, Country);
 
     this.id = id;
@@ -116,6 +116,7 @@ var Country = function () {
     this.currency = currency;
     this.language = language;
     this.area = area;
+    this.continent = continent;
     this.visited = false;
   }
 
@@ -135,9 +136,53 @@ var Country = function () {
 
       if (toggle.firstElementChild.className == "far fa-circle") {
         toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
+        this.visited = true;
+        clicked.push(this.id);
       } else {
         toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
       }
+    }
+  }, {
+    key: 'updateMap',
+    value: function updateMap() {
+      // let clickedStateId = this.id;
+      // let clickedStateKey = clickedStateId - 1;
+      // let country = countryList[clickedStateKey]
+      // let selectedIndex = clicked.indexOf(clickedStateId);
+      // let state = false;
+
+      // if (this.visited == false) {
+      //   clicked.push(this.id);
+      //   state = true;
+      //   this.visited = true;
+      //   //creates new country record.
+      // } 
+    }
+  }, {
+    key: 'checked',
+    value: function checked() {
+      if (this.visited == false) {
+        return '<i class="far fa-circle"></i>';
+      } else {
+        return '<i class="fas fa-check-circle"></i>';
+      }
+    }
+  }, {
+    key: 'renderList',
+    value: function renderList() {
+      console.log(this.name);
+      var listCountryItem = document.createElement('li');
+      listCountryItem.setAttribute('class', 'list-country-item');
+
+      listCountryItem.innerHTML = '<div class="country-list">\n        <div class="image-crop">\n          <img class="flag-icon" src="/img/flags-normal/' + this.code.toLowerCase() + '.png">\n        </div>\n        <div class="list-country-name">\n          ' + this.name + '\n        </div>\n      </div>\n      <div id="country_' + this.id + '" class="country-button" onclick="countryList[' + (this.id - 1) + '].toggle_visit()">' + this.checked() + '\n      </div>';
+
+      return listCountryItem;
+    }
+  }, {
+    key: 'mountList',
+    value: function mountList(parent) {
+      var listCountryElm = this.renderList();
+      parent.appendChild(listCountryElm);
     }
   }]);
 
@@ -154,7 +199,7 @@ $.ajax({
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
         var country = data[key];
-        countryList[key] = new Country(country.id, country.code, country.name, country.capital, country.population, country.currency, country.language, country.area);
+        countryList[key] = new Country(country.id, country.code, country.name, country.capital, country.population, country.currency, country.language, country.area, country.CONTINENT);
       }
     }
   },
@@ -278,12 +323,10 @@ map.addControl(nav, 'top-left');
 
 var hoveredStateId = null;
 var clicked = [];
-var colours = ['#00D84A', '#00DA65', '#00DA29'];
-function randomColour() {
-    return colours[Math.floor(Math.random() * colours.length)];
-};
-var colour = randomColour();
-console.log(colour);
+var score = 0;
+var scoreContainer = document.getElementById('score-container');
+;
+var countryListView = document.getElementById('country-list');
 
 map.on('load', function () {
     map.addSource("states", {
@@ -337,6 +380,9 @@ map.on('load', function () {
     map.on("render", "done-fills", function () {
         //only render once.
         if (!rendered) {
+            var loading = document.getElementById('loading');
+            loading.style.display = 'none';
+
             countryList.forEach(function (country) {
                 if (country.visited === true) {
                     clicked.push(country);
@@ -346,18 +392,26 @@ map.on('load', function () {
             clicked.forEach(function (country) {
                 map.setFeatureState({ source: "states", id: country.id }, { click: true });
             });
-        }
-        var loading = document.getElementById('loading');
-        loading.style.display = 'none';
-        rendered = true; //prevents rendering >1.
-    });
 
-    var score = 0;
+            score = clicked.length;
+
+            if (score > 0) {
+                scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
+            } else {
+                scoreContainer.innerHTML = '';
+            }
+
+            countryList.forEach(function (country) {
+                country.mountList(countryListView);
+            });
+        }
+
+        rendered = true; //prevents rendering >1.
+
+    });
 
     map.on("click", "done-fills", function (e) {
 
-        randomColour();
-        console.log(colour);
         var clickedStateId = e.features[0].id;
         var clickedStateKey = clickedStateId - 1;
         var country = countryList[clickedStateKey];
@@ -383,15 +437,9 @@ map.on('load', function () {
         console.log(clicked);
         map.setFeatureState({ source: 'states', id: country.id }, { click: state });
 
-        var scoreHTML = document.getElementById('score');
+        score = clicked.length;
 
-        if (selectedIndex == -1) {
-            score += 100;
-            scoreHTML.innerHTML = 'Score: ' + score;
-        } else {
-            score -= 100;
-            scoreHTML.innerHTML = 'Score: ' + score;
-        }
+        scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
 
         if (score == 1000) {
             var badge = document.getElementById('badge');
@@ -415,7 +463,7 @@ map.on('load', function () {
 
             //shows name of country in box
 
-            document.getElementById('features').innerHTML = '<div class="display-name">' + '<div class="image-crop">' + '<img class="flag-icon" src="/img/flags-normal/' + countries[hoveredStateId - 1].code.toLowerCase() + '.png" alt="">' + '</div>' + '<h2>' + countries[hoveredStateId - 1].name + '</h2>' + '</div>' + '<div class="shape-container">' + '<img class="shape" src="/img/shapes/' + countries[hoveredStateId - 1].code + '.svg" alt="">' + '</div>' + '<p><b>Capital:</b> ' + countries[hoveredStateId - 1].capital + '</p>' + '<p><b>Population:</b> ' + (countries[hoveredStateId - 1].population / 1000000).toFixed(2) + ' million</p>' + '<p><b>Currency:</b> ' + countries[hoveredStateId - 1].currency + '</p>' + '<p><b>Language:</b> ' + countries[hoveredStateId - 1].language + '</p>' + '<p><b>Area:</b> ' + countries[hoveredStateId - 1].area / 1000 + ' km<sup>2</sup></p>';
+            document.getElementById('features').innerHTML = '<div class="display-name">' + '<div class="image-crop">' + '<img class="flag-icon" src="/img/flags-normal/' + countries[hoveredStateId - 1].code.toLowerCase() + '.png" alt="">' + '</div>' + '<h2>' + countries[hoveredStateId - 1].name + '</h2>' + '</div>' + '<div class="shape-container">' + '<img class="shape" src="/img/shapes/' + countries[hoveredStateId - 1].code + '.svg" alt="">' + '</div>' + '<p><b>Capital:</b> <a href="/city/show/' + countries[hoveredStateId - 1].capital + '">' + countries[hoveredStateId - 1].capital + '</a></p>' + '<p><b>Population:</b> ' + (countries[hoveredStateId - 1].population / 1000000).toFixed(2) + ' million</p>' + '<p><b>Currency:</b> ' + countries[hoveredStateId - 1].currency + '</p>' + '<p><b>Language:</b> ' + countries[hoveredStateId - 1].language + '</p>' + '<p><b>Area:</b> ' + countries[hoveredStateId - 1].area / 1000 + ' km<sup>2</sup></p>';
         }
     });
 
@@ -520,7 +568,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v16.6.0
+/** @license React v16.6.1
  * react.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -542,7 +590,7 @@ var checkPropTypes = __webpack_require__(49);
 
 // TODO: this is special because it gets imported during build.
 
-var ReactVersion = '16.6.0';
+var ReactVersion = '16.6.3';
 
 // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
 // nor polyfill, then a plain number is used for performance.
@@ -555,6 +603,7 @@ var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeac
 var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
 var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
 var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace;
+
 var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
 var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
 var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
@@ -574,6 +623,43 @@ function getIteratorFn(maybeIterable) {
   }
   return null;
 }
+
+var enableHooks = false;
+// Helps identify side effects in begin-phase lifecycle hooks and setState reducers:
+
+
+// In some cases, StrictMode should also double-render lifecycles.
+// This can be confusing for tests though,
+// And it can be bad for performance in production.
+// This feature flag can be used to control the behavior:
+
+
+// To preserve the "Pause on caught exceptions" behavior of the debugger, we
+// replay the begin phase of a failed component inside invokeGuardedCallback.
+
+
+// Warn about deprecated, async-unsafe lifecycles; relates to RFC #6:
+
+
+// Gather advanced timing metrics for Profiler subtrees.
+
+
+// Trace which interactions trigger each commit.
+
+
+// Only used in www builds.
+
+
+// Only used in www builds.
+
+
+// React Fire: prevent the value and checked attributes from syncing
+// with their related DOM properties
+
+
+// These APIs will no longer be "unstable" in the upcoming 16.7 release,
+// Control this behavior with a flag to support 16.6 minor releases in the meanwhile.
+var enableStableConcurrentModeAPIs = false;
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -699,63 +785,24 @@ var warningWithoutStack = function () {};
       return;
     }
     if (typeof console !== 'undefined') {
-      var _args$map = args.map(function (item) {
+      var argsWithFormat = args.map(function (item) {
         return '' + item;
-      }),
-          a = _args$map[0],
-          b = _args$map[1],
-          c = _args$map[2],
-          d = _args$map[3],
-          e = _args$map[4],
-          f = _args$map[5],
-          g = _args$map[6],
-          h = _args$map[7];
+      });
+      argsWithFormat.unshift('Warning: ' + format);
 
-      var message = 'Warning: ' + format;
-
-      // We intentionally don't use spread (or .apply) because it breaks IE9:
-      // https://github.com/facebook/react/issues/13610
-      switch (args.length) {
-        case 0:
-          console.error(message);
-          break;
-        case 1:
-          console.error(message, a);
-          break;
-        case 2:
-          console.error(message, a, b);
-          break;
-        case 3:
-          console.error(message, a, b, c);
-          break;
-        case 4:
-          console.error(message, a, b, c, d);
-          break;
-        case 5:
-          console.error(message, a, b, c, d, e);
-          break;
-        case 6:
-          console.error(message, a, b, c, d, e, f);
-          break;
-        case 7:
-          console.error(message, a, b, c, d, e, f, g);
-          break;
-        case 8:
-          console.error(message, a, b, c, d, e, f, g, h);
-          break;
-        default:
-          throw new Error('warningWithoutStack() currently supports at most 8 arguments.');
-      }
+      // We intentionally don't use spread (or .apply) directly because it
+      // breaks IE9: https://github.com/facebook/react/issues/13610
+      Function.prototype.apply.call(console.error, console, argsWithFormat);
     }
     try {
       // --- Welcome to debugging React ---
       // This error was thrown as a convenience so that you can use this stack
       // to find the callsite that caused this warning to fire.
       var argIndex = 0;
-      var _message = 'Warning: ' + format.replace(/%s/g, function () {
+      var message = 'Warning: ' + format.replace(/%s/g, function () {
         return args[argIndex++];
       });
-      throw new Error(_message);
+      throw new Error(message);
     } catch (x) {}
   };
 }
@@ -1805,6 +1852,9 @@ function createContext(defaultValue, calculateChangedBits) {
     // Secondary renderers store their context values on separate fields.
     _currentValue: defaultValue,
     _currentValue2: defaultValue,
+    // Used to track how many concurrent renderers this context currently
+    // supports within in a single renderer. Such as parallel server rendering.
+    _threadCount: 0,
     // These are circular
     Provider: null,
     Consumer: null
@@ -1857,6 +1907,14 @@ function createContext(defaultValue, calculateChangedBits) {
           context._currentValue2 = _currentValue2;
         }
       },
+      _threadCount: {
+        get: function () {
+          return context._threadCount;
+        },
+        set: function (_threadCount) {
+          context._threadCount = _threadCount;
+        }
+      },
       Consumer: {
         get: function () {
           if (!hasWarnedAboutUsingNestedContextConsumers) {
@@ -1891,7 +1949,9 @@ function lazy(ctor) {
 
 function forwardRef(render) {
   {
-    if (typeof render !== 'function') {
+    if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
+      warningWithoutStack$1(false, 'forwardRef requires a render function but received a `memo` ' + 'component. Instead of forwardRef(memo(...)), use ' + 'memo(forwardRef(...)).');
+    } else if (typeof render !== 'function') {
       warningWithoutStack$1(false, 'forwardRef requires a render function but was given %s.', render === null ? 'null' : typeof render);
     } else {
       !(
@@ -1927,6 +1987,75 @@ function memo(type, compare) {
     type: type,
     compare: compare === undefined ? null : compare
   };
+}
+
+function resolveDispatcher() {
+  var dispatcher = ReactCurrentOwner.currentDispatcher;
+  !(dispatcher !== null) ? invariant(false, 'Hooks can only be called inside the body of a function component.') : void 0;
+  return dispatcher;
+}
+
+function useContext(Context, observedBits) {
+  var dispatcher = resolveDispatcher();
+  {
+    // TODO: add a more generic warning for invalid values.
+    if (Context._context !== undefined) {
+      var realContext = Context._context;
+      // Don't deduplicate because this legitimately causes bugs
+      // and nobody should be using this in existing code.
+      if (realContext.Consumer === Context) {
+        warning$1(false, 'Calling useContext(Context.Consumer) is not supported, may cause bugs, and will be ' + 'removed in a future major release. Did you mean to call useContext(Context) instead?');
+      } else if (realContext.Provider === Context) {
+        warning$1(false, 'Calling useContext(Context.Provider) is not supported. ' + 'Did you mean to call useContext(Context) instead?');
+      }
+    }
+  }
+  return dispatcher.useContext(Context, observedBits);
+}
+
+function useState(initialState) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useState(initialState);
+}
+
+function useReducer(reducer, initialState, initialAction) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useReducer(reducer, initialState, initialAction);
+}
+
+function useRef(initialValue) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useRef(initialValue);
+}
+
+function useEffect(create, inputs) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useEffect(create, inputs);
+}
+
+function useMutationEffect(create, inputs) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useMutationEffect(create, inputs);
+}
+
+function useLayoutEffect(create, inputs) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useLayoutEffect(create, inputs);
+}
+
+function useCallback(callback, inputs) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useCallback(callback, inputs);
+}
+
+function useMemo(create, inputs) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useMemo(create, inputs);
+}
+
+function useImperativeMethods(ref, create, inputs) {
+  var dispatcher = resolveDispatcher();
+  return dispatcher.useImperativeMethods(ref, create, inputs);
 }
 
 /**
@@ -2231,9 +2360,7 @@ var React = {
 
   Fragment: REACT_FRAGMENT_TYPE,
   StrictMode: REACT_STRICT_MODE_TYPE,
-  unstable_ConcurrentMode: REACT_CONCURRENT_MODE_TYPE,
   Suspense: REACT_SUSPENSE_TYPE,
-  unstable_Profiler: REACT_PROFILER_TYPE,
 
   createElement: createElementWithValidation,
   cloneElement: cloneElementWithValidation,
@@ -2244,6 +2371,27 @@ var React = {
 
   __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals
 };
+
+if (enableStableConcurrentModeAPIs) {
+  React.ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+  React.Profiler = REACT_PROFILER_TYPE;
+} else {
+  React.unstable_ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+  React.unstable_Profiler = REACT_PROFILER_TYPE;
+}
+
+if (enableHooks) {
+  React.useCallback = useCallback;
+  React.useContext = useContext;
+  React.useEffect = useEffect;
+  React.useImperativeMethods = useImperativeMethods;
+  React.useLayoutEffect = useLayoutEffect;
+  React.useMemo = useMemo;
+  React.useMutationEffect = useMutationEffect;
+  React.useReducer = useReducer;
+  React.useRef = useRef;
+  React.useState = useState;
+}
 
 
 

@@ -16,17 +16,17 @@ document.getElementById('trigger-desktop').addEventListener('click', function() 
     }
 });
 
-
-
 let slideTriggerDesktop = document.getElementById('trigger-desktop');
 slideTriggerDesktop.addEventListener('click', function() {
     let element = document.getElementById('slider');
     element.classList.toggle('close');
 });
 
-
 let slideTriggerMobile = document.getElementById('trigger-mobile');
 slideTriggerMobile.addEventListener('click', function() {
     let element = document.getElementById('slider');
     element.classList.toggle('close');
 });
+
+
+

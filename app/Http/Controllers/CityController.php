@@ -26,8 +26,18 @@ class CityController extends Controller
         $attractions = $googlePlaces->textSearch($city.'+attraction', [
             'type=point_of_interest'
         ])['results'];
+        $photos = [];
+        foreach ($attractions as $key => $value) {
+            if(isset($value['photos']))
+            {
+                // dd($value['photos'][0]['photo_reference']);
+                $photos[] = $googlePlaces->photo($value['photos'][0]['photo_reference'],['maxwidth' => 500]);
+            } else {
+                $photos[]="";
+                }
+        }
 
-        return view('city', compact('attractions', 'city'));
+        return view('city', compact('attractions', 'city', 'photos'));
 
     }
 }
