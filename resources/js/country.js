@@ -27,23 +27,46 @@ class Country {
 
     if (toggle.firstElementChild.className == "far fa-circle") { 
       toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
-      
+      this.updateMap();
     } else {
       toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
-      
+      this.updateMap();
+    }
+  }
+
+  updateList() {
+    let toggle = document.getElementById('country_' + this.id);
+
+    if (toggle.firstElementChild.className == "far fa-circle") { 
+      toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
+    } else {
+      toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
     }
   }
 
   updateMap() {
-    // if (this.visited == false) {
-    //   clicked.push(this.id);
-    //   state = true;
-    //   this.visited = true;
-    //   //creates new country record.
-    // } else {
-    //   this.splice(selectedIndex, 1);
-    //   this.visited = false;
-    // }
+    let clickedStateId = this.id;
+    let clickedStateKey = clickedStateId - 1;
+    let selectedIndex = window.scratchmap.clicked.indexOf(clickedStateId);
+
+
+    if (this.visited == false) {
+      window.scratchmap.clicked.push(this);
+      this.visited = true;
+      window.scratchmap.map.setFeatureState({source: 'states', id: this.id}, {click: this.visited});
+      
+      this.updateHTML();
+      console.log(window.scratchmap.score);
+    } else {
+      window.scratchmap.clicked.splice(selectedIndex, 1);
+      this.visited = false;
+      window.scratchmap.map.setFeatureState({source: 'states', id: this.id}, {click: this.visited});
+      
+      this.updateHTML();
+      console.log(window.scratchmap.score);
+    }
+
+    console.log(window.scratchmap.clicked);
   }
   
   checked() {
@@ -82,6 +105,10 @@ class Country {
     toggleBtn.addEventListener('click', () => {
       this.toggle_visit();
     })
+  }
+
+  updateHTML() {
+    window.scratchmap.scoreContainer.innerHTML = `<div id="score" class="score">Countries Visited: ${window.scratchmap.clicked.length}</div>`;
   }
 }
 

@@ -1848,6 +1848,7 @@ module.exports = __webpack_require__(40);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__country__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js__ = __webpack_require__(42);
@@ -1856,6 +1857,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__slider__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapbox__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_City__ = __webpack_require__(45);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__global__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__country__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search_js__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__slider__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mapbox__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_City__ = __webpack_require__(45);
+
+>>>>>>> 0b76f4c830bebe7740c57325b66489bfa8991f73
 
 
 
@@ -1904,6 +1918,19 @@ var Country = function () {
 
       if (toggle.firstElementChild.className == "far fa-circle") {
         toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
+        this.updateMap();
+      } else {
+        toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
+        this.updateMap();
+      }
+    }
+  }, {
+    key: 'updateList',
+    value: function updateList() {
+      var toggle = document.getElementById('country_' + this.id);
+
+      if (toggle.firstElementChild.className == "far fa-circle") {
+        toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
       } else {
         toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
       }
@@ -1911,15 +1938,27 @@ var Country = function () {
   }, {
     key: 'updateMap',
     value: function updateMap() {
-      // if (this.visited == false) {
-      //   clicked.push(this.id);
-      //   state = true;
-      //   this.visited = true;
-      //   //creates new country record.
-      // } else {
-      //   this.splice(selectedIndex, 1);
-      //   this.visited = false;
-      // }
+      var clickedStateId = this.id;
+      var clickedStateKey = clickedStateId - 1;
+      var selectedIndex = window.scratchmap.clicked.indexOf(clickedStateId);
+
+      if (this.visited == false) {
+        window.scratchmap.clicked.push(this);
+        this.visited = true;
+        window.scratchmap.map.setFeatureState({ source: 'states', id: this.id }, { click: this.visited });
+
+        this.updateHTML();
+        console.log(window.scratchmap.score);
+      } else {
+        window.scratchmap.clicked.splice(selectedIndex, 1);
+        this.visited = false;
+        window.scratchmap.map.setFeatureState({ source: 'states', id: this.id }, { click: this.visited });
+
+        this.updateHTML();
+        console.log(window.scratchmap.score);
+      }
+
+      console.log(window.scratchmap.clicked);
     }
   }, {
     key: 'checked',
@@ -1952,6 +1991,11 @@ var Country = function () {
       toggleBtn.addEventListener('click', function () {
         _this.toggle_visit();
       });
+    }
+  }, {
+    key: 'updateHTML',
+    value: function updateHTML() {
+      window.scratchmap.scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + window.scratchmap.clicked.length + '</div>';
     }
   }]);
 
@@ -2084,7 +2128,7 @@ slideTriggerMobile.addEventListener('click', function () {
 
 mapboxgl.accessToken = "pk.eyJ1IjoiamFrZW1veDk5IiwiYSI6ImNqbmxtYjlvcjFtZmozcHE5aW9zN3pjeXcifQ.UCUt8f58HwBvpHcTz8JqkA";
 
-var map = new mapboxgl.Map({
+var map = window.scratchmap.map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/jakemox99/cjoctcplm26gg2rrrrxp4o3gi',
     collectResourceTiming: true,
@@ -2098,9 +2142,9 @@ var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
 var hoveredStateId = null;
-var clicked = [];
+var clicked = window.scratchmap.clicked = [];
 var score = 0;
-var scoreContainer = document.getElementById('score-container');
+var scoreContainer = window.scratchmap.scoreContainer = document.getElementById('score-container');
 ;
 var countryListView = document.getElementById('country-list');
 
@@ -2201,9 +2245,7 @@ map.on('load', function () {
                 }
             })();
         }
-
-        rendered = true; //prevents rendering >1.
-
+        rendered = true; //prevents rendering >1.   
     });
 
     map.on("click", "done-fills", function (e) {
@@ -2221,13 +2263,15 @@ map.on('load', function () {
         });
 
         if (country.visited == false) {
-            clicked.push(country.id);
+            clicked.push(country);
             state = true;
             country.visited = true;
+            country.updateList();
             //creates new country record.
         } else {
             clicked.splice(selectedIndex, 1);
             country.visited = false;
+            country.updateList();
         }
 
         console.log(clicked);
@@ -2315,7 +2359,8 @@ var City = function (_React$Component) {
 
     _this.state = {
       visible: true,
-      attractions: []
+      attractions: [],
+      isLoading: true
     };
 
     return _this;
@@ -2331,13 +2376,17 @@ var City = function (_React$Component) {
       .then(function (response) {
         // console.log(response.data.attractions);
         _this2.setState({
-          attractions: response.data.attractions
+          attractions: response.data.attractions,
+          isLoading: false
         });
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      if (this.state.isLoading == true) {
+        return "Loading..";
+      }
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'city-info' },
@@ -2349,7 +2398,9 @@ var City = function (_React$Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
         this.props.cityName,
         console.log(this.state.attractions[0]),
-        this.state.attractions[0].map()
+        this.state.attractions.map(function (attraction) {
+          return '\n            ' + attraction.name + '\n            <br>\n            ';
+        })
       );
     }
   }]);
@@ -4215,6 +4266,104 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 	return to;
 };
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var printWarning = function() {};
+
+if (true) {
+  var ReactPropTypesSecret = __webpack_require__(50);
+  var loggedTypeFailures = {};
+
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if (true) {
+    for (var typeSpecName in typeSpecs) {
+      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error(
+              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
+              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
+            );
+            err.name = 'Invariant Violation';
+            throw err;
+          }
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+          error = ex;
+        }
+        if (error && !(error instanceof Error)) {
+          printWarning(
+            (componentName || 'React class') + ': type specification of ' +
+            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
+            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
+            'You may have forgotten to pass an argument to the type checker ' +
+            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
+            'shape all require an argument).'
+          )
+
+        }
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          printWarning(
+            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
+          );
+        }
+      }
+    }
+  }
+}
+
+module.exports = checkPropTypes;
 
 
 /***/ }),
@@ -24392,6 +24541,12 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
   })();
 }
 
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports) {
+
+window.scratchmap = {};
 
 /***/ })
 /******/ ]);

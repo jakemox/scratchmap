@@ -11,7 +11,8 @@ export default class City extends React.Component {
 
     this.state = {
       visible: true,
-      attractions: []
+      attractions: [],
+      isLoading: true
     }
 
   }
@@ -23,18 +24,27 @@ export default class City extends React.Component {
     .then(response => {
       // console.log(response.data.attractions);
       this.setState({
-        attractions: response.data.attractions
+        attractions: response.data.attractions,
+        isLoading: false
       })
     })
   }
 
   render() {
+    if (this.state.isLoading == true) {
+      return "Loading.."
+    }
     return (
       <div className="city-info">
         <h2>ATTRACTIONS</h2><br />
         {this.props.cityName}
         {console.log(this.state.attractions[0])}
-        {this.state.attractions[0].map()}
+        {this.state.attractions.map(attraction => {
+          return (`
+            ${attraction.name}
+            <br>
+            `)
+        })}
 
       </div>
       )
