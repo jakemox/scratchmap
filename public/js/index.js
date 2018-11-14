@@ -1914,22 +1914,37 @@ var Country = function () {
       }
     }
   }, {
+    key: 'updateList',
+    value: function updateList() {
+      var toggle = document.getElementById('country_' + this.id);
+
+      if (toggle.firstElementChild.className == "far fa-circle") {
+        toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
+      } else {
+        toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
+      }
+    }
+  }, {
     key: 'updateMap',
     value: function updateMap() {
       var clickedStateId = this.id;
       var clickedStateKey = clickedStateId - 1;
-      var country = countryList[clickedStateKey];
       var selectedIndex = window.scratchmap.clicked.indexOf(clickedStateId);
 
       if (this.visited == false) {
-        // window.scratchmap.clicked.push(country);
-        // state = true;
+        window.scratchmap.clicked.push(this);
         this.visited = true;
         window.scratchmap.map.setFeatureState({ source: 'states', id: this.id }, { click: this.visited });
+
+        this.updateHTML();
+        console.log(window.scratchmap.score);
       } else {
-        // window.scratchmap.clicked.splice(selectedIndex, 1);
+        window.scratchmap.clicked.splice(selectedIndex, 1);
         this.visited = false;
         window.scratchmap.map.setFeatureState({ source: 'states', id: this.id }, { click: this.visited });
+
+        this.updateHTML();
+        console.log(window.scratchmap.score);
       }
 
       console.log(window.scratchmap.clicked);
@@ -1965,6 +1980,11 @@ var Country = function () {
       toggleBtn.addEventListener('click', function () {
         _this.toggle_visit();
       });
+    }
+  }, {
+    key: 'updateHTML',
+    value: function updateHTML() {
+      window.scratchmap.scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + window.scratchmap.clicked.length + '</div>';
     }
   }]);
 
@@ -2113,7 +2133,7 @@ map.addControl(nav, 'top-left');
 var hoveredStateId = null;
 var clicked = window.scratchmap.clicked = [];
 var score = 0;
-var scoreContainer = document.getElementById('score-container');
+var scoreContainer = window.scratchmap.scoreContainer = document.getElementById('score-container');
 ;
 var countryListView = document.getElementById('country-list');
 
@@ -2214,9 +2234,7 @@ map.on('load', function () {
                 }
             })();
         }
-
-        rendered = true; //prevents rendering >1.
-
+        rendered = true; //prevents rendering >1.   
     });
 
     map.on("click", "done-fills", function (e) {
@@ -2237,10 +2255,12 @@ map.on('load', function () {
             clicked.push(country);
             state = true;
             country.visited = true;
+            country.updateList();
             //creates new country record.
         } else {
             clicked.splice(selectedIndex, 1);
             country.visited = false;
+            country.updateList();
         }
 
         console.log(clicked);

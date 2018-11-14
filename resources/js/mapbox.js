@@ -21,7 +21,7 @@ map.addControl(nav, 'top-left');
 var hoveredStateId =  null;
 var clicked = window.scratchmap.clicked = [];
 let score = 0;
-let scoreContainer = document.getElementById('score-container');
+var scoreContainer = window.scratchmap.scoreContainer = document.getElementById('score-container');
 ;
 let countryListView = document.getElementById('country-list');
 
@@ -134,12 +134,7 @@ map.on('load', function () {
             
 
         }
-        
-
-        
-        rendered = true; //prevents rendering >1.
-
-        
+        rendered = true; //prevents rendering >1.   
     })
 
     map.on("click", "done-fills", function(e) {
@@ -160,15 +155,20 @@ map.on('load', function () {
             clicked.push(country);
             state = true;
             country.visited = true;
+            country.updateList();
             //creates new country record.
         
         } else {
             clicked.splice(selectedIndex, 1);
             country.visited = false;
+            country.updateList();
         }
 
         console.log(clicked);
         map.setFeatureState({source: 'states', id: country.id}, {click: state});
+
+        
+    
 
         score = clicked.length;
 
