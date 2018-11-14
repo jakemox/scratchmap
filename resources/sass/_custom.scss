@@ -34,6 +34,7 @@ html {
 
 .aside {
     margin-top: 2.5rem;
+    margin-left: 3rem;
     background-color: rgba(255, 255, 255, 0.9);
     z-index: 50;
     padding: 1rem;
@@ -44,15 +45,16 @@ html {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     height: 80vh;
-    width: 90vw;
-    max-width: 450px;
+    width: 100vw;
+    max-width: 650px;
     display: flex;
     flex-direction: column;
     overflow-y:scroll;
     padding: 1rem;
 
     .country-list {
-      padding: 2rem 1rem ;
+      padding: 2.5rem 1rem ;
+
     }
 }
 

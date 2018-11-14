@@ -19,7 +19,9 @@
         <h1>ScratchMapp</h1>
     </div>
     <div class="column3">
+        @auth
         <a href="/profile"><h2>Profile</h2></a>
+        @endauth
         @guest
     <a href="{{ route('login') }}"><h2>Login</h2></a>
         @endguest
