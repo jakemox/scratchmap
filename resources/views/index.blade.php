@@ -28,7 +28,8 @@
             </div>    
         </div>
     </div>
-   
+
+    <div id="city"></div>
     <div class='features' id='features'></div>
   
 </main>

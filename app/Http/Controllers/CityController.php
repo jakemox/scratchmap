@@ -37,7 +37,7 @@ class CityController extends Controller
                 }
         }
 
-        return view('city', compact('attractions', 'city', 'photos'));
+        return (compact('attractions', 'city', 'photos'));
 
     }
 }
