@@ -1,3 +1,7 @@
+import {render} from 'react-dom'
+import React from 'react'
+import City from './components/City'
+
 mapboxgl.accessToken = process.env.MIX_MAPBOX_TOKEN;
 
 var map = window.scratchmap.map = new mapboxgl.Map({
@@ -190,25 +194,33 @@ map.on('load', function () {
             map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
             let countries = countryList;
-            
+            let country = countries[(hoveredStateId - 1)];
             //shows name of country in box
 
             document.getElementById('features').innerHTML = 
                 '<div class="display-name">' +
                     '<div class="image-crop">' +   
-                        '<img class="flag-icon" src="/img/flags-normal/' + (countries[(hoveredStateId - 1)].code).toLowerCase() + '.png" alt="">' +
+                        '<img class="flag-icon" src="/img/flags-normal/' + country.code.toLowerCase() + '.png" alt="">' +
                     '</div>' +
-                    '<h2>' + countries[hoveredStateId - 1].name + '</h2>' +
+                    '<h2>' + country.name + '</h2>' +
                 '</div>' +
                 '<div class="shape-container">' +  
-                    '<img class="shape" src="/img/shapes/' + countries[(hoveredStateId - 1)].code + '.svg" alt="">' +
+                    '<img class="shape" src="/img/shapes/' + country.code + '.svg" alt="">' +
                 '</div>' +
-                '<p><b>Capital:</b> <a href="/city/show/' + countries[(hoveredStateId - 1)].capital + '">' + countries[(hoveredStateId - 1)].capital + '</a></p>' +
-                '<p><b>Population:</b> ' + (countries[(hoveredStateId - 1)].population/1000000).toFixed(2) + ' million</p>' +
-                '<p><b>Currency:</b> ' + countries[(hoveredStateId - 1)].currency + '</p>' +
-                '<p><b>Language:</b> ' + countries[hoveredStateId - 1].language + '</p>' +
-                '<p><b>Area:</b> ' + (countries[(hoveredStateId - 1)].area/1000) + ' km<sup>2</sup></p>';
+                `<p><b>Capital:</b> <a id="cityLink" data-city="${country.capital}" href="javascript:void(0)">` + country.capital + '</a></p>' +
+                '<p><b>Population:</b> ' + (country.population/1000000).toFixed(2) + ' million</p>' +
+                '<p><b>Currency:</b> ' + country.currency + '</p>' +
+                '<p><b>Language:</b> ' + country.language + '</p>' +
+                '<p><b>Area:</b> ' + (country.area/1000) + ' km<sup>2</sup></p>';
+
+            document.querySelector("#cityLink").addEventListener("click", (e) => {
+                show_city(e.target.dataset.city);
+            })
         }
+                function show_city(city) {
+                      render(<City cityName={city} />, document.getElementById('city'));
+
+                };
     });
 
     // When the mouse leaves the state-fill layer, update the feature state of the
