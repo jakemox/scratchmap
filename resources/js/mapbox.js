@@ -15,6 +15,8 @@ var map = new mapboxgl.Map({
 });
 
 
+
+
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
