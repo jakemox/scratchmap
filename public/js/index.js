@@ -78,15 +78,18 @@ module.exports = __webpack_require__(40);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__country__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__search_search_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__slider__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapbox__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapbox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__mapbox__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_City__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__global__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__country__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search_js__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__slider__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mapbox__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mapbox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__mapbox__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_City__ = __webpack_require__(45);
+
 
 
 
@@ -136,22 +139,32 @@ var Country = function () {
 
       if (toggle.firstElementChild.className == "far fa-circle") {
         toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
+        this.updateMap();
       } else {
         toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
+        this.updateMap();
       }
     }
   }, {
     key: 'updateMap',
     value: function updateMap() {
-      // if (this.visited == false) {
-      //   clicked.push(this.id);
-      //   state = true;
-      //   this.visited = true;
-      //   //creates new country record.
-      // } else {
-      //   this.splice(selectedIndex, 1);
-      //   this.visited = false;
-      // }
+      var clickedStateId = this.id;
+      var clickedStateKey = clickedStateId - 1;
+      var country = countryList[clickedStateKey];
+      var selectedIndex = window.scratchmap.clicked.indexOf(clickedStateId);
+
+      if (this.visited == false) {
+        // window.scratchmap.clicked.push(country);
+        // state = true;
+        this.visited = true;
+        window.scratchmap.map.setFeatureState({ source: 'states', id: this.id }, { click: this.visited });
+      } else {
+        // window.scratchmap.clicked.splice(selectedIndex, 1);
+        this.visited = false;
+        window.scratchmap.map.setFeatureState({ source: 'states', id: this.id }, { click: this.visited });
+      }
+
+      console.log(window.scratchmap.clicked);
     }
   }, {
     key: 'checked',
@@ -309,7 +322,7 @@ slideTriggerMobile.addEventListener('click', function () {
 
 mapboxgl.accessToken = "pk.eyJ1IjoiamFrZW1veDk5IiwiYSI6ImNqbmxtYjlvcjFtZmozcHE5aW9zN3pjeXcifQ.UCUt8f58HwBvpHcTz8JqkA";
 
-var map = new mapboxgl.Map({
+var map = window.scratchmap.map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/jakemox99/cjoctcplm26gg2rrrrxp4o3gi',
     collectResourceTiming: true,
@@ -323,7 +336,7 @@ var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
 var hoveredStateId = null;
-var clicked = [];
+var clicked = window.scratchmap.clicked = [];
 var score = 0;
 var scoreContainer = document.getElementById('score-container');
 ;
@@ -446,7 +459,7 @@ map.on('load', function () {
         });
 
         if (country.visited == false) {
-            clicked.push(country.id);
+            clicked.push(country);
             state = true;
             country.visited = true;
             //creates new country record.
@@ -22607,6 +22620,13 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
   })();
 }
 
+
+/***/ }),
+
+/***/ 62:
+/***/ (function(module, exports) {
+
+window.scratchmap = {};
 
 /***/ })
 

@@ -1,6 +1,6 @@
 mapboxgl.accessToken = process.env.MIX_MAPBOX_TOKEN;
 
-var map = new mapboxgl.Map({
+var map = window.scratchmap.map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/jakemox99/cjoctcplm26gg2rrrrxp4o3gi',
     collectResourceTiming: true,
@@ -15,7 +15,7 @@ var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
 var hoveredStateId =  null;
-var clicked = [];
+var clicked = window.scratchmap.clicked = [];
 let score = 0;
 let scoreContainer = document.getElementById('score-container');
 ;
@@ -153,7 +153,7 @@ map.on('load', function () {
         })
         
         if (country.visited == false) {
-            clicked.push(country.id);
+            clicked.push(country);
             state = true;
             country.visited = true;
             //creates new country record.

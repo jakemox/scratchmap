@@ -27,23 +27,32 @@ class Country {
 
     if (toggle.firstElementChild.className == "far fa-circle") { 
       toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
-      
+      this.updateMap();
     } else {
       toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
-      
+      this.updateMap();
     }
   }
 
   updateMap() {
-    // if (this.visited == false) {
-    //   clicked.push(this.id);
-    //   state = true;
-    //   this.visited = true;
-    //   //creates new country record.
-    // } else {
-    //   this.splice(selectedIndex, 1);
-    //   this.visited = false;
-    // }
+    let clickedStateId = this.id;
+    let clickedStateKey = clickedStateId - 1;
+    let country = countryList[clickedStateKey]
+    let selectedIndex = window.scratchmap.clicked.indexOf(clickedStateId);
+
+
+    if (this.visited == false) {
+      // window.scratchmap.clicked.push(country);
+      // state = true;
+      this.visited = true;
+      window.scratchmap.map.setFeatureState({source: 'states', id: this.id}, {click: this.visited});
+    } else {
+      // window.scratchmap.clicked.splice(selectedIndex, 1);
+      this.visited = false;
+      window.scratchmap.map.setFeatureState({source: 'states', id: this.id}, {click: this.visited});
+    }
+
+    console.log(window.scratchmap.clicked);
   }
   
   checked() {
