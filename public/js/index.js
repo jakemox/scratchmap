@@ -136,8 +136,6 @@ var Country = function () {
 
       if (toggle.firstElementChild.className == "far fa-circle") {
         toggle.innerHTML = "<i class=\"fas fa-check-circle\"></i>";
-        this.visited = true;
-        clicked.push(this.id);
       } else {
         toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
       }
@@ -145,18 +143,15 @@ var Country = function () {
   }, {
     key: 'updateMap',
     value: function updateMap() {
-      // let clickedStateId = this.id;
-      // let clickedStateKey = clickedStateId - 1;
-      // let country = countryList[clickedStateKey]
-      // let selectedIndex = clicked.indexOf(clickedStateId);
-      // let state = false;
-
       // if (this.visited == false) {
       //   clicked.push(this.id);
       //   state = true;
       //   this.visited = true;
       //   //creates new country record.
-      // } 
+      // } else {
+      //   this.splice(selectedIndex, 1);
+      //   this.visited = false;
+      // }
     }
   }, {
     key: 'checked',
@@ -170,19 +165,25 @@ var Country = function () {
   }, {
     key: 'renderList',
     value: function renderList() {
-      console.log(this.name);
       var listCountryItem = document.createElement('li');
       listCountryItem.setAttribute('class', 'list-country-item');
 
-      listCountryItem.innerHTML = '<div class="country-list">\n        <div class="image-crop">\n          <img class="flag-icon" src="/img/flags-normal/' + this.code.toLowerCase() + '.png">\n        </div>\n        <div class="list-country-name">\n          ' + this.name + '\n        </div>\n      </div>\n      <div id="country_' + this.id + '" class="country-button" onclick="countryList[' + (this.id - 1) + '].toggle_visit()">' + this.checked() + '\n      </div>';
+      listCountryItem.innerHTML = '<div class="country-list">\n        <div class="image-crop">\n          <img class="flag-icon" src="/img/flags-normal/' + this.code.toLowerCase() + '.png">\n        </div>\n        <div class="list-country-name">\n          ' + this.name + '\n        </div>\n      </div>\n      <div id="country_' + this.id + '" class="country-button">' + this.checked() + '\n      </div>';
 
       return listCountryItem;
     }
   }, {
     key: 'mountList',
     value: function mountList(parent) {
+      var _this = this;
+
       var listCountryElm = this.renderList();
       parent.appendChild(listCountryElm);
+
+      var toggleBtn = document.getElementById('country_' + this.id);
+      toggleBtn.addEventListener('click', function () {
+        _this.toggle_visit();
+      });
     }
   }]);
 
@@ -380,30 +381,50 @@ map.on('load', function () {
     map.on("render", "done-fills", function () {
         //only render once.
         if (!rendered) {
-            var loading = document.getElementById('loading');
-            loading.style.display = 'none';
+            (function () {
+                var loading = document.getElementById('loading');
+                loading.style.display = 'none';
 
-            countryList.forEach(function (country) {
-                if (country.visited === true) {
-                    clicked.push(country);
+                countryList.forEach(function (country) {
+                    if (country.visited === true) {
+                        clicked.push(country);
+                    }
+                });
+
+                clicked.forEach(function (country) {
+                    map.setFeatureState({ source: "states", id: country.id }, { click: true });
+                });
+
+                score = clicked.length;
+
+                if (score > 0) {
+                    scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
+                } else {
+                    scoreContainer.innerHTML = '';
                 }
-            });
 
-            clicked.forEach(function (country) {
-                map.setFeatureState({ source: "states", id: country.id }, { click: true });
-            });
+                countryList.forEach(function (country) {
+                    country.mountList(countryListView);
+                });
 
-            score = clicked.length;
+                var continents = document.getElementsByClassName('continent');
+                //creates array.
 
-            if (score > 0) {
-                scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
-            } else {
-                scoreContainer.innerHTML = '';
-            }
+                var _loop = function _loop(i) {
+                    continents[i].addEventListener('click', function () {
+                        countryListView.innerHTML = '';
+                        countryList.forEach(function (country) {
+                            if (country.continent == continents[i].getAttribute('id')) {
+                                country.mountList(countryListView);
+                            }
+                        });
+                    });
+                };
 
-            countryList.forEach(function (country) {
-                country.mountList(countryListView);
-            });
+                for (var i = 0; i < continents.length; i++) {
+                    _loop(i);
+                }
+            })();
         }
 
         rendered = true; //prevents rendering >1.

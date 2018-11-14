@@ -112,6 +112,23 @@ map.on('load', function () {
             countryList.forEach(country => {
                 country.mountList(countryListView);
             })
+
+            let continents = document.getElementsByClassName('continent');
+            //creates array.
+
+            for(let i=0; i<continents.length; i++) {   
+                continents[i].addEventListener('click', () => {
+                    countryListView.innerHTML = '';
+                    countryList.forEach(country => {
+                        if(country.continent == continents[i].getAttribute('id')) {
+                            country.mountList(countryListView);
+                        }
+                    })
+                })
+            }
+
+            
+
         }
         
 

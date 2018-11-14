@@ -10,7 +10,7 @@ if (!function_exists('debug')) {
      */
     function debug($value)
     {
-        $fp = fopen('/tmp/mms.log', 'a');
+        $fp = fopen('/tmp/scratchmapp.log', 'a');
         if (is_string($value)) {
             fwrite($fp, $value."\n");
         } else {

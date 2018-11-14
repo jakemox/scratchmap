@@ -291,6 +291,10 @@ footer nav {
   font-size: 2rem;
 }
 
+.continents-list {
+  display: flex;
+}
+
 
 @media only screen and (min-width: 768px) {
 
@@ -577,4 +581,6 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
   margin-top: 7rem; 
 }
+
+
 
