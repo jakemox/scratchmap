@@ -2427,7 +2427,8 @@ var City = function (_React$Component) {
 
     _this.state = {
       visible: true,
-      attractions: []
+      attractions: [],
+      isLoading: true
     };
 
     return _this;
@@ -2443,13 +2444,17 @@ var City = function (_React$Component) {
       .then(function (response) {
         // console.log(response.data.attractions);
         _this2.setState({
-          attractions: response.data.attractions
+          attractions: response.data.attractions,
+          isLoading: false
         });
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      if (this.state.isLoading == true) {
+        return "Loading..";
+      }
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'city-info' },
@@ -2461,7 +2466,9 @@ var City = function (_React$Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
         this.props.cityName,
         console.log(this.state.attractions[0]),
-        this.state.attractions[0].map()
+        this.state.attractions.map(function (attraction) {
+          return '\n            ' + attraction.name + '\n            <br>\n            ';
+        })
       );
     }
   }]);
