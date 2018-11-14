@@ -21,19 +21,50 @@ html {
 
 .profile {
   width: 100%;
- 
-  padding-left: 2rem;
+  background-image: url('/img/flamingo.jpg');
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .country-list {
-    padding: 2.5rem 1rem ;
+    .profile_details {
+      display: flex;
+      padding: 1rem;
 
-  }
+      .details {
+        width: 50%
+      }
+
+      .profile_image {
+        width: 50%;
+      }
+    }
+
+    .continents-profile {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+  .form {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 40vw;
+    height: 90vh;
+    border-radius: 10px;
+    opacity: 0.95;
+    display: block;
+    overflow-y: auto;
+    
+       
+    }
+
+    .outer {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
 }
 
 
-   
-  
 
    
 

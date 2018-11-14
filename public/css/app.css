@@ -11,12 +11,57 @@ html {
 
 .profile {
   width: 100%;
-  padding-left: 2rem;
+  background-image: url("/img/flamingo.jpg");
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.profile .country-list {
-  padding: 2.5rem 1rem;
+.profile .profile_details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+}
+
+.profile .profile_details .details {
+  width: 50%;
+}
+
+.profile .profile_details .profile_image {
+  width: 50%;
+}
+
+.profile .continents-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.profile .form {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 40vw;
+  height: 90vh;
+  border-radius: 10px;
+  opacity: 0.95;
+  display: block;
+  overflow-y: auto;
+}
+
+.profile .outer {
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .loading {
