@@ -563,6 +563,176 @@ img .padlock {
   }
 }
 
+.profile {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 92.5vh;
+  background-image: url("/img/flamingo.jpg");
+  background-size: cover;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  z-index: -1;
+  height: 100vh;
+}
+
+.profile .profile_details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+}
+
+.profile .profile_details .details {
+  width: 50%;
+}
+
+.profile .profile_details .profile_image {
+  width: 50%;
+}
+
+.profile .continents-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.profile .form {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 45vw;
+  height: 90vh;
+  border-radius: 10px;
+  opacity: 0.95;
+  display: block;
+  overflow-y: auto;
+  height: 80vh;
+  margin-top: 3rem;
+  z-index: 100;
+}
+
+.profile .outer {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flag-icon {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.flag-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 1rem 2rem 3rem 3rem;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 7rem;
+}
+
+.progress-pie-chart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #E5E5E5;
+  position: relative;
+}
+
+.progress-pie-chart.gt-50 {
+  background-color: #81CE97;
+}
+
+.ppc-progress {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  clip: rect(0, 200px, 200px, 100px);
+}
+
+.ppc-progress .ppc-progress-fill {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  clip: rect(0, 100px, 200px, 0);
+  background: #81CE97;
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+
+.gt-50 .ppc-progress {
+  clip: rect(0, 100px, 200px, 0);
+}
+
+.gt-50 .ppc-progress .ppc-progress-fill {
+  clip: rect(0, 200px, 200px, 100px);
+  background: #E5E5E5;
+}
+
+.ppc-percents {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - 173.91304348px/2);
+  top: calc(50% - 173.91304348px/2);
+  width: 173.91304348px;
+  height: 173.91304348px;
+  background: #fff;
+  text-align: center;
+  display: table;
+  overflow: hidden;
+}
+
+.ppc-percents img {
+  width: 173.91304348px;
+}
+
+.pcc-percents-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.progress-pie-chart {
+  margin: 50px auto 0;
+}
+
+.country-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.image-crop {
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin-right: 1rem;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 * {
   margin: auto 0;
   -webkit-box-sizing: border-box;
