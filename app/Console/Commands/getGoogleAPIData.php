@@ -61,7 +61,7 @@ class getGoogleAPIData extends Command
                     'id' => $attraction['place_id'],
                     'name' => $attraction['name'],
                     'city_name' => $city[0],
-                    'country_name' => $city[1],
+                    'country_code' => $city[1],
                     'photo' => $photos[$key],
                     'address' => $attraction['formatted_address'],
                     'rating' => $attraction['rating'],
