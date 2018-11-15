@@ -1892,16 +1892,9 @@ var Country = function () {
   }
 
   _createClass(Country, [{
-    key: 'toggle_visit',
+    key: "toggle_visit",
     value: function toggle_visit(id) {
-      $.ajax({
-        url: '/',
-        method: 'post',
-        data: {
-          id: this.id,
-          _token: document.head.querySelector('meta[name="csrf-token"]').content
-        }
-      });
+      this.save();
 
       var toggle = document.getElementById('country_' + this.id);
 
@@ -1913,8 +1906,36 @@ var Country = function () {
         this.updateMap();
       }
     }
+
+    //to save countries clicked when not logged in.
+
   }, {
-    key: 'updateList',
+    key: "save",
+    value: function save() {
+      if (!window.userId) {
+        //write to local storage
+        console.log('writing to local storage');
+      } else {
+        $.ajax({
+          url: '/',
+          method: 'post',
+          data: {
+            id: this.id,
+            _token: document.head.querySelector('meta[name="csrf-token"]').content
+          }
+        });
+      }
+    }
+  }, {
+    key: "get",
+    value: function get() {
+
+      if (!window.userId) {
+        //get from local storage
+      } else {}
+    }
+  }, {
+    key: "updateList",
     value: function updateList() {
       var toggle = document.getElementById('country_' + this.id);
 
@@ -1925,7 +1946,7 @@ var Country = function () {
       }
     }
   }, {
-    key: 'updateMap',
+    key: "updateMap",
     value: function updateMap() {
       var clickedStateId = this.id;
       var clickedStateKey = clickedStateId - 1;
@@ -1950,41 +1971,41 @@ var Country = function () {
       console.log(window.scratchmap.clicked);
     }
   }, {
-    key: 'checked',
+    key: "checked",
     value: function checked() {
       if (this.visited == false) {
-        return '<i class="far fa-circle"></i>';
+        return "<i class=\"far fa-circle\"></i>";
       } else {
-        return '<i class="fas fa-check-circle"></i>';
+        return "<i class=\"fas fa-check-circle\"></i>";
       }
     }
   }, {
-    key: 'renderList',
+    key: "renderList",
     value: function renderList() {
       var listCountryItem = document.createElement('li');
       listCountryItem.setAttribute('class', 'list-country-item');
 
-      listCountryItem.innerHTML = '<div class="country-list">\n        <div class="image-crop">\n          <img class="flag-icon" src="/img/flags-normal/' + this.code.toLowerCase() + '.png">\n        </div>\n        <div class="list-country-name">\n          ' + this.name + '\n        </div>\n      </div>\n      <div id="country_' + this.id + '" class="country-button">' + this.checked() + '\n      </div>';
+      listCountryItem.innerHTML = "<div class=\"country-list\">\n        <div class=\"image-crop\">\n          <img class=\"flag-icon\" src=\"/img/flags-normal/" + this.code.toLowerCase() + ".png\">\n        </div>\n        <div class=\"list-country-name\">\n          " + this.name + "\n        </div>\n      </div>\n      <div id=\"country_" + this.id + "\" class=\"country-button\">" + this.checked() + "\n      </div>";
 
       return listCountryItem;
     }
   }, {
-    key: 'mountList',
+    key: "mountList",
     value: function mountList(parent) {
       var _this = this;
 
       var listCountryElm = this.renderList();
       parent.appendChild(listCountryElm);
 
-      var toggleBtn = document.getElementById('country_' + this.id);
+      var toggleBtn = document.getElementById("country_" + this.id);
       toggleBtn.addEventListener('click', function () {
         _this.toggle_visit();
       });
     }
   }, {
-    key: 'updateHTML',
+    key: "updateHTML",
     value: function updateHTML() {
-      window.scratchmap.scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + window.scratchmap.clicked.length + '</div>';
+      window.scratchmap.scoreContainer.innerHTML = "<div id=\"score\" class=\"score\">Countries Visited: " + window.scratchmap.clicked.length + "</div>";
     }
   }]);
 
@@ -2023,49 +2044,49 @@ $.ajax({
 /* 42 */
 /***/ (function(module, exports) {
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     let x = window.matchMedia("(max-width: 768px)");
-//     let form = document.getElementById('search-form');
-//     let label = document.getElementById('search-label');
-//     let clouds = document.getElementById('clouds');
-//     let trees = document.getElementById('trees');
-//     let slope = document.getElementById('slope');
-//     let mountains = document.getElementById('mountains');
+document.addEventListener('DOMContentLoaded', function () {
+    // let x = window.matchMedia("(max-width: 768px)");
+    // let form = document.getElementById('search-form');
+    var label = document.getElementById('search-label');
+    // let clouds = document.getElementById('clouds');
+    // let trees = document.getElementById('trees');
+    // let slope = document.getElementById('slope');
+    // let mountains = document.getElementById('mountains');
 
-//     form.addEventListener('mouseover', function () {
-//         label.innerHTML = `<img src="\\img\\search-black.svg" alt="">`;
-//         slope.style.left = '-5%';
-//         mountains.style.width = '110%';
-//         mountains.style.left = '-5%';
-//         trees.style.left = '5%';
+    form.addEventListener('mouseover', function () {
+        label.innerHTML = '<img src="\\img\\search-black.svg" alt="">';
+        // slope.style.left = '-5%';
+        // mountains.style.width = '110%';
+        // mountains.style.left = '-5%';
+        // trees.style.left = '5%';
 
-//         if (x.matches) {
-//             mountains.style.height = '45vh';
-//             mountains.style.bottom = '5vh';
-//         } else {
-//             mountains.style.height = '60vw';
-//             mountains.style.maxHeight = '80vh';
-//             mountains.style.bottom = '0';
-//         }
-//     })
+        // if (x.matches) {
+        //     mountains.style.height = '45vh';
+        //     mountains.style.bottom = '5vh';
+        // } else {
+        //     mountains.style.height = '60vw';
+        //     mountains.style.maxHeight = '80vh';
+        //     mountains.style.bottom = '0';
+        // }
+    });
 
-//     form.addEventListener('mouseleave', function () {
-//         label.innerHTML = `<img src="\\img\\search.svg" alt="">`;
-//         slope.style.left = '0';
-//         mountains.style.width = '100%';
-//         mountains.style.left = '0';
-//         trees.style.left = '0';
+    form.addEventListener('mouseleave', function () {
+        label.innerHTML = '<img src="\\img\\search.svg" alt="">';
+        // slope.style.left = '0';
+        // mountains.style.width = '100%';
+        // mountains.style.left = '0';
+        // trees.style.left = '0';
 
-//         if (x.matches) {
-//             mountains.style.height = '40vh';
-//             mountains.style.bottom = '10vh';
-//         } else {
-//             mountains.style.height = '50vw';
-//             mountains.style.maxHeight = '70vh';
-//             mountains.style.bottom = '0';
-//         }
-//     })
-// })
+        // if (x.matches) {
+        //     mountains.style.height = '40vh';
+        //     mountains.style.bottom = '10vh';
+        // } else {
+        //     mountains.style.height = '50vw';
+        //     mountains.style.maxHeight = '70vh';
+        //     mountains.style.bottom = '0';
+        // }
+    });
+});
 
 /***/ }),
 /* 43 */
@@ -2247,9 +2268,14 @@ map.on('load', function () {
 
         console.log(countryList[clickedStateKey]);
 
-        axios.post('/', {
-            id: country.id
-        });
+        if (!window.userId) {
+            //write to local storage
+            console.log('writing to local storage');
+        } else {
+            axios.post('/', {
+                id: country.id
+            });
+        }
 
         if (country.visited == false) {
             clicked.push(country);

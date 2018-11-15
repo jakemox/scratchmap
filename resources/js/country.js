@@ -14,14 +14,7 @@ class Country {
   }
 
   toggle_visit(id) {
-    $.ajax({
-      url: '/',
-      method: 'post',
-      data: {
-        id: this.id,
-        _token: document.head.querySelector('meta[name="csrf-token"]').content
-      }
-    });
+    this.save();
 
     let toggle = document.getElementById('country_' + this.id);
 
@@ -31,6 +24,33 @@ class Country {
     } else {
       toggle.innerHTML = "<i class=\"far fa-circle\"></i>";
       this.updateMap();
+    }
+  }
+
+
+  //to save countries clicked when not logged in.
+  save() {
+    if(!window.userId) {
+      //write to local storage
+      console.log('writing to local storage');
+    } else {
+      $.ajax({
+        url: '/',
+        method: 'post',
+        data: {
+          id: this.id,
+          _token: document.head.querySelector('meta[name="csrf-token"]').content
+        }
+      });
+    }
+  }
+
+  get() {
+    
+    if(!window.userId) {
+      //get from local storage
+    } else {
+
     }
   }
 

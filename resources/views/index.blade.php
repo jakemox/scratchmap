@@ -33,6 +33,9 @@
     <div class='features' id='features'></div>
   
 </main>
+<script>
+    window.userId = '{{ Auth::id() }}';
+</script>
 
 @endsection
 

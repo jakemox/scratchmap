@@ -18,7 +18,7 @@
                 <label id="search-label" for="search">
                     <img src="\img\search.svg" alt="">
                 </label>
-                <input id="search-input" name="search" type="text" placeholder="Search destinations">
+                <input autocomplete="off" id="search-input" name="search" type="text" placeholder="Search destinations">
                 <button type="submit">Search</button>
             </div>
         </form>
