@@ -30,29 +30,24 @@ class Country {
 
   //to save countries clicked when not logged in.
   save() {
-    if(!window.userId) {
-      //write to local storage
-      console.log('writing to local storage');
-    } else {
-      $.ajax({
-        url: '/',
-        method: 'post',
-        data: {
-          id: this.id,
-          _token: document.head.querySelector('meta[name="csrf-token"]').content
-        }
-      });
-    }
+    $.ajax({
+      url: '/',
+      method: 'post',
+      data: {
+        id: this.id,
+        _token: document.head.querySelector('meta[name="csrf-token"]').content
+      }
+    }); 
   }
 
-  get() {
+  // get() {
     
-    if(!window.userId) {
-      //get from local storage
-    } else {
+  //   if(!window.userId) {
+  //     //get from local storage
+  //   } else {
 
-    }
-  }
+  //   }
+  // }
 
   updateList() {
     let toggle = document.getElementById('country_' + this.id);

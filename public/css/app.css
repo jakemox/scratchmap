@@ -134,12 +134,11 @@ html {
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 4rem;
   -webkit-transition: all 1s;
   transition: all 1s;
   z-index: 3;
   overflow-y: auto;
-  padding-top: 3rem;
 }
 
 .slider.close {
@@ -345,6 +344,7 @@ footer nav {
   display: -ms-flexbox;
   display: flex;
   font-size: 2rem;
+  white-space: nowrap;
 }
 
 .continents-list {
@@ -357,7 +357,8 @@ footer nav {
 }
 
 .continent img {
-  width: 100px;
+  width: 75px;
+  margin: 1rem auto;
 }
 
 @media only screen and (min-width: 768px) {
@@ -657,14 +658,14 @@ footer nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 10rem;
+  margin-right: 5rem;
 }
 
 .list-country-name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .country-list {
@@ -793,6 +794,17 @@ body {
 
 .progress-pie-chart {
   margin: 50px auto 0;
+}
+
+.continent img {
+  width: 100px;
+  margin: 1rem auto;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.continent img :hover {
+  width: 150px;
 }
 
 /*!

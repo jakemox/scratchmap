@@ -38,8 +38,9 @@ class CountryController extends Controller
     }
 
     public function store(Request $country_id) {
+
         if(!Auth::check()){
-            return false;
+            $country_id->session()->put('key', 'value');
         }
 
         $country = Country::find($country_id);

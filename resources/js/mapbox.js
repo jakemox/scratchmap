@@ -149,16 +149,16 @@ map.on('load', function () {
 
         console.log(countryList[clickedStateKey]);
         
-        if(!window.userId) {
-            //write to local storage
-            console.log('writing to local storage');
-        } else {
-            axios.post('/', {
-                id: country.id
-            })
-        }
-        
-        
+        // if(!window.userId) {
+        //     //write to local storage
+        //     console.log('writing to local storage');
+        // } else {
+            
+        // }
+
+        axios.post('/', {
+            id: country.id
+        })
         
         if (country.visited == false) {
             clicked.push(country);
