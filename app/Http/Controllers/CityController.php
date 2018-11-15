@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use SKAgarwal\GoogleApi\PlacesApi;
-
+use App\City;
+use App\Attraction;
+use App\Country;
 
 class CityController extends Controller
 {
@@ -21,53 +22,28 @@ class CityController extends Controller
     }
 
 
-    public function show($city) {
-        $googlePlaces = new PlacesApi(env('MIX_GOOGLE_KEY'));
-        $attractions = $googlePlaces->textSearch($city.'+attraction', [
-            'type=point_of_interest'
-        ])['results'];
-        $photos = [];
-        foreach ($attractions as $key => $value) {
-            if(isset($value['photos']))
-            {
-                // dd($value['photos'][0]['photo_reference']);
-                $photos[] = $googlePlaces->photo($value['photos'][0]['photo_reference'],['maxwidth' => 500]);
-            } else {
-                $photos[]="";
-                }
-        }
+    public function show($city_name) {
+        
+        $city = City::where('name', $city_name)->get();
 
-        return (compact('attractions', 'city', 'photos'));
+        //filtering out attractions with no pictures and with rating 5.0 to get rid of obscure entities
+        $attractions = Attraction::where('city_name', $city_name)->where('photo', '!=', '')->where('rating', '<', 5)->orderBy('rating', 'DESC')->limit(5)->get();
+        
+        $country = Country::where('code' , '=', $city[0]->country_code)->get();
+        
+        return view('city', compact('attractions', 'city_name', 'country', 'city'));
 
     }
 
-    public function cache($city) {
-        // API call to save results of "top attractions in a city" from Google Places API to a local file.
+    public function api($city_name) {
+        $city = City::where('name', $city_name)->get();
 
-        $cache = __DIR__."/attractions.json";
-
-        $googlePlaces = new PlacesApi(env('MIX_GOOGLE_KEY'));
-        $attractions = $googlePlaces->textSearch($city.'+attraction', [
-            'type=point_of_interest'
-        ])['results'];
-        $photos = [];
-        foreach ($attractions as $key => $value) {
-            if(isset($value['photos']))
-            {
-                // dd($value['photos'][0]['photo_reference']);
-                $photos[] = $googlePlaces->photo($value['photos'][0]['photo_reference'],['maxwidth' => 500]);
-            } else {
-                $photos[]="";
-            }
-        }
-
-        $handle = fopen($cache, 'wb') or die('no fopen');
-        $json_cache = $attractions;
-        fwrite($handle, $json_cache);
-        fclose($handle);
-
-        var_dump(__DIR__);
-        var_dump($cache);
+        //filtering out attractions with no pictures and with rating 5.0 to get rid of obscure entities
+        $attractions = Attraction::where('city_name', $city_name)->where('photo', '!=', '')->where('rating', '<', 5)->orderBy('rating', 'DESC')->limit(5)->get();
+        
+        $country = Country::where('code' , '=', $city[0]->country_code)->get();
+        
+        return compact('attractions');
 
     }
 }

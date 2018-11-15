@@ -35986,7 +35986,7 @@ module.exports = function(module) {
 /* 42 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n}\r\n^\r\n      Invalid CSS after \"}\": expected \"}\", was \"\"\r\n      in C:\\Users\\mateo\\Desktop\\bootcamp\\projects\\scratchmap\\resources\\sass\\_custom.scss (line 668, column 2)\n    at runLoaders (C:\\Users\\mateo\\Desktop\\bootcamp\\projects\\scratchmap\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at C:\\Users\\mateo\\Desktop\\bootcamp\\projects\\scratchmap\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\Users\\mateo\\Desktop\\bootcamp\\projects\\scratchmap\\node_modules\\loader-runner\\lib\\LoaderRunner.js:230:18\n    at context.callback (C:\\Users\\mateo\\Desktop\\bootcamp\\projects\\scratchmap\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (C:\\Users\\mateo\\Desktop\\bootcamp\\projects\\scratchmap\\node_modules\\sass-loader\\lib\\loader.js:55:13)\n    at Object.done [as callback] (C:\\Users\\mateo\\Desktop\\bootcamp\\projects\\scratchmap\\node_modules\\neo-async\\async.js:8077:18)\n    at options.error (C:\\Users\\mateo\\Desktop\\bootcamp\\projects\\scratchmap\\node_modules\\node-sass\\lib\\index.js:294:32)");
 
 /***/ }),
 /* 43 */

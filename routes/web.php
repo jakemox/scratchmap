@@ -26,10 +26,10 @@ Route::post('profile', 'ProfileController@update_avatar');
 Route::get('/city/{city}', 'CityController@index');
 Route::post('/city/search', 'CityController@search');
 Route::get('/city/show/{city}', 'CityController@show');
+Route::get('/city/api/{city}', 'CityController@api');
 
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'CountryController@index')->name('home');
 
-Route::get('/cache_google/{city}', 'CityController@cache');

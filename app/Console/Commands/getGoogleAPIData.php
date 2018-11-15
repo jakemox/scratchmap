@@ -2,10 +2,9 @@
 
 namespace App\Console\Commands;
 
-use SKAgarwal\GoogleApi\PlacesApi;
 use Illuminate\Console\Command;
+use SKAgarwal\GoogleApi\PlacesApi;
 use DB;
-
 
 class getGoogleAPIData extends Command
 {
@@ -40,33 +39,54 @@ class getGoogleAPIData extends Command
      */
     public function handle()
     {
-        $city = ["Helsinki", "FI"];
+        $cities = [
+            ['Kabul','AF'],
+            ['Tirana','AL'],
+            ['Algiers','DZ'],
+            ['Luanda','AO'],
+            ['Saint','AG'],
+            ['Yerevan','AM'],
+            ['Canberra','AU'],
+            ['Vienna','AT'],
+            ['Baku','AZ'],
+            ['Nassau','BS'],
+            ['Manama','BH'],
+            ['Dhaka','BD'],
+            ['Bridgetown','BB'],
+            ['Minsk','BY'],
+            ['Brussels','BE'],
+            ['Belmopan','BZ']
 
-        $googlePlaces = new PlacesApi('AIzaSyCGotEjMvi4hDoIuC1yZmcIgYdi8TNRDH0');
-        $attractions = $googlePlaces->textSearch($city[0].'+attraction', [
-            'type=point_of_interest'
-        ])['results'];
-        $photos = [];
-        foreach ($attractions as $key => $value) {
-        if(isset($value['photos']))
-        {
-            // dd($value['photos'][0]['photo_reference']);
-            $photos[] = $googlePlaces->photo($value['photos'][0]['photo_reference'],['maxwidth' => 500]);
-        } else {
-            $photos[]="";
+            ];
+
+        foreach ($cities as $index => $city) {
+            $googlePlaces = new PlacesApi('AIzaSyCGotEjMvi4hDoIuC1yZmcIgYdi8TNRDH0');
+            $attractions = $googlePlaces->textSearch($city[0] . '+attraction', [
+                'type=point_of_interest',
+            ])['results'];
+            $photos = [];
+            foreach ($attractions as $key => $attraction) {
+                if (isset($attraction['photos'])) {
+                    // dd($attraction['photos'][0]['photo_reference']);
+                    $photos[] = $googlePlaces->photo($attraction['photos'][0]['photo_reference'], ['maxwidth' => 500]);
+                } else {
+                    $photos[] = "";
+                }
+            }
+
+            foreach ($attractions as $key => $attraction) {
+                DB::table('attractions')
+                    ->insert([
+                        'id' => $attraction['place_id'],
+                        'name' => $attraction['name'],
+                        'city_name' => $city[0],
+                        'country_code' => $city[1],
+                        'photo' => $photos[$key],
+                        'address' => $attraction['formatted_address'],
+                        'rating' => $attraction['rating'],
+                    ]);
+            }
+            echo($city[0] . " completed\n");
         }
-
-        var_dump($photos);
-        var_dump($attractions);
-
-        // DB::table('attractions')
-        //     ->update([
-        //         'name' => $country_data->population,
-        //         'city_name' => $country_data->capital,
-        //         'country_name' => $country_data->area,
-        //         'photo' => $country_data->currencies[0]->name,
-        //         'language' => $country_data->languages[0]->name
-        //     ]);
-    }
     }
 }

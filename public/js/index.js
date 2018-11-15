@@ -2081,92 +2081,7 @@ module.exports = checkPropTypes;
 
 
 /***/ }),
-/* 34 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-console.log("city.js loaded");
-
-var City = function (_React$Component) {
-  _inherits(City, _React$Component);
-
-  function City(props) {
-    _classCallCheck(this, City);
-
-    var _this = _possibleConstructorReturn(this, (City.__proto__ || Object.getPrototypeOf(City)).call(this, props));
-
-    _this.state = {
-      visible: true,
-      attractions: [],
-      isLoading: true
-    };
-
-    return _this;
-  }
-
-  _createClass(City, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/city/show/' + this.props.cityName)
-      // .then(response => response.json())
-      .then(function (response) {
-        // console.log(response.data.attractions);
-        _this2.setState({
-          attractions: response.data.attractions,
-          isLoading: false
-        });
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      if (this.state.isLoading == true) {
-        return "Loading..";
-      }
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'city-info' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'h2',
-          null,
-          'ATTRACTIONS'
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-        this.props.cityName,
-        console.log(this.state.attractions[0]),
-        this.state.attractions.map(function (attraction) {
-          return '\n            ' + attraction.name + '\n            <br>\n            ';
-        })
-      );
-    }
-  }]);
-
-  return City;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["a"] = (City);
-
-/***/ }),
+/* 34 */,
 /* 35 */,
 /* 36 */,
 /* 37 */,
@@ -2192,20 +2107,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__global__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__country__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search_js__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__slider__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mapbox__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_City__ = __webpack_require__(34);
 
 
 
 
 
-
-
-console.log("index.js loaded");
 
 /***/ }),
 /* 46 */
@@ -2238,16 +2149,9 @@ var Country = function () {
   }
 
   _createClass(Country, [{
-    key: 'toggle_visit',
+    key: "toggle_visit",
     value: function toggle_visit(id) {
-      $.ajax({
-        url: '/',
-        method: 'post',
-        data: {
-          id: this.id,
-          _token: document.head.querySelector('meta[name="csrf-token"]').content
-        }
-      });
+      this.save();
 
       var toggle = document.getElementById('country_' + this.id);
 
@@ -2259,8 +2163,33 @@ var Country = function () {
         this.updateMap();
       }
     }
+
+    //to save countries clicked when not logged in.
+
   }, {
-    key: 'updateList',
+    key: "save",
+    value: function save() {
+      $.ajax({
+        url: '/',
+        method: 'post',
+        data: {
+          id: this.id,
+          _token: document.head.querySelector('meta[name="csrf-token"]').content
+        }
+      });
+    }
+
+    // get() {
+
+    //   if(!window.userId) {
+    //     //get from local storage
+    //   } else {
+
+    //   }
+    // }
+
+  }, {
+    key: "updateList",
     value: function updateList() {
       var toggle = document.getElementById('country_' + this.id);
 
@@ -2271,7 +2200,7 @@ var Country = function () {
       }
     }
   }, {
-    key: 'updateMap',
+    key: "updateMap",
     value: function updateMap() {
       var clickedStateId = this.id;
       var clickedStateKey = clickedStateId - 1;
@@ -2296,41 +2225,41 @@ var Country = function () {
       console.log(window.scratchmap.clicked);
     }
   }, {
-    key: 'checked',
+    key: "checked",
     value: function checked() {
       if (this.visited == false) {
-        return '<i class="far fa-circle"></i>';
+        return "<i class=\"far fa-circle\"></i>";
       } else {
-        return '<i class="fas fa-check-circle"></i>';
+        return "<i class=\"fas fa-check-circle\"></i>";
       }
     }
   }, {
-    key: 'renderList',
+    key: "renderList",
     value: function renderList() {
       var listCountryItem = document.createElement('li');
       listCountryItem.setAttribute('class', 'list-country-item');
 
-      listCountryItem.innerHTML = '<div class="country-list">\n        <div class="image-crop">\n          <img class="flag-icon" src="/img/flags-normal/' + this.code.toLowerCase() + '.png">\n        </div>\n        <div class="list-country-name">\n          ' + this.name + '\n        </div>\n      </div>\n      <div id="country_' + this.id + '" class="country-button">' + this.checked() + '\n      </div>';
+      listCountryItem.innerHTML = "<div class=\"country-list\">\n        <div class=\"image-crop\">\n          <img class=\"flag-icon\" src=\"/img/flags-normal/" + this.code.toLowerCase() + ".png\">\n        </div>\n        <div class=\"list-country-name\">\n          " + this.name + "\n        </div>\n      </div>\n      <div id=\"country_" + this.id + "\" class=\"country-button\">" + this.checked() + "\n      </div>";
 
       return listCountryItem;
     }
   }, {
-    key: 'mountList',
+    key: "mountList",
     value: function mountList(parent) {
       var _this = this;
 
       var listCountryElm = this.renderList();
       parent.appendChild(listCountryElm);
 
-      var toggleBtn = document.getElementById('country_' + this.id);
+      var toggleBtn = document.getElementById("country_" + this.id);
       toggleBtn.addEventListener('click', function () {
         _this.toggle_visit();
       });
     }
   }, {
-    key: 'updateHTML',
+    key: "updateHTML",
     value: function updateHTML() {
-      window.scratchmap.scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + window.scratchmap.clicked.length + '</div>';
+      window.scratchmap.scoreContainer.innerHTML = "<div id=\"score\" class=\"score\">Countries Visited: " + window.scratchmap.clicked.length + "</div>";
     }
   }]);
 
@@ -2369,49 +2298,54 @@ $.ajax({
 /* 48 */
 /***/ (function(module, exports) {
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     let x = window.matchMedia("(max-width: 768px)");
-//     let form = document.getElementById('search-form');
-//     let label = document.getElementById('search-label');
-//     let clouds = document.getElementById('clouds');
-//     let trees = document.getElementById('trees');
-//     let slope = document.getElementById('slope');
-//     let mountains = document.getElementById('mountains');
 
-//     form.addEventListener('mouseover', function () {
-//         label.innerHTML = `<img src="\\img\\search-black.svg" alt="">`;
-//         slope.style.left = '-5%';
-//         mountains.style.width = '110%';
-//         mountains.style.left = '-5%';
-//         trees.style.left = '5%';
 
-//         if (x.matches) {
-//             mountains.style.height = '45vh';
-//             mountains.style.bottom = '5vh';
-//         } else {
-//             mountains.style.height = '60vw';
-//             mountains.style.maxHeight = '80vh';
-//             mountains.style.bottom = '0';
-//         }
-//     })
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('search-form');
+    var label = document.getElementById('search-label');
+    console.log('search loaded');
+    // let x = window.matchMedia("(max-width: 768px)");
 
-//     form.addEventListener('mouseleave', function () {
-//         label.innerHTML = `<img src="\\img\\search.svg" alt="">`;
-//         slope.style.left = '0';
-//         mountains.style.width = '100%';
-//         mountains.style.left = '0';
-//         trees.style.left = '0';
+    // let clouds = document.getElementById('clouds');
+    // let trees = document.getElementById('trees');
+    // let slope = document.getElementById('slope');
+    // let mountains = document.getElementById('mountains');
 
-//         if (x.matches) {
-//             mountains.style.height = '40vh';
-//             mountains.style.bottom = '10vh';
-//         } else {
-//             mountains.style.height = '50vw';
-//             mountains.style.maxHeight = '70vh';
-//             mountains.style.bottom = '0';
-//         }
-//     })
-// })
+    form.addEventListener('mouseover', function () {
+        console.log('hovered search');
+        label.innerHTML = '<img src="\\img\\search-black.svg" alt="search-icon">';
+        // slope.style.left = '-5%';
+        // mountains.style.width = '110%';
+        // mountains.style.left = '-5%';
+        // trees.style.left = '5%';
+
+        // if (x.matches) {
+        //     mountains.style.height = '45vh';
+        //     mountains.style.bottom = '5vh';
+        // } else {
+        //     mountains.style.height = '60vw';
+        //     mountains.style.maxHeight = '80vh';
+        //     mountains.style.bottom = '0';
+        // }
+    });
+
+    form.addEventListener('mouseleave', function () {
+        label.innerHTML = '<img src="\\img\\search.svg" alt="">';
+        // slope.style.left = '0';
+        // mountains.style.width = '100%';
+        // mountains.style.left = '0';
+        // trees.style.left = '0';
+
+        // if (x.matches) {
+        //     mountains.style.height = '40vh';
+        //     mountains.style.bottom = '10vh';
+        // } else {
+        //     mountains.style.height = '50vw';
+        //     mountains.style.maxHeight = '70vh';
+        //     mountains.style.bottom = '0';
+        // }
+    });
+});
 
 /***/ }),
 /* 49 */
@@ -2456,7 +2390,7 @@ slideTriggerMobile.addEventListener('click', function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_City__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_City_jsx__ = __webpack_require__(63);
 
 
 
@@ -2593,6 +2527,13 @@ map.on('load', function () {
 
         console.log(countryList[clickedStateKey]);
 
+        // if(!window.userId) {
+        //     //write to local storage
+        //     console.log('writing to local storage');
+        // } else {
+
+        // }
+
         axios.post('/', {
             id: country.id
         });
@@ -2638,14 +2579,16 @@ map.on('load', function () {
             var country = countries[hoveredStateId - 1];
             //shows name of country in box
 
-            document.getElementById('features').innerHTML = '<div class="display-name">' + '<div class="image-crop">' + '<img class="flag-icon" src="/img/flags-normal/' + country.code.toLowerCase() + '.png" alt="">' + '</div>' + '<h2>' + country.name + '</h2>' + '</div>' + '<div class="shape-container">' + '<img class="shape" src="/img/shapes/' + country.code + '.svg" alt="">' + '</div>' + ('<p><b>Capital:</b> <a id="cityLink" data-city="' + country.capital + '" href="javascript:void(0)">') + country.capital + '</a></p>' + '<p><b>Population:</b> ' + (country.population / 1000000).toFixed(2) + ' million</p>' + '<p><b>Currency:</b> ' + country.currency + '</p>' + '<p><b>Language:</b> ' + country.language + '</p>' + '<p><b>Area:</b> ' + country.area / 1000 + ' km<sup>2</sup></p>';
+            document.getElementById('features').innerHTML = '<div class="display-name">' + '<div class="image-crop">' + '<img class="flag-icon" src="/img/flags-normal/' + country.code.toLowerCase() + '.png" alt="">' + '</div>' + '<h2>' + country.name + '</h2>' + '</div>' + '<div id="shape-container" class="shape-container">' + '<img class="shape" src="/img/shapes/' + country.code + '.svg" alt="">' + '</div>' + ('<p><b>Capital:</b> <a id="cityLink" data-city="' + country.capital + '" href="javascript:void(0)">') + country.capital + '</a></p>' + '<p><b>Population:</b> ' + (country.population / 1000000).toFixed(2) + ' million</p>' + '<p><b>Currency:</b> ' + country.currency + '</p>' + '<p><b>Language:</b> ' + country.language + '</p>' + '<p><b>Area:</b> ' + country.area / 1000 + ' km<sup>2</sup></p>' + '<div id="city"></div>';
 
             document.querySelector("#cityLink").addEventListener("click", function (e) {
                 show_city(e.target.dataset.city);
             });
         }
+
         function show_city(city) {
-            Object(__WEBPACK_IMPORTED_MODULE_0_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_City__["a" /* default */], { cityName: city }), document.getElementById('city'));
+            // document.getElementById('shape-container').setAttribute('display','none');
+            Object(__WEBPACK_IMPORTED_MODULE_0_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_City_jsx__["a" /* default */], { cityName: city }), document.getElementById('city'));
         };
     });
 
@@ -24433,6 +24376,146 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
   })();
 }
 
+
+/***/ }),
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Attraction_jsx__ = __webpack_require__(64);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+console.log("city.js loaded");
+
+var City = function (_React$Component) {
+  _inherits(City, _React$Component);
+
+  function City(props) {
+    _classCallCheck(this, City);
+
+    var _this = _possibleConstructorReturn(this, (City.__proto__ || Object.getPrototypeOf(City)).call(this, props));
+
+    _this.state = {
+      visible: true,
+      attractions: [],
+      isLoading: true
+    };
+
+    return _this;
+  }
+
+  _createClass(City, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/city/api/' + this.props.cityName).then(function (response) {
+        _this2.setState({
+          attractions: response.data.attractions,
+          isLoading: false
+        });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'city-info' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'h2',
+          null,
+          'Top attractions in ',
+          this.props.cityName
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+        this.state.attractions.map(function (element) {
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Attraction_jsx__["a" /* default */], {
+            name: element.name,
+            pic: element.photo
+          });
+        })
+      );
+    }
+  }]);
+
+  return City;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (City);
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+console.log('attraction loaded');
+
+var Attraction = function (_React$Component) {
+  _inherits(Attraction, _React$Component);
+
+  function Attraction() {
+    _classCallCheck(this, Attraction);
+
+    return _possibleConstructorReturn(this, (Attraction.__proto__ || Object.getPrototypeOf(Attraction)).apply(this, arguments));
+  }
+
+  _createClass(Attraction, [{
+    key: 'render',
+    value: function render() {
+      var style = {
+        backgroundImage: "url(" + this.props.pic + ")"
+      };
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { id: 'attraction', style: style },
+        this.props.name
+      );
+    }
+  }]);
+
+  return Attraction;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (Attraction);
 
 /***/ })
 /******/ ]);

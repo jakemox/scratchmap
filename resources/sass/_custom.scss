@@ -84,11 +84,10 @@ html {
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 4rem;
   transition: all 1s;
   z-index: 3;
   overflow-y:auto;
-  padding-top: 3rem;
 }
 
 .slider.close {
@@ -197,6 +196,8 @@ html {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
   .display-name {
     display: flex;
     margin: 0 auto;
@@ -264,6 +265,7 @@ footer nav {
 .list-country-name {
   display:flex;
   font-size: 2rem;
+  white-space: nowrap;
 }
 
 .continents-list {
@@ -274,7 +276,8 @@ footer nav {
 
 .continent {
   img {
-    width: 100px;
+    width: 75px;
+    margin: 1rem auto;
   }
 }
 
@@ -520,12 +523,12 @@ body {
   flex: 0 0 0;
   justify-content: space-between;
   align-items: center;
-  margin-right: 10rem;
+  margin-right: 5rem;
 }
 
 .list-country-name {
   display:flex;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .country-list {
@@ -566,3 +569,100 @@ body {
 }
 
 
+@mixin circle($size) {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - #{$size/2});
+  top: calc(50% - #{$size/2});
+  width: $size;
+  height: $size;
+}
+
+$size: 200px;
+.progress-pie-chart {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: #E5E5E5;
+  position: relative;
+  &.gt-50 {
+    background-color: #81CE97;
+  }
+}
+.ppc-progress {
+  @include circle($size);
+  clip: rect(0, $size, $size, #{$size/2});
+  .ppc-progress-fill {
+    @include circle($size);
+    clip: rect(0, #{$size/2}, $size, 0);
+    background: #81CE97;
+    transform: rotate(60deg);
+  }
+  .gt-50 & {
+    clip: rect(0, #{$size/2}, $size, 0);
+    .ppc-progress-fill {
+      clip: rect(0, $size, $size, #{$size/2});
+      background: #E5E5E5;
+    }
+  }
+}
+.ppc-percents {
+  @include circle(#{$size/1.15});
+  background: #fff;
+  text-align: center;
+  display: table;
+  overflow: hidden;
+  img {
+    width: $size/1.15;
+  }
+}
+.pcc-percents-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+
+body {
+  font-family: Arial;
+  background: #f7f7f7;
+}
+.progress-pie-chart {
+  margin: 50px auto 0;
+}
+
+.city-info {
+
+  width:100%;
+
+}
+
+#attraction {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  font-weight: bold;
+  color: white;
+  font-size: 2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  margin: 1em 0 1em 0;
+  text-shadow: #000000 0 0 10px;
+.continent {
+  img {
+    width: 100px;
+    margin: 1rem auto;
+    transition: 0.2s;
+
+    :hover {
+      width: 150px;
+    }
+  }
+}
