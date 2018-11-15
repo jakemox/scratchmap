@@ -14,6 +14,34 @@ header  {
   background: #c2c9d2;
 }
 
+.button {
+  
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Poppins';
+  font-weight: 200;
+  color:  #405C7B;
+  background-color: #FFFFFF;
+  border-radius: 2rem;
+  padding: 0.6rem;
+  text-decoration: none;
+
+}
+
+.alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem;
+  background-color: #405C7B;
+  color: white;
+}
+
+
+
 .profile {
     position: absolute;
     top: 0;
@@ -27,24 +55,31 @@ header  {
     height: 100vh;
     
     .rounded-circle {
-      border-radius: 100%;
+      border-radius: 50%; 
+      height: 180px;
+      width: 180px;
+      overflow: hidden;
       
 
     }
 
     .profile_details {
       display: flex;
-      padding: 1rem;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      width: 100%;
 
       .details {
-        width: 50%;
+        width: 47%;
         font-family: 'Poppins';
         font-weight: 200;
       }
 
       .profile_image {
-        width: 50%;
-        display: block;
+        width: 53%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
         
 
       }
@@ -53,32 +88,53 @@ header  {
         display: flex;
         max-width: 80px;
         flex-flow: column;
+
+        input[type='file'] {
+          color: transparent;
+          border-radius: 10px;
+          cursor: pointer;
+          font-family: 'Poppins';
+          
+        }
       }
 
       .photo-photo {
         display: block;
+        border-radius: 50%;
+
+        img {
+          border-radius: 50%;
+        }
       }
 
       .photo-form {
-        display: block;
+        display: flex;
+        justify-content: center;
+       
+        button {
+          border-radius: 1rem;
+          cursor: pointer;
+          font-family: 'Poppins';
+
+        }
       }
     }
 
     .continents-profile {
       display: flex;
       flex-flow: row wrap;
-
+      width: 100%;
       
     }
 
     .africa, .asia, .europe, .north_america, .south_america, .australia {
       text-align: center;
+      width: 45%;
     }
 
   .form {
     background-color: rgba(255, 255, 255, 0.75);
-    width: 45vw;
-    height: 90vh;
+    width: 50vw;
     border-radius: 10px;
     opacity: 0.95;
     display: block;

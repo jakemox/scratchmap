@@ -43,6 +43,8 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+
+ 
 }
 
 .loading_title {
@@ -51,6 +53,13 @@ html {
     color:#FFD496;
     font-size: 4.5rem;
     margin-bottom: 15px;
+}
+
+.loading_welcome {
+  font-family: 'Korner Deli NF';
+  font-weight: bold;
+  color:#FFD496;
+  font-size: 3rem;
 }
 
 .bounce {
@@ -66,10 +75,10 @@ html {
 }
 
 @-webkit-keyframes bounce {
-  0%       { bottom:56%; }
-  25%, 75% { bottom:62%; }
-  50%      { bottom:58%; }
-  100%     {bottom:56%;}
+  0%       { bottom:66%; }
+  25%, 75% { bottom:68%; }
+  50%      { bottom:70%; }
+  100%     {bottom:72%;}
 }
 
 .slider {
@@ -655,6 +664,7 @@ body {
   background-position: center;
   margin: 1em 0 1em 0;
   text-shadow: #000000 0 0 10px;
+}
 .continent {
   img {
     width: 100px;

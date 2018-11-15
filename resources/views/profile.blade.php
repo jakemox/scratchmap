@@ -29,24 +29,18 @@
           @if (count($errors) > 0)
               <div class="alert alert-danger">
                   <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                  <ul>
-                      @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                      @endforeach
-                  </ul>
               </div>
           @endif
-          
-          <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}" height="150px" />
+          <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}"/>
           </div>
             <div class="photo-form">
             <form action="{{action('ProfileController@update_avatar')}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                   <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                  <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
+                  <small id="fileHelp" class="form-text text-muted">Size of image should not be more than 2MB.</small>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+             <button type="submit" class="score">Submit</button>
           </form>
           </div>
         </div>
