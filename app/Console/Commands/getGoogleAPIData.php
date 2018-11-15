@@ -43,10 +43,8 @@ class getGoogleAPIData extends Command
             ['Kabul','AF'],
             ['Tirana','AL'],
             ['Algiers','DZ'],
-            ['Andorra','AD'],
             ['Luanda','AO'],
             ['Saint','AG'],
-            ['Buenos','AR'],
             ['Yerevan','AM'],
             ['Canberra','AU'],
             ['Vienna','AT'],
@@ -88,7 +86,7 @@ class getGoogleAPIData extends Command
                         'rating' => $attraction['rating'],
                     ]);
             }
-            echo($city[0] . " completed");
+            echo($city[0] . " completed\n");
         }
     }
 }

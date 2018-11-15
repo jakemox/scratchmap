@@ -1,7 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
 import Axios from 'axios';
-
+import Attraction from './Attraction.jsx'
 
 console.log("city.js loaded")
 
@@ -19,10 +19,8 @@ export default class City extends React.Component {
 
   
   componentDidMount() {
-    Axios.get('/city/show/' + this.props.cityName)
-    // .then(response => response.json())
+    Axios.get('/city/api/' + this.props.cityName)
     .then(response => {
-      // console.log(response.data.attractions);
       this.setState({
         attractions: response.data.attractions,
         isLoading: false
@@ -31,20 +29,16 @@ export default class City extends React.Component {
   }
 
   render() {
-    if (this.state.isLoading == true) {
-      return "Loading.."
-    }
     return (
       <div className="city-info">
-        <h2>ATTRACTIONS</h2><br />
-        {this.props.cityName}
-        {console.log(this.state.attractions[0])}
-        {this.state.attractions.map(attraction => {
-          return (`
-            ${attraction.name}
-            <br>
-            `)
-        })}
+        <h2>Top attractions in {this.props.cityName}</h2><br />
+        {this.state.attractions.map(element => 
+            <Attraction 
+            name={element.name}
+            pic={element.photo}
+            />
+        )
+        }
 
       </div>
       )

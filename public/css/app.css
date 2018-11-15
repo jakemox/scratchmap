@@ -258,6 +258,8 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .features .display-name {
@@ -793,6 +795,35 @@ body {
 
 .progress-pie-chart {
   margin: 50px auto 0;
+}
+
+.city-info {
+  width: 100%;
+}
+
+#attraction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  height: 300px;
+  font-weight: bold;
+  color: white;
+  font-size: 2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 1em 0 1em 0;
+  text-shadow: #000000 0 0 10px;
 }
 
 /*!

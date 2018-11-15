@@ -35,12 +35,15 @@ class CityController extends Controller
 
     }
 
-    public function api($city) {
-        // API call to save results of "top attractions in a city" from Google Places API to a local file.
-        $city = Attraction::where('city_name', $city)->get();
-        return $city;
+    public function api($city_name) {
+        $city = City::where('name', $city_name)->get();
 
-        // axios.get()
+        //filtering out attractions with no pictures and with rating 5.0 to get rid of obscure entities
+        $attractions = Attraction::where('city_name', $city_name)->where('photo', '!=', '')->where('rating', '<', 5)->orderBy('rating', 'DESC')->limit(5)->get();
+        
+        $country = Country::where('code' , '=', $city[0]->country_code)->get();
+        
+        return compact('attractions');
 
     }
 }

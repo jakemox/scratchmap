@@ -235,6 +235,8 @@ html {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
   .display-name {
     display: flex;
     margin: 0 auto;
@@ -665,4 +667,29 @@ body {
 }
 .progress-pie-chart {
   margin: 50px auto 0;
+}
+
+.city-info {
+
+  width:100%;
+
+}
+
+#attraction {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  font-weight: bold;
+  color: white;
+  font-size: 2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  margin: 1em 0 1em 0;
+  text-shadow: #000000 0 0 10px;
 }
