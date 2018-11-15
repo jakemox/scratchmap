@@ -6,7 +6,7 @@
 
 @section('content')
 
-<h1>Top attractions in {{$city}}</h1>
+<h1>Top attractions in {{$city_name}}, {{$country[0]->name}}</h1>
 
 
 @foreach ($attractions as $key => $attraction)

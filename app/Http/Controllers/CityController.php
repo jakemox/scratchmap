@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\City;
 use App\Attraction;
+use App\Country;
 
 class CityController extends Controller
 {
@@ -21,11 +22,16 @@ class CityController extends Controller
     }
 
 
-    public function show($city) {
+    public function show($city_name) {
         
-        $attractions = Attraction::where('city_name', $city)->where('photo', '!=', '')->orderBy('rating', 'DESC')->limit(5)->get();
+        $city = City::where('name', $city_name)->get();
+
+        //filtering out attractions with no pictures and with rating 5.0 to get rid of obscure entities
+        $attractions = Attraction::where('city_name', $city_name)->where('photo', '!=', '')->where('rating', '<', 5)->orderBy('rating', 'DESC')->limit(5)->get();
         
-        return view('city', compact('attractions', 'city'));
+        $country = Country::where('code' , '=', $city[0]->country_code)->get();
+        
+        return view('city', compact('attractions', 'city_name', 'country', 'city'));
 
     }
 
