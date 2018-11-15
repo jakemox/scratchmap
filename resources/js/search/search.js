@@ -1,14 +1,19 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
-    // let x = window.matchMedia("(max-width: 768px)");
-    // let form = document.getElementById('search-form');
+    let form = document.getElementById('search-form');
     let label = document.getElementById('search-label');
+    console.log('search loaded');
+    // let x = window.matchMedia("(max-width: 768px)");
+    
     // let clouds = document.getElementById('clouds');
     // let trees = document.getElementById('trees');
     // let slope = document.getElementById('slope');
     // let mountains = document.getElementById('mountains');
 
     form.addEventListener('mouseover', function () {
-        label.innerHTML = `<img src="\\img\\search-black.svg" alt="">`;
+        console.log('hovered search');
+        label.innerHTML = `<img src="\\img\\search-black.svg" alt="search-icon">`;
         // slope.style.left = '-5%';
         // mountains.style.width = '110%';
         // mountains.style.left = '-5%';

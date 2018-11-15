@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -755,7 +755,7 @@ module.exports = Cancel;
 if (false) {
   module.exports = require('./cjs/react.production.min.js');
 } else {
-  module.exports = __webpack_require__(51);
+  module.exports = __webpack_require__(50);
 }
 
 
@@ -1878,7 +1878,7 @@ if (false) {
   checkDCE();
   module.exports = require('./cjs/react-dom.production.min.js');
 } else {
-  module.exports = __webpack_require__(50);
+  module.exports = __webpack_require__(49);
 }
 
 
@@ -1902,7 +1902,7 @@ if (false) {
 var printWarning = function() {};
 
 if (true) {
-  var ReactPropTypesSecret = __webpack_require__(53);
+  var ReactPropTypesSecret = __webpack_require__(52);
   var loggedTypeFailures = {};
 
   printWarning = function(text) {
@@ -1993,28 +1993,27 @@ module.exports = checkPropTypes;
 /* 39 */,
 /* 40 */,
 /* 41 */,
-/* 42 */,
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(44);
+module.exports = __webpack_require__(43);
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__global__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__country__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search_js__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__slider__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mapbox__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mapbox__ = __webpack_require__(48);
 
 
 
@@ -2022,13 +2021,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports) {
 
 window.scratchmap = {};
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports) {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2072,28 +2071,25 @@ var Country = function () {
   }, {
     key: "save",
     value: function save() {
-      if (!window.userId) {
-        //write to local storage
-        console.log('writing to local storage');
-      } else {
-        $.ajax({
-          url: '/',
-          method: 'post',
-          data: {
-            id: this.id,
-            _token: document.head.querySelector('meta[name="csrf-token"]').content
-          }
-        });
-      }
+      $.ajax({
+        url: '/',
+        method: 'post',
+        data: {
+          id: this.id,
+          _token: document.head.querySelector('meta[name="csrf-token"]').content
+        }
+      });
     }
-  }, {
-    key: "get",
-    value: function get() {
 
-      if (!window.userId) {
-        //get from local storage
-      } else {}
-    }
+    // get() {
+
+    //   if(!window.userId) {
+    //     //get from local storage
+    //   } else {
+
+    //   }
+    // }
+
   }, {
     key: "updateList",
     value: function updateList() {
@@ -2201,20 +2197,25 @@ $.ajax({
 });
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports) {
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
-    // let x = window.matchMedia("(max-width: 768px)");
-    // let form = document.getElementById('search-form');
+    var form = document.getElementById('search-form');
     var label = document.getElementById('search-label');
+    console.log('search loaded');
+    // let x = window.matchMedia("(max-width: 768px)");
+
     // let clouds = document.getElementById('clouds');
     // let trees = document.getElementById('trees');
     // let slope = document.getElementById('slope');
     // let mountains = document.getElementById('mountains');
 
     form.addEventListener('mouseover', function () {
-        label.innerHTML = '<img src="\\img\\search-black.svg" alt="">';
+        console.log('hovered search');
+        label.innerHTML = '<img src="\\img\\search-black.svg" alt="search-icon">';
         // slope.style.left = '-5%';
         // mountains.style.width = '110%';
         // mountains.style.left = '-5%';
@@ -2249,7 +2250,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports) {
 
 document.getElementById('trigger-mobile').addEventListener('click', function () {
@@ -2283,7 +2284,7 @@ slideTriggerMobile.addEventListener('click', function () {
 });
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2291,7 +2292,7 @@ slideTriggerMobile.addEventListener('click', function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_City_jsx__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_City_jsx__ = __webpack_require__(58);
 
 
 
@@ -2428,14 +2429,16 @@ map.on('load', function () {
 
         console.log(countryList[clickedStateKey]);
 
-        if (!window.userId) {
-            //write to local storage
-            console.log('writing to local storage');
-        } else {
-            axios.post('/', {
-                id: country.id
-            });
-        }
+        // if(!window.userId) {
+        //     //write to local storage
+        //     console.log('writing to local storage');
+        // } else {
+
+        // }
+
+        axios.post('/', {
+            id: country.id
+        });
 
         if (country.visited == false) {
             clicked.push(country);
@@ -2502,7 +2505,7 @@ map.on('load', function () {
 });
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2524,10 +2527,10 @@ if (true) {
 'use strict';
 
 var React = __webpack_require__(7);
-var _assign = __webpack_require__(54);
+var _assign = __webpack_require__(53);
 var checkPropTypes = __webpack_require__(32);
-var scheduler = __webpack_require__(55);
-var tracing = __webpack_require__(57);
+var scheduler = __webpack_require__(54);
+var tracing = __webpack_require__(56);
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -22236,7 +22239,7 @@ module.exports = reactDom;
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22257,7 +22260,7 @@ if (true) {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(52);
+var _assign = __webpack_require__(51);
 var checkPropTypes = __webpack_require__(32);
 
 // TODO: this is special because it gets imported during build.
@@ -24083,7 +24086,7 @@ module.exports = react;
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24180,7 +24183,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24199,7 +24202,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24296,7 +24299,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24305,12 +24308,12 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 if (false) {
   module.exports = require('./cjs/scheduler.production.min.js');
 } else {
-  module.exports = __webpack_require__(56);
+  module.exports = __webpack_require__(55);
 }
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24956,7 +24959,7 @@ exports.unstable_shouldYield = unstable_shouldYield;
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24965,12 +24968,12 @@ exports.unstable_shouldYield = unstable_shouldYield;
 if (false) {
   module.exports = require('./cjs/scheduler-tracing.production.min.js');
 } else {
-  module.exports = __webpack_require__(58);
+  module.exports = __webpack_require__(57);
 }
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25397,64 +25400,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 
 
 /***/ }),
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-console.log('attraction loaded');
-
-var Attraction = function (_React$Component) {
-  _inherits(Attraction, _React$Component);
-
-  function Attraction() {
-    _classCallCheck(this, Attraction);
-
-    return _possibleConstructorReturn(this, (Attraction.__proto__ || Object.getPrototypeOf(Attraction)).apply(this, arguments));
-  }
-
-  _createClass(Attraction, [{
-    key: 'render',
-    value: function render() {
-      var style = {
-        backgroundImage: "url(" + this.props.pic + ")"
-      };
-
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { id: 'attraction', style: style },
-        this.props.name
-      );
-    }
-  }]);
-
-  return Attraction;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["a"] = (Attraction);
-
-/***/ }),
-/* 66 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25464,7 +25410,7 @@ var Attraction = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Attraction_jsx__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Attraction_jsx__ = __webpack_require__(59);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25536,6 +25482,57 @@ var City = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (City);
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+console.log('attraction loaded');
+
+var Attraction = function (_React$Component) {
+  _inherits(Attraction, _React$Component);
+
+  function Attraction() {
+    _classCallCheck(this, Attraction);
+
+    return _possibleConstructorReturn(this, (Attraction.__proto__ || Object.getPrototypeOf(Attraction)).apply(this, arguments));
+  }
+
+  _createClass(Attraction, [{
+    key: 'render',
+    value: function render() {
+      var style = {
+        backgroundImage: "url(" + this.props.pic + ")"
+      };
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { id: 'attraction', style: style },
+        this.props.name
+      );
+    }
+  }]);
+
+  return Attraction;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (Attraction);
 
 /***/ })
 /******/ ]);
