@@ -2,10 +2,9 @@
 
 namespace App\Console\Commands;
 
-use SKAgarwal\GoogleApi\PlacesApi;
 use Illuminate\Console\Command;
+use SKAgarwal\GoogleApi\PlacesApi;
 use DB;
-
 
 class getGoogleAPIData extends Command
 {
@@ -43,30 +42,32 @@ class getGoogleAPIData extends Command
         $city = ["Helsinki", "FI"];
 
         $googlePlaces = new PlacesApi('AIzaSyCGotEjMvi4hDoIuC1yZmcIgYdi8TNRDH0');
-        $attractions = $googlePlaces->textSearch($city[0].'+attraction', [
-            'type=point_of_interest'
+        $attractions = $googlePlaces->textSearch($city[0] . '+attraction', [
+            'type=point_of_interest',
         ])['results'];
         $photos = [];
-        foreach ($attractions as $key => $value) {
-        if(isset($value['photos']))
-        {
-            // dd($value['photos'][0]['photo_reference']);
-            $photos[] = $googlePlaces->photo($value['photos'][0]['photo_reference'],['maxwidth' => 500]);
-        } else {
-            $photos[]="";
+        foreach ($attractions as $key => $attraction) {
+            if (isset($attraction['photos'])) {
+                // dd($attraction['photos'][0]['photo_reference']);
+                $photos[] = $googlePlaces->photo($attraction['photos'][0]['photo_reference'], ['maxwidth' => 500]);
+            } else {
+                $photos[] = "";
+            }
         }
 
-        var_dump($photos);
-        var_dump($attractions);
+        foreach ($attractions as $key => $attraction) {
+            DB::table('attractions')
+                ->insert([
+                    'id' => $attraction['place_id'],
+                    'name' => $attraction['name'],
+                    'city_name' => $city[0],
+                    'country_name' => $city[1],
+                    'photo' => $photos[$key],
+                    'address' => $attraction['formatted_address'],
+                    'rating' => $attraction['rating'],
+                ]);
+        }
 
-        // DB::table('attractions')
-        //     ->update([
-        //         'name' => $country_data->population,
-        //         'city_name' => $country_data->capital,
-        //         'country_name' => $country_data->area,
-        //         'photo' => $country_data->currencies[0]->name,
-        //         'language' => $country_data->languages[0]->name
-        //     ]);
-    }
+        echo($city[0] . " completed");
     }
 }
