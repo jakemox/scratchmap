@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use SKAgarwal\GoogleApi\PlacesApi;
-
+use App\City;
+use App\Attraction;
 
 class CityController extends Controller
 {
@@ -22,30 +22,17 @@ class CityController extends Controller
 
 
     public function show($city) {
-
-        // axios.get()
-
-        // $googlePlaces = new PlacesApi(env('MIX_GOOGLE_KEY'));
-        // $attractions = $googlePlaces->textSearch($city.'+attraction', [
-        //     'type=point_of_interest'
-        // ])['results'];
-        // $photos = [];
-        // foreach ($attractions as $key => $value) {
-        //     if(isset($value['photos']))
-        //     {
-        //         // dd($value['photos'][0]['photo_reference']);
-        //         $photos[] = $googlePlaces->photo($value['photos'][0]['photo_reference'],['maxwidth' => 500]);
-        //     } else {
-        //         $photos[]="";
-        //         }
-        // }
-
-        // return (compact('attractions', 'city', 'photos'));
+        
+        $attractions = Attraction::where('city_name', $city)->where('photo', '!=', '')->orderBy('rating', 'DESC')->limit(5)->get();
+        
+        return view('city', compact('attractions', 'city'));
 
     }
 
     public function api($city) {
         // API call to save results of "top attractions in a city" from Google Places API to a local file.
+        $city = Attraction::where('city_name', $city)->get();
+        return $city;
 
         // axios.get()
 
