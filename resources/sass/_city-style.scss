@@ -1,0 +1,11 @@
+.header-background {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-image: url('/img/positano.jpg');
+    background-size: cover;
+    background-position-x: 100%;
+    background-position-y: 50%;  
+    z-index: -1;
+    height: 80vh;
+}

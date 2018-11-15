@@ -1,10 +1,16 @@
 @extends('layouts.layout', [
     'image' => 'balloon-cutout',
-    'css' => 'plan'
+    'css' => 'city'
 ])
 
 
 @section('content')
+
+<div class="header-background">
+    <div class="fade">
+
+    </div>
+</div>
 
 <h1>Top attractions in {{$city_name}}, {{$country[0]->name}}</h1>
 
