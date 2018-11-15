@@ -1,3 +1,19 @@
+header  {
+  z-index: 2;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+
+}
+::-webkit-scrollbar-thumb {
+  
+  border-radius: 8px;
+  background: #c2c9d2;
+}
+
 .profile {
     position: absolute;
     top: 0;
@@ -7,21 +23,44 @@
     background-size: cover;
     background-position-x: 100%;
     background-position-y: 50%;  
-    z-index: -1;
+    z-index: 1;
     height: 100vh;
     
+    .rounded-circle {
+      border-radius: 100%;
+      
 
+    }
 
     .profile_details {
       display: flex;
       padding: 1rem;
 
       .details {
-        width: 50%
+        width: 50%;
+        font-family: 'Poppins';
+        font-weight: 200;
       }
 
       .profile_image {
         width: 50%;
+        display: block;
+        
+
+      }
+
+      .form-group {
+        display: flex;
+        max-width: 80px;
+        flex-flow: column;
+      }
+
+      .photo-photo {
+        display: block;
+      }
+
+      .photo-form {
+        display: block;
       }
     }
 
@@ -32,6 +71,10 @@
       
     }
 
+    .africa, .asia, .europe, .north_america, .south_america, .australia {
+      text-align: center;
+    }
+
   .form {
     background-color: rgba(255, 255, 255, 0.75);
     width: 45vw;
@@ -40,6 +83,7 @@
     opacity: 0.95;
     display: block;
     overflow-y: auto;
+    overflow-x: hidden;
     height: 80vh;
     margin-top: 3rem;
     z-index: 100;
@@ -47,10 +91,17 @@
     }
 
     .outer {
-      border-radius: 10px;
+      border-radius: 15px;
       overflow: hidden;
       
     }
+
+    .visited_list {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+   
 
 }
 
@@ -85,10 +136,10 @@ $size: 200px;
   width: $size;
   height: $size;
   border-radius: 50%;
-  background-color: #E5E5E5;
+  background-color: transparent;
   position: relative;
   &.gt-50 {
-    background-color: #81CE97;
+    background-color: #6B96AB;
   }
 }
 .ppc-progress {
@@ -97,7 +148,7 @@ $size: 200px;
   .ppc-progress-fill {
     @include circle($size);
     clip: rect(0, #{$size/2}, $size, 0);
-    background: #81CE97;
+    background: #6B96AB;
     transform: rotate(60deg);
   }
   .gt-50 & {
@@ -110,17 +161,22 @@ $size: 200px;
 }
 .ppc-percents {
   @include circle(#{$size/1.15});
-  background: #fff;
+  background: transparent;
   text-align: center;
   display: table;
+
   overflow: hidden;
   img {
-    width: $size/1.15;
+    
+    background: white;
+    border-radius: 60px;
   }
 }
 .pcc-percents-wrapper {
   display: table-cell;
   vertical-align: middle;
+  
+  
 }
 
 .progress-pie-chart {

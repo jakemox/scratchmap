@@ -14,6 +14,7 @@ class ProfileController extends Controller
         $user_score = $user->score;
         $user_name = $user->name;
         
+        
         $europe = $user->countries()->where('CONTINENT', 'Europe')->count();
         $africa = $user->countries()->where('CONTINENT', 'Africa')->count();
         $asia = $user->countries()->where('CONTINENT', 'Asia')->count();
@@ -23,6 +24,26 @@ class ProfileController extends Controller
 
 
         $visited_countries = DB::table('user_visited_countries')->where('user_id', $user_id)->get();
-        return view('profile',  compact('user_score', 'visited_countries', 'user_name', 'europe', 'africa', 'asia', 'north_america', 'south_america', 'australia'));
+        return view('profile',  compact('user','user_score', 'visited_countries', 'user_name', 'europe', 'africa', 'asia', 'north_america', 'south_america', 'australia'));
+    }
+
+    public function update_avatar(Request $request){
+
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $user = Auth::user();
+
+        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+
+        $request->avatar->storeAs('avatars',$avatarName);
+
+        $user->avatar = $avatarName;
+        $user->save();
+
+        return back()
+            ->with('success','You have successfully upload image.');
+
     }
 }
