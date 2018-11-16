@@ -36231,19 +36231,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__global__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__country__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__slider__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mapbox__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_city_page_jsx__ = __webpack_require__(62);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cityindex__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__search_search__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__slider__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mapbox__ = __webpack_require__(50);
 
 
 
@@ -36251,39 +36244,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-var App = function (_React$Component) {
-    _inherits(App, _React$Component);
-
-    function App() {
-        _classCallCheck(this, App);
-
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-    }
-
-    _createClass(App, [{
-        key: 'render',
-        value: function (_render) {
-            function render(_x) {
-                return _render.apply(this, arguments);
-            }
-
-            render.toString = function () {
-                return _render.toString();
-            };
-
-            return render;
-        }(function (city) {
-            render(React.createElement(__WEBPACK_IMPORTED_MODULE_5__components_city_page_jsx__["a" /* default */], null));
-            // return <h1>Hello!</h1>;
-            // return(<City cityName={city} />);
-        })
-    }]);
-
-    return App;
-}(React.Component);
-
-render(React.createElement(App, null), document.getElementById('app-city'));
+// import CityPage from './components/./city_page.jsx'
 
 /***/ }),
 /* 46 */
@@ -36746,7 +36707,7 @@ map.on('load', function () {
             var country = countries[hoveredStateId - 1];
             //shows name of country in box
 
-            document.getElementById('features').innerHTML = '<div class="display-name">' + '<div class="image-crop">' + '<img class="flag-icon" src="/img/flags-normal/' + country.code.toLowerCase() + '.png" alt="">' + '</div>' + '<h2>' + country.name + '</h2>' + '</div>' + '<div id="shape-container" class="shape-container">' + '<img class="shape" src="/img/shapes/' + country.code + '.svg" alt="">' + '</div>' + ('<p><b>Capital:</b> <a id="cityLink" data-city="' + country.capital + '" href="javascript:void(0)">') + country.capital + '</a></p>' + '<p><b>Population:</b> ' + (country.population / 1000000).toFixed(2) + ' million</p>' + '<p><b>Currency:</b> ' + country.currency + '</p>' + '<p><b>Language:</b> ' + country.language + '</p>' + '<p><b>Area:</b> ' + country.area / 1000 + ' km<sup>2</sup></p>' + '<div id="city"></div>';
+            document.getElementById('features').innerHTML = '<div class="display-name">' + '<div class="image-crop">' + '<img class="flag-icon" src="/img/flags-normal/' + country.code.toLowerCase() + '.png" alt="">' + '</div>' + '<h2>' + country.name + '</h2>' + '</div>' + '<div id="shape-container" class="shape-container">' + '<img class="shape" src="/img/shapes/' + country.code + '.svg" alt="">' + '</div>' + '<div id="country-details">' + ('<p><b>Capital:</b> <a id="cityLink" data-city="' + country.capital + '" href="javascript:void(0)">') + country.capital + '</a></p>' + '<p><b>Population:</b> ' + (country.population / 1000000).toFixed(2) + ' million</p>' + '<p><b>Currency:</b> ' + country.currency + '</p>' + '<p><b>Language:</b> ' + country.language + '</p>' + '<p><b>Area:</b> ' + country.area / 1000 + ' km<sup>2</sup></p>' + '</div>' + '<div id="city"></div>';
 
             document.querySelector("#cityLink").addEventListener("click", function (e) {
                 show_city(e.target.dataset.city);
@@ -36754,7 +36715,8 @@ map.on('load', function () {
         }
 
         function show_city(city) {
-            // document.getElementById('shape-container').setAttribute('display','none');
+            document.getElementById('shape-container').setAttribute('style', 'display:none');
+            document.getElementById('country-details').setAttribute('style', 'display:none');
             Object(__WEBPACK_IMPORTED_MODULE_0_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_City_jsx__["a" /* default */], { cityName: city }), document.getElementById('city'));
         };
     });
@@ -58738,6 +58700,41 @@ var CityPage = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (CityPage);
+
+/***/ }),
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_city_page_jsx__ = __webpack_require__(62);
+
+
+// import '../../views/city.blade.php'
+
+
+console.log('city index loaded');
+
+var appCity = document.getElementById('app-city');
+
+function show_city(city) {
+    appCity.innerHTML = '<div id="cityView"></div>';
+    Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_city_page_jsx__["a" /* default */], { cityName: city }), document.getElementById('cityView'));
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+    show_city('london');
+});
 
 /***/ })
 /******/ ]);

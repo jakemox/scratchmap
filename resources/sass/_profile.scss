@@ -1,3 +1,47 @@
+header  {
+  z-index: 2;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+
+}
+::-webkit-scrollbar-thumb {
+  
+  border-radius: 8px;
+  background: #c2c9d2;
+}
+
+.button {
+  
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Poppins';
+  font-weight: 200;
+  color:  #405C7B;
+  background-color: #FFFFFF;
+  border-radius: 2rem;
+  padding: 0.6rem;
+  text-decoration: none;
+
+}
+
+.alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem;
+  background-color: #405C7B;
+  color: white;
+}
+
+
+
 .profile {
     position: absolute;
     top: 0;
@@ -7,39 +51,95 @@
     background-size: cover;
     background-position-x: 100%;
     background-position-y: 50%;  
-    z-index: -1;
+    z-index: 1;
     height: 100vh;
     
+    .rounded-circle {
+      border-radius: 50%; 
+      height: 180px;
+      width: 180px;
+      overflow: hidden;
+      
 
+    }
 
     .profile_details {
       display: flex;
-      padding: 1rem;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      width: 100%;
 
       .details {
-        width: 50%
+        width: 47%;
+        font-family: 'Poppins';
+        font-weight: 200;
       }
 
       .profile_image {
-        width: 50%;
+        width: 53%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        
+
+      }
+
+      .form-group {
+        display: flex;
+        max-width: 80px;
+        flex-flow: column;
+
+        input[type='file'] {
+          color: transparent;
+          border-radius: 10px;
+          cursor: pointer;
+          font-family: 'Poppins';
+          
+        }
+      }
+
+      .photo-photo {
+        display: block;
+        border-radius: 50%;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      .photo-form {
+        display: flex;
+        justify-content: center;
+       
+        button {
+          border-radius: 1rem;
+          cursor: pointer;
+          font-family: 'Poppins';
+
+        }
       }
     }
 
     .continents-profile {
       display: flex;
       flex-flow: row wrap;
-
+      width: 100%;
       
+    }
+
+    .africa, .asia, .europe, .north_america, .south_america, .australia {
+      text-align: center;
+      width: 45%;
     }
 
   .form {
     background-color: rgba(255, 255, 255, 0.75);
-    width: 45vw;
-    height: 90vh;
+    width: 90vw;
     border-radius: 10px;
     opacity: 0.95;
     display: block;
     overflow-y: auto;
+    overflow-x: hidden;
     height: 80vh;
     margin-top: 3rem;
     z-index: 100;
@@ -47,10 +147,17 @@
     }
 
     .outer {
-      border-radius: 10px;
+      border-radius: 15px;
       overflow: hidden;
       
     }
+
+    .visited_list {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+   
 
 }
 
@@ -85,10 +192,10 @@ $size: 200px;
   width: $size;
   height: $size;
   border-radius: 50%;
-  background-color: #E5E5E5;
+  background-color: transparent;
   position: relative;
   &.gt-50 {
-    background-color: #81CE97;
+    background-color: #6B96AB;
   }
 }
 .ppc-progress {
@@ -97,7 +204,7 @@ $size: 200px;
   .ppc-progress-fill {
     @include circle($size);
     clip: rect(0, #{$size/2}, $size, 0);
-    background: #81CE97;
+    background: #6B96AB;
     transform: rotate(60deg);
   }
   .gt-50 & {
@@ -110,17 +217,22 @@ $size: 200px;
 }
 .ppc-percents {
   @include circle(#{$size/1.15});
-  background: #fff;
+  background: transparent;
   text-align: center;
   display: table;
+
   overflow: hidden;
   img {
-    width: $size/1.15;
+    
+    background: white;
+    border-radius: 60px;
   }
 }
 .pcc-percents-wrapper {
   display: table-cell;
   vertical-align: middle;
+  
+  
 }
 
 .progress-pie-chart {
@@ -141,4 +253,23 @@ $size: 200px;
   align-content: center;
   margin-right: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media only screen and (min-width: 768px) {
+
+  .form {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 50vw;
+    border-radius: 10px;
+    opacity: 0.95;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 80vh;
+    margin-top: 3rem;
+    z-index: 100;
+       
+    }
+
+
 }

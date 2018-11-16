@@ -4,64 +4,19 @@
           box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #c2c9d2;
+}
+
 html {
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
-}
-
-.profile {
-  width: 100%;
-  background-image: url("/img/flamingo.jpg");
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.profile .profile_details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1rem;
-}
-
-.profile .profile_details .details {
-  width: 50%;
-}
-
-.profile .profile_details .profile_image {
-  width: 50%;
-}
-
-.profile .continents-profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-}
-
-.profile .form {
-  background-color: rgba(255, 255, 255, 0.75);
-  width: 40vw;
-  height: 90vh;
-  border-radius: 10px;
-  opacity: 0.95;
-  display: block;
-  overflow-y: auto;
-}
-
-.profile .outer {
-  border-radius: 10px;
-  overflow: hidden;
 }
 
 .loading {
@@ -92,6 +47,13 @@ html {
   margin-bottom: 15px;
 }
 
+.loading_welcome {
+  font-family: 'Korner Deli NF';
+  font-weight: bold;
+  color: #FFD496;
+  font-size: 3rem;
+}
+
 .bounce {
   position: fixed;
   left: 50%;
@@ -106,19 +68,19 @@ html {
 
 @-webkit-keyframes bounce {
   0% {
-    bottom: 56%;
+    bottom: 66%;
   }
 
   25%, 75% {
-    bottom: 62%;
+    bottom: 68%;
   }
 
   50% {
-    bottom: 58%;
+    bottom: 70%;
   }
 
   100% {
-    bottom: 56%;
+    bottom: 72%;
   }
 }
 
@@ -794,13 +756,23 @@ footer nav {
 }
 
 .city-info {
+  margin: auto;
   width: 100%;
+  text-align: center;
+}
+
+.city-info h2 {
+  margin: auto;
+  text-align: center;
 }
 
 #attraction {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

@@ -217,11 +217,13 @@ map.on('load', function () {
                 '<div id="shape-container" class="shape-container">' +  
                     '<img class="shape" src="/img/shapes/' + country.code + '.svg" alt="">' +
                 '</div>' +
-                `<p><b>Capital:</b> <a id="cityLink" data-city="${country.capital}" href="javascript:void(0)">` + country.capital + '</a></p>' +
-                '<p><b>Population:</b> ' + (country.population/1000000).toFixed(2) + ' million</p>' +
-                '<p><b>Currency:</b> ' + country.currency + '</p>' +
-                '<p><b>Language:</b> ' + country.language + '</p>' +
-                '<p><b>Area:</b> ' + (country.area/1000) + ' km<sup>2</sup></p>' +
+                '<div id="country-details">' +
+                    `<p><b>Capital:</b> <a id="cityLink" data-city="${country.capital}" href="javascript:void(0)">` + country.capital + '</a></p>' +
+                    '<p><b>Population:</b> ' + (country.population/1000000).toFixed(2) + ' million</p>' +
+                    '<p><b>Currency:</b> ' + country.currency + '</p>' +
+                    '<p><b>Language:</b> ' + country.language + '</p>' +
+                    '<p><b>Area:</b> ' + (country.area/1000) + ' km<sup>2</sup></p>' +
+                '</div>' +
                 '<div id="city"></div>';
 
             document.querySelector("#cityLink").addEventListener("click", (e) => {
@@ -230,7 +232,8 @@ map.on('load', function () {
         }
 
             function show_city(city) {
-                // document.getElementById('shape-container').setAttribute('display','none');
+                document.getElementById('shape-container').setAttribute('style','display:none');
+                document.getElementById('country-details').setAttribute('style','display:none');
                 render(<City cityName={city} />, document.getElementById('city'));
             };
     });
