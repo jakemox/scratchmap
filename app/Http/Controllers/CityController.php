@@ -38,7 +38,7 @@ class CityController extends Controller
 
     public function api($city_name) {
         $city = City::where('name', $city_name)->get();
-
+        
         //filtering out attractions with no pictures and with rating 5.0 to get rid of obscure entities
         $attractions = Attraction::where('city_name', $city_name)->where('photo', '!=', '')->where('rating', '<', 5)->orderBy('rating', 'DESC')->limit(5)->get();
         

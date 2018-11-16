@@ -637,9 +637,7 @@ $size: 200px;
 }
 
 .city-info {
-  margin: auto;
-  width:100%;
-  text-align: center;
+  
   h2 {
     margin: auto;
     text-align: center;
@@ -647,6 +645,12 @@ $size: 200px;
 }
 
 #attraction {
+  margin: auto;
+  width:100%;
+  text-align: center;
+}
+
+#attraction-pic {
   display:flex;
   flex-grow: 1;
   align-items: center;
@@ -662,7 +666,7 @@ $size: 200px;
   background-repeat: no-repeat;
   background-size:cover;
   background-position: center;
-  margin: 1em 0 1em 0;
+  margin: 1em 0 .3em 0;
   text-shadow: #000000 0 0 10px;
 }
 .continent {
