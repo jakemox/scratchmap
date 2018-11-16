@@ -14,9 +14,6 @@ var map = window.scratchmap.map = new mapboxgl.Map({
  
 });
 
-
-
-
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 

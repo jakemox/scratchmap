@@ -29,6 +29,7 @@ export default class City extends React.Component {
   }
 
   render() {
+    console.log(this.state.attractions);
     return (
       <div className="city-info">
         <h2>Top attractions in {this.props.cityName}</h2><br />
@@ -36,6 +37,9 @@ export default class City extends React.Component {
             <Attraction 
             name={element.name}
             pic={element.photo}
+            address={element.address}
+            id={element.place_id}
+            rating={element.rating}
             />
         )
         }

@@ -25459,6 +25459,7 @@ var City = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log(this.state.attractions);
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'city-info' },
@@ -25472,7 +25473,10 @@ var City = function (_React$Component) {
         this.state.attractions.map(function (element) {
           return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Attraction_jsx__["a" /* default */], {
             name: element.name,
-            pic: element.photo
+            pic: element.photo,
+            address: element.address,
+            id: element.place_id,
+            rating: element.rating
           });
         })
       );
@@ -25518,14 +25522,31 @@ var Attraction = function (_React$Component) {
   _createClass(Attraction, [{
     key: 'render',
     value: function render() {
+      console.log(this.props);
       var style = {
         backgroundImage: "url(" + this.props.pic + ")"
       };
 
+      var url = 'https://www.google.com/maps/place/?q=place_id:' + this.props.id;
+
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { id: 'attraction', style: style },
-        this.props.name
+        { id: 'attraction' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { id: 'attraction-pic', style: style },
+          this.props.name
+        ),
+        'Address: ',
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'a',
+          { target: '_blank', href: url },
+          ' ',
+          this.props.address
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+        'Google rating: ',
+        this.props.rating
       );
     }
   }]);

@@ -51,7 +51,7 @@ class getGoogleAPIData extends Command
             $i++;
         }
 
-        fclose($file_handle);        
+        fclose($file_handle);
         
         // run the query with the array
 
