@@ -136,7 +136,7 @@
     <div class="visited_list">
       <h3>So far you have visited:</h3>
       @foreach ($visited_countries as $item)
-      <div class="country-list">
+      <div class="country-list">  
         <div class="image-crop">
             <img class="flag-icon" src="img/flags-normal/{{strtolower(\App\Country::find($item->country_id)->code)}}.png" alt="{{\App\Country::find($item->country_id)->code}}">
         </div>
@@ -191,4 +191,6 @@ const elements = document.querySelectorAll('.progress-pie-chart');
 </script>
 
 @endsection
+
+
 
