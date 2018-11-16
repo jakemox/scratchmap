@@ -642,13 +642,22 @@ body {
 }
 
 .city-info {
-
-  width:100%;
-
+  
+  h2 {
+    margin: auto;
+    text-align: center;
+    }
 }
 
 #attraction {
+  margin: auto;
+  width:100%;
+  text-align: center;
+}
+
+#attraction-pic {
   display:flex;
+  flex-grow: 1;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -662,7 +671,7 @@ body {
   background-repeat: no-repeat;
   background-size:cover;
   background-position: center;
-  margin: 1em 0 1em 0;
+  margin: 1em 0 .3em 0;
   text-shadow: #000000 0 0 10px;
 }
 .continent {

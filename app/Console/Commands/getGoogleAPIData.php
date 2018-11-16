@@ -39,28 +39,24 @@ class getGoogleAPIData extends Command
      */
     public function handle()
     {
-        $cities = [
-            ['Kabul','AF'],
-            ['Tirana','AL'],
-            ['Algiers','DZ'],
-            ['Luanda','AO'],
-            ['Saint','AG'],
-            ['Yerevan','AM'],
-            ['Canberra','AU'],
-            ['Vienna','AT'],
-            ['Baku','AZ'],
-            ['Nassau','BS'],
-            ['Manama','BH'],
-            ['Dhaka','BD'],
-            ['Bridgetown','BB'],
-            ['Minsk','BY'],
-            ['Brussels','BE'],
-            ['Belmopan','BZ']
+        
+        // prepare data for query from cities.csv 
+        $cities = [];
+        $i = 0;
+        $file_handle = fopen("cities.csv", "r");
+        
+        while (!feof($file_handle)) {
+            $line_of_text = fgetcsv($file_handle, 1024);
+            $cities[$i] = [$line_of_text[2], $line_of_text[1]];
+            $i++;
+        }
 
-            ];
+        fclose($file_handle);
+        
+        // run the query with the array
 
         foreach ($cities as $index => $city) {
-            $googlePlaces = new PlacesApi('AIzaSyCGotEjMvi4hDoIuC1yZmcIgYdi8TNRDH0');
+            $googlePlaces = new PlacesApi(env('MIX_GOOGLE_KEY'));
             $attractions = $googlePlaces->textSearch($city[0] . '+attraction', [
                 'type=point_of_interest',
             ])['results'];
@@ -73,6 +69,8 @@ class getGoogleAPIData extends Command
                     $photos[] = "";
                 }
             }
+
+        // save each response to database
 
             foreach ($attractions as $key => $attraction) {
                 DB::table('attractions')

@@ -760,14 +760,24 @@ body {
   margin: 50px auto 0;
 }
 
-.city-info {
-  width: 100%;
+.city-info h2 {
+  margin: auto;
+  text-align: center;
 }
 
 #attraction {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+#attraction-pic {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -785,7 +795,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin: 1em 0 1em 0;
+  margin: 1em 0 .3em 0;
   text-shadow: #000000 0 0 10px;
 }
 
