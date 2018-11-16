@@ -89,7 +89,7 @@ footer nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 33%;
+    width: calc(100vw / 3);
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
@@ -103,7 +103,7 @@ footer nav {
   }
 
   header .desktop .column2 {
-    width: 33%;
+    width: calc(100vw / 3);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -134,7 +134,7 @@ footer nav {
   }
 
   header .desktop .column3 {
-    width: 33%;
+    width: calc(100vw / 3);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

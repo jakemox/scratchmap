@@ -12,6 +12,7 @@ class CountryController extends Controller
 {
     public function index(Request $request)
     {
+        
         $user_id = Auth::id();
         // fwrite($fp, $user_id."\n");
 

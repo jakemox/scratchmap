@@ -89,7 +89,7 @@ footer nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 33%;
+    width: calc(100vw / 3);
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
@@ -103,7 +103,7 @@ footer nav {
   }
 
   header .desktop .column2 {
-    width: 33%;
+    width: calc(100vw / 3);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -134,7 +134,7 @@ footer nav {
   }
 
   header .desktop .column3 {
-    width: 33%;
+    width: calc(100vw / 3);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -197,16 +197,61 @@ footer nav {
   }
 }
 
+h3 {
+  font-family: 'Korner Deli NF';
+  font-weight: bold;
+  color: #FFF5DA;
+  font-size: 6rem;
+}
+
+h4 {
+  font-family: 'Poppins';
+  font-weight: 200;
+  color: #FFF5DA;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 0;
+}
+
+.name {
+  position: absolute;
+  top: 55vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-items: center;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+
+.fade {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+}
+
 .header-background {
   position: absolute;
   top: 0;
   width: 100%;
-  background-image: url("/img/positano.jpg");
   background-size: cover;
-  background-position-x: 100%;
-  background-position-y: 50%;
+  background-position: center;
   z-index: -1;
   height: 80vh;
+}
+
+.attractions {
+  position: absolute;
+  top: 80vh;
 }
 
 * {
