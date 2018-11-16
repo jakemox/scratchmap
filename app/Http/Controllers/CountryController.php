@@ -10,14 +10,56 @@ use DB;
 
 class CountryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        
+        $user_id = Auth::id();
+        // fwrite($fp, $user_id."\n");
+
+        $user = Auth::user();
+        
+        if(Auth::check() && $request->session()->has('countries')){
+            $countries = $request->session()->get('countries');
+
+            foreach($countries as $country)
+            {
+            
+                $has_visited_query = DB::select(
+                    "SELECT * FROM `user_visited_countries` 
+                    WHERE `user_id` = :user_id 
+                        AND `country_id` = :country_id", 
+                    ['user_id' => $user_id, 'country_id' => $country]
+                );
+        
+                $has_visited = null;
+                if ($has_visited_query != []) {
+                    $has_visited = 1;   
+                } 
+        
+        
+                if($has_visited === null)
+                { 
+                    // If user did not visit country, insert new record in user_visited_countries table
+                    $user->score = $user->score + 100;
+                    $user->save();
+                       
+                    $query = "
+                    INSERT INTO `user_visited_countries`(`user_id`, `country_id`)
+                        VALUES (?,?)
+                    ";
+        
+                    DB::insert($query, [$user_id, $country]);
+                } 
+            }
+            $request->session()->forget('countries');
+            
+        }
+
         $countries = Country::orderBy('id')->get();
         // $fp = fopen('/tmp/debug.txt', 'a');
 
 
-        $user_id = Auth::id();
-        // fwrite($fp, $user_id."\n");
+        
     
         $visited_countries = DB::select(
             "SELECT `country_id` FROM `user_visited_countries` 
@@ -37,14 +79,32 @@ class CountryController extends Controller
         return view('index',compact('visited_countries','countries','user_id','visited'));
     }
 
-    public function store(Request $country_id) {
+    public function store(Request $request) {
+        $country_id = $request->id;
 
         if(!Auth::check()){
-            $country_id->session()->put('key', 'value');
+            if(!$request->session()->has('countries')){
+                $request->session()->put('countries', []);
+            }
+
+            $countries = $request->session()->get('countries');
+            if(in_array($country_id, $countries)){
+                $i = array_search($country_id, $countries);
+                unset($countries[$i]);
+                $request->session()->put('countries', $countries);
+            }else{
+                $request->session()->push('countries', $country_id);
+            }
+
+            
+
+            return $request->session()->get('countries');
+
+
         }
 
         $country = Country::find($country_id);
-        $country_id = $country[0]->id;
+
         $user_id = Auth::id();
 
         $user = Auth::user();

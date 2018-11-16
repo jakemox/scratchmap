@@ -1,22 +1,35 @@
 @extends('layouts.layout', [
     'image' => 'balloon-cutout',
-    'css' => 'plan'
+    'css' => 'city'
 ])
 
 
 @section('content')
 
-<h1>Top attractions in {{$city_name}}, {{$country[0]->name}}</h1>
+<div id="app-city"></div>
 
+<div class="header-background" style="background-image: url('{{$city[0]->photo}}')">
+    <div class="fade">
+        <div class="name">
+            <h3>{{$city_name}}</h3>
+            <h4>{{$country[0]->name}}</h4>
+        </div>
+    </div>
+</div>
 
-@foreach ($attractions as $key => $attraction)
-<a href="https://www.google.com/maps/place/?q=place_id:{{ $attraction['place_id'] }}"> {{$attraction['name']}}</a><br>
+<div class="attractions">
+    <h1>Top attractions in {{$city_name}}, {{$country[0]->name}}</h1>
     
-<img src="{{$attraction['photo']}}"><br>
-Address: {{$attraction['address']}}<br>
-Rating: {{$attraction['rating']}}<hr>
-@endforeach
     
-</main>
+    @foreach ($attractions as $key => $attraction)
+    <a href="https://www.google.com/maps/place/?q=place_id:{{ $attraction['place_id'] }}"> {{$attraction['name']}}</a><br>
+        
+    <img src="{{$attraction['photo']}}"><br>
+    Address: {{$attraction['address']}}<br>
+    Rating: {{$attraction['rating']}}<hr>
+    @endforeach
+</div>
+    
+
 
 @endsection

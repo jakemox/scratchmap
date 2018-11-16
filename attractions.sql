@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `attractions` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `place_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `city_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `country_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,

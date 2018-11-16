@@ -27,6 +27,7 @@ Route::post('profile', 'ProfileController@update_avatar');
 Route::get('/city/{city}', 'CityController@index');
 Route::post('/city/search', 'CityController@search');
 Route::get('/city/show/{city}', 'CityController@show');
+// Route::view('/city/show/{city}', 'city');
 Route::get('/city/api/{city}', 'CityController@api');
 
 

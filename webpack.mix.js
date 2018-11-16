@@ -15,6 +15,7 @@ mix.react('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
    
 mix.sass('resources/sass/plan.scss', 'public/css');
+mix.sass('resources/sass/city.scss', 'public/css');
 
 mix.react([
    'resources/js/index.js',

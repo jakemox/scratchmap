@@ -72,7 +72,7 @@ footer nav {
  
         .column1 {
             display: flex;
-            width: 33%;
+            width: calc(100vw / 3);
             flex-flow: row nowrap;
             justify-content: space-around;
             align-items: flex-end;
@@ -80,7 +80,7 @@ footer nav {
         }
 
         .column2 {
-            width: 33%;
+            width: calc(100vw / 3);
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -103,7 +103,7 @@ footer nav {
         }
   
         .column3 {
-            width: 33%;
+            width: calc(100vw / 3);
             display: flex;
             flex-flow: row nowrap;
             height: 100%;

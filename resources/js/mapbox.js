@@ -1,6 +1,7 @@
 import {render} from 'react-dom'
 import React from 'react'
 import City from './components/City.jsx'
+ 
 
 mapboxgl.accessToken = process.env.MIX_MAPBOX_TOKEN;
 
