@@ -642,13 +642,18 @@ body {
 }
 
 .city-info {
-
+  margin: auto;
   width:100%;
-
+  text-align: center;
+  h2 {
+    margin: auto;
+    text-align: center;
+    }
 }
 
 #attraction {
   display:flex;
+  flex-grow: 1;
   align-items: center;
   justify-content: center;
   text-align: center;
