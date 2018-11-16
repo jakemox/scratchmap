@@ -829,13 +829,13 @@ console.log('city index loaded');
 
 var appCity = document.getElementById('app-city');
 
-function show_city(city) {
+function showCityPage(city) {
     appCity.innerHTML = '<div id="cityView"></div>';
     Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_city_page_jsx__["a" /* default */], { cityName: city }), document.getElementById('cityView'));
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    show_city('london');
+    showCityPage('london');
 });
 
 /***/ }),
@@ -2115,13 +2115,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__global__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__country__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cityindex__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__search_search__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__slider__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mapbox__ = __webpack_require__(45);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__slider__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mapbox__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__cityindex__ = __webpack_require__(10);
 
 
 
@@ -24259,7 +24258,6 @@ var hoveredStateId = null;
 var clicked = window.scratchmap.clicked = [];
 var score = 0;
 var scoreContainer = window.scratchmap.scoreContainer = document.getElementById('score-container');
-;
 var countryListView = document.getElementById('country-list');
 
 map.on('load', function () {

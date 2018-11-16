@@ -22,7 +22,6 @@ var hoveredStateId =  null;
 var clicked = window.scratchmap.clicked = [];
 let score = 0;
 var scoreContainer = window.scratchmap.scoreContainer = document.getElementById('score-container');
-;
 let countryListView = document.getElementById('country-list');
 
 

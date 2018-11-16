@@ -63,9 +63,9 @@ class GetFlickrPhotos extends Command
                 ]);
             }
 
-            $file_contents = file_get_contents($photo);
+            // $file_contents = file_get_contents($photo);
 
-            Storage::put('file.jpg', $file_contents);
+            // Storage::put('file.jpg', $file_contents);
 
 
 

@@ -1,6 +1,5 @@
 import './global'
 import Country from './country'
-import './cityindex'
 import './search/search'
 import './slider'
 import './mapbox'   

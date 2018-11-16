@@ -7,12 +7,12 @@ console.log('city index loaded');
 
 let appCity = document.getElementById('app-city');
 
-function show_city(city) {
+function showCityPage(city) {
     appCity.innerHTML = '<div id="cityView"></div>';
     render(<CityPage cityName={city} />, document.getElementById('cityView'));
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    show_city('london');
+    showCityPage('london');
 })
 
