@@ -21,7 +21,7 @@ Route::get('/api/visits', 'CountryController@visits');
 Route::get('/search', 'SearchController@show');
 
 Route::get('/profile', 'ProfileController@show');
-
+Route::get('/profile/api', 'ProfileController@api');
 Route::post('profile', 'ProfileController@update_avatar');
 
 Route::get('/city/{city}', 'CityController@index');

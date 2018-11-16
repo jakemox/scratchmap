@@ -2,7 +2,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import Axios from 'axios';
 import Attraction from './Attraction.jsx'
-
+import Profile from './Profile.jsx'
 console.log("city.js loaded")
 
 export default class City extends React.Component {
@@ -33,13 +33,13 @@ export default class City extends React.Component {
       <div className="city-info">
         <h2>Top attractions in {this.props.cityName}</h2><br />
         {this.state.attractions.map(element => 
-            <Attraction 
+            <Attraction
             name={element.name}
             pic={element.photo}
             />
         )
         }
-
+        <Profile />
       </div>
       )
 
