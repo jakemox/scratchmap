@@ -201,27 +201,11 @@ map.on('load', function () {
 
             let countries = countryList;
             let country = countries[(hoveredStateId - 1)];
-            //shows name of country in box
 
-            document.getElementById('features').innerHTML = 
-                '<div class="display-name">' +
-                    '<div class="image-crop">' +   
-                        '<img class="flag-icon" src="/img/flags-normal/' + country.code.toLowerCase() + '.png" alt="">' +
-                    '</div>' +
-                    '<h2>' + country.name + '</h2>' +
-                '</div>' +
-                '<div id="shape-container" class="shape-container">' +  
-                    '<img class="shape" src="/img/shapes/' + country.code + '.svg" alt="">' +
-                '</div>' +
-                '<div id="country-details">' +
-                    `<p><b>Capital:</b> <a id="cityLink" data-city="${country.capital}" href="javascript:void(0)">` + country.capital + '</a></p>' +
-                    '<p><b>Population:</b> ' + (country.population/1000000).toFixed(2) + ' million</p>' +
-                    '<p><b>Currency:</b> ' + country.currency + '</p>' +
-                    '<p><b>Language:</b> ' + country.language + '</p>' +
-                    '<p><b>Area:</b> ' + (country.area/1000) + ' km<sup>2</sup></p>' +
-                '</div>' +
-                '<div id="city"></div>';
+            //shows information of country in the box
 
+            country.show_features();
+            
             document.querySelector("#cityLink").addEventListener("click", (e) => {
                 show_city(e.target.dataset.city);
             })

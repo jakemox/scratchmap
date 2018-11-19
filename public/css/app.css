@@ -325,8 +325,7 @@ html {
   font-size: 1rem;
   font-family: 'Poppins';
   font-weight: 200;
-  color: #405C7B;
-  background-color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.5);
   border-radius: 2rem;
   padding: 0.6rem;
 }
@@ -405,7 +404,7 @@ html {
 .features {
   width: 100%;
   height: 10vh;
-  background: white;
+  background-color: white;
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -521,7 +520,7 @@ html {
 
   .sea {
     height: 85vh;
-    width: 65vw;
+    width: 100vw;
   }
 
   .listview-desktop {
@@ -546,13 +545,10 @@ html {
     background-color: #405C7B;
   }
 
-  .image-crop {
-    margin-left: 1rem;
-  }
-
   .features {
-    width: 35vw;
-    height: 85vh;
+    position: absolute;
+    width: 0;
+    height: calc(85vh - 2em);
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -563,6 +559,10 @@ html {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 0.9);
+    right: 1em;
+    bottom: 1em;
+    border-radius: 1em;
   }
 
   .features .display-name {
@@ -604,23 +604,61 @@ html {
 
   .features .shape {
     display: block !important;
-    height: 50vh;
+    height: 30vh;
     margin: 0 auto;
+  }
+
+  .features::-webkit-scrollbar {
+    display: none;
   }
 
   .map .listview-mobile {
     display: none;
   }
 
-  .continent img {
-    width: 100px;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
+  h2 {
+    max-width: 80%;
   }
 
-  .continent img :hover {
-    width: 150px;
+  p {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color: #0C3460;
   }
+
+  .shape-container {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+    margin: 0;
+  }
+
+  .shape {
+    display: block !important;
+    height: 50vh;
+    margin: 0 auto;
+  }
+}
+
+.map .listview-mobile {
+  display: none;
+}
+
+.continent img {
+  width: 100px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.continent img :hover {
+  width: 150px;
 }
 
 .list-country-item {
