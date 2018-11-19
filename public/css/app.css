@@ -209,7 +209,7 @@ html {
 .features {
   width: 100%;
   height: 10vh;
-  background: white;
+  background-color: white;
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -353,7 +353,7 @@ footer nav {
   .score {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 50vw;
     height: 2rem;
     text-align: end;
     z-index: 20;
@@ -377,7 +377,7 @@ footer nav {
 
   body .sea {
     height: 85vh;
-    width: 65vw;
+    width: 100vw;
   }
 
   body .listview-desktop {
@@ -407,8 +407,9 @@ footer nav {
   }
 
   body .features {
-    width: 35vw;
-    height: 85vh;
+    position: absolute;
+    width: 0;
+    height: calc(85vh - 2em);
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -419,6 +420,10 @@ footer nav {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 0.9);
+    right: 1em;
+    bottom: 1em;
+    border-radius: 1em;
   }
 
   body .features .display-name {
@@ -460,7 +465,7 @@ footer nav {
 
   body .features .shape {
     display: block !important;
-    height: 50vh;
+    height: 30vh;
     margin: 0 auto;
   }
 

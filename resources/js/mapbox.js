@@ -204,7 +204,11 @@ map.on('load', function () {
 
             //shows information of country in the box
 
-            country.show_features();            
+            country.show_features();
+            
+            document.querySelector("#cityLink").addEventListener("click", (e) => {
+                show_city(e.target.dataset.city);
+            })
         }
 
             function show_city(city) {
