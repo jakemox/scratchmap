@@ -32,7 +32,7 @@ header .mobile h1 {
   color: #FFF5DA;
   font-size: 2.5rem;
   margin-bottom: 15px;
-  line-height: 2.5rem;
+  line-height: 2rem;
 }
 
 header .desktop {
@@ -78,11 +78,10 @@ footer nav {
 
   header .desktop h2 {
     color: #FFF5DA;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
-    margin-bottom: 15px;
-    line-height: 2rem;
+    line-height: 1.5rem;
   }
 
   header .desktop .column1 {

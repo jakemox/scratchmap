@@ -37,9 +37,9 @@
     </div>
   
 </main>
-<script>
+{{-- <script>
     window.userId = '{{ Auth::id() }}';
-</script>
+</script> --}}
 
 @endsection
 

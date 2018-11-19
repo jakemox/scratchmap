@@ -25,7 +25,5 @@
     </div>
 </div>
 
-<script src=""></script>
-
 
 @endsection

@@ -14,7 +14,6 @@ header .mobile {
         width: 60px;
     }
 
-    
 
     a {
         margin: 0;
@@ -28,7 +27,7 @@ header .mobile {
         color: $color-text;
         font-size: 2.5rem;
         margin-bottom: 15px;
-        line-height: 2.5rem;
+        line-height: 2rem;
     }
 }
 
@@ -63,11 +62,10 @@ footer nav {
  
         h2 {
             color: $color-text;
-            font-size: 2rem; 
+            font-size: 1.5rem; 
             font-family: 'Poppins', sans-serif;
             font-weight: 200;
-            margin-bottom: 15px;
-            line-height: 2rem;
+            line-height: 1.5rem;
         }
  
         .column1 {
