@@ -353,7 +353,7 @@ footer nav {
   .score {
     position: absolute;
     top: 0;
-    right: 50vw;
+    left: calc(50vw - 100px);
     height: 2rem;
     text-align: end;
     z-index: 20;
@@ -467,6 +467,10 @@ footer nav {
     display: block !important;
     height: 30vh;
     margin: 0 auto;
+  }
+
+  body .features::-webkit-scrollbar {
+    display: none;
   }
 
   body .map .listview-mobile {
