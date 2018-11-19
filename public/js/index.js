@@ -2107,6 +2107,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__country__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cityindex__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cityindex___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__cityindex__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__search_search__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider__ = __webpack_require__(48);
@@ -24419,7 +24420,6 @@ var City = function (_React$Component) {
       attractions: [],
       isLoading: true
     };
-
     return _this;
   }
 
@@ -24537,113 +24537,29 @@ var Attraction = function (_React$Component) {
 
 /***/ }),
 /* 59 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_city_page_jsx__ = __webpack_require__(60);
+// import React from 'react'
+// import {render} from 'react-dom'
+// // import '../../views/city.blade.php'
+// import CityPage from './components/city_page.jsx'
 
+// console.log('city index loaded');
 
-// import '../../views/city.blade.php'
+// let appCity = document.getElementById('app-city');
 
+// function show_city_page(city) {
+//     let elm = document.createElement("div");
+//     elm.setAttribute('id', 'cityView');
+//     appCity.appendChild(elm);
+//     // appCity.innerHTML = '<div id="cityView"></div>';
+//     render(<CityPage cityName={city} />, document.getElementById('cityView'));
+// };
 
-console.log('city index loaded');
-
-var appCity = document.getElementById('app-city');
-
-function show_city_page(city) {
-    var elm = document.createElement("div");
-    elm.setAttribute('id', 'cityView');
-    appCity.appendChild(elm);
-    // appCity.innerHTML = '<div id="cityView"></div>';
-    Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_city_page_jsx__["a" /* default */], { cityName: city }), document.getElementById('cityView'));
-};
-
-document.addEventListener('DOMContentLoaded', function () {
-    show_city_page(cityPageName);
-});
-
-/***/ }),
-/* 60 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-console.log('jakes cities');
-
-var CityPage = function (_React$Component) {
-    _inherits(CityPage, _React$Component);
-
-    function CityPage() {
-        _classCallCheck(this, CityPage);
-
-        return _possibleConstructorReturn(this, (CityPage.__proto__ || Object.getPrototypeOf(CityPage)).apply(this, arguments));
-    }
-
-    _createClass(CityPage, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/city/api/' + this.props.cityPageName).then(function (response) {
-                city: response.data.cityPageName;
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            console.log(this.props.cityPageName);
-
-            // return (
-            //     <>
-            //         <div class="header-background" style="background-image: url('{{$city[0]->photo}}')">
-            //             <div class="fade">
-            //                 <div class="name">
-            //                     <h3>{{$city_name}}</h3>
-            //                     <h4>{{$country[0]->name}}</h4>
-            //                 </div>
-            //             </div>
-            //         </div>
-
-            //         <div class="attractions">
-            //             <h1>Top attractions in {{$city_name}}, {{$country[0]->name}}</h1>
-
-
-            //             @foreach ($attractions as $key => $attraction)
-            //             <a href="https://www.google.com/maps/place/?q=place_id:{{ $attraction['place_id'] }}"> {{$attraction['name']}}</a><br>
-
-            //             <img src="{{$attraction['photo']}}"><br>
-            //             Address: {{$attraction['address']}}<br>
-            //             Rating: {{$attraction['rating']}}<hr>
-            //             @endforeach
-            //         </div>
-            //     </>
-            // );
-        }
-    }]);
-
-    return CityPage;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["a"] = (CityPage);
+// document.addEventListener('DOMContentLoaded', function () {
+//     show_city_page(cityPageName);
+// })
 
 /***/ })
 /******/ ]);

@@ -1,5 +1,5 @@
 @extends('layouts.layout', [
-    'image' => 'balloon',
+    'image' => 'balloon-cutout',
     'css' => 'app'
 ])
 
