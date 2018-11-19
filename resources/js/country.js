@@ -59,6 +59,34 @@ class Country {
     }
   }
 
+  show_features(country) {
+    console.log("display country info");
+
+    /* document.querySelector("#cityLink").addEventListener("click", (e) => {
+      show_city(e.target.dataset.city);
+    }) */
+
+    document.getElementById('features').innerHTML =
+        '<div class="display-name">' +
+            '<div class="image-crop">' +   
+                '<img class="flag-icon" src="/img/flags-normal/' + this.code.toLowerCase() + '.png" alt="">' +
+            '</div>' +
+            '<h2>' + this.name + '</h2>' +
+        '</div>' +
+        '<div id="shape-container" class="shape-container">' +  
+            '<img class="shape" src="/img/shapes/' + this.code + '.svg" alt="">' +
+        '</div>' +
+        '<div id="country-details">' +
+            `<p><b>Capital:</b> <a id="cityLink" data-city="${this.capital}" href="javascript:void(0)">` + this.capital + '</a></p>' +
+            '<p><b>Population:</b> ' + (this.population/1000000).toFixed(2) + ' million</p>' +
+            '<p><b>Currency:</b> ' + this.currency + '</p>' +
+            '<p><b>Language:</b> ' + this.language + '</p>' +
+            '<p><b>Area:</b> ' + (this.area/1000) + ' km<sup>2</sup></p>' +
+        '</div>' +
+        '<div id="city"></div>';
+    
+    }
+
   updateMap() {
     let clickedStateId = this.id;
     let clickedStateKey = clickedStateId - 1;
