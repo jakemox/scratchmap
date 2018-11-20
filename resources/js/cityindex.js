@@ -16,10 +16,6 @@
 // };
 
 // document.addEventListener('DOMContentLoaded', function () {
-<<<<<<< HEAD
-//     show_city_page('london');
-=======
 //     show_city_page(cityPageName);
->>>>>>> 13c3d4b0e2159ebf143982732b51f3b9d47f9332
 // })
 

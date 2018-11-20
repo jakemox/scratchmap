@@ -649,7 +649,7 @@ header {
 }
 
 .profile .scoreandimage .score {
-  width: 66%;
+  width: 75%;
   padding: 1rem;
   background-color: #405C7B;
   color: #FFFFFF;
@@ -671,7 +671,11 @@ header {
 }
 
 .profile .scoreandimage .score.score-btn {
-  width: 25%;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #405C7B;
+  color: #FFFFFF;
+  border-radius: 15px;
 }
 
 .profile .scoreandimage .score h3 {
@@ -733,15 +737,19 @@ header {
 }
 
 .profile .form-group input[type='file'] {
-  color: transparent;
+  display: none;
+}
+
+.profile .form-group .upload-btn {
   cursor: pointer;
-  font-family: 'Poppins';
-  font-size: 1.2rem;
-  min-width: 37%;
+  padding: 1rem;
+  background-color: #405C7B;
+  color: #FFFFFF;
+  border-radius: 15px;
 }
 
 .profile .form-group .form-text.text-muted {
-  width: 8%;
+  width: 22%;
 }
 
 .profile .photo-photo {

@@ -80,7 +80,7 @@ header  {
         }
 
         .score {
-          width: 66%;
+          width: 75%;
           padding: 1rem;
           background-color: #405C7B;
           color: #FFFFFF; 
@@ -92,7 +92,11 @@ header  {
           flex-flow: row wrap;
           
           &.score-btn {
-            width:25%;
+            cursor: pointer;
+            padding: 1rem;
+            background-color: #405C7B;
+            color: #FFFFFF;
+            border-radius: 15px;
           }
 
           h3 {
@@ -127,8 +131,6 @@ header  {
 
       }
 
-    
-
       .form-group {
         margin-top: 1rem;
         display: flex;
@@ -139,16 +141,21 @@ header  {
         
         
         input[type='file'] {
-          color: transparent;
-          cursor: pointer;
-          font-family: 'Poppins';
-          font-size: 1.2rem;
-          min-width:37%;
-         
-            
+          display:none;
+          
         }
+
+        .upload-btn {
+          cursor: pointer;
+          padding: 1rem;
+          background-color: #405C7B;
+          color: #FFFFFF;
+          border-radius: 15px;
+        }
+
+
         .form-text.text-muted {
-          width: 8%;
+          width: 22%;
         }
       }
 
@@ -181,6 +188,7 @@ header  {
 
         }
       }
+
     }
 
     .continents-profile {

@@ -29,8 +29,11 @@
         <div class="profile_image">
           <div class="photo-photo">
           <div class="image-crop2">
-            
-            <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}"/>
+            @if ($user->avatar)
+              <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}"/>
+            @else 
+            <img class="rounded-circle" src=""/>
+            @endif
           </div>
           </div>
             <div class="photo-form">
@@ -38,7 +41,8 @@
               @csrf
               <div class="form-group">
                     <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                  <small id="fileHelp" class="form-text text-muted">Max 2MB.</small>
+                    <div class="upload-btn" onclick="document.getElementById('avatarFile').click()">Choose file</div>
+                    <small id="fileHelp" class="form-text text-muted">Max 2MB.</small>
                   <button type="submit" class="score score-btn">Submit</button>
               </div>
              
