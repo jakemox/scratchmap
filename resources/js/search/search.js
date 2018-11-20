@@ -46,13 +46,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // }
     })
 
+    // Type-hinting to suggest cities in real time
     let input = document.getElementById('search-input');
     input.addEventListener('keyup', () => {
         fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
             method: 'GET'
         })
         .then((response) => {
-            console.log(response);
             return response.json();
         })
         .then((json) => {
@@ -62,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
             json.forEach((item) => {
 
                 let div = document.createElement('div');
-                div.innerHTML = item.fullname;
+                div.innerHTML = `<a href="/city/show/${item.name}">${item.name}</a>`;
                 container.appendChild(div);
             });
-            console.log(json);
+
         });
     });
 })

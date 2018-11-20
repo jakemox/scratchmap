@@ -2384,12 +2384,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // }
     });
 
+    // Type-hinting to suggest cities in real time
     var input = document.getElementById('search-input');
     input.addEventListener('keyup', function () {
         fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
             method: 'GET'
         }).then(function (response) {
-            console.log(response);
             return response.json();
         }).then(function (json) {
             var container = document.querySelector('#suggestions');
@@ -2398,10 +2398,9 @@ document.addEventListener('DOMContentLoaded', function () {
             json.forEach(function (item) {
 
                 var div = document.createElement('div');
-                div.innerHTML = item.fullname;
+                div.innerHTML = '<a href="/city/show/' + item.name + '">' + item.name + '</a>';
                 container.appendChild(div);
             });
-            console.log(json);
         });
     });
 });
@@ -2639,7 +2638,7 @@ map.on('load', function () {
             var countries = countryList;
             var country = countries[hoveredStateId - 1];
 
-            //shows information of country in the box
+            //shows information of country in the box after a short delay
 
             setTimeout(function () {
 

@@ -202,7 +202,7 @@ map.on('load', function () {
             let countries = countryList;
             let country = countries[(hoveredStateId - 1)];
 
-            //shows information of country in the box
+            //shows information of country in the box after a short delay
             
             setTimeout(() => {
                 
