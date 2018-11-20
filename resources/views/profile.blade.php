@@ -32,7 +32,7 @@
             @if ($user->avatar)
               <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}"/>
             @else 
-            <img class="rounded-circle" src=""/>
+            <img class="rounded-circle" src="/img/user.svg"/>
             @endif
           </div>
           </div>
