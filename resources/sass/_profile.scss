@@ -14,6 +14,8 @@ header  {
   background: #c2c9d2;
 }
 
+
+
 .button {
   
   text-align: center;
@@ -28,20 +30,6 @@ header  {
 
 }
 
-.alert {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  width: 100%;
-  height: 2rem;
-  padding: 0.5rem;
-  background-color: #405C7B;
-  color: white;
-}
-
-
-
 .profile {
     position: absolute;
     top: 0;
@@ -55,52 +43,122 @@ header  {
     height: 100vh;
     
     .rounded-circle {
-      border-radius: 50%; 
-      height: 180px;
-      width: 180px;
-      overflow: hidden;
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+      width: auto;
+  
       
 
     }
 
-    .profile_details {
-      display: flex;
-      padding: 0.5rem;
-      margin-top: 1rem;
-      width: 100%;
+      .profile_name {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
 
-      .details {
-        width: 47%;
+        h2 {
         font-family: 'Poppins';
-        font-weight: 200;
+        font-weight: 400;
+        font-size: 2rem;
+        }
+
+      }
+
+      .scoreandimage {
+        display: flex;
+        flex-flow: row nowrap;
+        flex-direction: row-reverse;
+        width: 100%;
+
+        .score_container {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .score {
+          width: 66%;
+          padding: 1rem;
+          background-color: #405C7B;
+          color: #FFFFFF; 
+          display: flex;
+          border-radius: 15px;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          flex-flow: row wrap;
+          
+          &.score-btn {
+            width:25%;
+          }
+
+          h3 {
+            font-family: 'Poppins';
+            font-weight: 200; 
+            width: 100%;
+          }
+
+          span {
+            font-weight: 500;
+          }
+        }
       }
 
       .profile_image {
-        width: 53%;
+        width: 50%;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
-        
+        margin-left: 3rem;
 
       }
 
-      .form-group {
+      .image-crop2 {
+        width: 14rem;
+        height: 14rem;
+        overflow: hidden;
+        border-radius: 50%;
         display: flex;
-        max-width: 80px;
-        flex-flow: column;
+        justify-content: center;
+        align-content: center;
 
+      }
+
+    
+
+      .form-group {
+        margin-top: 1rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        
+        
         input[type='file'] {
           color: transparent;
-          border-radius: 10px;
           cursor: pointer;
           font-family: 'Poppins';
-          
+          font-size: 1.2rem;
+          min-width:37%;
+         
+            
+        }
+        .form-text.text-muted {
+          width: 8%;
         }
       }
 
       .photo-photo {
-        display: block;
+        width: 100%;
         border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
 
         img {
           border-radius: 50%;
@@ -110,8 +168,13 @@ header  {
       .photo-form {
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-flow: column nowrap;
+        width: 100%;
+        
        
         button {
+          width: 50%;
           border-radius: 1rem;
           cursor: pointer;
           font-family: 'Poppins';
@@ -132,35 +195,50 @@ header  {
       width: 45%;
     }
 
-  .form {
+  .profile-thing {
     background-color: rgba(255, 255, 255, 0.75);
-    width: 90vw;
+    width: 700px;
     border-radius: 10px;
     opacity: 0.95;
     display: block;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 80vh;
+    height: 70vh;
     margin-top: 3rem;
     z-index: 100;
+    max-width: 80vw;
+
+    .alert {
+      display: flex;
+      justify-content: flex-start;
+      z-index: 3;
+      width: 100%;
+      height: 2rem;
+      padding: 0.5rem;
+      background-color: #405C7B;
+      color: white;
+    }
        
     }
 
     .outer {
       border-radius: 15px;
       overflow: hidden;
+      max-width: 80vw;
       
     }
 
     .visited_list {
       display: flex;
-      flex-flow: column nowrap;
+      flex-flow: row wrap;
+      justify-content: center;
+      width: 80%;
+      padding: 1rem;
+      margin: auto;
+      
     }
 
-   
-
-}
-
+  
 .flag-icon {
   display: block;
   margin: 0 auto;
@@ -241,13 +319,18 @@ $size: 200px;
 
 .country-list {
   display: flex;
+  width: 100%;
+  
+  
+  padding: 0.5rem;
+
 }
 
-.image-crop {
-  width: 3rem;
-  height: 3rem;
+.image-crop1 {
+  width: 5.4rem;
+  height: 4rem;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -257,19 +340,28 @@ $size: 200px;
 
 @media only screen and (min-width: 768px) {
 
-  .form {
-    background-color: rgba(255, 255, 255, 0.75);
-    width: 50vw;
-    border-radius: 10px;
-    opacity: 0.95;
-    display: block;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 80vh;
-    margin-top: 3rem;
-    z-index: 100;
-       
-    }
+    .profile .form-group {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-flow: column nowrap;
+      width: 100%;
 
+  }
 
+  .profile .form-group input[type='file'] {
+    color: transparent;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    width: 37%;
+      
+  }
 }
+@media only screen and (min-width: 900px) {
+
+  
+       
+  }
+
+

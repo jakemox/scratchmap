@@ -589,18 +589,6 @@ header {
   text-decoration: none;
 }
 
-.alert {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  width: 100%;
-  height: 2rem;
-  padding: 0.5rem;
-  background-color: #405C7B;
-  color: white;
-}
-
 .profile {
   position: absolute;
   top: 0;
@@ -615,123 +603,121 @@ header {
 }
 
 .profile .rounded-circle {
-  border-radius: 50%;
-  height: 180px;
-  width: 180px;
-  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
 }
 
-.profile .profile_details {
+.profile .profile_name {
+  width: 100%;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0.5rem;
-  margin-top: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
+}
+
+.profile .profile_name h2 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.profile .scoreandimage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse;
   width: 100%;
 }
 
-.profile .profile_details .details {
-  width: 47%;
+.profile .scoreandimage .score_container {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile .scoreandimage .score {
+  width: 66%;
+  padding: 1rem;
+  background-color: #405C7B;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 15px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.profile .scoreandimage .score.score-btn {
+  width: 25%;
+}
+
+.profile .scoreandimage .score h3 {
   font-family: 'Poppins';
   font-weight: 200;
-}
-
-.profile .profile_details .profile_image {
-  width: 53%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.profile .profile_details .form-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 80px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-}
-
-.profile .profile_details .form-group input[type='file'] {
-  color: transparent;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: 'Poppins';
-}
-
-.profile .profile_details .photo-photo {
-  display: block;
-  border-radius: 50%;
-}
-
-.profile .profile_details .photo-photo img {
-  border-radius: 50%;
-}
-
-.profile .profile_details .photo-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.profile .profile_details .photo-form button {
-  border-radius: 1rem;
-  cursor: pointer;
-  font-family: 'Poppins';
-}
-
-.profile .continents-profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
   width: 100%;
 }
 
-.profile .africa,
-.profile .asia,
-.profile .europe,
-.profile .north_america,
-.profile .south_america,
-.profile .australia {
-  text-align: center;
-  width: 45%;
+.profile .scoreandimage .score span {
+  font-weight: 500;
 }
 
-.profile .form {
-  background-color: rgba(255, 255, 255, 0.75);
-  width: 90vw;
-  border-radius: 10px;
-  opacity: 0.95;
-  display: block;
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: 80vh;
-  margin-top: 3rem;
-  z-index: 100;
+.profile .profile_image {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 3rem;
 }
 
-.profile .outer {
-  border-radius: 15px;
+.profile .image-crop2 {
+  width: 14rem;
+  height: 14rem;
   overflow: hidden;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
-.profile .visited_list {
+.profile .form-group {
+  margin-top: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -739,6 +725,139 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile .form-group input[type='file'] {
+  color: transparent;
+  cursor: pointer;
+  font-family: 'Poppins';
+  font-size: 1.2rem;
+  min-width: 37%;
+}
+
+.profile .form-group .form-text.text-muted {
+  width: 8%;
+}
+
+.profile .photo-photo {
+  width: 100%;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile .photo-photo img {
+  border-radius: 50%;
+}
+
+.profile .photo-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  width: 100%;
+}
+
+.profile .photo-form button {
+  width: 50%;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-family: 'Poppins';
+}
+
+.continents-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  width: 100%;
+}
+
+.africa,
+.asia,
+.europe,
+.north_america,
+.south_america,
+.australia {
+  text-align: center;
+  width: 45%;
+}
+
+.profile-thing {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 700px;
+  border-radius: 10px;
+  opacity: 0.95;
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 70vh;
+  margin-top: 3rem;
+  z-index: 100;
+  max-width: 80vw;
+}
+
+.profile-thing .alert {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  z-index: 3;
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem;
+  background-color: #405C7B;
+  color: white;
+}
+
+.outer {
+  border-radius: 15px;
+  overflow: hidden;
+  max-width: 80vw;
+}
+
+.visited_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+  padding: 1rem;
+  margin: auto;
 }
 
 .flag-icon {
@@ -836,13 +955,15 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  padding: 0.5rem;
 }
 
-.image-crop {
-  width: 3rem;
-  height: 3rem;
+.image-crop1 {
+  width: 5.4rem;
+  height: 4rem;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -857,17 +978,29 @@ header {
 }
 
 @media only screen and (min-width: 768px) {
-  .form {
-    background-color: rgba(255, 255, 255, 0.75);
-    width: 50vw;
-    border-radius: 10px;
-    opacity: 0.95;
-    display: block;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 80vh;
-    margin-top: 3rem;
-    z-index: 100;
+  .profile .form-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    width: 100%;
+  }
+
+  .profile .form-group input[type='file'] {
+    color: transparent;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    width: 37%;
   }
 }
 
