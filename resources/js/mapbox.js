@@ -173,9 +173,6 @@ map.on('load', function () {
         console.log(clicked);
         map.setFeatureState({source: 'states', id: country.id}, {click: state});
 
-        
-    
-
         score = clicked.length;
 
         scoreContainer.innerHTML = `<div id="score" class="score">Countries Visited: ${score}</div>`;
@@ -187,28 +184,38 @@ map.on('load', function () {
         
     });
 
+    let hoveredStateId = null;
+    let mouse_left = false;
     // When the user moves their mouse over the state-fill layer, we'll update the
     // feature state for the feature under the mouse.
-    map.on("mousemove", "hover-fills", function(e) {
+    map.on("mousemove", "hover-fills", (e) => {
         if (e.features.length > 0) {
+            mouse_left = false;
             if (hoveredStateId) {
                 map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: false});
             }
             
             hoveredStateId = e.features[0].id;
-
+            
             map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
             let countries = countryList;
             let country = countries[(hoveredStateId - 1)];
 
             //shows information of country in the box
-
-            country.show_features();
             
-            document.querySelector("#cityLink").addEventListener("click", (e) => {
-                show_city(e.target.dataset.city);
-            })
+            setTimeout(() => {
+                
+                console.log(mouse_left);
+                if (mouse_left == false) {
+                    country.show_features();
+                }
+                
+                document.querySelector("#cityLink").addEventListener("click", (e) => {
+                    show_city(e.target.dataset.city);
+                })
+            }, 200);
+            
         }
 
             function show_city(city) {
@@ -225,5 +232,7 @@ map.on('load', function () {
             map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: false});
         }
         hoveredStateId =  null;
+        mouse_left = true;
+        console.log(mouse_left);
     });
 });

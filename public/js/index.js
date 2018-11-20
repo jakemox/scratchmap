@@ -2600,10 +2600,13 @@ map.on('load', function () {
         }
     });
 
+    var hoveredStateId = null;
+    var mouse_left = false;
     // When the user moves their mouse over the state-fill layer, we'll update the
     // feature state for the feature under the mouse.
     map.on("mousemove", "hover-fills", function (e) {
         if (e.features.length > 0) {
+            mouse_left = false;
             if (hoveredStateId) {
                 map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: false });
             }
@@ -2617,11 +2620,17 @@ map.on('load', function () {
 
             //shows information of country in the box
 
-            country.show_features();
+            setTimeout(function () {
 
-            document.querySelector("#cityLink").addEventListener("click", function (e) {
-                show_city(e.target.dataset.city);
-            });
+                console.log(mouse_left);
+                if (mouse_left == false) {
+                    country.show_features();
+                }
+
+                document.querySelector("#cityLink").addEventListener("click", function (e) {
+                    show_city(e.target.dataset.city);
+                });
+            }, 200);
         }
 
         function show_city(city) {
@@ -2638,6 +2647,8 @@ map.on('load', function () {
             map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: false });
         }
         hoveredStateId = null;
+        mouse_left = true;
+        console.log(mouse_left);
     });
 });
 
