@@ -1,14 +1,16 @@
+// @import '~bootstrap/scss/bootstrap';
+
 h3 {
     font-family: 'Korner Deli NF';
     font-weight: 100;
-    color:$color-text;
+    color: white;
     font-size: 6rem;
 }
 
 h4 {
     font-family: 'Poppins';
     font-weight: 100;
-    color: $color-text;
+    color: white;
     font-size: 2rem;
     text-align: center;
     line-height: 0;
@@ -38,12 +40,84 @@ h4 {
     // background-image: url('/img/positano.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     // background-position-y: 50%;  
     z-index: -1;
-    height: 80vh;
+    height: 85vh;
+}
+
+.down-arrow {
+    height: 5vh;
+    margin:0 auto;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    position: absolute;
+    top: 90vh;
+    left: calc(50vw - 29.32px);
+    opacity: 0.5;
+
+    img {
+        height: 100%;
+    }
 }
 
 .attractions {
     position: absolute;
-    top: 80vh;
+    top: 100vh;
+    left: 10vw;
+    width: 80vw;
+    margin: 2rem auto;
+
+    h1 {
+        text-align: center;
+        font-family: 'poppins';
+        font-size: 2rem;
+        font-weight: 200;
+        margin: 1rem;
+    }
 }
+
+.carousel {
+    display: flex;
+    justify-content: space-around;
+}
+
+.carousel-background {
+    height: 400px;
+    width: calc(20% - 1rem);
+    background-size: cover;
+    background-position: center;
+}
+
+.darkener {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: relative;
+    padding: 0.5rem;
+
+    h5 {
+        font-family: 'poppins';
+        font-size: 1rem;
+        text-align: center;
+        font-weight: 200;
+        margin-top: 1rem;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 170px;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+}
+

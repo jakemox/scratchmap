@@ -198,14 +198,14 @@ footer nav {
 h3 {
   font-family: 'Korner Deli NF';
   font-weight: 100;
-  color: #FFF5DA;
+  color: white;
   font-size: 6rem;
 }
 
 h4 {
   font-family: 'Poppins';
   font-weight: 100;
-  color: #FFF5DA;
+  color: white;
   font-size: 2rem;
   text-align: center;
   line-height: 0;
@@ -243,13 +243,96 @@ h4 {
   width: 100%;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   z-index: -1;
-  height: 80vh;
+  height: 85vh;
+}
+
+.down-arrow {
+  height: 5vh;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  position: absolute;
+  top: 90vh;
+  left: calc(50vw - 29.32px);
+  opacity: 0.5;
+}
+
+.down-arrow img {
+  height: 100%;
 }
 
 .attractions {
   position: absolute;
-  top: 80vh;
+  top: 100vh;
+  left: 10vw;
+  width: 80vw;
+  margin: 2rem auto;
+}
+
+.attractions h1 {
+  text-align: center;
+  font-family: 'poppins';
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 1rem;
+}
+
+.carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.carousel-background {
+  height: 400px;
+  width: calc(20% - 1rem);
+  background-size: cover;
+  background-position: center;
+}
+
+.darkener {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  position: relative;
+  padding: 0.5rem;
+}
+
+.darkener h5 {
+  font-family: 'poppins';
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 200;
+  margin-top: 1rem;
+}
+
+.darkener img {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 170px;
+}
+
+.darkener p {
+  margin-bottom: 1rem;
 }
 
 * {

@@ -12,7 +12,10 @@
     <!-- Scripts -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+
     
+    {{-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> --}}
+
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">

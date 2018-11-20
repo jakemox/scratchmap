@@ -1,21 +1,32 @@
-// import React from 'react'
-// import {render} from 'react-dom'
-// // import '../../views/city.blade.php'
-// import CityPage from './components/city_page.jsx'
+console.log('city index loaded');
+document.addEventListener('DOMContentLoaded', function () {
 
-// console.log('city index loaded');
+    let pageHeight = window.innerHeight;
 
-// let appCity = document.getElementById('app-city');
+    let downBtn = document.getElementById('down-arrow');
+    downBtn.addEventListener('click', function () {
+        window.scrollTo({
+            top: pageHeight,
+            behavior: 'smooth'
+        });
+    })
+})
 
-// function show_city_page(city) {
-//     let elm = document.createElement("div");
-//     elm.setAttribute('id', 'cityView');
-//     appCity.appendChild(elm);
-//     // appCity.innerHTML = '<div id="cityView"></div>';
-//     render(<CityPage cityName={city} />, document.getElementById('cityView'));
-// };
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     show_city_page(cityPageName);
-// })
+
+// export default class Attraction {
+//     constructor(city, name, number, rating, image, visible) {
+//         this.city = city;
+//         this.name = name;
+//         this.number = number;
+//         this.rating = rating;
+//         this.image = image;
+//         this.visible = false;
+//     }
+
+
+// }
+
+
+
 

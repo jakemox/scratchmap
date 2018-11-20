@@ -2106,15 +2106,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__global__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__country__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cityindex__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cityindex___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__cityindex__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__search_search__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cityindex__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cityindex___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__cityindex__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__slider__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mapbox__ = __webpack_require__(50);
 
 
+// import Attraction from './cityindex'
 
 
 
@@ -2311,26 +2312,32 @@ $.ajax({
 /* 47 */
 /***/ (function(module, exports) {
 
-// import React from 'react'
-// import {render} from 'react-dom'
-// // import '../../views/city.blade.php'
-// import CityPage from './components/city_page.jsx'
+console.log('city index loaded');
+document.addEventListener('DOMContentLoaded', function () {
 
-// console.log('city index loaded');
+    var pageHeight = window.innerHeight;
 
-// let appCity = document.getElementById('app-city');
+    var downBtn = document.getElementById('down-arrow');
+    downBtn.addEventListener('click', function () {
+        window.scrollTo({
+            top: pageHeight,
+            behavior: 'smooth'
+        });
+    });
+});
 
-// function show_city_page(city) {
-//     let elm = document.createElement("div");
-//     elm.setAttribute('id', 'cityView');
-//     appCity.appendChild(elm);
-//     // appCity.innerHTML = '<div id="cityView"></div>';
-//     render(<CityPage cityName={city} />, document.getElementById('cityView'));
-// };
+// export default class Attraction {
+//     constructor(city, name, number, rating, image, visible) {
+//         this.city = city;
+//         this.name = name;
+//         this.number = number;
+//         this.rating = rating;
+//         this.image = image;
+//         this.visible = false;
+//     }
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     show_city_page(cityPageName);
-// })
+
+// }
 
 /***/ }),
 /* 48 */
