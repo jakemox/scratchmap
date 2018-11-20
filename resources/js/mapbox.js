@@ -206,7 +206,6 @@ map.on('load', function () {
             
             setTimeout(() => {
                 
-                console.log(mouse_left);
                 if (mouse_left == false) {
                     country.show_features();
                 }
@@ -233,6 +232,5 @@ map.on('load', function () {
         }
         hoveredStateId =  null;
         mouse_left = true;
-        console.log(mouse_left);
     });
 });

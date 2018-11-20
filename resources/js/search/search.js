@@ -45,4 +45,27 @@ document.addEventListener('DOMContentLoaded', function () {
         //     mountains.style.bottom = '0';
         // }
     })
+
+    let input = document.getElementById('search-input');
+    input.addEventListener('keyup', () => {
+        fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
+            method: 'GET'
+        })
+        .then((response) => {
+            console.log(response);
+            return response.json();
+        })
+        .then((json) => {
+            let container = document.querySelector('#suggestions');
+            container.innerHTML = '';
+
+            json.forEach((item) => {
+
+                let div = document.createElement('div');
+                div.innerHTML = item.fullname;
+                container.appendChild(div);
+            });
+            console.log(json);
+        });
+    });
 })

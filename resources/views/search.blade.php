@@ -5,7 +5,6 @@
 
 @section('content')
 
-
 <div class="sky">
     <div id="clouds" class="clouds"></div>
     <div id="mountains" class="mountains"></div>
@@ -21,9 +20,9 @@
                 <input autocomplete="off" id="search-input" name="search" type="text" placeholder="Search destinations">
                 <button type="submit">Search</button>
             </div>
+            <div id="suggestions"></div>
         </form>
     </div>
 </div>
-
 
 @endsection

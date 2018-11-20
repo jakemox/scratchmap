@@ -2383,6 +2383,27 @@ document.addEventListener('DOMContentLoaded', function () {
         //     mountains.style.bottom = '0';
         // }
     });
+
+    var input = document.getElementById('search-input');
+    input.addEventListener('keyup', function () {
+        fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
+            method: 'GET'
+        }).then(function (response) {
+            console.log(response);
+            return response.json();
+        }).then(function (json) {
+            var container = document.querySelector('#suggestions');
+            container.innerHTML = '';
+
+            json.forEach(function (item) {
+
+                var div = document.createElement('div');
+                div.innerHTML = item.fullname;
+                container.appendChild(div);
+            });
+            console.log(json);
+        });
+    });
 });
 
 /***/ }),
@@ -2622,7 +2643,6 @@ map.on('load', function () {
 
             setTimeout(function () {
 
-                console.log(mouse_left);
                 if (mouse_left == false) {
                     country.show_features();
                 }
@@ -2648,7 +2668,6 @@ map.on('load', function () {
         }
         hoveredStateId = null;
         mouse_left = true;
-        console.log(mouse_left);
     });
 });
 
@@ -24451,8 +24470,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-console.log("city.js loaded");
 
 var City = function (_React$Component) {
   _inherits(City, _React$Component);

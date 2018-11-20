@@ -3,8 +3,6 @@ import {render} from 'react-dom'
 import Axios from 'axios';
 import Attraction from './Attraction.jsx'
 
-console.log("city.js loaded")
-
 export default class City extends React.Component {
   constructor(props) {
     super(props);
