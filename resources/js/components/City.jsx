@@ -2,7 +2,10 @@ import React from 'react'
 import {render} from 'react-dom'
 import Axios from 'axios';
 import Attraction from './Attraction.jsx'
+<<<<<<< HEAD
 console.log("city.js loaded")
+=======
+>>>>>>> 13c3d4b0e2159ebf143982732b51f3b9d47f9332
 
 export default class City extends React.Component {
   constructor(props) {
@@ -13,7 +16,6 @@ export default class City extends React.Component {
       attractions: [],
       isLoading: true
     }
-
   }
 
   

@@ -1,5 +1,5 @@
 @extends('layouts.layout', [
-    'image' => 'balloon',
+    'image' => 'balloon-cutout',
     'css' => 'app'
 ])
 
@@ -16,9 +16,10 @@
             @endauth
         </div>
     </div>
+    <div id="score-container"></div>
     <div class="sea">
         <div class='map' id='map'>
-            <div id="score-container"></div>
+            
             <a href="#">
                 <div id="trigger-mobile"  class='listview-mobile'>View as List</div>
             </a> 
@@ -37,9 +38,9 @@
     </div>
   
 </main>
-<script>
+{{-- <script>
     window.userId = '{{ Auth::id() }}';
-</script>
+</script> --}}
 
 @endsection
 

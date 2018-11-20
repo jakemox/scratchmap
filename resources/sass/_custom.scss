@@ -1,4 +1,5 @@
 $color-text: #FFF5DA;
+$primary-color: #15475A;
 
 * {
   margin: auto 0;
@@ -22,15 +23,6 @@ html {
   font-weight: 200;
 }
 
-// .badge {
-//   display: flex;
-//   height: 10rem;
-//   width: 10rem;
-//   z-index: 20;
-
-// }
-
-
 .loading {
   position: fixed;
   z-index: 50;
@@ -38,13 +30,11 @@ html {
   width: 100%;
   top:0px;
   left:0px;
-  background-color: #405C7B;
+  background-color: $primary-color;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-
- 
 }
 
 .loading_title {
@@ -71,14 +61,14 @@ html {
   height:80px;
   width:80px;
   background:transparent;
-  -webkit-animation:bounce 2s infinite;
+  -webkit-animation:bounce 4s infinite;
 }
 
 @-webkit-keyframes bounce {
   0%       { bottom:66%; }
   25%, 75% { bottom:68%; }
   50%      { bottom:70%; }
-  100%     {bottom:72%;}
+  100%     {bottom:72%; }
 }
 
 .slider {
@@ -123,8 +113,7 @@ html {
   font-size: 1rem;
   font-family: 'Poppins';
   font-weight: 200;
-  color:  #405C7B;
-  background-color: #FFFFFF;
+  color:  rgba(255, 255, 255, 0.5);
   border-radius: 2rem;
   padding: 0.6rem;
 
@@ -200,7 +189,7 @@ html {
 .features {
   width: 100%;
   height: 10vh;
-  background: white;
+  background-color: white;
   margin: 0;
   display: flex;
   justify-content: space-around;
@@ -229,48 +218,6 @@ html {
   }
 }
 
-header .mobile {
-  background-color: #530000;
-  height: 15vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  
-  img {
-    height: 60px;
-    width: 60px;
-  }
-
-  a {
-    margin: 0;
-  }
-
-  
-  h1 {
-    font-family: 'Korner Deli NF';
-    font-weight: bold;
-    color:#FFD496;
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-  }
-
-}
-
-header .desktop {
-  display: none;
-}
-
-
-footer nav {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  background-color: #530000;
-  // padding-bottom: 1rem;
-  height: 7.5vh;
-}
-
 .list-country-name {
   display:flex;
   font-size: 2rem;
@@ -289,6 +236,7 @@ footer nav {
     margin: 1rem auto;
   }
 }
+
 
 
 @media only screen and (min-width: 768px) {
@@ -331,53 +279,53 @@ footer nav {
     line-height: 0rem;
   }
 
-    
-body {
-    main {
-      display: flex;
-      flex-flow: row nowrap;
-     }
 
-    .sea {
-      height: 85vh;
-      width: 65vw;
-    }
+  main {
+    display: flex;
+    flex-flow: row nowrap;
+  }
 
-    .listview-desktop {
+  .sea {
+    height: 85vh;
+    width: 100vw;
+  }
 
-      display: block !important;
-      background-color: #FFFFFF;
-      z-index: 10;
-      border-top-left-radius: 2rem;
-      border-top-right-radius: 2rem;
-      font-family: 'Poppins';
-      color: #405C7B;
-      text-align: center;
-      padding: 1rem;
-      position: absolute;
-      bottom: 0;
-      left: calc(50% - 100px);  
-      width: 200px;
-      font-size: 1.5rem;
-       
-    }
+  .listview-desktop {
 
-    .listview-desktop:hover {
-      color: #FFFFFF; 
-      background-color: #405C7B;
-    }
+    display: block !important;
+    background-color: #FFFFFF;
+    z-index: 10;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    font-family: 'Poppins';
+    color: #405C7B;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 100px);  
+    width: 200px;
+    font-size: 1.5rem;
+      
+  }
 
-    .image-crop {
-      margin-left: 1rem;
-    }
+  .listview-desktop:hover {
+    color: #FFFFFF; 
+    background-color: #405C7B;
+  }
 
       
     .features {
-      width: 35vw;
-      height: 85vh;
+      position: absolute;
+      width: 0;
+      height: calc(85vh - 2em) ;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      background-color: rgba(255, 255, 255, 0.9);
+      right: 1em;
+      bottom: 1em;
+      border-radius: 1em;
       
       .display-name {
         flex-flow: row-reverse;
@@ -403,280 +351,138 @@ body {
       }
       .shape {
         display: block !important;
-        height: 50vh;
+        height: 30vh;
         margin: 0 auto;
       }
     }
 
-    
+    .features::-webkit-scrollbar { 
+      display: none; 
+     }    
 
     .map .listview-mobile {
       display: none;
     }
+    h2 {
+      max-width: 80%;
+    }
+    p {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 200;
+      color: #0C3460;
+    }
+    .shape-container {
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-content: flex-start;
+      margin: 0;
+    }
+    .shape {
+      display: block !important;
+      height: 50vh;
+      margin: 0 auto;
+    }
+  }
 
-     footer nav {
-       display: none;
-     }
+  .map .listview-mobile {
+    display: none;
+  }
 
-     footer .desktop {
-       display: block;
-     }
+
+  .continent {
+    img {
+      width: 100px;
+      transition: 0.2s;
+
+      :hover {
+        width: 150px;
+      }
+    }
+  }
+
+  .list-country-item {
+    display:flex;
+    flex-direction: row;
+    flex: 0 0 0;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5rem;
+  }
   
-     header .mobile {
-       display: none;
-     }
-
-     header .desktop {
-       display: flex;
-       flex-direction: row nowrap;
-       width: 100%;
-       height: 15vh;
-       background-color: #530000;
-
-      a{
-        text-decoration: none;
-        margin: 0;
-      }
-
-       h2 {
-        color: $color-text;
-        font-size: 2rem; 
-        font-family: 'Poppins', sans-serif;
-        font-weight: 200;
-        margin-bottom: 15px;
-      }
-
-       .column1 {
-        display: flex;
-        width: 33%;
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        align-items: flex-end;
-        height: 100%;
-    }
-      .column2 {
-       width: 33%;
-       display: flex;
-       flex-direction: column;
-       justify-content: space-around;
-       align-items: center;
-       height: 100%;
-
-       img {
-         height: 60px;
-         width: 60px;
-       }
-
-       h1 {
-        font-family: 'Korner Deli NF';
-          font-weight: bold;
-          color:#FFD496;
-          font-size: 2.5rem;
-          margin-bottom: 15px;
-      }
-    }
- 
-     .column3 {
-       width: 33%;
-       display: flex;
-       flex-flow: row nowrap;
-       height: 100%;
-       justify-content: space-around;
-       align-items: flex-end;
-
-    }
-
-    .logout {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-
-      a {
-        color: $color-text;
-        padding: 0.8rem;
-        font-size: 1rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 100;
-        text-decoration: none;
-        
-    }  
-    }
-
-    .log_reg {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      a {
-        color: $color-text;
-        padding: 0.8rem;
-        font-size: 1rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 100;
-        text-decoration: none;
-        
-    }  
+  .list-country-name {
+    display:flex;
+    font-size: 1.5rem;
+  }
   
-      span {
-        color:$color-text;
-      }
+  .country-list {
+    display: flex;
   }
-
-    }
-  }
-}
-
-
-.list-country-item {
-  display:flex;
-  flex-direction: row;
-  flex: 0 0 0;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 5rem;
-}
-
-.list-country-name {
-  display:flex;
-  font-size: 1.5rem;
-}
-
-.country-list {
-  display: flex;
-}
-
-.country-button {
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: flex-end;
-  cursor:pointer;
-  text-align: center;
-  height: 60px;
-  width: 60px;
-}
-
-.country-button:hover {
-  cursor: pointer;
-  color: #60D16E;
-  transform: scale(1.5);
-  transition: .2s;
-}
-
-.fa-check-circle {
-  color: #60D16E;
-  transform: scale(1.5);
-  transition: .2s;
-}
-
-.flag-img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  margin: 1rem 2rem 3rem 3rem; 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-  margin-top: 7rem; 
-}
-
-
-@mixin circle($size) {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  left: calc(50% - #{$size/2});
-  top: calc(50% - #{$size/2});
-  width: $size;
-  height: $size;
-}
-
-$size: 200px;
-.progress-pie-chart {
-  width: $size;
-  height: $size;
-  border-radius: 50%;
-  background-color: #E5E5E5;
-  position: relative;
-  &.gt-50 {
-    background-color: #81CE97;
-  }
-}
-.ppc-progress {
-  @include circle($size);
-  clip: rect(0, $size, $size, #{$size/2});
-  .ppc-progress-fill {
-    @include circle($size);
-    clip: rect(0, #{$size/2}, $size, 0);
-    background: #81CE97;
-    transform: rotate(60deg);
-  }
-  .gt-50 & {
-    clip: rect(0, #{$size/2}, $size, 0);
-    .ppc-progress-fill {
-      clip: rect(0, $size, $size, #{$size/2});
-      background: #E5E5E5;
-    }
-  }
-}
-.ppc-percents {
-  @include circle(#{$size/1.15});
-  background: #fff;
-  text-align: center;
-  display: table;
-  overflow: hidden;
-  img {
-    width: $size/1.15;
-  }
-}
-.pcc-percents-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-
-.progress-pie-chart {
-  margin: 50px auto 0;
-}
-
-.city-info {
   
-  h2 {
-    margin: auto;
+  .country-button {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-end;
+    cursor:pointer;
     text-align: center;
-    }
-}
-
-#attraction {
-  margin: auto;
-  width:100%;
-  text-align: center;
-}
-
-#attraction-pic {
-  display:flex;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 300px;
-  font-weight: bold;
-  color: white;
-  font-size: 2em;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: center;
-  margin: 1em 0 .3em 0;
-  text-shadow: #000000 0 0 10px;
-}
-.continent {
-  img {
-    width: 100px;
-    margin: 1rem auto;
-    transition: 0.2s;
-
-    :hover {
-      width: 150px;
-    }
+    height: 60px;
+    width: 60px;
   }
-}
+  
+  .country-button:hover {
+    cursor: pointer;
+    color: #60D16E;
+    transform: scale(1.5);
+    transition: .2s;
+  }
+  
+  .fa-check-circle {
+    color: #60D16E;
+    transform: scale(1.5);
+    transition: .2s;
+  }
+  
+  .flag-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: 1rem 2rem 3rem 3rem; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    margin-top: 7rem; 
+  }
+  
+  .city-info {
+    
+    h2 {
+      margin: auto;
+      text-align: center;
+      }
+  }
+  
+  #attraction {
+    margin: auto;
+    width:100%;
+    text-align: center;
+  }
+  
+  #attraction-pic {
+    display:flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 300px;
+    font-weight: bold;
+    color: white;
+    font-size: 2em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    margin: 1em 0 .3em 0;
+    text-shadow: #000000 0 0 10px;
+  }

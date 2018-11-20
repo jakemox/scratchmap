@@ -19,6 +19,7 @@ Route::get('/api/countries', 'CountryController@list');
 Route::get('/api/visits', 'CountryController@visits');
 
 Route::get('/search', 'SearchController@show');
+Route::get('/api/suggest', 'SearchController@suggest');
 
 Route::get('/profile', 'ProfileController@show');
 Route::get('/profile/api', 'ProfileController@api');

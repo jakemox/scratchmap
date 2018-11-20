@@ -13,5 +13,9 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+<<<<<<< HEAD
 //require('./index');
+=======
+// require('./index');
+>>>>>>> 13c3d4b0e2159ebf143982732b51f3b9d47f9332
 

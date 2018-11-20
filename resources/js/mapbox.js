@@ -22,7 +22,6 @@ var hoveredStateId =  null;
 var clicked = window.scratchmap.clicked = [];
 let score = 0;
 var scoreContainer = window.scratchmap.scoreContainer = document.getElementById('score-container');
-;
 let countryListView = document.getElementById('country-list');
 
 
@@ -174,9 +173,6 @@ map.on('load', function () {
         console.log(clicked);
         map.setFeatureState({source: 'states', id: country.id}, {click: state});
 
-        
-    
-
         score = clicked.length;
 
         scoreContainer.innerHTML = `<div id="score" class="score">Countries Visited: ${score}</div>`;
@@ -188,44 +184,37 @@ map.on('load', function () {
         
     });
 
+    let hoveredStateId = null;
+    let mouse_left = false;
     // When the user moves their mouse over the state-fill layer, we'll update the
     // feature state for the feature under the mouse.
-    map.on("mousemove", "hover-fills", function(e) {
+    map.on("mousemove", "hover-fills", (e) => {
         if (e.features.length > 0) {
+            mouse_left = false;
             if (hoveredStateId) {
                 map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: false});
             }
             
             hoveredStateId = e.features[0].id;
-
+            
             map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
 
             let countries = countryList;
             let country = countries[(hoveredStateId - 1)];
-            //shows name of country in box
 
-            document.getElementById('features').innerHTML = 
-                '<div class="display-name">' +
-                    '<div class="image-crop">' +   
-                        '<img class="flag-icon" src="/img/flags-normal/' + country.code.toLowerCase() + '.png" alt="">' +
-                    '</div>' +
-                    '<h2>' + country.name + '</h2>' +
-                '</div>' +
-                '<div id="shape-container" class="shape-container">' +  
-                    '<img class="shape" src="/img/shapes/' + country.code + '.svg" alt="">' +
-                '</div>' +
-                '<div id="country-details">' +
-                    `<p><b>Capital:</b> <a id="cityLink" data-city="${country.capital}" href="javascript:void(0)">` + country.capital + '</a></p>' +
-                    '<p><b>Population:</b> ' + (country.population/1000000).toFixed(2) + ' million</p>' +
-                    '<p><b>Currency:</b> ' + country.currency + '</p>' +
-                    '<p><b>Language:</b> ' + country.language + '</p>' +
-                    '<p><b>Area:</b> ' + (country.area/1000) + ' km<sup>2</sup></p>' +
-                '</div>' +
-                '<div id="city"></div>';
-
-            document.querySelector("#cityLink").addEventListener("click", (e) => {
-                show_city(e.target.dataset.city);
-            })
+            //shows information of country in the box
+            
+            setTimeout(() => {
+                
+                if (mouse_left == false) {
+                    country.show_features();
+                }
+                
+                document.querySelector("#cityLink").addEventListener("click", (e) => {
+                    show_city(e.target.dataset.city);
+                })
+            }, 200);
+            
         }
 
             function show_city(city) {
@@ -242,5 +231,6 @@ map.on('load', function () {
             map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: false});
         }
         hoveredStateId =  null;
+        mouse_left = true;
     });
 });
