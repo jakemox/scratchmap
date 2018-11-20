@@ -16,7 +16,7 @@ class SearchController extends Controller
         $string = $request->input('s');
 
         $cities = DB::table('cities')
-            ->where('name', 'LIKE', "%{$string}%")
+            ->where('name', 'LIKE', "{$string}%")
             ->limit(100)
             ->orderBy('name')
             ->get();
