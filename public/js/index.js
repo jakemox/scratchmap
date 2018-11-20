@@ -2390,6 +2390,26 @@ document.addEventListener('DOMContentLoaded', function () {
         //     mountains.style.bottom = '0';
         // }
     });
+
+    // Type-hinting to suggest cities in real time
+    var input = document.getElementById('search-input');
+    input.addEventListener('keyup', function () {
+        fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
+            method: 'GET'
+        }).then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            var container = document.querySelector('#suggestions');
+            container.innerHTML = '';
+
+            json.forEach(function (item) {
+
+                var div = document.createElement('div');
+                div.innerHTML = '<a href="/city/show/' + item.name + '">' + item.name + '</a>';
+                container.appendChild(div);
+            });
+        });
+    });
 });
 
 /***/ }),
@@ -2607,10 +2627,13 @@ map.on('load', function () {
         }
     });
 
+    var hoveredStateId = null;
+    var mouse_left = false;
     // When the user moves their mouse over the state-fill layer, we'll update the
     // feature state for the feature under the mouse.
     map.on("mousemove", "hover-fills", function (e) {
         if (e.features.length > 0) {
+            mouse_left = false;
             if (hoveredStateId) {
                 map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: false });
             }
@@ -2622,13 +2645,18 @@ map.on('load', function () {
             var countries = countryList;
             var country = countries[hoveredStateId - 1];
 
-            //shows information of country in the box
+            //shows information of country in the box after a short delay
 
-            country.show_features();
+            setTimeout(function () {
 
-            document.querySelector("#cityLink").addEventListener("click", function (e) {
-                show_city(e.target.dataset.city);
-            });
+                if (mouse_left == false) {
+                    country.show_features();
+                }
+
+                document.querySelector("#cityLink").addEventListener("click", function (e) {
+                    show_city(e.target.dataset.city);
+                });
+            }, 200);
         }
 
         function show_city(city) {
@@ -2645,6 +2673,7 @@ map.on('load', function () {
             map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: false });
         }
         hoveredStateId = null;
+        mouse_left = true;
     });
 });
 
@@ -24442,7 +24471,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 
 
 

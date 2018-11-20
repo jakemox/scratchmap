@@ -7,13 +7,23 @@
 // export default class CityPage extends React.Component {
     
 //     componentDidMount() {
+<<<<<<< HEAD
+//         Axios.get('/city/api/' + this.props.cityName)
+//         .then(response => {
+//             city: response.data.city
+=======
 //         Axios.get('/city/api/' + this.props.cityPageName)
 //         .then(response => {
 //             city: response.data.cityPageName
+>>>>>>> 13c3d4b0e2159ebf143982732b51f3b9d47f9332
 //         })
 //     }
 
 //     render() {
+<<<<<<< HEAD
+//         console.log('jake');
+//         return <div>hello</div>;
+=======
 //         console.log(this.props.cityPageName);
         
         
@@ -42,5 +52,6 @@
 //         //         </div>
 //         //     </>
 //         // );
+>>>>>>> 13c3d4b0e2159ebf143982732b51f3b9d47f9332
 //     }
 // }

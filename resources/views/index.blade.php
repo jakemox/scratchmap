@@ -5,7 +5,7 @@
 
 
 @section('content')
-
+ 
 <main>
     <div class="loading" id="loading">
         <div class="spinner">

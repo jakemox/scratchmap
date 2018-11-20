@@ -10,41 +10,48 @@
 <div class="profile">
   <div class="fade">
     <div class="outer">
-    <div class="form">
-      <div class="profile_details">
-        <div class="details">
+    <div class="profile-thing">
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+              <strong>Whoops!</strong> There were some problems with your input.<br><br>
+          </div>
+        @endif
+        <div class="profile_name">
           <h2>{{$user_name}}</h2>
-          <h3>Score: {{$user_score}}</h3>
-          <h3>Statistics</h3>
-          <h3>Visited countries: {{count($visited_countries)}}</h3>
-          <h4>Africa: {{$africa}}/53</h4>
-          <h4>Asia: {{$asia}}/47</h4>
-          <h4>Europe: {{$europe}}/45</h4>
-          <h4>North America: {{$north_america}}/23 </h4>
-          <h4>South America: {{$south_america}}/12 </h4>
-          <h4>Oceania: {{$australia}}/14 </h4>
+        </div>
+        <div class="scoreandimage">
+        <div class="score_container">
+        <div class="score">
+          <h3>Score: <span>{{$user_score}}</span></h3>
+          <h3>Visited countries: <span>{{count($visited_countries)}}</span></h3>
+        </div>
         </div>
         <div class="profile_image">
           <div class="photo-photo">
-          @if (count($errors) > 0)
-              <div class="alert alert-danger">
-                  <strong>Whoops!</strong> There were some problems with your input.<br><br>
-              </div>
-          @endif
-          <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}"/>
+          <div class="image-crop2">
+            @if ($user->avatar)
+              <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}"/>
+            @else 
+            <img class="rounded-circle" src="/img/user.svg"/>
+            @endif
+          </div>
           </div>
             <div class="photo-form">
             <form action="{{action('ProfileController@update_avatar')}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                  <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                  <small id="fileHelp" class="form-text text-muted">Size of image should not be more than 2MB.</small>
+                    <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
+                    <div class="upload-btn" onclick="document.getElementById('avatarFile').click()">Choose file</div>
+                    <small id="fileHelp" class="form-text text-muted">Max 2MB.</small>
+                  <button type="submit" class="score score-btn">Submit</button>
               </div>
-             <button type="submit" class="score">Submit</button>
+             
           </form>
           </div>
         </div>
-      </div>
+        </div>
+        
+        
       <div class="continents-profile">
           <div class="africa">
           <div class="progress-pie-chart" data-visited="{{$africa}}" data-total-countries="53">
@@ -57,7 +64,7 @@
                   </div>
                 </div>
               </div>
-              (<?php echo round(($africa/53)*100) ;?>%)
+              {{$africa}}/53
             </div>
             
             <div class="asia">
@@ -71,7 +78,7 @@
                       </div>
                     </div>
                   </div>
-                  (<?php echo round(($asia/47)*100) ;?>%)
+                  {{$asia}}/47
               </div>
             
             
@@ -86,7 +93,7 @@
                       </div>
                     </div>
                   </div>
-                  (<?php echo round(($europe/45)*100) ;?>%)
+                  {{$europe}}/45
             </div>
             
             <div class="north_america">
@@ -100,7 +107,7 @@
                       </div>
                     </div>
                   </div>
-                  (<?php echo round(($north_america/23)*100) ;?>%)
+                  {{$north_america}}/23
             </div>
             
             <div class="south_america">
@@ -114,7 +121,7 @@
                       </div>
                     </div>
                   </div>
-                  (<?php echo round(($south_america/12)*100) ;?>%)
+                  {{$south_america}}/12
             </div>
             
             <div class="australia">
@@ -128,16 +135,16 @@
                       </div>
                     </div>
                   </div>
-                  (<?php echo round(($australia/14)*100) ;?>%)
+                  {{$australia}}/14
             </div> 
   
       </div>
       
     <div class="visited_list">
-      <h3>So far you have visited:</h3>
+      <h3>Countries visited:</h3>
       @foreach ($visited_countries as $item)
       <div class="country-list">  
-        <div class="image-crop">
+        <div class="image-crop1">
             <img class="flag-icon" src="img/flags-normal/{{strtolower(\App\Country::find($item->country_id)->code)}}.png" alt="{{\App\Country::find($item->country_id)->code}}">
         </div>
         <div class="list-country-name">

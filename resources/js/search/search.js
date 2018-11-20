@@ -45,4 +45,27 @@ document.addEventListener('DOMContentLoaded', function () {
         //     mountains.style.bottom = '0';
         // }
     })
+
+    // Type-hinting to suggest cities in real time
+    let input = document.getElementById('search-input');
+    input.addEventListener('keyup', () => {
+        fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
+            method: 'GET'
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            let container = document.querySelector('#suggestions');
+            container.innerHTML = '';
+
+            json.forEach((item) => {
+
+                let div = document.createElement('div');
+                div.innerHTML = `<a href="/city/show/${item.name}">${item.name}</a>`;
+                container.appendChild(div);
+            });
+
+        });
+    });
 })
