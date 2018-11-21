@@ -66,6 +66,7 @@ h4 {
     top: 100vh;
     left: 10vw;
     width: 80vw;
+    max-width: 1000px;
     margin: 2rem auto;
 
     h1 {
@@ -81,7 +82,7 @@ h4 {
         text-align: center;
 
         img {
-            height: 50vh;
+            width: 100%;
         }
     }
 }
@@ -130,3 +131,36 @@ h4 {
     }
 }
 
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    width: initial;
+    margin: 3rem auto 0 auto;
+    border-top: 1px solid rgb(126, 126, 126);
+    padding-top: 1rem;
+
+    .logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        opacity: 0.5;
+
+        p {
+            font-family: 'Korner Deli NF';
+            font-size: 2rem;
+        }
+
+        img {
+            height: 50px;
+        }
+    }
+
+    p {
+        opacity: 0.5;
+    }
+    
+    
+}

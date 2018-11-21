@@ -303,10 +303,14 @@ html {
   height: 0;
 }
 
-.continents {
+.continents-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
 .country_button {
@@ -422,24 +426,8 @@ html {
   overflow-x: hidden;
 }
 
-.features .instructions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 50vh;
-}
-
 .features .instructions img {
-  width: 40%;
+  display: none;
 }
 
 .features .instructions h6 {
@@ -447,6 +435,10 @@ html {
   font-size: 2rem;
   color: #530000;
   text-align: center;
+}
+
+.features .instructions p {
+  display: none;
 }
 
 .features .display-name {
@@ -503,12 +495,12 @@ html {
   .slider {
     height: 100%;
     text-align: center;
-    width: 70vw;
+    width: calc(100vw - 370px);
   }
 
   .slider.close {
     position: absolute;
-    width: 70vw;
+    width: calc(100vw - 370px);
     height: 0;
     bottom: -10%;
     overflow: hidden;
@@ -518,7 +510,7 @@ html {
     line-height: 0.2rem;
     text-align: center;
     padding: 1rem;
-    opacity: 0.90;
+    opacity: 0.80;
     -webkit-transition: all 1s;
     transition: all 1s;
     z-index: 3;
@@ -616,6 +608,38 @@ html {
     max-width: 80%;
     white-space: nowrap;
     font-size: 1.5rem;
+  }
+
+  .features .instructions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 50vh;
+  }
+
+  .features .instructions img {
+    display: block;
+    width: 40%;
+  }
+
+  .features .instructions h6 {
+    font-family: 'Korner Deli NF';
+    font-size: 2rem;
+    color: #530000;
+    text-align: center;
+  }
+
+  .features .instructions p {
+    display: block;
   }
 
   .features p {

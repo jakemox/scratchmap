@@ -49,7 +49,7 @@
         </div>
 
         <div class="city-map">
-            <img src="/img/shapes/{{$country[0]->code}}.svg" alt="">
+            <img src="https://api.mapbox.com/styles/v1/jakemox99/cjorqs6d032z52smeej16xcuq/static/{{$city[0]->longitude}},{{$city[0]->latitude}},13.0,0,0/1000x1000?access_token=pk.eyJ1IjoiamFrZW1veDk5IiwiYSI6ImNqbmxtYjlvcjFtZmozcHE5aW9zN3pjeXcifQ.UCUt8f58HwBvpHcTz8JqkA" alt="">
         </div>
         
         {{-- <a href="https://www.google.com/maps/place/?q=place_id:{{ $attraction['place_id'] }}"> {{$attraction['name']}}</a><br>
@@ -57,8 +57,16 @@
         <img src="{{$attraction['photo']}}"><br>
         Address: {{$attraction['address']}}<br>
         Rating: {{$attraction['rating']}}<hr> --}}
-        
+        <div class="footer">
+            <div class="logo">
+                {{-- <img src="/img/balloon-cutout.svg" alt=""> --}}
+                <p>ScratchMapp</p>
+            </div>
+            <p>© Tomi Holstila, Mateo Milic, Jake Moxon </p>
+        </div>
     </div>
+
+    
 
 
 </main>

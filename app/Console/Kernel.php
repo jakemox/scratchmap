@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\GetRestcountriesData::class,
         Commands\GetFlickrPhotos::class,
+        Commands\GetMapboxCoords::class,
     ];
 
     /**

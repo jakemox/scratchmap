@@ -95,8 +95,9 @@ html {
   height: 0;
 }
 
-.continents {
+.continents-list {
   display: flex;
+    flex-flow: row wrap;
 }
 
 .country_button {
@@ -204,20 +205,17 @@ html {
   overflow-x: hidden;
 
   .instructions {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 50vh;
-
     img {
-      width: 40%;
+      display: none;
     }
     h6 {
       font-family: 'Korner Deli NF';
       font-size: 2rem;
       color: #530000;
       text-align: center;
+    }
+    p {
+      display: none;
     }
   }
 
@@ -269,13 +267,13 @@ html {
   .slider {
     height: 100%;
     text-align: center;
-    width: 70vw;
+    width: calc(100vw - 370px);
   }
   
   .slider.close {
     
     position: absolute;
-    width: 70vw;
+    width: calc(100vw - 370px);
     height: 0;
     bottom: -10%;
     overflow: hidden;
@@ -284,7 +282,7 @@ html {
     line-height: 0.2rem;
     text-align: center;
     padding: 1rem;
-    opacity: 0.90;
+    opacity: 0.80;
     transition: all 1s;
     z-index: 3;
   }
@@ -362,6 +360,30 @@ html {
           max-width: 80%;
           white-space: nowrap;
           font-size: 1.5rem;
+        }
+      }
+
+      .instructions {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 50vh;
+    
+        img {
+          display: block;
+          width: 40%;
+        }
+    
+        h6 {
+          font-family: 'Korner Deli NF';
+          font-size: 2rem;
+          color: #530000;
+          text-align: center;
+        }
+    
+        p {
+          display: block;
         }
       }
 
