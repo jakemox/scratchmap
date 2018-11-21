@@ -83,7 +83,7 @@ class Country {
             '<div id="city"></div>';
             
             
-            feats.style.width = "370px";
+           
     } 
 
 
