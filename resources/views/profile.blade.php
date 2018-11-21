@@ -17,12 +17,22 @@
           </div>
         @endif
         <div class="profile_name">
-          <h2>{{$user_name}}</h2>
+          <h2>{{$user_name}}'s Profile</h2>
         </div>
         <div class="scoreandimage">
         <div class="score_container">
         <div class="score">
-          <h3>Score: <span>{{$user_score}}</span></h3>
+          <div class="progress-pie-chart" data-visited="{{count($visited_countries)}}" data-total-countries="198">
+            <div class="ppc-progress">
+              <div class="ppc-progress-fill"></div>
+            </div>
+            <div class="ppc-percents">
+              <div class="pcc-percents-wrapper">
+                <img src="\img\africa.png" height="160px">
+              </div>
+            </div>
+          </div>
+          {{count($visited_countries)}}/198
           <h3>Visited countries: <span>{{count($visited_countries)}}</span></h3>
         </div>
         </div>
@@ -43,7 +53,8 @@
                     <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
                     <div class="upload-btn" onclick="document.getElementById('avatarFile').click()">Choose file</div>
                     <small id="fileHelp" class="form-text text-muted">Max 2MB.</small>
-                  <button type="submit" class="score score-btn">Submit</button>
+                  <button type="submit" class="score score-btn" id="score-btn">Submit</button>
+                  <div class="score-button" onclick="document.getElementById('score-btn').click()">Submit</div>
               </div>
              
           </form>
@@ -60,7 +71,7 @@
                 </div>
                 <div class="ppc-percents">
                   <div class="pcc-percents-wrapper">
-                    <img src="\img\africa-01.png" height="120px">
+                    <img src="\img\africa.png" height="160px">
                   </div>
                 </div>
               </div>
@@ -74,7 +85,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\asia-01.png" height="120px">
+                        <img src="\img\asia.png" height="160px">
                       </div>
                     </div>
                   </div>
@@ -89,7 +100,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\europe-01.png" height="120px">
+                        <img src="\img\europe.png" height="160px">
                       </div>
                     </div>
                   </div>
@@ -103,7 +114,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\north-america-01.png" height="120px">
+                        <img src="\img\north-america.png" height="160px">
                       </div>
                     </div>
                   </div>
@@ -117,7 +128,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\south-america-01.png" height="120px">
+                        <img src="\img\south-america.png" height="160px">
                       </div>
                     </div>
                   </div>
@@ -131,7 +142,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\oceania-01.png" height="120px">
+                        <img src="\img\oceania.png" height="160px">
                       </div>
                     </div>
                   </div>

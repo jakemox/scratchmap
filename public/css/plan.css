@@ -53,6 +53,7 @@ footer nav {
   width: 100%;
   position: fixed;
   bottom: 0;
+  z-index: 500;
 }
 
 @media only screen and (min-width: 768px) {
@@ -615,6 +616,7 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 1rem;
+  color: #15375A;
 }
 
 .profile .profile_name h2 {
@@ -627,13 +629,17 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -ms-flex-direction: row-reverse;
-      flex-direction: row-reverse;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: column-reverse nowrap;
+          flex-flow: column-reverse nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .profile .scoreandimage .score_container {
@@ -644,17 +650,31 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 1.8rem;
+}
+
+.profile .scoreandimage .score-button {
+  cursor: pointer;
+  background-color: #15375A;
+  color: #FFFFFF;
+  border-radius: 15px;
+  width: 90px;
+}
+
+.profile .scoreandimage .score-button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .profile .scoreandimage .score {
   width: 75%;
   padding: 1rem;
-  background-color: #405C7B;
-  color: #FFFFFF;
+  color: #15375A;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border-radius: 15px;
+  text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -669,11 +689,7 @@ header {
 }
 
 .profile .scoreandimage .score.score-btn {
-  cursor: pointer;
-  padding: 1rem;
-  background-color: #405C7B;
-  color: #FFFFFF;
-  border-radius: 15px;
+  display: none;
 }
 
 .profile .scoreandimage .score h3 {
@@ -698,7 +714,6 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 3rem;
 }
 
 .profile .image-crop2 {
@@ -714,6 +729,10 @@ header {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
+}
+
+.profile form {
+  width: 100%;
 }
 
 .profile .form-group {
@@ -732,6 +751,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
 }
 
 .profile .form-group input[type='file'] {
@@ -740,10 +760,15 @@ header {
 
 .profile .form-group .upload-btn {
   cursor: pointer;
-  padding: 1rem;
-  background-color: #405C7B;
+  background-color: #70B0E2;
   color: #FFFFFF;
   border-radius: 15px;
+  width: 90px;
+}
+
+.profile .form-group .upload-btn:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .profile .form-group .form-text.text-muted {
@@ -796,10 +821,16 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
 }
 
@@ -942,7 +973,6 @@ header {
 }
 
 .ppc-percents img {
-  background: white;
   border-radius: 60px;
 }
 
@@ -992,11 +1022,39 @@ header {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-flow: column nowrap;
-            flex-flow: column nowrap;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
     width: 100%;
+  }
+
+  .profile .scoreandimage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    width: 100%;
+  }
+
+  .profile_image {
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-left: 3rem;
   }
 
   .profile .form-group input[type='file'] {
@@ -1005,6 +1063,20 @@ header {
     font-family: 'Poppins';
     font-size: 1.2rem;
     width: 37%;
+  }
+
+  .continents-profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
   }
 }
 
