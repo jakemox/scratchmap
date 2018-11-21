@@ -473,12 +473,12 @@ html {
   .slider {
     height: 100%;
     text-align: center;
-    width: 65vw;
+    width: 70vw;
   }
 
   .slider.close {
     position: absolute;
-    width: 65vw;
+    width: 70vw;
     height: 0;
     bottom: -10%;
     overflow: hidden;
@@ -548,8 +548,8 @@ html {
 
   .features {
     position: absolute;
-    width: 0;
-    height: calc(85vh - 2em);
+    width: 30%;
+    height: calc(100vh - 112px);
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -561,9 +561,8 @@ html {
         -ms-flex-pack: start;
             justify-content: flex-start;
     background-color: rgba(255, 255, 255, 0.9);
-    right: 1em;
-    bottom: 1em;
-    border-radius: 1em;
+    right: 0;
+    bottom: 0;
   }
 
   .features .display-name {

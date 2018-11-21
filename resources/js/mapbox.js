@@ -143,7 +143,9 @@ map.on('load', function () {
         let country = countryList[clickedStateKey]
         let selectedIndex = clicked.indexOf(clickedStateId);
         let state = false;
-
+        let mapSize = document.getElementById('map');
+        mapSize.style.width = "70%";
+        console.log(mapSize);
         console.log(countryList[clickedStateKey]);
         
         // if(!window.userId) {
@@ -174,7 +176,7 @@ map.on('load', function () {
         map.setFeatureState({source: 'states', id: country.id}, {click: state});
 
         score = clicked.length;
-
+        
         scoreContainer.innerHTML = `<div id="score" class="score">Countries Visited: ${score}</div>`;
 
             if (score == 1000) {

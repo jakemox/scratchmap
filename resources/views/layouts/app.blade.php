@@ -23,17 +23,16 @@
     <link rel="shortcut icon" href="{{ asset('public/favicon.ico') }}">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
+    {{-- <style>
         #features {
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
-            width: 300px;
             overflow: auto;
             background: rgba(255, 255, 255, 0.8);
         }
-    </style>
+    </style> --}}
 </head>
 <body>
     <div id="app">

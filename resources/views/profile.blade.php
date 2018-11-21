@@ -60,7 +60,7 @@
                 </div>
                 <div class="ppc-percents">
                   <div class="pcc-percents-wrapper">
-                    <img src="\img\africa-01.svg" height="120px">
+                    <img src="\img\africa-01.png" height="120px">
                   </div>
                 </div>
               </div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\asia-01.svg" height="120px">
+                        <img src="\img\asia-01.png" height="120px">
                       </div>
                     </div>
                   </div>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\europe-01.svg" height="120px">
+                        <img src="\img\europe-01.png" height="120px">
                       </div>
                     </div>
                   </div>
@@ -103,7 +103,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\north-america-01.svg" height="120px">
+                        <img src="\img\north-america-01.png" height="120px">
                       </div>
                     </div>
                   </div>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\south-america-01.svg" height="120px">
+                        <img src="\img\south-america-01.png" height="120px">
                       </div>
                     </div>
                   </div>
@@ -131,7 +131,7 @@
                     </div>
                     <div class="ppc-percents">
                       <div class="pcc-percents-wrapper">
-                        <img src="\img\oceania-01.svg" height="120px">
+                        <img src="\img\oceania-01.png" height="120px">
                       </div>
                     </div>
                   </div>
