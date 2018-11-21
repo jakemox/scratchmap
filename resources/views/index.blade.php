@@ -27,14 +27,18 @@
                 <div id="trigger-desktop" class='listview-desktop'>View as List</div>
             </a>
             <div id="slider" class="slider close">
-            @include('list')
-
+                @include('list')
             </div>    
         </div>
     </div>
 
     <div class='features' id='features'>
-            
+        <div class="instructions">
+            <img src="img/balloon-red.svg" alt="">
+            <h6>Welcome to ScratchMapp!</h6>
+            <p>Click on the countries you have visited.</p>
+            <p>Sign in or Register to save progress</p>
+        </div>
     </div>
   
 </main>

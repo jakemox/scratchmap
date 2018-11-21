@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,400,700');
 
 // Variables
+// @import '~bootstrap/scss/bootstrap';
 @import 'variables';
 @import 'header';
 @import 'custom';
@@ -11,7 +12,6 @@
 // @import 'plan';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
   background-color: #fff;

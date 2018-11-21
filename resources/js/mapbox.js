@@ -143,9 +143,6 @@ map.on('load', function () {
         let country = countryList[clickedStateKey]
         let selectedIndex = clicked.indexOf(clickedStateId);
         let state = false;
-        let mapSize = document.getElementById('map');
-        mapSize.style.width = "70%";
-        console.log(mapSize);
         console.log(countryList[clickedStateKey]);
         
         // if(!window.userId) {

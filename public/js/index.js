@@ -2586,9 +2586,6 @@ map.on('load', function () {
         var country = countryList[clickedStateKey];
         var selectedIndex = clicked.indexOf(clickedStateId);
         var state = false;
-        var mapSize = document.getElementById('map');
-        mapSize.style.width = "70%";
-        console.log(mapSize);
         console.log(countryList[clickedStateKey]);
 
         // if(!window.userId) {

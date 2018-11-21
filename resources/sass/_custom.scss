@@ -1,5 +1,6 @@
 $color-text: #FFF5DA;
-$primary-color: #15475A;
+$text-secondary: #FFD496;
+$primary-color: #15375A;
 
 * {
   margin: auto 0;
@@ -192,13 +193,34 @@ html {
   height: 60px;
   position: absolute;
   bottom: 60px;
-  background-color: white;
+  background-image: url('/img/positano-faded.jpg');
+  background-size: cover;
+  background-position-x: 100%;
   margin: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   overflow-y: scroll;
   overflow-x: hidden;
+
+  .instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+
+    img {
+      width: 40%;
+    }
+    h6 {
+      font-family: 'Korner Deli NF';
+      font-size: 2rem;
+      color: #530000;
+      text-align: center;
+    }
+  }
+
   .display-name {
     display: flex;
     margin: 0 auto;
@@ -336,12 +358,13 @@ html {
         padding: 2rem;
         justify-content: space-around;
         align-items: center;
+        h2 {
+          max-width: 80%;
+          white-space: nowrap;
+          font-size: 1.5rem;
+        }
       }
-      h2 {
-        max-width: 80%;
-        white-space: nowrap;
-        font-size: 1.5rem;
-      }
+
       p {
         display: block;
         font-family: 'Poppins', sans-serif;
@@ -373,9 +396,7 @@ html {
     .map .listview-mobile {
       display: none;
     }
-    h2 {
-      max-width: 80%;
-    }
+
     p {
       display: block;
       font-family: 'Poppins', sans-serif;

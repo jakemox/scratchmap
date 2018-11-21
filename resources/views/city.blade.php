@@ -19,9 +19,12 @@
 
     <button id="down-arrow" class="down-arrow"><img src="\img\down-arrow.svg" alt=""></button>
     
-    
+
     
     <div class="attractions">
+
+
+
         <h1>Top attractions in {{$city_name}}</h1>
         
         
@@ -43,6 +46,10 @@
             @endforeach
 
             {{-- <button id="btnRight">></button> --}}
+        </div>
+
+        <div class="city-map">
+            <img src="/img/shapes/{{$country[0]->code}}.svg" alt="">
         </div>
         
         {{-- <a href="https://www.google.com/maps/place/?q=place_id:{{ $attraction['place_id'] }}"> {{$attraction['name']}}</a><br>
