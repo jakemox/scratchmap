@@ -390,6 +390,7 @@ html {
   -ms-flex-line-pack: center;
       align-content: center;
   margin-right: 1rem;
+  margin-left: 0;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -580,6 +581,8 @@ html {
 
   .features h2 {
     max-width: 80%;
+    white-space: nowrap;
+    font-size: 1.5rem;
   }
 
   .features p {
@@ -606,6 +609,11 @@ html {
     display: block !important;
     height: 30vh;
     margin: 0 auto;
+  }
+
+  .features .image-crop {
+    margin-right: 0;
+    margin-left: 1rem;
   }
 
   .features::-webkit-scrollbar {
