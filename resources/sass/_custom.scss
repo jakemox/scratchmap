@@ -127,7 +127,7 @@ html {
 .sea {
   background-image: radial-gradient(#000000, #06999F);
   width: 100%;
-  height: 67.5vh;
+  height: calc(100vh - 172px);
  }
 
  .map {
@@ -189,7 +189,9 @@ html {
 
 .features {
   width: 100%;
-  height: 10vh;
+  height: 60px;
+  position: absolute;
+  bottom: 60px;
   background-color: white;
   margin: 0;
   display: flex;
@@ -287,12 +289,15 @@ html {
   }
 
   .sea {
-    height: 85vh;
-    width: 100vw;
+    width: calc(100vw - 370px);
+    height: calc(100vh - 112px);
+  }
+
+  .sea-desktop {
+    width: calc(100vw - 370px);
   }
 
   .listview-desktop {
-
     display: block !important;
     background-color: #FFFFFF;
     z-index: 10;
@@ -307,7 +312,6 @@ html {
     left: calc(50% - 100px);  
     width: 200px;
     font-size: 1.5rem;
-      
   }
 
   .listview-desktop:hover {
@@ -318,7 +322,7 @@ html {
       
     .features {
       position: absolute;
-      width: 30%;
+      width: 370px;
       height: calc(100vh - 112px);
       flex-direction: column;
       align-items: center;
