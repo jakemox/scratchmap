@@ -36,23 +36,12 @@ h4 {
     width: 100%;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     z-index: -1;
-    height: calc(85vh - 60px);
+    height: 90vh;
 }
 
 .down-arrow {
-    height: 5vh;
-    margin:0 auto;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    position: absolute;
-    top: calc(90vh - 60px);
-    left: calc(50vw - 29.32px);
-    opacity: 0.5;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
+    display: none;
 
     img {
         height: 100%;
@@ -161,11 +150,20 @@ h4 {
 
     .header-background {
         height: 85vh;
+        background-attachment: fixed;
         // background-position-y: 50%;          
     }
 
     .down-arrow {
+        display: block;
         top: 90vh;
+        height: 5vh;
+        margin:0 auto;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        position: absolute;
+        left: calc(50vw - 29.32px);
+        opacity: 0.5;
     }
 
     .attractions {

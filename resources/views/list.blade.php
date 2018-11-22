@@ -23,7 +23,7 @@
       </a>
     </div>
   </div>
-  <ul id="country-list"></ul>
+  <ul class="country-list-view" id="country-list"></ul>
 </div>
 
 

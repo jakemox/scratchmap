@@ -26,7 +26,12 @@ header .mobile a {
 }
 
 header .mobile h1 {
-  display: none;
+  font-family: 'Korner Deli NF';
+  font-weight: bold;
+  color: #FFF5DA;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  line-height: 2rem;
 }
 
 header .desktop {
@@ -44,7 +49,7 @@ footer nav {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background-color: rgba(255, 255, 255, 0.5);
-  height: 7.5vh;
+  height: 60px;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -237,27 +242,12 @@ h4 {
   width: 100%;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   z-index: -1;
-  height: calc(85vh - 60px);
+  height: 90vh;
 }
 
 .down-arrow {
-  height: 5vh;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
-  position: absolute;
-  top: calc(90vh - 60px);
-  left: calc(50vw - 29.32px);
-  opacity: 0.5;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: none;
 }
 
 .down-arrow img {
@@ -387,10 +377,19 @@ h4 {
 
   .header-background {
     height: 85vh;
+    background-attachment: fixed;
   }
 
   .down-arrow {
+    display: block;
     top: 90vh;
+    height: 5vh;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    position: absolute;
+    left: calc(50vw - 29.32px);
+    opacity: 0.5;
   }
 
   .attractions h1 {
