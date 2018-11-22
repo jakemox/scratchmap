@@ -1,6 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,200,400,700);header .mobile {
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,200,400,700);@font-face {
+  font-family: 'Korner Deli NF';
+  src: local("Korner Deli NF"), url("/fontsKornerDeliNF.woff2") format("woff2"), url("/fontsKornerDeliNF.woff") format("woff"), url("/fonts/KornerDeliNF.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+header .mobile {
   background-color: #15375A;
-  height: 112px;
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,7 +20,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 1rem;
 }
 
 header .mobile img {
@@ -26,12 +32,7 @@ header .mobile a {
 }
 
 header .mobile h1 {
-  font-family: 'Korner Deli NF';
-  font-weight: bold;
-  color: #FFF5DA;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  line-height: 2rem;
+  display: none;
 }
 
 header .desktop {
@@ -73,6 +74,15 @@ footer nav {
   header .desktop a {
     text-decoration: none;
     margin: 0;
+  }
+
+  header .desktop h1 {
+    font-family: 'Korner Deli NF';
+    font-weight: bold;
+    color: #FFF5DA;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    line-height: 2rem;
   }
 
   header .desktop h2 {
@@ -199,6 +209,13 @@ footer nav {
           box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: local("Korner Deli NF"), url("/fonts/KornerDeliNF.woff2") format("woff2"), url("/fonts/KornerDeliNF.woff") format("woff"), url("/fonts/KornerDeliNF.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 10px;
@@ -282,9 +299,9 @@ html {
 .slider {
   position: absolute;
   width: 100vw;
-  height: calc(100vh - 232px);
-  bottom: 60px;
+  height: calc(100vh - 162px);
   overflow: hidden;
+  padding-bottom: 60px;
   background-color: rgba(255, 255, 255, 0.9);
   color: #405C7B;
   font-size: 2rem;
@@ -336,11 +353,6 @@ html {
   background-color: #FFFFFF;
   border-radius: 2rem;
   padding: 0.5rem;
-}
-
-@font-face {
-  font-family: 'Korner Deli NF';
-  src: url("/public/fonts/KornerDeliNF.ttf") format("ttf");
 }
 
 .sea {

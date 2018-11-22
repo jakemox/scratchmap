@@ -3,6 +3,16 @@ header  {
   position: relative;
 }
 
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: local('Korner Deli NF'),
+       url('/fonts/KornerDeliNF.woff2') format('woff2'),
+       url('/fonts/KornerDeliNF.woff') format('woff'),
+       url('/fonts/KornerDeliNF.ttf') format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 10px;

@@ -26,12 +26,7 @@ header .mobile a {
 }
 
 header .mobile h1 {
-  font-family: 'Korner Deli NF';
-  font-weight: bold;
-  color: #FFF5DA;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  line-height: 2rem;
+  display: none;
 }
 
 header .desktop {
@@ -192,6 +187,13 @@ footer nav {
   header .mobile {
     display: none;
   }
+}
+
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: local("Korner Deli NF"), url("/fonts/KornerDeliNF.woff2") format("woff2"), url("/fonts/KornerDeliNF.woff") format("woff"), url("/fonts/KornerDeliNF.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .sky {
@@ -666,6 +668,13 @@ img .padlock {
 header {
   z-index: 2;
   position: relative;
+}
+
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: local("Korner Deli NF"), url("/fonts/KornerDeliNF.woff2") format("woff2"), url("/fonts/KornerDeliNF.woff") format("woff"), url("/fonts/KornerDeliNF.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 ::-webkit-scrollbar {
@@ -1192,6 +1201,13 @@ header {
             justify-content: center;
     width: 100%;
   }
+}
+
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: local("Korner Deli NF"), url("/fonts/KornerDeliNF.woff2") format("woff2"), url("/fonts/KornerDeliNF.woff") format("woff"), url("/fonts/KornerDeliNF.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {

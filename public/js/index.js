@@ -2120,11 +2120,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-// import CityPage from './components/./city_page.jsx'
 
 /***/ }),
 /* 45 */
 /***/ (function(module, exports) {
+
+slug = window.location.pathname;
 
 window.scratchmap = {};
 
@@ -2310,88 +2311,91 @@ $.ajax({
 /* 47 */
 /***/ (function(module, exports) {
 
+// let slug = window.location.pathname;
 
+if (slug == "/search") {
 
-document.addEventListener('DOMContentLoaded', function () {
-    var form = document.getElementById('search-form');
-    var label = document.getElementById('search-label');
-    console.log('search loaded');
-    // let x = window.matchMedia("(max-width: 768px)");
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('search-form');
+        var label = document.getElementById('search-label');
+        console.log('search loaded');
+        // let x = window.matchMedia("(max-width: 768px)");
 
-    // let clouds = document.getElementById('clouds');
-    // let trees = document.getElementById('trees');
-    // let slope = document.getElementById('slope');
-    // let mountains = document.getElementById('mountains');
+        // let clouds = document.getElementById('clouds');
+        // let trees = document.getElementById('trees');
+        // let slope = document.getElementById('slope');
+        // let mountains = document.getElementById('mountains');
 
-    form.addEventListener('mouseover', function () {
-        console.log('hovered search');
-        label.innerHTML = '<img src="\\img\\search-black.svg" alt="search-icon">';
-        // slope.style.left = '-5%';
-        // mountains.style.width = '110%';
-        // mountains.style.left = '-5%';
-        // trees.style.left = '5%';
+        form.addEventListener('mouseover', function () {
+            console.log('hovered search');
+            label.innerHTML = '<img src="\\img\\search-black.svg" alt="search-icon">';
+            // slope.style.left = '-5%';
+            // mountains.style.width = '110%';
+            // mountains.style.left = '-5%';
+            // trees.style.left = '5%';
 
-        // if (x.matches) {
-        //     mountains.style.height = '45vh';
-        //     mountains.style.bottom = '5vh';
-        // } else {
-        //     mountains.style.height = '60vw';
-        //     mountains.style.maxHeight = '80vh';
-        //     mountains.style.bottom = '0';
-        // }
-    });
+            // if (x.matches) {
+            //     mountains.style.height = '45vh';
+            //     mountains.style.bottom = '5vh';
+            // } else {
+            //     mountains.style.height = '60vw';
+            //     mountains.style.maxHeight = '80vh';
+            //     mountains.style.bottom = '0';
+            // }
+        });
 
-    form.addEventListener('mouseleave', function () {
-        label.innerHTML = '<img src="\\img\\search.svg" alt="">';
-        // slope.style.left = '0';
-        // mountains.style.width = '100%';
-        // mountains.style.left = '0';
-        // trees.style.left = '0';
+        form.addEventListener('mouseleave', function () {
+            label.innerHTML = '<img src="\\img\\search.svg" alt="">';
+            // slope.style.left = '0';
+            // mountains.style.width = '100%';
+            // mountains.style.left = '0';
+            // trees.style.left = '0';
 
-        // if (x.matches) {
-        //     mountains.style.height = '40vh';
-        //     mountains.style.bottom = '10vh';
-        // } else {
-        //     mountains.style.height = '50vw';
-        //     mountains.style.maxHeight = '70vh';
-        //     mountains.style.bottom = '0';
-        // }
-    });
+            // if (x.matches) {
+            //     mountains.style.height = '40vh';
+            //     mountains.style.bottom = '10vh';
+            // } else {
+            //     mountains.style.height = '50vw';
+            //     mountains.style.maxHeight = '70vh';
+            //     mountains.style.bottom = '0';
+            // }
+        });
 
-    // Type-hinting to suggest cities in real time
-    var input = document.getElementById('search-input');
-    input.addEventListener('keyup', function () {
-        var isEmpty = null;
-        if (!encodeURIComponent(input.value)) {
-            // hides suggestions is no string provided
-            isEmpty = true;
-        } else {
-            isEmpty = false;
-        }
-
-        fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
-            method: 'GET'
-        }).then(function (response) {
-            return response.json();
-        }).then(function (json) {
-            var container = document.querySelector('#suggestions');
-            if (isEmpty == true) {
-                container.setAttribute('style', 'display:none');
+        // Type-hinting to suggest cities in real time
+        var input = document.getElementById('search-input');
+        input.addEventListener('keyup', function () {
+            var isEmpty = null;
+            if (!encodeURIComponent(input.value)) {
+                // hides suggestions is no string provided
+                isEmpty = true;
             } else {
-                container.setAttribute('style', 'display:block');
+                isEmpty = false;
             }
 
-            container.innerHTML = '';
+            fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
+                method: 'GET'
+            }).then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                var container = document.querySelector('#suggestions');
+                if (isEmpty == true) {
+                    container.setAttribute('style', 'display:none');
+                } else {
+                    container.setAttribute('style', 'display:block');
+                }
 
-            json.forEach(function (item) {
+                container.innerHTML = '';
 
-                var div = document.createElement('div');
-                div.innerHTML = '<a href="/city/show/' + item.name + '">' + item.name + '</a>';
-                container.appendChild(div);
+                json.forEach(function (item) {
+
+                    var div = document.createElement('div');
+                    div.innerHTML = '<a href="/city/show/' + item.name + '">' + item.name + '</a>';
+                    container.appendChild(div);
+                });
             });
         });
     });
-});
+}
 
 /***/ }),
 /* 48 */

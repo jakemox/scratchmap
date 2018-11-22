@@ -81,9 +81,7 @@ class Country {
             '<p><b>Area:</b> ' + (this.area/1000) + ' km<sup>2</sup></p>' +
             '</div>' +
             '<div id="city"></div>';
-            
-            
-           
+                 
     } 
 
 
