@@ -69,10 +69,10 @@ html {
 
 .bounce {
   position:fixed;
-  left:50%;
+  left: calc(50vw - 40px);
   bottom:0;
-  margin-top:-25px;
-  margin-left:-25px;
+  // margin-top:-25px;
+  // margin-left:-25px;
   height:80px;
   width:80px;
   background:transparent;
@@ -142,9 +142,9 @@ html {
 
 
 .sea {
-  background-image: radial-gradient(#000000, #06999F);
+  background-image: radial-gradient(#000000, #169ca7);
   width: 100%;
-  height: calc(100vh - 172px);
+  height: calc(100vh - 170px);
  }
 
  .map {
@@ -164,7 +164,7 @@ html {
         padding: 0.5rem;
         position: absolute;
         top: 0;
-        left: calc(50% - 72px);  
+        left: calc(50% - 75px);  
         width: 150px;
         font-size: 1rem;
         text-align: center;
@@ -244,7 +244,7 @@ html {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #0C3460;
     margin: 0;
   }
@@ -266,15 +266,29 @@ html {
 .continents-list {
   width: 100%;
   display: flex;
+  flex: row wrap;
   justify-content: space-around;
 }
 
 .continents-1 {
   justify-self: flex-end;
+  // width: calc(50% - 2rem);
+  display: flex;
+  flex: row nowrap;
+  justify-content: space-evenly;
 }
 
 .continents-2 {
   justify-self: flex-start;
+  // width: calc(50% - 2rem);
+  display: flex;
+  flex: row nowrap;
+  justify-content: space-evenly;
+}
+
+.country-list-view {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .continent {
@@ -292,10 +306,11 @@ html {
   img {
     width: 100px;
     transition: 0.2s;
-
-    :hover {
-      width: 150px;
-    }
+    margin: 20px 20px;
+  }
+  :hover {
+    width: 120px;
+    margin: 0;
   }
 }
 
@@ -310,6 +325,8 @@ html {
 
 .country-list {
   display: flex;
+  flex: row wrap;
+  
 }
 
 .country-button {
@@ -480,12 +497,12 @@ html {
     display: block !important;
     background-color: #FFFFFF;
     z-index: 10;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
     font-family: 'Poppins';
     color: #405C7B;
     text-align: center;
-    padding: 1rem;
+    padding: 0.75rem;
     position: absolute;
     bottom: 0;
     left: calc(50% - 100px);  
@@ -605,6 +622,22 @@ html {
       display: block !important;
       height: 50vh;
       margin: 0 auto;
+    }
+
+    .continents-1 {
+      justify-self: flex-end;
+      // width: calc(50% - 2rem);
+      // display: flex;
+      // flex: row nowrap;
+      // justify-content: space-evenly;
+    }
+    
+    .continents-2 {
+      justify-self: flex-start;
+      // width: calc(50% - 2rem);
+      // display: flex;
+      // flex: row nowrap;
+      // justify-content: space-evenly;
     }
   }
 

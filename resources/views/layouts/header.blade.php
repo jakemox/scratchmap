@@ -2,7 +2,7 @@
 <header>
   <div class="mobile">
     <a href="{{ route('home') }}"><img src="\img\{{$image}}.svg" alt="balloon" height="80px" width="80px"></a>
-    
+    <h1>ScratchMapp</h1>
   </div>
   <div class="desktop">
     <div class="column1">
