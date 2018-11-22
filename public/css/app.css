@@ -425,7 +425,7 @@ html {
 
 .features {
   width: 100%;
-  height: 60px;
+  height: 40px;
   position: absolute;
   bottom: 60px;
   background-image: url("/img/positano-faded.jpg");
