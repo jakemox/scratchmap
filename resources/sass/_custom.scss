@@ -53,6 +53,8 @@ html {
   font-size: 3rem;
 }
 
+
+
 .bounce {
   position:fixed;
   left:50%;
@@ -145,7 +147,6 @@ html {
 
    .listview-mobile {
       background-color: #FFFFFF;
-        z-index: 10;
         border-bottom-left-radius: 2rem;
         border-bottom-right-radius: 2rem;
         font-family: 'Poppins';
@@ -159,6 +160,8 @@ html {
         font-size: 1.5rem;
         text-align: center;
         overflow-y:auto;
+        display: block;
+        z-index: 5;
         
   }
 
@@ -272,6 +275,10 @@ html {
   }
 }
 
+.map .listview-mobile {
+  display: block;
+}
+
 
 
 @media only screen and (min-width: 768px) {
@@ -355,8 +362,7 @@ html {
     color: #FFFFFF; 
     background-color: #405C7B;
   }
-
-      
+  
     .features {
       position: absolute;
       width: 370px;
@@ -456,9 +462,7 @@ html {
     }
   }
 
-  .map .listview-mobile {
-    display: none;
-  }
+  
 
 
   .continent {
