@@ -8,6 +8,18 @@ $primary-color: #15375A;
 
 }
 
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: local('Korner Deli NF'),
+       url('KornerDeliNF.woff2') format('woff2'),
+       url('KornerDeliNF.woff') format('woff'),
+       url('/public/fonts/KornerDeliNF.ttf') format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 10px;
@@ -127,10 +139,7 @@ html {
 
 }
 
-@font-face {
-  font-family: 'Korner Deli NF';
-  src: url('/public/fonts/KornerDeliNF.ttf') format("ttf");
-}
+
 
 .sea {
   background-image: radial-gradient(#000000, #06999F);
