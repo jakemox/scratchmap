@@ -257,6 +257,10 @@ footer nav {
   border-bottom: 1px solid #FFF5DA;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .search-form img {
@@ -274,6 +278,23 @@ footer nav {
 
 .search-form ::placeholder {
   color: #FFF5DA;
+}
+
+.search-form #suggestions {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 300px;
+  max-height: 200px;
+  overflow-y: scroll;
+  display: none;
+  margin-top: 3em;
+}
+
+.search-form a {
+  text-decoration: none;
+}
+
+.search-form a:hover {
+  text-decoration: underline;
 }
 
 .search-form:hover {
@@ -1135,10 +1156,5 @@ form input {
   outline: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-}
-
-#suggestions {
-  background-color: rgba(255, 255, 255, 0.9);
-  width: 300px;
 }
 
