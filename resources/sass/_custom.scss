@@ -89,9 +89,9 @@ html {
 .slider {
   position: absolute;
   width: 100vw;
-  height: calc(100vh - 232px);
-  bottom: 60px;  
+  height: calc(100vh - 162px); 
   overflow: hidden;
+  padding-bottom: 60px;
   background-color: rgba(255, 255, 255, 0.9); 
   color: #405C7B;
   font-size: 2rem;

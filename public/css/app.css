@@ -7,7 +7,7 @@
 
 header .mobile {
   background-color: #15375A;
-  height: 112px;
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,7 +20,6 @@ header .mobile {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 1rem;
 }
 
 header .mobile img {
@@ -33,12 +32,7 @@ header .mobile a {
 }
 
 header .mobile h1 {
-  font-family: 'Korner Deli NF';
-  font-weight: bold;
-  color: #FFF5DA;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  line-height: 2rem;
+  display: none;
 }
 
 header .desktop {
@@ -80,6 +74,15 @@ footer nav {
   header .desktop a {
     text-decoration: none;
     margin: 0;
+  }
+
+  header .desktop h1 {
+    font-family: 'Korner Deli NF';
+    font-weight: bold;
+    color: #FFF5DA;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    line-height: 2rem;
   }
 
   header .desktop h2 {
@@ -296,9 +299,9 @@ html {
 .slider {
   position: absolute;
   width: 100vw;
-  height: calc(100vh - 232px);
-  bottom: 60px;
+  height: calc(100vh - 162px);
   overflow: hidden;
+  padding-bottom: 60px;
   background-color: rgba(255, 255, 255, 0.9);
   color: #405C7B;
   font-size: 2rem;

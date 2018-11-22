@@ -1,8 +1,8 @@
 
 <header>
   <div class="mobile">
-      <img src="\img\{{$image}}.svg" alt="balloon" height="80px" width="80px">
-    <a href="{{ route('home') }}"><h1>ScratchMapp</h1></a>
+    <a href="{{ route('home') }}"><img src="\img\{{$image}}.svg" alt="balloon" height="80px" width="80px"></a>
+    
   </div>
   <div class="desktop">
     <div class="column1">
