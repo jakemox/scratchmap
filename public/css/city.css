@@ -390,6 +390,13 @@ h4 {
   opacity: 0.5;
 }
 
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: local("Korner Deli NF"), url("/fonts/KornerDeliNF.woff2") format("woff2"), url("/fonts/KornerDeliNF.woff") format("woff"), url("/fonts/KornerDeliNF.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: auto 0;
   -webkit-box-sizing: border-box;
