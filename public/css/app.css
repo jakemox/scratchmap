@@ -263,19 +263,19 @@ html {
 
 @-webkit-keyframes bounce {
   0% {
-    bottom: 66%;
+    bottom: 72%;
   }
 
   25%, 75% {
-    bottom: 68%;
+    bottom: 74%;
   }
 
   50% {
-    bottom: 70%;
+    bottom: 76%;
   }
 
   100% {
-    bottom: 72%;
+    bottom: 78%;
   }
 }
 
@@ -510,6 +510,36 @@ html {
 }
 
 @media only screen and (min-width: 768px) {
+  .bounce {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    margin-top: -25px;
+    margin-left: -25px;
+    height: 80px;
+    width: 80px;
+    background: transparent;
+    -webkit-animation: bounce 4s infinite;
+  }
+
+@-webkit-keyframes bounce {
+    0% {
+      bottom: 66%;
+    }
+
+    25%, 75% {
+      bottom: 68%;
+    }
+
+    50% {
+      bottom: 70%;
+    }
+
+    100% {
+      bottom: 72%;
+    }
+}
+
   .slider {
     height: 100%;
     text-align: center;
