@@ -2361,12 +2361,26 @@ document.addEventListener('DOMContentLoaded', function () {
     // Type-hinting to suggest cities in real time
     var input = document.getElementById('search-input');
     input.addEventListener('keyup', function () {
+        var isEmpty = null;
+        if (!encodeURIComponent(input.value)) {
+            // hides suggestions is no string provided
+            isEmpty = true;
+        } else {
+            isEmpty = false;
+        }
+
         fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
             method: 'GET'
         }).then(function (response) {
             return response.json();
         }).then(function (json) {
             var container = document.querySelector('#suggestions');
+            if (isEmpty == true) {
+                container.setAttribute('style', 'display:none');
+            } else {
+                container.setAttribute('style', 'display:block');
+            }
+
             container.innerHTML = '';
 
             json.forEach(function (item) {

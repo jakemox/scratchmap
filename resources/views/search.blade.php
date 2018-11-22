@@ -18,10 +18,9 @@
                     <img src="\img\search.svg" alt="search-icon">
                 </label>
                 <input autocomplete="off" id="search-input" name="search" type="text" placeholder="Search destinations">
-                <button type="submit">Search</button>
             </div>
-        </form>
         <div id="suggestions"></div>
+        </form>
     </div>
 </div>
 
