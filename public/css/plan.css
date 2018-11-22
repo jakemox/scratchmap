@@ -862,7 +862,7 @@ header {
 .south_america,
 .australia {
   text-align: center;
-  width: 45%;
+  width: 100%;
 }
 
 .profile-thing {
@@ -1048,6 +1048,16 @@ header {
         -ms-flex-flow: row nowrap;
             flex-flow: row nowrap;
     width: 100%;
+  }
+
+  .africa,
+  .asia,
+  .europe,
+  .north_america,
+  .south_america,
+  .australia {
+    text-align: center;
+    width: 45%;
   }
 
   .profile .scoreandimage {

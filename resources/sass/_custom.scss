@@ -42,7 +42,7 @@ html {
   font-family: 'Korner Deli NF';
     font-weight: bold;
     color:#FFD496;
-    font-size: 4.5rem;
+    font-size: 3rem;
     margin-bottom: 15px;
 }
 
@@ -50,8 +50,10 @@ html {
   font-family: 'Korner Deli NF';
   font-weight: bold;
   color:#FFD496;
-  font-size: 3rem;
+  font-size: 2rem;
 }
+
+
 
 .bounce {
   position:fixed;
@@ -66,10 +68,10 @@ html {
 }
 
 @-webkit-keyframes bounce {
-  0%       { bottom:66%; }
-  25%, 75% { bottom:68%; }
+  0%       { bottom:68%; }
+  25%, 75% { bottom:69%; }
   50%      { bottom:70%; }
-  100%     {bottom:72%; }
+  100%     {bottom:71%; }
 }
 
 .slider {
@@ -145,7 +147,6 @@ html {
 
    .listview-mobile {
       background-color: #FFFFFF;
-        z-index: 10;
         border-bottom-left-radius: 2rem;
         border-bottom-right-radius: 2rem;
         font-family: 'Poppins';
@@ -159,6 +160,8 @@ html {
         font-size: 1.5rem;
         text-align: center;
         overflow-y:auto;
+        display: block;
+        z-index: 5;
         
   }
 
@@ -272,9 +275,48 @@ html {
   }
 }
 
+.map .listview-mobile {
+  display: block;
+}
+
 
 
 @media only screen and (min-width: 768px) {
+
+  .loading_welcome {
+    font-family: 'Korner Deli NF';
+    font-weight: bold;
+    color:#FFD496;
+    font-size: 3rem;
+  }
+
+  .loading_title {
+    font-family: 'Korner Deli NF';
+      font-weight: bold;
+      color:#FFD496;
+      font-size: 4.5rem;
+      margin-bottom: 15px;
+  }
+  
+
+  .bounce {
+    position:fixed;
+    left:50%;
+    bottom:0;
+    margin-top:-25px;
+    margin-left:-25px;
+    height:80px;
+    width:80px;
+    background:transparent;
+    -webkit-animation:bounce 4s infinite;
+  }
+  
+  @-webkit-keyframes bounce {
+    0%       { bottom:70%; }
+    25%, 75% { bottom:72%; }
+    50%      { bottom:74%; }
+    100%     {bottom:76%; }
+  }
 
   .slider {
     height: 100%;
@@ -355,8 +397,7 @@ html {
     color: #FFFFFF; 
     background-color: #405C7B;
   }
-
-      
+  
     .features {
       position: absolute;
       width: 370px;
@@ -453,9 +494,7 @@ html {
     }
   }
 
-  .map .listview-mobile {
-    display: none;
-  }
+  
 
 
   .continent {
