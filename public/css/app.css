@@ -238,7 +238,7 @@ html {
   font-family: 'Korner Deli NF';
   font-weight: bold;
   color: #FFD496;
-  font-size: 4.5rem;
+  font-size: 3rem;
   margin-bottom: 15px;
 }
 
@@ -246,7 +246,7 @@ html {
   font-family: 'Korner Deli NF';
   font-weight: bold;
   color: #FFD496;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .bounce {
@@ -263,11 +263,11 @@ html {
 
 @-webkit-keyframes bounce {
   0% {
-    bottom: 66%;
+    bottom: 68%;
   }
 
   25%, 75% {
-    bottom: 68%;
+    bottom: 69%;
   }
 
   50% {
@@ -275,7 +275,7 @@ html {
   }
 
   100% {
-    bottom: 72%;
+    bottom: 71%;
   }
 }
 
@@ -359,7 +359,6 @@ html {
 
 .map .listview-mobile {
   background-color: #FFFFFF;
-  z-index: 10;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
   font-family: 'Poppins';
@@ -373,6 +372,8 @@ html {
   font-size: 1.5rem;
   text-align: center;
   overflow-y: auto;
+  display: block;
+  z-index: 5;
 }
 
 .map .listview-desktop {
@@ -437,7 +438,7 @@ html {
 
 .features .instructions h6 {
   font-family: 'Korner Deli NF';
-  font-size: 2rem;
+  font-size: 1rem;
   color: #530000;
   text-align: center;
 }
@@ -504,7 +505,56 @@ html {
   margin: 1rem auto;
 }
 
+.map .listview-mobile {
+  display: block;
+}
+
 @media only screen and (min-width: 768px) {
+  .loading_welcome {
+    font-family: 'Korner Deli NF';
+    font-weight: bold;
+    color: #FFD496;
+    font-size: 3rem;
+  }
+
+  .loading_title {
+    font-family: 'Korner Deli NF';
+    font-weight: bold;
+    color: #FFD496;
+    font-size: 4.5rem;
+    margin-bottom: 15px;
+  }
+
+  .bounce {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    margin-top: -25px;
+    margin-left: -25px;
+    height: 80px;
+    width: 80px;
+    background: transparent;
+    -webkit-animation: bounce 4s infinite;
+  }
+
+@-webkit-keyframes bounce {
+    0% {
+      bottom: 70%;
+    }
+
+    25%, 75% {
+      bottom: 72%;
+    }
+
+    50% {
+      bottom: 74%;
+    }
+
+    100% {
+      bottom: 76%;
+    }
+}
+
   .slider {
     height: 100%;
     text-align: center;
@@ -650,10 +700,7 @@ html {
   }
 
   .features .instructions h6 {
-    font-family: 'Korner Deli NF';
     font-size: 2rem;
-    color: #530000;
-    text-align: center;
   }
 
   .features .instructions p {
@@ -724,10 +771,6 @@ html {
     height: 50vh;
     margin: 0 auto;
   }
-}
-
-.map .listview-mobile {
-  display: none;
 }
 
 .continent img {

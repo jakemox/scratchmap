@@ -28,7 +28,7 @@
             </div>
             <div class="ppc-percents">
               <div class="pcc-percents-wrapper">
-                <img src="\img\africa.png" height="160px">
+                <img src="\img\world.png" height="160px">
               </div>
             </div>
           </div>
