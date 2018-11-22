@@ -437,7 +437,7 @@ html {
 
 .features .instructions h6 {
   font-family: 'Korner Deli NF';
-  font-size: 2rem;
+  font-size: 1rem;
   color: #530000;
   text-align: center;
 }
@@ -650,10 +650,7 @@ html {
   }
 
   .features .instructions h6 {
-    font-family: 'Korner Deli NF';
     font-size: 2rem;
-    color: #530000;
-    text-align: center;
   }
 
   .features .instructions p {
