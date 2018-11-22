@@ -35961,7 +35961,7 @@ module.exports = function(module) {
 /* 41 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n        margin-top, margin-bottom: 3rem;\r\n       ^\r\n      Property \"margin-top\" must be followed by a ':'\r\n      in C:\\Coding\\projects\\scratchmap\\resources\\sass\\_search.scss (line 80, column 9)\n    at runLoaders (C:\\Coding\\projects\\scratchmap\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at C:\\Coding\\projects\\scratchmap\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\Coding\\projects\\scratchmap\\node_modules\\loader-runner\\lib\\LoaderRunner.js:230:18\n    at context.callback (C:\\Coding\\projects\\scratchmap\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (C:\\Coding\\projects\\scratchmap\\node_modules\\sass-loader\\lib\\loader.js:55:13)\n    at Object.done [as callback] (C:\\Coding\\projects\\scratchmap\\node_modules\\neo-async\\async.js:8077:18)\n    at options.error (C:\\Coding\\projects\\scratchmap\\node_modules\\node-sass\\lib\\index.js:294:32)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 42 */
