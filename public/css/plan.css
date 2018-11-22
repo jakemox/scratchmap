@@ -494,8 +494,7 @@ footer nav {
 }
 
 .form input {
-  font-size: 1.5rem;
-  width: 315px;
+  font-size: 1rem;
 }
 
 .register {
@@ -662,11 +661,16 @@ img .padlock {
   text-align: center;
   font-weight: 500;
   margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 @media only screen and (min-width: 768px) {
   .form {
     width: 450px;
+  }
+
+  .form input {
+    font-size: 1.5rem;
   }
 }
 
