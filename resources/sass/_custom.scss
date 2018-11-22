@@ -42,7 +42,7 @@ html {
   font-family: 'Korner Deli NF';
     font-weight: bold;
     color:#FFD496;
-    font-size: 4.5rem;
+    font-size: 3rem;
     margin-bottom: 15px;
 }
 
@@ -50,7 +50,7 @@ html {
   font-family: 'Korner Deli NF';
   font-weight: bold;
   color:#FFD496;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 
@@ -68,10 +68,10 @@ html {
 }
 
 @-webkit-keyframes bounce {
-  0%       { bottom:72%; }
-  25%, 75% { bottom:74%; }
-  50%      { bottom:76%; }
-  100%     {bottom:78%; }
+  0%       { bottom:68%; }
+  25%, 75% { bottom:69%; }
+  50%      { bottom:70%; }
+  100%     {bottom:71%; }
 }
 
 .slider {
@@ -283,6 +283,22 @@ html {
 
 @media only screen and (min-width: 768px) {
 
+  .loading_welcome {
+    font-family: 'Korner Deli NF';
+    font-weight: bold;
+    color:#FFD496;
+    font-size: 3rem;
+  }
+
+  .loading_title {
+    font-family: 'Korner Deli NF';
+      font-weight: bold;
+      color:#FFD496;
+      font-size: 4.5rem;
+      margin-bottom: 15px;
+  }
+  
+
   .bounce {
     position:fixed;
     left:50%;
@@ -296,10 +312,10 @@ html {
   }
   
   @-webkit-keyframes bounce {
-    0%       { bottom:66%; }
-    25%, 75% { bottom:68%; }
-    50%      { bottom:70%; }
-    100%     {bottom:72%; }
+    0%       { bottom:70%; }
+    25%, 75% { bottom:72%; }
+    50%      { bottom:74%; }
+    100%     {bottom:76%; }
   }
 
   .slider {
