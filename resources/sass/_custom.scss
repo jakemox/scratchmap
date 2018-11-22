@@ -147,17 +147,17 @@ html {
 
    .listview-mobile {
       background-color: #FFFFFF;
-        border-bottom-left-radius: 2rem;
-        border-bottom-right-radius: 2rem;
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
         font-family: 'Poppins';
         color: #405C7B;
         text-align: center;
-        padding: 1rem;
+        padding: 0.5rem;
         position: absolute;
         top: 0;
         left: calc(50% - 100px);  
-        width: 200px;
-        font-size: 1.5rem;
+        width: 150px;
+        font-size: 1rem;
         text-align: center;
         overflow-y:auto;
         display: block;
@@ -177,8 +177,8 @@ html {
 }
 
 .image-crop {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   overflow: hidden;
   border-radius: 50%;
   display: flex;
@@ -249,8 +249,8 @@ html {
 }
 
 .list-country-name {
-  display:flex;
-  font-size: 2rem;
+  display: flex;
+  font-size: 1rem;
   white-space: nowrap;
 }
 
@@ -277,6 +277,97 @@ html {
 
 .map .listview-mobile {
   display: block;
+}
+
+.continent {
+  img {
+    width: 100px;
+    transition: 0.2s;
+
+    :hover {
+      width: 150px;
+    }
+  }
+}
+
+.list-country-item {
+  display:flex;
+  flex-direction: row;
+  flex: 0 0 0;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 5rem;
+}
+
+.country-list {
+  display: flex;
+}
+
+.country-button {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-end;
+  cursor:pointer;
+  text-align: center;
+  height: 60px;
+  width: 60px;
+}
+
+.country-button:hover {
+  cursor: pointer;
+  color: #60D16E;
+  transform: scale(1.5);
+  transition: .2s;
+}
+
+.fa-check-circle {
+  color: #60D16E;
+  transform: scale(1.5);
+  transition: .2s;
+}
+
+.flag-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 1rem 2rem 3rem 3rem; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+  margin-top: 7rem; 
+}
+
+.city-info {
+  
+  h2 {
+    margin: auto;
+    text-align: center;
+    }
+}
+
+#attraction {
+  margin: auto;
+  width:100%;
+  text-align: center;
+}
+
+#attraction-pic {
+  display:flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  font-weight: bold;
+  color: white;
+  font-size: 2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  margin: 1em 0 .3em 0;
+  text-shadow: #000000 0 0 10px;
 }
 
 
@@ -397,6 +488,18 @@ html {
     color: #FFFFFF; 
     background-color: #405C7B;
   }
+
+  .list-country-name {
+    display:flex;
+    font-size: 1.5rem;
+  }
+
+  .image-crop {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    margin-left: 0;
+  }
   
     .features {
       position: absolute;
@@ -461,6 +564,8 @@ html {
         margin: 0 auto;
       }
       .image-crop {
+        width: 3rem;
+        height: 3rem;
         margin-right: 0;
         margin-left: 1rem;
       }
@@ -497,98 +602,4 @@ html {
   
 
 
-  .continent {
-    img {
-      width: 100px;
-      transition: 0.2s;
-
-      :hover {
-        width: 150px;
-      }
-    }
-  }
-
-  .list-country-item {
-    display:flex;
-    flex-direction: row;
-    flex: 0 0 0;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 5rem;
-  }
   
-  .list-country-name {
-    display:flex;
-    font-size: 1.5rem;
-  }
-  
-  .country-list {
-    display: flex;
-  }
-  
-  .country-button {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    justify-self: flex-end;
-    cursor:pointer;
-    text-align: center;
-    height: 60px;
-    width: 60px;
-  }
-  
-  .country-button:hover {
-    cursor: pointer;
-    color: #60D16E;
-    transform: scale(1.5);
-    transition: .2s;
-  }
-  
-  .fa-check-circle {
-    color: #60D16E;
-    transform: scale(1.5);
-    transition: .2s;
-  }
-  
-  .flag-img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    margin: 1rem 2rem 3rem 3rem; 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-    margin-top: 7rem; 
-  }
-  
-  .city-info {
-    
-    h2 {
-      margin: auto;
-      text-align: center;
-      }
-  }
-  
-  #attraction {
-    margin: auto;
-    width:100%;
-    text-align: center;
-  }
-  
-  #attraction-pic {
-    display:flex;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 300px;
-    font-weight: bold;
-    color: white;
-    font-size: 2em;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
-    margin: 1em 0 .3em 0;
-    text-shadow: #000000 0 0 10px;
-  }

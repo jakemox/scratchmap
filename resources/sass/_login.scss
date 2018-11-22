@@ -34,9 +34,12 @@ $color-text: #FFF5DA;
     max-width: 450px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 
     input  {
         font-size: 1.5rem;
+        width: 315px;
     }
 }
 
