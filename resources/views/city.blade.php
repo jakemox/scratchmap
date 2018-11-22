@@ -8,7 +8,7 @@
 
 <main>
     
-    <div class="header-background" style="background-image: url('{{$city[0]->photo}}')">
+    <div class="header-background" style="background-image: url('/img/city_pics/{{$city[0]->id}}.jpg')">
         <div class="fade">
             <div class="name">
                 <h3>{{$city_name}}</h3>
@@ -59,7 +59,7 @@
         Rating: {{$attraction['rating']}}<hr> --}}
         <div class="footer">
             <div class="logo">
-                {{-- <img src="/img/balloon-cutout.svg" alt=""> --}}
+                <img src="/img/balloon-cutout.svg" alt="">
                 <p>ScratchMapp</p>
             </div>
             <p>© Tomi Holstila, Mateo Milic, Jake Moxon </p>
@@ -161,3 +161,4 @@
 
 
 @endsection
+

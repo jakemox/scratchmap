@@ -10,10 +10,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    @if (isset($js) && $js == 'mapbox')
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
-
-    
+    @endif
     {{-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> --}}
 
     
@@ -36,6 +36,8 @@
     @yield('list')
     
     @include('layouts.footer')
+
+    @yield('scripts')
     
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/index.js') }}" defer></script>

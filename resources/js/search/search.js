@@ -1,5 +1,7 @@
+// let slug = window.location.pathname;
 
-
+if (slug == "/search") {
+    
 document.addEventListener('DOMContentLoaded', function () {
     let form = document.getElementById('search-form');
     let label = document.getElementById('search-label');
@@ -83,4 +85,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
     });
-})
+})}

@@ -47,27 +47,34 @@ class GetFlickrPhotos extends Command
         {
             $url = 'https://api.flickr.com/services/rest/?format=json&api_key=' . env('MIX_FLICKR_KEY') .'&text=' . urlencode($city->name) . '&tags=' . urlencode($city->name) . ',cityscape,landmark&method=flickr.photos.search&sort=relevance&nojsoncallback=1&tag_mode=all&sort=relevance&orientation=landscape&media=photos&per_page=1&page=1';
 
-            $response = $client->get($url);
-            $city_data = json_decode($response->getBody()->getContents());
-            var_dump($cities);
-            
+            // $response = $client->get($url);
+            // $city_data = json_decode($response->getBody()->getContents());
+            // var_dump($cities);
 
-            if(isset($city_data->photos->photo[0]))
-            {
-
-            $photo = $city_data->photos->photo[0];
-
-            DB::table('cities')
-            ->where('id', '=', $city->id)
-            ->update([
-                'photo' => 'https://c2.staticflickr.com/' . $photo->farm . '/' . $photo->server . '/' . $photo->id . '_' . $photo->secret . '_b.jpg'
-            ]);
+            $photo = $city->photo;
+            if (!$photo) {
+                continue;
             }
 
-            // $file_contents = file_get_contents($photo);
+            // if(isset($city_data->photos->photo[0]))
+            // {
 
-            // Storage::put('file.jpg', $file_contents);
+            // $photo = $city_data->photos->photo[0];
 
+            // DB::table('cities')
+            // ->where('id', '=', $city->id)
+            // ->update([
+            //     'photo' => 'https://c2.staticflickr.com/' . $photo->farm . '/' . $photo->server . '/' . $photo->id . '_' . $photo->secret . '_b.jpg'
+            // ]);
+            // }
+            $target = \Storage::disk('storage')->path('img/city_pics/' .$city->id. '.jpg');
+
+            if (!file_exists(dirname($target))) {
+                mkdir(dirname($target), 0777, true);
+            }
+
+            copy($photo, $target);
+            // Storage::put($city->id. 'jpg', $file_contents);
 
 
         }
