@@ -193,14 +193,14 @@ h3 {
   font-family: 'Korner Deli NF';
   font-weight: 100;
   color: white;
-  font-size: 6rem;
+  font-size: 3rem;
 }
 
 h4 {
   font-family: 'Poppins';
   font-weight: 100;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   line-height: 0;
 }
@@ -239,7 +239,7 @@ h4 {
   background-position: center;
   background-attachment: fixed;
   z-index: -1;
-  height: 85vh;
+  height: calc(85vh - 60px);
 }
 
 .down-arrow {
@@ -248,9 +248,16 @@ h4 {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   position: absolute;
-  top: 90vh;
+  top: calc(90vh - 60px);
   left: calc(50vw - 29.32px);
   opacity: 0.5;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .down-arrow img {
@@ -269,7 +276,7 @@ h4 {
 .attractions h1 {
   text-align: center;
   font-family: 'poppins';
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 200;
   margin: 1rem;
 }
@@ -283,22 +290,25 @@ h4 {
   width: 100%;
 }
 
-.carousel {
+.attractions .carousel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.carousel-background {
+.attractions .carousel-background {
   height: 400px;
-  width: calc(20% - 1rem);
+  width: 100%;
   background-size: cover;
   background-position: center;
+  margin-bottom: 1rem;
 }
 
-.darkener {
+.attractions .darkener {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -320,7 +330,7 @@ h4 {
   padding: 0.5rem;
 }
 
-.darkener h5 {
+.attractions .darkener h5 {
   font-family: 'poppins';
   font-size: 1rem;
   text-align: center;
@@ -328,35 +338,18 @@ h4 {
   margin-top: 1rem;
 }
 
-.darkener img {
+.attractions .darkener img {
   width: 60px;
   height: 60px;
   position: absolute;
   top: 170px;
 }
 
-.darkener p {
+.attractions .darkener p {
   margin-bottom: 1rem;
 }
 
-.footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: initial;
-  margin: 3rem auto 0 auto;
-  border-top: 1px solid #7e7e7e;
-  padding-top: 1rem;
-}
-
-.footer .logo {
+.attractions .footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -369,20 +362,96 @@ h4 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  opacity: 0.5;
+  width: initial;
+  margin: 3rem auto 0 auto;
+  border-top: 1px solid #7e7e7e;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
 }
 
-.footer .logo p {
+.attractions .footer p {
   font-family: 'Korner Deli NF';
-  font-size: 2rem;
-}
-
-.footer .logo img {
-  height: 50px;
-}
-
-.footer p {
+  font-size: 1rem;
   opacity: 0.5;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  h3 {
+    font-size: 6rem;
+  }
+
+  h4 {
+    font-size: 2rem;
+  }
+
+  .header-background {
+    height: 85vh;
+  }
+
+  .down-arrow {
+    top: 90vh;
+  }
+
+  .attractions h1 {
+    font-size: 2rem;
+  }
+
+  .attractions .carousel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .attractions .carousel-background {
+    width: calc(20% - 1rem);
+  }
+
+  .attractions .carousel:first-child {
+    margin-left: 0;
+  }
+
+  .attractions .carousel:last-child {
+    margin-right: 0;
+  }
+
+  .footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .footer .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    opacity: 0.5;
+  }
+
+  .footer .logo p {
+    font-size: 2rem;
+  }
+
+  .footer .logo img {
+    height: 50px;
+  }
 }
 
 @font-face {
