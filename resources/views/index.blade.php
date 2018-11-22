@@ -1,6 +1,7 @@
 @extends('layouts.layout', [
     'image' => 'balloon-cutout',
-    'css' => 'app'
+    'css' => 'app',
+    'js' => 'mapbox'
 ])
 
 
@@ -47,7 +48,4 @@
 </script> --}}
 
 @endsection
-
-
-
 

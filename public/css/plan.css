@@ -254,7 +254,6 @@ footer nav {
 
 .search-form {
   opacity: 0.7;
-  border-bottom: 1px solid #FFF5DA;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-box-orient: vertical;
@@ -286,7 +285,8 @@ footer nav {
   max-height: 200px;
   overflow-y: scroll;
   display: none;
-  margin-top: 3em;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .search-form a {

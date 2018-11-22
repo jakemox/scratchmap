@@ -755,7 +755,7 @@ module.exports = Cancel;
 if (false) {
   module.exports = require('./cjs/react.production.min.js');
 } else {
-  module.exports = __webpack_require__(52);
+  module.exports = __webpack_require__(51);
 }
 
 
@@ -1878,7 +1878,7 @@ if (false) {
   checkDCE();
   module.exports = require('./cjs/react-dom.production.min.js');
 } else {
-  module.exports = __webpack_require__(51);
+  module.exports = __webpack_require__(50);
 }
 
 
@@ -1999,7 +1999,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 var printWarning = function() {};
 
 if (true) {
-  var ReactPropTypesSecret = __webpack_require__(53);
+  var ReactPropTypesSecret = __webpack_require__(52);
   var loggedTypeFailures = {};
 
   printWarning = function(text) {
@@ -2106,13 +2106,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__global__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__country___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__country__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__search_search__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cityindex__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cityindex__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cityindex___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__cityindex__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__slider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__slider__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mapbox__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mapbox__ = __webpack_require__(49);
 
 
 // import Attraction from './cityindex'
@@ -2120,11 +2120,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-// import CityPage from './components/./city_page.jsx'
 
 /***/ }),
 /* 45 */
 /***/ (function(module, exports) {
+
+slug = window.location.pathname;
 
 window.scratchmap = {};
 
@@ -2310,93 +2311,6 @@ $.ajax({
 /* 47 */
 /***/ (function(module, exports) {
 
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    var form = document.getElementById('search-form');
-    var label = document.getElementById('search-label');
-    console.log('search loaded');
-    // let x = window.matchMedia("(max-width: 768px)");
-
-    // let clouds = document.getElementById('clouds');
-    // let trees = document.getElementById('trees');
-    // let slope = document.getElementById('slope');
-    // let mountains = document.getElementById('mountains');
-
-    form.addEventListener('mouseover', function () {
-        console.log('hovered search');
-        label.innerHTML = '<img src="\\img\\search-black.svg" alt="search-icon">';
-        // slope.style.left = '-5%';
-        // mountains.style.width = '110%';
-        // mountains.style.left = '-5%';
-        // trees.style.left = '5%';
-
-        // if (x.matches) {
-        //     mountains.style.height = '45vh';
-        //     mountains.style.bottom = '5vh';
-        // } else {
-        //     mountains.style.height = '60vw';
-        //     mountains.style.maxHeight = '80vh';
-        //     mountains.style.bottom = '0';
-        // }
-    });
-
-    form.addEventListener('mouseleave', function () {
-        label.innerHTML = '<img src="\\img\\search.svg" alt="">';
-        // slope.style.left = '0';
-        // mountains.style.width = '100%';
-        // mountains.style.left = '0';
-        // trees.style.left = '0';
-
-        // if (x.matches) {
-        //     mountains.style.height = '40vh';
-        //     mountains.style.bottom = '10vh';
-        // } else {
-        //     mountains.style.height = '50vw';
-        //     mountains.style.maxHeight = '70vh';
-        //     mountains.style.bottom = '0';
-        // }
-    });
-
-    // Type-hinting to suggest cities in real time
-    var input = document.getElementById('search-input');
-    input.addEventListener('keyup', function () {
-        var isEmpty = null;
-        if (!encodeURIComponent(input.value)) {
-            // hides suggestions is no string provided
-            isEmpty = true;
-        } else {
-            isEmpty = false;
-        }
-
-        fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
-            method: 'GET'
-        }).then(function (response) {
-            return response.json();
-        }).then(function (json) {
-            var container = document.querySelector('#suggestions');
-            if (isEmpty == true) {
-                container.setAttribute('style', 'display:none');
-            } else {
-                container.setAttribute('style', 'display:block');
-            }
-
-            container.innerHTML = '';
-
-            json.forEach(function (item) {
-
-                var div = document.createElement('div');
-                div.innerHTML = '<a href="/city/show/' + item.name + '">' + item.name + '</a>';
-                container.appendChild(div);
-            });
-        });
-    });
-});
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
 console.log('city index loaded');
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -2425,7 +2339,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // }
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports) {
 
 document.getElementById('trigger-mobile').addEventListener('click', function () {
@@ -2459,7 +2373,7 @@ slideTriggerMobile.addEventListener('click', function () {
 });
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2467,7 +2381,7 @@ slideTriggerMobile.addEventListener('click', function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_City_jsx__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_City_jsx__ = __webpack_require__(57);
 
 
 
@@ -2689,7 +2603,7 @@ map.on('load', function () {
 });
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2713,8 +2627,8 @@ if (true) {
 var React = __webpack_require__(7);
 var _assign = __webpack_require__(32);
 var checkPropTypes = __webpack_require__(33);
-var scheduler = __webpack_require__(54);
-var tracing = __webpack_require__(56);
+var scheduler = __webpack_require__(53);
+var tracing = __webpack_require__(55);
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -21586,7 +21500,7 @@ module.exports = reactDom;
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23333,7 +23247,7 @@ module.exports = react;
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23352,7 +23266,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23361,12 +23275,12 @@ module.exports = ReactPropTypesSecret;
 if (false) {
   module.exports = require('./cjs/scheduler.production.min.js');
 } else {
-  module.exports = __webpack_require__(55);
+  module.exports = __webpack_require__(54);
 }
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24027,7 +23941,7 @@ exports.unstable_getCurrentPriorityLevel = unstable_getCurrentPriorityLevel;
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24036,12 +23950,12 @@ exports.unstable_getCurrentPriorityLevel = unstable_getCurrentPriorityLevel;
 if (false) {
   module.exports = require('./cjs/scheduler-tracing.production.min.js');
 } else {
-  module.exports = __webpack_require__(57);
+  module.exports = __webpack_require__(56);
 }
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24464,7 +24378,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24474,7 +24388,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Attraction_jsx__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Attraction_jsx__ = __webpack_require__(58);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24550,7 +24464,7 @@ var City = function (_React$Component) {
 /* harmony default export */ __webpack_exports__["a"] = (City);
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24616,6 +24530,97 @@ var Attraction = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Attraction);
+
+/***/ }),
+/* 59 */,
+/* 60 */
+/***/ (function(module, exports) {
+
+// let slug = window.location.pathname;
+
+if (slug == "/search") {
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('search-form');
+        var label = document.getElementById('search-label');
+        console.log('search loaded');
+        // let x = window.matchMedia("(max-width: 768px)");
+
+        // let clouds = document.getElementById('clouds');
+        // let trees = document.getElementById('trees');
+        // let slope = document.getElementById('slope');
+        // let mountains = document.getElementById('mountains');
+
+        form.addEventListener('mouseover', function () {
+            console.log('hovered search');
+            label.innerHTML = '<img src="\\img\\search-black.svg" alt="search-icon">';
+            // slope.style.left = '-5%';
+            // mountains.style.width = '110%';
+            // mountains.style.left = '-5%';
+            // trees.style.left = '5%';
+
+            // if (x.matches) {
+            //     mountains.style.height = '45vh';
+            //     mountains.style.bottom = '5vh';
+            // } else {
+            //     mountains.style.height = '60vw';
+            //     mountains.style.maxHeight = '80vh';
+            //     mountains.style.bottom = '0';
+            // }
+        });
+
+        form.addEventListener('mouseleave', function () {
+            label.innerHTML = '<img src="\\img\\search.svg" alt="">';
+            // slope.style.left = '0';
+            // mountains.style.width = '100%';
+            // mountains.style.left = '0';
+            // trees.style.left = '0';
+
+            // if (x.matches) {
+            //     mountains.style.height = '40vh';
+            //     mountains.style.bottom = '10vh';
+            // } else {
+            //     mountains.style.height = '50vw';
+            //     mountains.style.maxHeight = '70vh';
+            //     mountains.style.bottom = '0';
+            // }
+        });
+
+        // Type-hinting to suggest cities in real time
+        var input = document.getElementById('search-input');
+        input.addEventListener('keyup', function () {
+            var isEmpty = null;
+            if (!encodeURIComponent(input.value)) {
+                // hides suggestions is no string provided
+                isEmpty = true;
+            } else {
+                isEmpty = false;
+            }
+
+            fetch('/api/suggest?s=' + encodeURIComponent(input.value), {
+                method: 'GET'
+            }).then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                var container = document.querySelector('#suggestions');
+                if (isEmpty == true) {
+                    container.setAttribute('style', 'display:none');
+                } else {
+                    container.setAttribute('style', 'display:block');
+                }
+
+                container.innerHTML = '';
+
+                json.forEach(function (item) {
+
+                    var div = document.createElement('div');
+                    div.innerHTML = '<a href="/city/show/' + item.name + '">' + item.name + '</a>';
+                    container.appendChild(div);
+                });
+            });
+        });
+    });
+}
 
 /***/ })
 /******/ ]);

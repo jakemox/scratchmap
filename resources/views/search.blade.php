@@ -19,7 +19,7 @@
                 </label>
                 <input autocomplete="off" id="search-input" name="search" type="text" placeholder="Search destinations">
             </div>
-        <div id="suggestions"></div>
+            <div id="suggestions"></div>
         </form>
     </div>
 </div>
