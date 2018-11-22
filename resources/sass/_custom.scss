@@ -75,8 +75,8 @@ html {
 .slider {
   position: absolute;
   width: 100vw;
-  height: 100vh;
-  bottom: 0;  
+  height: calc(100vh - 232px);
+  bottom: 60px;  
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.9); 
   color: #405C7B;
@@ -98,6 +98,9 @@ html {
 .continents-list {
   display: flex;
     flex-flow: row wrap;
+    a {
+      text-decoration: none;
+    }
 }
 
 .country_button {
@@ -254,6 +257,14 @@ html {
   justify-content: space-around;
 }
 
+.continents-1 {
+  justify-self: flex-end;
+}
+
+.continents-2 {
+  justify-self: flex-start;
+}
+
 .continent {
   img {
     width: 75px;
@@ -269,6 +280,7 @@ html {
     height: 100%;
     text-align: center;
     width: calc(100vw - 370px);
+    bottom: 0;
   }
   
   .slider.close {
