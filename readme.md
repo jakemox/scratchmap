@@ -7,13 +7,14 @@ The app is still a work in progress. A functioning test version is currently dep
 ## Code
 
 - Back-end was written in PHP using the Laravel MVC framework.
-- Map functionality was created with the [Mapbox](https://www.mapbox.com/)  
-- Front end code is written in plain Javascript and some React components (with a conversion to a full React aåå in consideration)
-- Contents have been scraped from public APIs - attractions from [Google Places](https://developers.google.com/places/web-service/search), city pictures from [flickr]
+- Map functionality was created with the [Mapbox](https://www.mapbox.com/) platform. 
+- Front end code is written in plain Javascript and some React components (with a conversion to a full React app in consideration)
+- Content has mostly been collected from public APIs - attractions from [Google Places](https://developers.google.com/places/web-service/search), city pictures using [flickr](https://www.flickr.com/services/api/)
+- App is responsive and mobile use has been taken into consideration at all stages of the design.
 
 ## About us 
 
-Scratchmap app was written as a final project of Coding Bootcamp Prague following three months of intense studying of web programming by three students:
+Scratchmapp was written as a final project of Coding Bootcamp Prague following three months of intense studying of web programming by three students:
 - [Tomi Holstila](https://github.com/tholsti)
 - [Mateo Milic](https://github.com/mmilic1994)
 - [Jake Moxon](https://github.com/jakemox)

@@ -80,6 +80,10 @@ footer nav img {
     margin: 0;
   }
 
+  header .desktop h2:hover {
+    color: #15375A;
+  }
+
   header .desktop h1 {
     font-family: 'Korner Deli NF';
     font-weight: bold;
@@ -158,6 +162,25 @@ footer nav img {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
+  }
+
+  header .desktop .about {
+    position: fixed;
+    top: 3px;
+    right: 3px;
+  }
+
+  header .desktop .about a {
+    color: #FFF5DA;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    text-decoration: none;
+  }
+
+  header .desktop .about a:hover {
+    color: #15375A;
   }
 
   header .desktop .logout {
@@ -958,6 +981,37 @@ html {
 
   .continents-2 {
     justify-self: flex-start;
+  }
+
+  .darkener {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: white;
+    position: relative;
+    padding: 0.5rem;
+  }
+
+  h6 .wewantthistobewhite {
+    font-family: 'poppins';
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 200;
+    margin-top: 1rem;
+    color: #FFFFFF;
   }
 }
 
