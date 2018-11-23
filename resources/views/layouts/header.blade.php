@@ -28,5 +28,10 @@
     @endauth
         
     </div> 
-  </div>  
+    <div class="about">
+        <a href="https://github.com/jakemox/scratchmap">About Scratchmapp
+        <i class="fab fa-github"></i>
+        </a>
+    </div>
+</div>  
 </header>
