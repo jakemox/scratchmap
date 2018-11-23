@@ -1,4 +1,5 @@
 $color-text: #FFF5DA;
+$hover-color: #15375A;
 
 header .mobile {
     background-color: rgba($color: #000000, $alpha: 0);
@@ -18,7 +19,6 @@ header .mobile {
         margin: 0;
         text-decoration: none;
     }
-
 
     h1 {
         font-family: 'Korner Deli NF';
@@ -63,6 +63,10 @@ footer nav {
         a{
             text-decoration: none;
             margin: 0;
+        }
+
+        h2:hover {
+            color: $hover-color;
         }
  
         h2 {
@@ -112,6 +116,23 @@ footer nav {
             justify-content: space-around;
             align-items: flex-end;
         }
+
+        .about {
+            position: fixed;
+            top: 3px;
+            right: 3px;
+            a {
+              color: $color-text;
+              padding: 0.8rem;
+              font-size: 1rem;
+              font-family: 'Poppins', sans-serif;
+              font-weight: 100;
+              text-decoration: none;
+            }
+            a:hover {
+              color: $hover-color;
+            }
+          }
  
         .logout {
             position: absolute;
