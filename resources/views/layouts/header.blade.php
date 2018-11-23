@@ -29,7 +29,7 @@
         
     </div> 
     <div class="about">
-        <a href="https://github.com/jakemox/scratchmap">About Scratchmapp
+        <a target="_blank" href="https://github.com/jakemox/scratchmap">About Scratchmapp
         <i class="fab fa-github"></i>
         </a>
     </div>

@@ -10,6 +10,7 @@
     <a href="/register"><img src="/img/{{$padlock}}.svg" alt="register" height="40px" width="40px"></a>
     <a href="/login"><img src="/img/{{$login}}.svg" alt="logout" height="40px" width="40px"></a>
     @endguest
+    <a href="https://github.com/jakemox/scratchmap" target="_blank"><img src="/img/{{$git}}.svg" alt="homepage" height="40px" width="40px"></a>
   </nav>
 </footer>
 

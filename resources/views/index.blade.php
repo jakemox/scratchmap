@@ -7,7 +7,8 @@
     'profile' => 'profile',
     'logout' => 'logout',
     'padlock' => 'padlock-light',
-    'login' => 'login'
+    'login' => 'login',
+    'git' => 'github-light'
 ])
 
 

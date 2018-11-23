@@ -6,7 +6,8 @@
     'profile' => 'profile-grey',
     'logout' => 'logout-grey',
     'padlock' => 'padlock-grey',
-    'login' => 'login-grey'
+    'login' => 'login-grey',
+    'git' => 'github-grey'
 ])
 
 @section('content')
