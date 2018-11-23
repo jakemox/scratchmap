@@ -80,6 +80,10 @@ footer nav img {
     margin: 0;
   }
 
+  header .desktop h2:hover {
+    color: #15375A;
+  }
+
   header .desktop h1 {
     font-family: 'Korner Deli NF';
     font-weight: bold;
@@ -158,6 +162,25 @@ footer nav img {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
+  }
+
+  header .desktop .about {
+    position: fixed;
+    top: 3px;
+    right: 3px;
+  }
+
+  header .desktop .about a {
+    color: #FFF5DA;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    text-decoration: none;
+  }
+
+  header .desktop .about a:hover {
+    color: #15375A;
   }
 
   header .desktop .logout {
