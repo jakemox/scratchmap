@@ -3,6 +3,15 @@
 @import 'login';
 @import 'profile';
 
+@font-face {
+    font-family: 'Korner Deli NF';
+    src: local('Korner Deli NF'),
+         url('/fonts/KornerDeliNF.woff2') format('woff2'),
+         url('/fonts/KornerDeliNF.woff') format('woff'),
+         url('/fonts/KornerDeliNF.ttf') format("ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
 
 $color-text: #FFF5DA;
 
@@ -42,7 +51,6 @@ form {
         font-size: 2rem;
         font-family: 'poppins', sans-serif;
         font-weight: 200;
-        width: 315px;
         outline: none;
         transition: 0.5s;
     }

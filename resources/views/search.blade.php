@@ -1,6 +1,12 @@
 @extends('layouts.layout', [
     'image' => 'balloon-cutout',
-    'css' => 'plan'
+    'css' => 'plan',
+    'map' => 'map',
+    'search' => 'search-grey',
+    'profile' => 'profile-grey',
+    'logout' => 'logout-grey',
+    'padlock' => 'padlock-grey',
+    'login' => 'login-grey'
 ])
 
 @section('content')
@@ -10,14 +16,14 @@
     <div id="mountains" class="mountains"></div>
     <div id="trees" class="trees"></div>
     <div id="slope" class="slope"></div>
-    <div class="fade">
+    <div class="search-fade">
         <form class="search-form" method="post" id="search-form" action="/city/search">
             {{csrf_field()}}
-            <div class="form-group" id="form-group">
+            <div class="form-group-search" id="form-group">
                 <label id="search-label" for="search">
                     <img src="\img\search.svg" alt="search-icon">
                 </label>
-                <input autocomplete="off" id="search-input" name="search" type="text" placeholder="Search destinations">
+                <input class="search-input" autocomplete="off" id="search-input" name="search" type="text" placeholder="Search destinations">
             </div>
             <div id="suggestions"></div>
         </form>

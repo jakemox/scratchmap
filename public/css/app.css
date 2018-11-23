@@ -1,6 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,200,400,700);header .mobile {
-  background-color: #15375A;
-  height: 112px;
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,200,400,700);@font-face {
+  font-family: 'Korner Deli NF';
+  src: local("Korner Deli NF"), url("/fontsKornerDeliNF.woff2") format("woff2"), url("/fontsKornerDeliNF.woff") format("woff"), url("/fonts/KornerDeliNF.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+header .mobile {
+  background-color: #169ca7;
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,7 +20,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 1rem;
 }
 
 header .mobile img {
@@ -26,12 +32,7 @@ header .mobile a {
 }
 
 header .mobile h1 {
-  font-family: 'Korner Deli NF';
-  font-weight: bold;
-  color: #FFF5DA;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  line-height: 2rem;
+  display: none;
 }
 
 header .desktop {
@@ -48,11 +49,15 @@ footer nav {
           flex-flow: row wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  background-color: #15375A;
-  height: 60px;
+  background-color: #169ca7;
+  height: 50px;
   width: 100%;
   position: fixed;
   bottom: 0;
+}
+
+footer nav img {
+  height: 35px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -66,13 +71,22 @@ footer nav {
             flex-direction: row nowrap;
     width: 100%;
     height: 112px;
-    background-color: #15375A;
+    background-color: #169ca7;
     padding-top: 1rem;
   }
 
   header .desktop a {
     text-decoration: none;
     margin: 0;
+  }
+
+  header .desktop h1 {
+    font-family: 'Korner Deli NF';
+    font-weight: bold;
+    color: #FFF5DA;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    line-height: 2.5rem;
   }
 
   header .desktop h2 {
@@ -199,6 +213,13 @@ footer nav {
           box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: local("Korner Deli NF"), url("/fonts/KornerDeliNF.woff2") format("woff2"), url("/fonts/KornerDeliNF.woff") format("woff"), url("/fonts/KornerDeliNF.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 10px;
@@ -251,10 +272,8 @@ html {
 
 .bounce {
   position: fixed;
-  left: 50%;
+  left: calc(50vw - 40px);
   bottom: 0;
-  margin-top: -25px;
-  margin-left: -25px;
   height: 80px;
   width: 80px;
   background: transparent;
@@ -282,9 +301,9 @@ html {
 .slider {
   position: absolute;
   width: 100vw;
-  height: calc(100vh - 232px);
-  bottom: 60px;
+  height: calc(100vh - 160px);
   overflow: hidden;
+  padding-bottom: 60px;
   background-color: rgba(255, 255, 255, 0.9);
   color: #405C7B;
   font-size: 2rem;
@@ -328,7 +347,7 @@ html {
   text-align: end;
   z-index: 20;
   margin-right: 0.1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 0.2rem;
   font-size: 1.2rem;
   font-family: 'Poppins';
   font-weight: 200;
@@ -338,15 +357,10 @@ html {
   padding: 0.5rem;
 }
 
-@font-face {
-  font-family: 'Korner Deli NF';
-  src: url("/public/fonts/KornerDeliNF.ttf") format("ttf");
-}
-
 .sea {
-  background-image: radial-gradient(#000000, #06999F);
+  background-image: radial-gradient(#000000, #169ca7);
   width: 100%;
-  height: calc(100vh - 172px);
+  height: calc(100vh - 160px);
 }
 
 .map {
@@ -359,17 +373,17 @@ html {
 
 .map .listview-mobile {
   background-color: #FFFFFF;
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
   font-family: 'Poppins';
   color: #405C7B;
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem;
   position: absolute;
   top: 0;
-  left: calc(50% - 100px);
-  width: 200px;
-  font-size: 1.5rem;
+  left: calc(50% - 75px);
+  width: 150px;
+  font-size: 1rem;
   text-align: center;
   overflow-y: auto;
   display: block;
@@ -386,8 +400,8 @@ html {
 }
 
 .image-crop {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   overflow: hidden;
   border-radius: 50%;
   display: -webkit-box;
@@ -413,9 +427,9 @@ html {
 
 .features {
   width: 100%;
-  height: 60px;
+  height: 40px;
   position: absolute;
-  bottom: 60px;
+  bottom: 50px;
   background-image: url("/img/positano-faded.jpg");
   background-size: cover;
   background-position-x: 100%;
@@ -439,7 +453,7 @@ html {
 .features .instructions h6 {
   font-family: 'Korner Deli NF';
   font-size: 1rem;
-  color: #530000;
+  color: #9b0f00;
   text-align: center;
 }
 
@@ -461,7 +475,7 @@ html {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #0C3460;
   margin: 0;
 }
@@ -479,7 +493,7 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 2rem;
+  font-size: 1rem;
   white-space: nowrap;
 }
 
@@ -488,16 +502,42 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: row;
+      -ms-flex: row wrap;
+          flex: row wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
 
 .continents-1 {
   justify-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: row;
+      -ms-flex: row nowrap;
+          flex: row nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .continents-2 {
   justify-self: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: row;
+      -ms-flex: row nowrap;
+          flex: row nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.country-list-view {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .continent img {
@@ -507,6 +547,130 @@ html {
 
 .map .listview-mobile {
   display: block;
+}
+
+.continent img {
+  width: 100px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  margin: 20px 20px;
+}
+
+.continent :hover {
+  width: 120px;
+  margin: 0;
+}
+
+.list-country-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 0px;
+          flex: 0 0 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 5rem;
+}
+
+.country-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: row;
+      -ms-flex: row wrap;
+          flex: row wrap;
+}
+
+.country-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-self: flex-end;
+  cursor: pointer;
+  text-align: center;
+  height: 60px;
+  width: 60px;
+}
+
+.country-button:hover {
+  cursor: pointer;
+  color: #60D16E;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.fa-check-circle {
+  color: #60D16E;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.flag-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 1rem 2rem 3rem 3rem;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 7rem;
+}
+
+.city-info h2 {
+  margin: auto;
+  text-align: center;
+}
+
+#attraction {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+#attraction-pic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  height: 300px;
+  font-weight: bold;
+  color: white;
+  font-size: 2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 1em 0 .3em 0;
+  text-shadow: #000000 0 0 10px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -622,12 +786,12 @@ html {
     display: block !important;
     background-color: #FFFFFF;
     z-index: 10;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
     font-family: 'Poppins';
     color: #405C7B;
     text-align: center;
-    padding: 1rem;
+    padding: 0.75rem;
     position: absolute;
     bottom: 0;
     left: calc(50% - 100px);
@@ -638,6 +802,20 @@ html {
   .listview-desktop:hover {
     color: #FFFFFF;
     background-color: #405C7B;
+  }
+
+  .list-country-name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1.5rem;
+  }
+
+  .image-crop {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    margin-left: 0;
   }
 
   .features {
@@ -734,6 +912,8 @@ html {
   }
 
   .features .image-crop {
+    width: 3rem;
+    height: 3rem;
     margin-right: 0;
     margin-left: 1rem;
   }
@@ -771,132 +951,14 @@ html {
     height: 50vh;
     margin: 0 auto;
   }
-}
 
-.continent img {
-  width: 100px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
+  .continents-1 {
+    justify-self: flex-end;
+  }
 
-.continent img :hover {
-  width: 150px;
-}
-
-.list-country-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 0px;
-          flex: 0 0 0;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-right: 5rem;
-}
-
-.list-country-name {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 1.5rem;
-}
-
-.country-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.country-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  justify-self: flex-end;
-  cursor: pointer;
-  text-align: center;
-  height: 60px;
-  width: 60px;
-}
-
-.country-button:hover {
-  cursor: pointer;
-  color: #60D16E;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.fa-check-circle {
-  color: #60D16E;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.flag-img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  margin: 1rem 2rem 3rem 3rem;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-top: 7rem;
-}
-
-.city-info h2 {
-  margin: auto;
-  text-align: center;
-}
-
-#attraction {
-  margin: auto;
-  width: 100%;
-  text-align: center;
-}
-
-#attraction-pic {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  height: 300px;
-  font-weight: bold;
-  color: white;
-  font-size: 2em;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  margin: 1em 0 .3em 0;
-  text-shadow: #000000 0 0 10px;
+  .continents-2 {
+    justify-self: flex-start;
+  }
 }
 
 .navbar-laravel {

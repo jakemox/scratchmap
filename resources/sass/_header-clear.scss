@@ -19,15 +19,16 @@ header .mobile {
         text-decoration: none;
     }
 
-    
+
     h1 {
         font-family: 'Korner Deli NF';
         font-weight: bold;
         color: $color-text;
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 15px;
         line-height: 2rem;
     }
+    
 }
 
 header .desktop {
@@ -38,13 +39,16 @@ footer nav {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    background-color: rgba(255, 255, 255, 0.5);
-    height: 7.5vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 50px;
     width: 100%;
     position: fixed;
     bottom: 0;
     z-index: 500;
 
+    img {
+        height: 35px;
+    }
 }
 
 @media only screen and (min-width: 768px) {

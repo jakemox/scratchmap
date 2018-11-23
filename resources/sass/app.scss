@@ -1,6 +1,15 @@
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,400,700');
+@font-face {
+  font-family: 'Korner Deli NF';
+  src: local('Korner Deli NF'),
+       url('/fontsKornerDeliNF.woff2') format('woff2'),
+       url('/fontsKornerDeliNF.woff') format('woff'),
+       url('/fonts/KornerDeliNF.ttf') format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 
 // Variables
 // @import '~bootstrap/scss/bootstrap';

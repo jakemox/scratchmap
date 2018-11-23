@@ -1,7 +1,13 @@
 @extends('layouts.layout', [
     'image' => 'balloon-cutout',
     'css' => 'app',
-    'js' => 'mapbox'
+    'js' => 'mapbox',
+    'map' => 'map-light',
+    'search' => 'search',
+    'profile' => 'profile',
+    'logout' => 'logout',
+    'padlock' => 'padlock-light',
+    'login' => 'login'
 ])
 
 

@@ -1,6 +1,12 @@
 @extends('layouts.layout', [
     'image' => 'balloon-cutout',
-    'css' => 'plan'
+    'css' => 'plan',
+    'map' => 'map',
+    'search' => 'search-grey',
+    'profile' => 'profile-grey',
+    'logout' => 'logout-grey',
+    'padlock' => 'padlock-grey',
+    'login' => 'login-grey'
 ])
 
 @section('content')
@@ -16,7 +22,7 @@
               <label for="email" class="login_labels">
                 <img src="img\email.svg" alt="email_logo">
               </label>
-              <input id="email" placeholder="E-Mail Address" type="email" class="login-input email_input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+              <input id="email" placeholder="E-Mail address" type="email" class="login-input email_input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
               @if ($errors->has('email'))
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('email') }}</strong>

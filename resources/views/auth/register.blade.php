@@ -1,6 +1,12 @@
 @extends('layouts.layout', [
     'image' => 'balloon-cutout',
-    'css' => 'plan'
+    'css' => 'plan',
+    'map' => 'map',
+    'search' => 'search-grey',
+    'profile' => 'profile-grey',
+    'logout' => 'logout-grey',
+    'padlock' => 'padlock-grey',
+    'login' => 'login-grey'
 ])
 
 

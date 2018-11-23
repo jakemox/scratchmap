@@ -3,6 +3,5 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/plan.css": "/css/plan.css",
-    "/css/city.css": "/css/city.css",
-    "/js/search/search.js": "/js/search/search.js"
+    "/css/city.css": "/css/city.css"
 }
