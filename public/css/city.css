@@ -288,8 +288,8 @@ h4 {
   top: 100vh;
   left: 10vw;
   width: 80vw;
-  max-width: 1000px;
   margin: 2rem auto;
+  left: 10vw;
 }
 
 .attractions h1 {
