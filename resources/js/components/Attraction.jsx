@@ -1,13 +1,11 @@
 import React from 'react'
 import {render} from 'react-dom'
 
-console.log('attraction loaded')
 
 export default class Attraction extends React.Component {
 
 
   render() {
-    console.log(this.props);
     let style = {
       backgroundImage: "url("+this.props.pic+")",
       };

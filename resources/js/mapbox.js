@@ -1,8 +1,9 @@
 import {render} from 'react-dom'
 import React from 'react'
 import City from './components/City.jsx'
- 
 
+if (slug == '/') 
+{
 mapboxgl.accessToken = process.env.MIX_MAPBOX_TOKEN;
 
 var map = window.scratchmap.map = new mapboxgl.Map({
@@ -232,4 +233,4 @@ map.on('load', function () {
         hoveredStateId =  null;
         mouse_left = true;
     });
-});
+})}

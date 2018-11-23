@@ -1,3 +1,5 @@
+if (slug == '/')
+{
 document.getElementById('trigger-mobile').addEventListener('click', function() {
 let button = document.getElementById('trigger-mobile');
     if(button.innerHTML === 'View as List') {
@@ -26,7 +28,4 @@ let slideTriggerMobile = document.getElementById('trigger-mobile');
 slideTriggerMobile.addEventListener('click', function() {
     let element = document.getElementById('slider');
     element.classList.toggle('close');
-});
-
-
-
+})}

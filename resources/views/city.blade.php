@@ -71,19 +71,6 @@
 
 </main>
 
-{{-- <script>
-    console.log('city index loaded');
-
-    let pageHeight = window.innerHeight;
-
-    let downBtn = document.getElementById('down-arrow');
-    downBtn.addEventListener('click', function () {
-        window.scrollTo({
-            top: pageHeight,
-            behavior: 'smooth'
-        });
-    })
-</script> --}}
 
 {{-- <script
   src="http://code.jquery.com/jquery-3.3.1.min.js"

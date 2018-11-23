@@ -27,7 +27,6 @@ export default class City extends React.Component {
   }
 
   render() {
-    console.log(this.state.attractions);
     return (
       <div className="city-info">
         <h2>Top attractions in {this.props.cityName}</h2><br />

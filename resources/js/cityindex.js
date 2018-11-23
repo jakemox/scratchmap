@@ -1,4 +1,5 @@
-console.log('city index loaded');
+if(slug == "city") {
+
 document.addEventListener('DOMContentLoaded', function () {
 
     let pageHeight = window.innerHeight;
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
             behavior: 'smooth'
         });
     })
-})
+})}
 
 
 
