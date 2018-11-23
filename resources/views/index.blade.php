@@ -17,7 +17,7 @@
     <div class="loading" id="loading">
         <div class="spinner">
             <img class="bounce" src="\img\balloon.svg" alt="balloon" height="80px" width="80px">
-            <h1 class="loading_title">Scratchmapp<h1><br><br>
+            <h1 class="loading_title">Scratchmapp<h1><br>
             @auth
             <h2 class="loading_welcome">Welcome back,<br> {{ Auth::user()->name }}</h2>
             @endauth
