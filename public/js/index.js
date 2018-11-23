@@ -2401,19 +2401,21 @@ if (slug == "/search") {
 /* 48 */
 /***/ (function(module, exports) {
 
-console.log('city index loaded');
-document.addEventListener('DOMContentLoaded', function () {
+if (slug == "city") {
 
-    var pageHeight = window.innerHeight;
+    document.addEventListener('DOMContentLoaded', function () {
 
-    var downBtn = document.getElementById('down-arrow');
-    downBtn.addEventListener('click', function () {
-        window.scrollTo({
-            top: pageHeight,
-            behavior: 'smooth'
+        var pageHeight = window.innerHeight;
+
+        var downBtn = document.getElementById('down-arrow');
+        downBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: pageHeight,
+                behavior: 'smooth'
+            });
         });
     });
-});
+}
 
 // export default class Attraction {
 //     constructor(city, name, number, rating, image, visible) {
@@ -2432,35 +2434,37 @@ document.addEventListener('DOMContentLoaded', function () {
 /* 49 */
 /***/ (function(module, exports) {
 
-document.getElementById('trigger-mobile').addEventListener('click', function () {
-    var button = document.getElementById('trigger-mobile');
-    if (button.innerHTML === 'View as List') {
-        button.innerHTML = 'View Map';
-    } else {
-        button.innerHTML = 'View as List';
-    }
-});
+if (slug == '/') {
+    document.getElementById('trigger-mobile').addEventListener('click', function () {
+        var button = document.getElementById('trigger-mobile');
+        if (button.innerHTML === 'View as List') {
+            button.innerHTML = 'View Map';
+        } else {
+            button.innerHTML = 'View as List';
+        }
+    });
 
-document.getElementById('trigger-desktop').addEventListener('click', function () {
-    var button = document.getElementById('trigger-desktop');
-    if (button.innerHTML === 'View as List') {
-        button.innerHTML = 'View Map';
-    } else {
-        button.innerHTML = 'View as List';
-    }
-});
+    document.getElementById('trigger-desktop').addEventListener('click', function () {
+        var button = document.getElementById('trigger-desktop');
+        if (button.innerHTML === 'View as List') {
+            button.innerHTML = 'View Map';
+        } else {
+            button.innerHTML = 'View as List';
+        }
+    });
 
-var slideTriggerDesktop = document.getElementById('trigger-desktop');
-slideTriggerDesktop.addEventListener('click', function () {
-    var element = document.getElementById('slider');
-    element.classList.toggle('close');
-});
+    var slideTriggerDesktop = document.getElementById('trigger-desktop');
+    slideTriggerDesktop.addEventListener('click', function () {
+        var element = document.getElementById('slider');
+        element.classList.toggle('close');
+    });
 
-var slideTriggerMobile = document.getElementById('trigger-mobile');
-slideTriggerMobile.addEventListener('click', function () {
-    var element = document.getElementById('slider');
-    element.classList.toggle('close');
-});
+    var slideTriggerMobile = document.getElementById('trigger-mobile');
+    slideTriggerMobile.addEventListener('click', function () {
+        var element = document.getElementById('slider');
+        element.classList.toggle('close');
+    });
+}
 
 /***/ }),
 /* 50 */
@@ -2476,221 +2480,223 @@ slideTriggerMobile.addEventListener('click', function () {
 
 
 
-mapboxgl.accessToken = "pk.eyJ1IjoiamFrZW1veDk5IiwiYSI6ImNqbmxtYjlvcjFtZmozcHE5aW9zN3pjeXcifQ.UCUt8f58HwBvpHcTz8JqkA";
+if (slug == '/') {
+    mapboxgl.accessToken = "pk.eyJ1IjoiamFrZW1veDk5IiwiYSI6ImNqbmxtYjlvcjFtZmozcHE5aW9zN3pjeXcifQ.UCUt8f58HwBvpHcTz8JqkA";
 
-var map = window.scratchmap.map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/jakemox99/cjoctcplm26gg2rrrrxp4o3gi',
-    collectResourceTiming: true,
-    maxBounds: [[-180, -70], [180, 90]],
-    zoom: 0,
-    center: [45, 45]
+    var map = window.scratchmap.map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/jakemox99/cjoctcplm26gg2rrrrxp4o3gi',
+        collectResourceTiming: true,
+        maxBounds: [[-180, -70], [180, 90]],
+        zoom: 0,
+        center: [45, 45]
 
-});
-
-var nav = new mapboxgl.NavigationControl();
-map.addControl(nav, 'top-left');
-
-var hoveredStateId = null;
-var clicked = window.scratchmap.clicked = [];
-var score = 0;
-var scoreContainer = window.scratchmap.scoreContainer = document.getElementById('score-container');
-var countryListView = document.getElementById('country-list');
-
-map.on('load', function () {
-    map.addSource("states", {
-        "type": "geojson",
-        "data": 'countries-simple.geojson',
-        "generateId": true //adds id to each country's properties based on index.
     });
 
-    //layer for countries that have been clicked.
-    map.addLayer({
-        "id": "done-fills",
-        "type": "fill",
-        "source": "states",
-        "layout": {},
-        "paint": {
-            "fill-color": "#ffd294",
-            "fill-opacity": ["case", ["boolean", ["feature-state", "click"], false], 0, 1]
-        }
-    });
-
-    // The feature-state dependent fill-opacity expression will render the hover effect
-    // when a feature's hover state is set to true.
-
-    map.addLayer({
-        "id": "hover-fills",
-        "type": "fill",
-        "source": "states",
-        "layout": {},
-        "paint": {
-            "fill-color": "#A80000",
-            "fill-opacity": ["case", ["boolean", ["feature-state", "hover"], false], 1, 0]
-        }
-    });
-
-    map.addLayer({
-        "id": "state-borders",
-        "type": "line",
-        "source": "states",
-        "layout": {},
-        "paint": {
-            "line-color": "#fff3df",
-            "line-width": 0.3,
-            "line-opacity": ["case", ["boolean", ["feature-state", "click"], false], 0, 1]
-        }
-    });
-
-    var rendered = false;
-
-    // render countries saved in db as clicked
-
-    map.on("render", "done-fills", function () {
-        //only render once.
-        if (!rendered) {
-            (function () {
-                var loading = document.getElementById('loading');
-                loading.style.display = 'none';
-
-                countryList.forEach(function (country) {
-                    if (country.visited === true) {
-                        clicked.push(country);
-                    }
-                });
-
-                clicked.forEach(function (country) {
-                    map.setFeatureState({ source: "states", id: country.id }, { click: true });
-                });
-
-                score = clicked.length;
-
-                if (score > 0) {
-                    scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
-                } else {
-                    scoreContainer.innerHTML = '';
-                }
-
-                countryList.forEach(function (country) {
-                    country.mountList(countryListView);
-                });
-
-                var continents = document.getElementsByClassName('continent');
-                //creates array.
-
-                var _loop = function _loop(i) {
-                    continents[i].addEventListener('click', function () {
-                        countryListView.innerHTML = '';
-                        countryList.forEach(function (country) {
-                            if (country.continent == continents[i].getAttribute('id')) {
-                                country.mountList(countryListView);
-                            }
-                        });
-                    });
-                };
-
-                for (var i = 0; i < continents.length; i++) {
-                    _loop(i);
-                }
-            })();
-        }
-        rendered = true; //prevents rendering >1.   
-    });
-
-    map.on("click", "done-fills", function (e) {
-
-        var clickedStateId = e.features[0].id;
-        var clickedStateKey = clickedStateId - 1;
-        var country = countryList[clickedStateKey];
-        var selectedIndex = clicked.indexOf(clickedStateId);
-        var state = false;
-        console.log(countryList[clickedStateKey]);
-
-        // if(!window.userId) {
-        //     //write to local storage
-        //     console.log('writing to local storage');
-        // } else {
-
-        // }
-
-        axios.post('/', {
-            id: country.id
-        });
-
-        if (country.visited == false) {
-            clicked.push(country);
-            state = true;
-            country.visited = true;
-            country.updateList();
-            //creates new country record.
-        } else {
-            clicked.splice(selectedIndex, 1);
-            country.visited = false;
-            country.updateList();
-        }
-
-        console.log(clicked);
-        map.setFeatureState({ source: 'states', id: country.id }, { click: state });
-
-        score = clicked.length;
-
-        scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
-
-        if (score == 1000) {
-            var badge = document.getElementById('badge');
-            badge.style.display = 'block';
-        }
-    });
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
 
     var hoveredStateId = null;
-    var mouse_left = false;
-    // When the user moves their mouse over the state-fill layer, we'll update the
-    // feature state for the feature under the mouse.
-    map.on("mousemove", "hover-fills", function (e) {
-        if (e.features.length > 0) {
-            mouse_left = false;
+    var clicked = window.scratchmap.clicked = [];
+    var score = 0;
+    var scoreContainer = window.scratchmap.scoreContainer = document.getElementById('score-container');
+    var countryListView = document.getElementById('country-list');
+
+    map.on('load', function () {
+        map.addSource("states", {
+            "type": "geojson",
+            "data": 'countries-simple.geojson',
+            "generateId": true //adds id to each country's properties based on index.
+        });
+
+        //layer for countries that have been clicked.
+        map.addLayer({
+            "id": "done-fills",
+            "type": "fill",
+            "source": "states",
+            "layout": {},
+            "paint": {
+                "fill-color": "#ffd294",
+                "fill-opacity": ["case", ["boolean", ["feature-state", "click"], false], 0, 1]
+            }
+        });
+
+        // The feature-state dependent fill-opacity expression will render the hover effect
+        // when a feature's hover state is set to true.
+
+        map.addLayer({
+            "id": "hover-fills",
+            "type": "fill",
+            "source": "states",
+            "layout": {},
+            "paint": {
+                "fill-color": "#A80000",
+                "fill-opacity": ["case", ["boolean", ["feature-state", "hover"], false], 1, 0]
+            }
+        });
+
+        map.addLayer({
+            "id": "state-borders",
+            "type": "line",
+            "source": "states",
+            "layout": {},
+            "paint": {
+                "line-color": "#fff3df",
+                "line-width": 0.3,
+                "line-opacity": ["case", ["boolean", ["feature-state", "click"], false], 0, 1]
+            }
+        });
+
+        var rendered = false;
+
+        // render countries saved in db as clicked
+
+        map.on("render", "done-fills", function () {
+            //only render once.
+            if (!rendered) {
+                (function () {
+                    var loading = document.getElementById('loading');
+                    loading.style.display = 'none';
+
+                    countryList.forEach(function (country) {
+                        if (country.visited === true) {
+                            clicked.push(country);
+                        }
+                    });
+
+                    clicked.forEach(function (country) {
+                        map.setFeatureState({ source: "states", id: country.id }, { click: true });
+                    });
+
+                    score = clicked.length;
+
+                    if (score > 0) {
+                        scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
+                    } else {
+                        scoreContainer.innerHTML = '';
+                    }
+
+                    countryList.forEach(function (country) {
+                        country.mountList(countryListView);
+                    });
+
+                    var continents = document.getElementsByClassName('continent');
+                    //creates array.
+
+                    var _loop = function _loop(i) {
+                        continents[i].addEventListener('click', function () {
+                            countryListView.innerHTML = '';
+                            countryList.forEach(function (country) {
+                                if (country.continent == continents[i].getAttribute('id')) {
+                                    country.mountList(countryListView);
+                                }
+                            });
+                        });
+                    };
+
+                    for (var i = 0; i < continents.length; i++) {
+                        _loop(i);
+                    }
+                })();
+            }
+            rendered = true; //prevents rendering >1.   
+        });
+
+        map.on("click", "done-fills", function (e) {
+
+            var clickedStateId = e.features[0].id;
+            var clickedStateKey = clickedStateId - 1;
+            var country = countryList[clickedStateKey];
+            var selectedIndex = clicked.indexOf(clickedStateId);
+            var state = false;
+            console.log(countryList[clickedStateKey]);
+
+            // if(!window.userId) {
+            //     //write to local storage
+            //     console.log('writing to local storage');
+            // } else {
+
+            // }
+
+            axios.post('/', {
+                id: country.id
+            });
+
+            if (country.visited == false) {
+                clicked.push(country);
+                state = true;
+                country.visited = true;
+                country.updateList();
+                //creates new country record.
+            } else {
+                clicked.splice(selectedIndex, 1);
+                country.visited = false;
+                country.updateList();
+            }
+
+            console.log(clicked);
+            map.setFeatureState({ source: 'states', id: country.id }, { click: state });
+
+            score = clicked.length;
+
+            scoreContainer.innerHTML = '<div id="score" class="score">Countries Visited: ' + score + '</div>';
+
+            if (score == 1000) {
+                var badge = document.getElementById('badge');
+                badge.style.display = 'block';
+            }
+        });
+
+        var hoveredStateId = null;
+        var mouse_left = false;
+        // When the user moves their mouse over the state-fill layer, we'll update the
+        // feature state for the feature under the mouse.
+        map.on("mousemove", "hover-fills", function (e) {
+            if (e.features.length > 0) {
+                mouse_left = false;
+                if (hoveredStateId) {
+                    map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: false });
+                }
+
+                hoveredStateId = e.features[0].id;
+
+                map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: true });
+
+                var countries = countryList;
+                var country = countries[hoveredStateId - 1];
+
+                //shows information of country in the box after a short delay
+
+                setTimeout(function () {
+
+                    if (mouse_left == false) {
+                        country.show_features();
+                    }
+
+                    document.querySelector("#cityLink").addEventListener("click", function (e) {
+                        show_city(e.target.dataset.city);
+                    });
+                }, 200);
+            }
+
+            function show_city(city) {
+                document.getElementById('shape-container').setAttribute('style', 'display:none');
+                document.getElementById('country-details').setAttribute('style', 'display:none');
+                Object(__WEBPACK_IMPORTED_MODULE_0_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_City_jsx__["a" /* default */], { cityName: city }), document.getElementById('city'));
+            };
+        });
+
+        // When the mouse leaves the state-fill layer, update the feature state of the
+        // previously hovered feature.
+        map.on("mouseleave", "hover-fills", function () {
             if (hoveredStateId) {
                 map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: false });
             }
-
-            hoveredStateId = e.features[0].id;
-
-            map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: true });
-
-            var countries = countryList;
-            var country = countries[hoveredStateId - 1];
-
-            //shows information of country in the box after a short delay
-
-            setTimeout(function () {
-
-                if (mouse_left == false) {
-                    country.show_features();
-                }
-
-                document.querySelector("#cityLink").addEventListener("click", function (e) {
-                    show_city(e.target.dataset.city);
-                });
-            }, 200);
-        }
-
-        function show_city(city) {
-            document.getElementById('shape-container').setAttribute('style', 'display:none');
-            document.getElementById('country-details').setAttribute('style', 'display:none');
-            Object(__WEBPACK_IMPORTED_MODULE_0_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_City_jsx__["a" /* default */], { cityName: city }), document.getElementById('city'));
-        };
+            hoveredStateId = null;
+            mouse_left = true;
+        });
     });
-
-    // When the mouse leaves the state-fill layer, update the feature state of the
-    // previously hovered feature.
-    map.on("mouseleave", "hover-fills", function () {
-        if (hoveredStateId) {
-            map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: false });
-        }
-        hoveredStateId = null;
-        mouse_left = true;
-    });
-});
+}
 
 /***/ }),
 /* 51 */
@@ -24524,7 +24530,6 @@ var City = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log(this.state.attractions);
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'city-info' },
@@ -24573,8 +24578,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-console.log('attraction loaded');
-
 var Attraction = function (_React$Component) {
   _inherits(Attraction, _React$Component);
 
@@ -24587,7 +24590,6 @@ var Attraction = function (_React$Component) {
   _createClass(Attraction, [{
     key: 'render',
     value: function render() {
-      console.log(this.props);
       var style = {
         backgroundImage: "url(" + this.props.pic + ")"
       };
