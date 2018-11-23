@@ -39,10 +39,14 @@ footer nav {
   flex-flow: row wrap;
   justify-content: space-around;
   background-color: $primary-color;
-  height: 60px;
+  height: 50px;
   width: 100%;
   position: fixed;
   bottom: 0;
+
+  img {
+    height: 35px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
