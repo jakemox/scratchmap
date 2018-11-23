@@ -24602,7 +24602,15 @@ var Attraction = function (_React$Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { id: 'attraction-pic', style: style },
-          this.props.name
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'darkener' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h6',
+              null,
+              this.props.name
+            )
+          )
         ),
         'Address: ',
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
