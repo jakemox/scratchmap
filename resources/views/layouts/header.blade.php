@@ -2,7 +2,7 @@
 <header>
   <div class="mobile">
     <a href="{{ route('home') }}"><img src="\img\{{$image}}.svg" alt="balloon" height="80px" width="80px"></a>
-    <h1>ScratchMapp</h1>
+    <h1>ScratchMyApp</h1>
   </div>
   <div class="desktop">
     <div class="column1">
@@ -11,7 +11,7 @@
     </div>
     <div class="column2">
         <div class="balloon"><img src="\img\{{$image}}.svg" alt="balloon"></div>
-        <h1>ScratchMapp</h1>
+        <h1>ScratchMyApp</h1>
     </div>
     <div class="column3">
     @auth
